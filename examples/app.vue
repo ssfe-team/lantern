@@ -1,7 +1,10 @@
 <template>
   <div id="app">
     {{msg}}
-    <message></message>
+    <lt-message></lt-message>
+    <lt-water-fall>
+      <div></div>
+    </lt-water-fall>
   </div>
 </template>
 
@@ -15,3 +18,8 @@ export default {
   }
 }
 </script>
+
+<style lang="less">
+  @import '../src/index.less';
+</style>
+

@@ -5,7 +5,7 @@
 </template>
 <script>
 export default {
-  name: 'message',
+  name: 'Message',
   data () {
     return {
       msg: 'This is message package'

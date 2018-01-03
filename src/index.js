@@ -2,18 +2,23 @@
  * @Author: bianhao 
  * @Date: 2017-12-21 15:32:04 
  * @Last Modified by: bianhao
- * @Last Modified time: 2017-12-22 18:03:47
+ * @Last Modified time: 2018-01-03 19:12:12
  */
-import message from '../packages/message/index.js';
+import Message from '../packages/message/index.js';
+import WaterFall from '../packages/water-fall/index.js';
+
+const prefix = 'Lt';
 
 const packages = {
-  message
+  Message,
+  WaterFall
 }
 
 const install = function(Vue) {
   Object.keys(packages).forEach(key => {
-    Vue.component(key, packages[key]);
-});
+    console.log(prefix + key);
+    Vue.component(prefix + key, packages[key]);
+  });
 }
 
 const API = {
