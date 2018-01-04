@@ -1,7 +1,5 @@
 <template>
   <div id="app">
-    {{msg}}
-    <lt-message></lt-message>
     <lt-water-fall>
       <div></div>
     </lt-water-fall>
@@ -9,11 +7,12 @@
 </template>
 
 <script>
+import { waterFallRandomList } from './common/common.js';
 export default {
   name: 'app',
   data () {
     return {
-      msg: 'Welcome to Lantern'
+      waterFallData: waterFallRandomList(10)
     }
   }
 }
