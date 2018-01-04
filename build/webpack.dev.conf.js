@@ -30,7 +30,7 @@ const devConfig = {
     historyApiFallback: true,
     noInfo: true,
     overlay: true,
-    public: 'localhost:8090'
+    public: 'localhost:8010'
   }
 }
 
