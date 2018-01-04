@@ -1,24 +1,26 @@
 <template>
   <div id="app">
-    <lt-water-fall>
-      <div></div>
-    </lt-water-fall>
+    <lt-layout class="ltdemo-wrap" :width="layoutWidth">
+      <lt-header class="ltdemo-header" height="60px">
+        <div class="header-nav"></div>
+      </lt-header>
+      <lt-main class="ltdemo-main" height="100%"></lt-main>
+    </lt-layout>
   </div>
 </template>
 
 <script>
-import { waterFallRandomList } from './common/common.js';
 export default {
   name: 'app',
   data () {
     return {
-      waterFallData: waterFallRandomList(10)
+      layoutWidth: '100%'
     }
   }
 }
 </script>
-
 <style lang="less">
   @import '../src/index.less';
+  @import './styles/index.less';
 </style>
 
