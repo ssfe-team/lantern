@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "lanterninit": "yarn || npm install",
-    "dev": "cross-env webpack-dev-server --open --hot --inline --host --port 8090 --config ./build/webpack.dev.conf.js"
+    "dev": "cross-env webpack-dev-server --open --hot --inline --host --port 8010 --config ./build/webpack.dev.conf.js"
   },
   "repository": "git+https://github.com/ssfe-team/lantern.git",
   "author": "ssfe",
