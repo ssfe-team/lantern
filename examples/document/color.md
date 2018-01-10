@@ -2,7 +2,7 @@
 
 用于统一整站颜色，达到视觉统一
 
-### 主色
+### 主色
 
 <div class="color-show-wrap">
   <div v-for="index in mainlist" class="color-show-content">
