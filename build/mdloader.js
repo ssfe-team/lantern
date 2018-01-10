@@ -23,15 +23,26 @@ md.use(require('markdown-it-container'), 'demo', {
     var m = tokens[idx].info.trim().match(/^demo\s+(.*)$/);
 
     if (tokens[idx].nesting === 1) {
-      // opening tag
-      return '<details><summary>' + md.utils.escapeHtml(m[1]) + '</summary>\n';
+      let content = tokens[idx + 1].content;
+      return makeShowHtml(getDocHtml(content));
 
     } else {
-      // closing tag
-      return '</details>\n';
+      //closing tag
+      return '</div><div class="demo-code-btn">点击查看源代码</div></div>\n';
     }
   }
 });
+
+function makeShowHtml(docHtml, escapeHtml) {
+  return '<div class="demo-code-wrap"><div class="demo-code-result">' + docHtml + '</div>' + 
+    '<div class="demo-code-content">\n';
+}
+
+// 提取用例中的html
+function getDocHtml(content) {
+  let htmlContent = content.replace(/\<script\>[\s\S]*\<\/script\>/, '').replace(/\n/g, '');
+  return htmlContent;
+}
 
 module.exports = function(source) {
   let data = source.split('::::vuecode::::');

@@ -16,5 +16,51 @@
     font-size: 14px;
     line-height: 1.5em;
     color: @comColor3;
+    code {
+      color: @comColor4;
+      background-color: @comColor2;
+      padding: 0px 5px 0px 5px;
+      border-radius: 3px;
+    }
   }
+  blockquote {
+    border-left: 2px solid #07aefc;
+    padding: 1px;
+    padding-left: 20px;
+  }
+  .demo-code-wrap {
+    margin: 30px;
+    border-radius: 5px;
+    border: 1px solid #E7E7E7;
+    .demo-code-result {
+      padding: 20px;
+    }
+    .demo-code-content {
+      border-top: 1px solid #E7E7E7;
+      overflow: hidden;
+      display: block;
+    }
+    .demo-code-btn {
+      width: 100%;
+      height: 40px;
+      display: none;
+      line-height: 40px;
+      cursor: pointer;
+      color: #626262;
+      text-align: center;
+      border-top: 1px solid #E7E7E7;
+      &:hover {
+        color: #07aefc;
+      }
+    }
+  }
+}
+.hljs-html {
+  line-height: 1.5em;
+}
+.hljs-built_in, .hljs-doctag, .hljs-keyword, .hljs-name, .hljs-section, .hljs-selector-class, .hljs-selector-id, .hljs-selector-tag, .hljs-strong, .hljs-tag, .hljs-title, .hljs-type {
+  color: #3182bd;
+}
+.hljs-addition, .hljs-meta, .hljs-string, .hljs-symbol, .hljs-template-tag, .hljs-template-variable {
+  color: #756bb1;
 }
