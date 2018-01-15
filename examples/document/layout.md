@@ -22,11 +22,13 @@
     <lt-header>header</lt-header>
     <lt-main>main</lt-main>
   </lt-layout>
+  
   <lt-layout>
     <lt-header>header</lt-header>
     <lt-main>main</lt-main>
     <lt-footer>footer</lt-footer>
   </lt-layout>
+  
   <lt-layout>
     <lt-header>header</lt-header>
     <lt-main>

@@ -9,7 +9,12 @@
       <lt-main class="ltdemo-main" height="100%">
         <div class="main-wrap">
           <lt-layout class="main-wrap-layout" :isRow="mainLayoutIsRow">
-            <lt-aside width="300px"></lt-aside>
+            <lt-aside width="300px">
+              <lt-menu>
+                <lt-menu-item :href="'/color'">标准色</lt-menu-item>
+                <lt-menu-item :href="'/layout'">Layout布局容器</lt-menu-item>
+              </lt-menu>
+            </lt-aside>
             <lt-main height="100%">
               <router-view></router-view>
             </lt-main>
