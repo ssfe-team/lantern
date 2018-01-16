@@ -1,9 +1,9 @@
 <template>
-  <li class="lt-menu-item">
-    <router-link :to="href" :href="href" tag="a">
+  <router-link class="lt-menu-item" :to="href" tag="li">
+    <a :href="href">
       <slot></slot>
-    </router-link>
-  </li>
+    </a>
+  </router-link>
 </template>
 <script>
 export default {

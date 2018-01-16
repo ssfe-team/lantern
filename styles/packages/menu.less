@@ -2,7 +2,7 @@
  * @Author: bianhao 
  * @Date: 2018-01-15 18:16:28 
  * @Last Modified by: bianhao
- * @Last Modified time: 2018-01-15 18:58:23
+ * @Last Modified time: 2018-01-16 10:56:28
  */
 .lt-menu-item {
   margin-top: 10px;
@@ -13,12 +13,16 @@
     display: inline-block;
     width: 100%;
     padding-left: 5px;
-    &:hover {
+  }
+  &:hover {
+    a {
       color: @mainColor1;
     }
   }
-  .router-link-active {
+}
+.router-link-active {
+  a {
     color: @mainColor1;
-    background-color: @comColor5;
   }
+  background-color: @comColor5;
 }
