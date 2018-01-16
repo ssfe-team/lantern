@@ -6,6 +6,7 @@
  */
 import Message from '../packages/message/index.js';
 import WaterFall from '../packages/water-fall/index.js';
+import Scroll from '../packages/scroll/index.js';
 import { Aside, Footer, Header, Layout, Main } from '../packages/layout/index.js';
 //import test from '../packages/layout/index.js';
 
@@ -14,6 +15,7 @@ const prefix = 'Lt';
 const packages = {
   Message,
   WaterFall,
+  Scroll,
   Aside,
   Footer,
   Header,
