@@ -2,10 +2,11 @@
  * @Author: bianhao 
  * @Date: 2017-12-20 20:36:20 
  * @Last Modified by: bianhao
- * @Last Modified time: 2018-01-09 17:20:39
+ * @Last Modified time: 2018-01-18 18:32:04
  */
 
 const path = require('path');
+var ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 const baseConfig = {
   resolve: {
@@ -50,6 +51,13 @@ const baseConfig = {
             name: '[name].[ext]?[hash]'
           }
         }
+      },
+      {
+        test: /\.less$/,
+        use: ExtractTextPlugin.extract({
+          fallback: 'style-loader',
+          use: ['css-loader', 'less-loader']
+        })
       }
     ]
   },
