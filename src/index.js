@@ -2,7 +2,7 @@
  * @Author: bianhao 
  * @Date: 2017-12-21 15:32:04 
  * @Last Modified by: bianhao
- * @Last Modified time: 2018-01-15 17:44:33
+ * @Last Modified time: 2018-01-18 18:12:14
  */
 import Message from '../packages/message/index.js';
 import WaterFall from '../packages/water-fall/index.js';
@@ -32,6 +32,10 @@ const install = function(Vue) {
     Vue.component(prefix + key, packages[key]);
   });
 }
+
+if (typeof window !== 'undefined' && window.Vue) {
+  install(window.Vue);
+};
 
 const API = {
   ...packages,
