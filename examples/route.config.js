@@ -7,6 +7,7 @@
 import color from './document/color.md';
 import layout from './document/layout.md';
 import menu from './document/menu.md';
+import scroll from './document/scroll.md';
 
 export default [
   {
@@ -20,5 +21,9 @@ export default [
   {
     path: '/menu',
     component: menu
+  },
+  {
+    path: '/scroll',
+    component: scroll
   }
 ]
