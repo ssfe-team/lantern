@@ -8,7 +8,7 @@
   <div v-for="index in mainlist" class="color-show-content">
     <div class="color-show-color" :style="{'background': index.color}"></div>
     <div class="color-show-text-wrap">
-      <div class="color-show-title">{{index.title}}</div>
+      <div class="color-show-title">{{index.title}}<span>less类名：{{index.lesstilte}}</span></div>
       <div>{{index.des}}</div>
       <div>{{index.content}}</div>
     </div>
@@ -20,7 +20,7 @@
   <div v-for="index in comlist" class="color-show-content">
     <div class="color-show-color" :style="{'background': index.color}"></div>
     <div class="color-show-text-wrap">
-      <div class="color-show-title">{{index.title}}</div>
+      <div class="color-show-title">{{index.title}}<span>less类名：{{index.lesstilte}}</span></div>
       <div>{{index.des}}</div>
       <div>{{index.content}}</div>
     </div>
@@ -35,47 +35,56 @@ export default {
       mainlist: [{
         color: '#07AEFC',
         title: '主色调1',
+        lesstilte: 'mainColor1',
         des: '色值：#07AEFC',
         content: '使用规则：主色调，应用于头部、重要性文字·按钮和icon'
       },{
         color: 'linear-gradient(to bottom right, #5ea2ff, #00e3ff)',
         title: '主色调2',
+        lesstilte: 'mainColor2',
         des: '色值：#5EA2FF/#00E3FF',
         content: '使用规则：辅助色用于新手标的文字描述、数字展示、次级按钮'
       }],
       comlist: [{
         color: '#343434',
         title: '辅助色1',
+        lesstilte: 'comColor1',
         des: '色值：#343434',
         content: '使用规则：用于标题和重要内容，已填写内容和重要叙述性内容'
       },{
         color: '#626262',
         title: '辅助色2',
+        lesstilte: 'comColor2',
         des: '色值：#626262',
         content: '使用规则：用于次级标题信息和内容等'
       },{
         color: '#9B9B9B',
         title: '辅助色3',
+        lesstilte: 'comColor3',
         des: '色值：#9B9B9B',
         content: '使用规则：用于不重要的叙述性内容、灰色按钮文字内容'
       },{
         color: '#CDCDCD',
         title: '辅助色4',
+        lesstilte: 'comColor4',
         des: '色值：#CDCDCD',
         content: '使用规则：用于置灰按钮文字等'
       },{
         color: '#E7E7E7',
         title: '辅助色5',
+        lesstilte: 'comColor5',
         des: '色值：#E7E7E7',
         content: '使用规则：辅助色用于新手标的文字描述、数字展示、次级按钮'
       },{
         color: '#FAFAFA',
         title: '辅助色6',
+        lesstilte: 'comColor6',
         des: '色值：#FAFAFA',
         content: '用于背景色等辅助灰色使用，用于分割线，占位提示性、灰色按钮'
       },{
         color: '#FFFFFF',
         title: '辅助色7',
+        lesstilte: 'comColor7',
         des: '色值：#FFFFFF',
         content: '使用规则：用于背景色，高亮提示文字使用'
       }]
@@ -102,8 +111,6 @@ export default {
       height: 160px
     }
     .color-show-text-wrap {
-      width: 100%;
-      height: 130px;
       padding: 20px;
       background-color: #ffffff;
       div {
@@ -115,6 +122,10 @@ export default {
       .color-show-title {
         margin: 0px 0px 10px 0px;
         color: #626262;
+        span {
+          padding-left: 10px;
+          color: #07aefc;
+        }
       }
     }
   }
