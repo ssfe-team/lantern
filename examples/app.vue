@@ -14,6 +14,7 @@
                 <lt-menu-item :href="'/color'">标准色</lt-menu-item>
                 <lt-menu-item :href="'/layout'">Layout布局容器</lt-menu-item>
                 <lt-menu-item :href="'/menu'">导航菜单</lt-menu-item>
+                <lt-menu-item :href="'/scroll'">滚动条</lt-menu-item>
               </lt-menu>
             </lt-aside>
             <lt-main height="100%">
