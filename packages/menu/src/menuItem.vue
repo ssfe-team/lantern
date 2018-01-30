@@ -1,8 +1,8 @@
 <template>
-  <router-link class="lt-menu-item" :to="href" tag="li">
+  <router-link class="lt-menu-item" :to="href" tag="li" @mouseenter="itemEnter" @mouseleave="itemLeave">
     <div>
       <a :href="href">
-        <slot name="text"></slot>
+        <slot name="title"></slot>
       </a>
     </div>
     <slot name="childItem" v-if="isFocus"></slot>
@@ -21,6 +21,14 @@ export default {
       type: String,
       default: '/',
       required: true
+    }
+  },
+  methods: {
+    itemEnter() {
+      //this.isFocus = true;
+    },
+    itemLeave() {
+      //this.isFocus = false;
     }
   }
 }
