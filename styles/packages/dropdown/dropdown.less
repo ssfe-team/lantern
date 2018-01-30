@@ -1,0 +1,147 @@
+.hz-drop-down{
+  width: auto;
+  height: 32px;
+  position: relative;
+  background: #F3F3F3;
+  display: inline-block;
+  padding: 0 0 0 16px;
+
+  &[class~='hover']:hover,&[class~='active']{
+    .hz-drop-down-drop .hz-drop-down-drop-option{
+      display: block;
+    }
+
+    &:before{
+      transform: rotate(180deg);
+    }
+  }
+
+  &[class~='disabled']{
+    .hz-drop-down-drop .hz-drop-down-drop-option{
+      display: none !important;
+    }
+
+    &:before{
+      transform: rotate(0) !important;
+    }
+  }
+
+  &:after{
+    position: absolute;
+    height: 32px;
+    bottom: -12px;
+    left: 0;
+    background: transparent;
+    content: '';
+    width: 100%;
+    z-index: 1;
+  }
+
+  &:before{
+    position: absolute;
+    height: 12px;
+    width: 12px;
+    top:8px;
+    right: 10px;
+    background: url("dropdown12.svg") no-repeat;
+    content: '';
+    z-index: 2;
+    transition: transform .4s ease;
+  }
+
+  .hz-drop-down-sel{
+    display: inline-block;
+    height: 100%;
+    font-size: 12px;
+    line-height: 32px;
+    color:#4A4A4A;
+    width: 80%;
+    white-space:nowrap;
+    text-overflow:ellipsis;
+    overflow: hidden;
+  }
+
+  .hz-drop-down-drop{
+    position: absolute;
+    top:32px;
+    left:0;
+    width: 184px;
+    height: auto;
+    background: #FFFFFF;
+    box-shadow: 0 1px 4px 0 rgba(0,0,0,.08);
+    z-index: 2;
+
+    .hz-drop-down-drop-option{
+      width: 100%;
+      height: 32px;
+      padding: 0 16px;
+      background: #FFFFff;
+      display: none;
+      position: relative;
+
+      color: #4A4A4A;
+      font-size:12px;
+      line-height:32px;
+      margin-bottom: 1px;
+      cursor: pointer;
+      white-space:nowrap;
+      text-overflow:ellipsis;
+      overflow: hidden;
+      
+      &:after{
+        position: absolute;
+        content: '';
+        width: 16px;
+        height:16px;
+        top:8px;
+        right:16px;
+        background-image: url("dropdown16.svg");
+        background-repeat: no-repeat;
+        display: none;
+      }
+
+      &:hover{
+        background: #F2F2F2;
+        &:after{
+          display: block;
+          background-position: 0 0;
+        }
+      }
+
+      &:active{
+        background: #F3F3F3;
+        font-weight: bold;
+        &:after{
+          display: block;
+          background-position: 0 -24px;
+        }
+      }
+
+      &[class~='selected']{
+        font-weight: bold;
+        &:after{
+          display: block;
+          background-position: 0 -24px;
+        }
+      }
+
+      &[class~='disabled']{
+        cursor: default;
+        color: #CDCDCD;
+        background: #FAFAFA;
+
+        &:hover,&:active{
+          cursor: default;
+          color: #CDCDCD;
+          background: #FAFAFA;
+          font-weight: normal;
+          &:after{
+            display: none;
+          }
+        }
+      }
+
+
+    }
+  }
+}

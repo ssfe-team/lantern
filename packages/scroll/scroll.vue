@@ -51,11 +51,11 @@
       <div  class="scroll-bar"
             :class="{'bottom-bar-active': bottomActive}"
             :style="{
-            'background-color': style.barColor,
-            'width': barWPercent * 100 + '%',
-            'opacity': style.barOpacityInactive,
-            'height': style.barHeight + 'px',
-            'left': barLeft + 'px'
+              'background-color': style.barColor,
+              'width': barWPercent * 100 + '%',
+              'opacity': style.barOpacityInactive,
+              'height': style.barHeight + 'px',
+              'left': barLeft + 'px'
             }"
       ></div>
     </div>
@@ -140,16 +140,17 @@ export default {
       const wrapNode = this.$refs.wrap;
       // const slotnode = this.$slots.default[0]['elm'];
       const slotnode = this.$refs.inner;
-      this.wrapHeight = wrapNode.clientHeight;
-      this.wrapWidth = wrapNode.clientWidth;
+      this.wrapHeight = wrapNode.clientHeight - this.style.barHeight;
+      this.wrapWidth = wrapNode.clientWidth - this.style.barWidth;
       this.innerHeight = slotnode.scrollHeight;
       this.innerWidth = slotnode.scrollWidth;
+      console.log(slotnode)
       if(this.wrapHeight < this.innerHeight) {
-        this.barHPercent = wrapNode.clientHeight / slotnode.scrollHeight;
+        this.barHPercent = this.wrapHeight / this.innerHeight;
         this.rightBarShow = true;
       }
       if(this.wrapWidth < this.innerWidth) {
-        this.barWPercent = wrapNode.clientWidth / slotnode.scrollWidth;
+        this.barWPercent = this.wrapHeight / this.innerWidth;
         this.bottomBarShow = true;
       }
     },
@@ -251,5 +252,77 @@ export default {
 </script>
 
 <style lang="less" scoped>
-  @import '../../styles/packages/scroll.less';
+.scroll-wrap {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  position: relative;
+  .scroll-container {
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    &::-webkit-scrollbar {
+      display: none;
+    }
+    .scroll-content {
+      // border-right: 20px solid transparent;
+      // border-bottom: 20px solid transparent;
+      position: relative;
+      padding-top: 1px;
+      padding-bottom: 1px;
+    }
+  }
+  .scroll-right, .scroll-bottom {
+    background-color: #eee;
+    opacity: 1;
+    position: absolute;
+    transition: opacity .34s ease-out;
+    -webkit-transition: opacity .34s ease-out;
+  }
+  .scroll-bar {
+    opacity: 0.3;
+    position: relative;
+    display: block;
+    cursor: pointer;
+    border-radius: inherit;
+    background-color: #959595;
+    transition: opacity .34s ease-out;
+    -webkit-transition: opacity .34s ease-out;
+    -moz-transition: opacity .34s ease-out;
+    -o-transition: opacity .34s ease-out;
+
+  }
+  .scroll-right {
+    width: 6px;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    .scroll-bar {
+      width: 6px;
+      transform: translateY(0%);
+      &:hover {
+        opacity: 0.8 !important;
+      }
+      &[class~="right-bar-active"] {
+        opacity: 0.8 !important;
+      }
+    }
+  }
+  .scroll-bottom {
+    height: 6px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    .scroll-bar {
+      height: 6px;
+      transform: translateX(0%);
+      &:hover {
+        opacity: 0.8 !important;
+      }
+      &[class~="bottom-bar-active"] {
+        opacity: 0.8 !important;
+      }
+    }
+  }
+}
 </style>
