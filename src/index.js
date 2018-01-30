@@ -9,7 +9,7 @@ import WaterFall from '../packages/water-fall/index.js';
 import Scroll from '../packages/scroll/index.js';
 import { Aside, Footer, Header, Layout, Main } from '../packages/layout/index.js';
 import { Menu, MenuItem } from '../packages/menu/index.js';
-import { Dropdown } from '../packages/dropdown/index.js';
+// import { Dropdown } from '../packages/dropdown/index.js';
 //import test from '../packages/layout/index.js';
 
 const prefix = 'Lt';
@@ -25,7 +25,7 @@ const packages = {
   Main,
   Menu,
   MenuItem,
-  Dropdown
+  // Dropdown
 }
 
 const install = function(Vue) {
@@ -33,6 +33,8 @@ const install = function(Vue) {
     console.log(prefix + key);
     Vue.component(prefix + key, packages[key]);
   });
+  Vue.prototype.$message = Message;
+
 }
 
 if (typeof window !== 'undefined' && window.Vue) {
