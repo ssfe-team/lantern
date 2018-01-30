@@ -31,6 +31,8 @@ const install = function(Vue) {
     console.log(prefix + key);
     Vue.component(prefix + key, packages[key]);
   });
+  Vue.prototype.$message = Message;
+
 }
 
 if (typeof window !== 'undefined' && window.Vue) {
