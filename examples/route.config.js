@@ -8,6 +8,7 @@ import color from './document/color.md';
 import layout from './document/layout.md';
 import menu from './document/menu.md';
 import scroll from './document/scroll.md';
+import message from './document/message.md';
 
 export default [
   {
@@ -25,5 +26,9 @@ export default [
   {
     path: '/scroll',
     component: scroll
+  },
+  {
+    path: '/message',
+    component: message
   }
 ]
