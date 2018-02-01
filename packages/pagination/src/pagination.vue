@@ -20,7 +20,7 @@
     <div class="paging-sele sele">
       <div class="prev" @click="butjump('p')"></div>
       <div class="number" :style="{width:numberWidth+'px'}" :data="numberWidth" ref="number">
-        <div class="shadow-layout-left" v-if="count>7&&current>4">
+        <div class="shadow-layout-left" v-if="count>7&&current>4" :style="{background: bgcolor}">
           <span>
             <a v-if="type === 'event'" @click="$emit('jumpUrl',1)">{{1}}</a>
             <router-link :to="numbers[0].router" v-else-if="type === 'route'">{{1}}</router-link>
@@ -37,7 +37,7 @@
             <a v-else>type error</a>
           </li>
         </ul>
-        <div class="shadow-layout" v-if="count>7&&current<(numbers.length-3)">
+        <div class="shadow-layout" v-if="count>7&&current<(numbers.length-3)" :style="{background: bgcolor}">
           <span>
             <a>...</a>
           </span>
