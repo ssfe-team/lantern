@@ -2,7 +2,7 @@
  * @Author: bianhao 
  * @Date: 2017-12-20 20:36:20 
  * @Last Modified by: bianhao
- * @Last Modified time: 2018-01-18 18:32:04
+ * @Last Modified time: 2018-02-05 15:26:47
  */
 
 const path = require('path');
@@ -45,7 +45,7 @@ const baseConfig = {
         exclude: /node_modules/
       },
       {
-        test: /\.(png|jpg|gif|svg|ttf)$/,
+        test: /\.(png|jpg|gif|svg|ttf|eot|woff)$/,
         use: {
           loader: 'file-loader',
           options: {

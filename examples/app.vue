@@ -11,12 +11,13 @@
           <lt-layout class="main-wrap-layout" :isRow="mainLayoutIsRow">
             <lt-aside width="300px">
               <lt-menu>
-                <lt-menu-item :href="'/color'"><span slot="text">标准色</span></lt-menu-item>
-                <lt-menu-item :href="'/layout'"><span slot="text">Layout布局容器</span></lt-menu-item>
-                <lt-menu-item :href="'/menu'"><span slot="text">导航菜单</span></lt-menu-item>
-                <lt-menu-item :href="'/scroll'"><span slot="text">滚动条</span></lt-menu-item>
-                <lt-menu-item :href="'/message'"><span slot="text">Message 消息通知</span></lt-menu-item>
-                <lt-menu-item :href="'/pagination'"><span slot="text">Pagination 分页</span></lt-menu-item>
+                <lt-menu-item :href="'/color'"><span>标准色</span></lt-menu-item>
+                <lt-menu-item :href="'/layout'"><span>Layout布局容器</span></lt-menu-item>
+                <lt-menu-item :href="'/menu'"><span>导航菜单</span></lt-menu-item>
+                <lt-menu-item :href="'/scroll'"><span>滚动条</span></lt-menu-item>
+                <lt-menu-item :href="'/message'"><span>Message 消息通知</span></lt-menu-item>
+                <lt-menu-item :href="'/pagination'"><span>Pagination 分页</span></lt-menu-item>
+                <lt-menu-item :href="'/iconfont'"><span>iconfont</span></lt-menu-item>
               </lt-menu>
             </lt-aside>
             <lt-main height="100%">
@@ -44,4 +45,3 @@ export default {
   @import '../src/index.less';
   @import './styles/index.less';
 </style>
-

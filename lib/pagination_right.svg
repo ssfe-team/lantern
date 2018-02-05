@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="10px" height="18px" viewBox="0 0 10 18" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 39.1 (31720) - http://www.bohemiancoding.com/sketch -->
+    <title>右翻页</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="设计管理" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="设计管理-我的设计--列表视图" transform="translate(-1273.000000, -687.000000)" fill="#9B9B9B">
+            <g id="Group-12" transform="translate(924.000000, 680.000000)">
+                <g id="右翻页" transform="translate(345.000000, 7.000000)">
+                    <g id="Page-1" transform="translate(4.000000, 0.000000)">
+                        <path d="M1.334975,17.087175 C1.136975,17.087175 0.938225,17.011425 0.787475,16.859925 C0.485975,16.557675 0.485975,16.067925 0.788975,15.766425 L7.570475,8.999175 L0.804725,2.233425 C0.502475,1.931175 0.502475,1.441425 0.804725,1.139175 C1.106225,0.836925 1.595975,0.836925 1.898225,1.139175 L9.212225,8.453175 C9.356975,8.597925 9.438725,8.795175 9.438725,9.000675 C9.438725,9.205425 9.356975,9.402675 9.211475,9.547425 L1.880975,16.861425 C1.730225,17.012175 1.532975,17.087175 1.334975,17.087175" id="Fill-2"></path>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>
