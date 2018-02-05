@@ -2,7 +2,7 @@
  * @Author: bianhao 
  * @Date: 2017-12-21 15:32:04 
  * @Last Modified by: bianhao
- * @Last Modified time: 2018-01-30 19:07:10
+ * @Last Modified time: 2018-02-05 10:35:44
  */
 import Message from '../packages/message/index.js';
 import WaterFall from '../packages/water-fall/index.js';
@@ -10,6 +10,7 @@ import Scroll from '../packages/scroll/index.js';
 import { Aside, Footer, Header, Layout, Main } from '../packages/layout/index.js';
 import { Menu, MenuItem, MenuItemGroup, MenuItemSelect } from '../packages/menu/index.js';
 import { Dropdown } from '../packages/dropdown/index.js';
+import Pagination from '../packages/pagination/index'
 //import test from '../packages/layout/index.js';
 
 const prefix = 'Lt';
@@ -27,7 +28,9 @@ const packages = {
   MenuItem,
   MenuItemGroup,
   MenuItemSelect,
-  Dropdown
+  Dropdown,
+  Pagination,
+  // Dropdown
 }
 
 const install = function(Vue) {
@@ -35,6 +38,8 @@ const install = function(Vue) {
     console.log(prefix + key);
     Vue.component(prefix + key, packages[key]);
   });
+  Vue.prototype.$message = Message;
+
 }
 
 if (typeof window !== 'undefined' && window.Vue) {
