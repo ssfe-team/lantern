@@ -2,6 +2,7 @@
   <li class="lt-menu-item-select" :class="{'el-menu-item-select-opend': opend}" @click="opend = !opend">
     <div class="lt-menu-item-select-title" @click="titleClick">
       <slot name="title"></slot>
+      <lt-icon-font class="icon-dropdown"></lt-icon-font>
     </div>
     <transition name="menu-item-select-animate">
       <ul class="lt-menu-item-select-content" v-show="opend" :style="{height: height}" ref="childContent" @click.stop>

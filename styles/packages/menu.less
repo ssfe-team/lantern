@@ -2,7 +2,7 @@
  * @Author: bianhao 
  * @Date: 2018-01-15 18:16:28 
  * @Last Modified by: bianhao
- * @Last Modified time: 2018-02-02 16:32:58
+ * @Last Modified time: 2018-02-05 17:23:02
  */
 .lt-menu-item {
   padding-left: 48px;
@@ -24,6 +24,7 @@
 
 .lt-menu-item-select-title {
   padding-left: 48px;
+  padding-right: 48px;
   line-height: 36px;
   color: @comColor2;
   cursor: pointer;
@@ -31,11 +32,19 @@
     color: @mainColor1;
     background-color: @comColor5;
   }
+  .iconfont {
+    font-size: 12px;
+    float: right;
+    transition: transform .5s;
+  }
 }
 
 .el-menu-item-select-opend .lt-menu-item-select-title {
   color: @mainColor1;
   background-color: @comColor5;
+  .iconfont {
+    transform: rotate(180deg);  
+  }
 }
 
 .lt-menu-item-select-content {
