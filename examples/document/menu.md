@@ -4,29 +4,36 @@
 
 `lt-menu`：导航容器
 
-`lt-menu-item`：导航按钮
+`lt-menu-item-group`：导航组合
+
+`lt-menu-item-select`：下拉导航
+
+`lt-menu-item`：导航元素
 
 ### 实例
 
 ::: demo demo
 ```html
   <lt-menu>
-    <lt-menu-item :href="'#1'">
-      <span slot="title">导航1</span>
-    </lt-menu-item>
-    <lt-menu-item :href="'#2'">
-      <span slot="title">导航2</span>
-    </lt-menu-item>
-    <lt-menu-item :href="'#3'">
-      <span slot="title">导航3</span>
-    </lt-menu-item>
-    <lt-menu-item :href="'#4'">
+    <lt-menu-item :href="'#1'"><span>导航1</span></lt-menu-item>
+    <lt-menu-item :href="'#2'"><span>导航2</span></lt-menu-item>
+    <lt-menu-item :href="'#3'"><span>导航3</span></lt-menu-item>
+    <lt-menu-item-select :height="'72px'" @titleClick="skip('#4-1')">
       <span slot="title">导航4</span>
-      <ul slot="childItem">
-        <li>子导航1</li>
-        <li>子导航2</li>
-        <li>子导航3</li>
-      </ul>
-    </lt-menu-item>
+      <lt-menu-item :href="'#4-1'"><span>导航4-1</span></lt-menu-item>
+      <lt-menu-item :href="'#4-2'"><span>导航4-2</span></lt-menu-item>
+    </lt-menu-item-select>
   </lt-menu>
 ```
+
+
+::::vuecode::::
+<script>
+export default {
+  methods: {
+    skip: function(href) {
+      this.$router.push(href);
+    }
+  }
+}
+</script>

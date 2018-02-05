@@ -2,13 +2,13 @@
  * @Author: bianhao 
  * @Date: 2017-12-21 15:32:04 
  * @Last Modified by: bianhao
- * @Last Modified time: 2018-01-18 18:12:14
+ * @Last Modified time: 2018-01-30 19:07:10
  */
 import Message from '../packages/message/index.js';
 import WaterFall from '../packages/water-fall/index.js';
 import Scroll from '../packages/scroll/index.js';
 import { Aside, Footer, Header, Layout, Main } from '../packages/layout/index.js';
-import { Menu, MenuItem } from '../packages/menu/index.js';
+import { Menu, MenuItem, MenuItemGroup, MenuItemSelect } from '../packages/menu/index.js';
 import { Dropdown } from '../packages/dropdown/index.js';
 //import test from '../packages/layout/index.js';
 
@@ -25,6 +25,8 @@ const packages = {
   Main,
   Menu,
   MenuItem,
+  MenuItemGroup,
+  MenuItemSelect,
   Dropdown
 }
 

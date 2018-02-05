@@ -2,27 +2,55 @@
  * @Author: bianhao 
  * @Date: 2018-01-15 18:16:28 
  * @Last Modified by: bianhao
- * @Last Modified time: 2018-01-29 18:06:39
+ * @Last Modified time: 2018-02-02 16:32:58
  */
 .lt-menu-item {
   padding-left: 36px;
+  line-height: 36px;
   a {
-    line-height: 36px;
     color: @comColor2;
-    text-decoration: none;
-    display: inline-block;
     width: 100%;
-    padding-left: 5px;
+    display: inline-block;
+    text-decoration: none;
   }
   &:hover {
+    color: @mainColor1;
+    background-color: @comColor5; 
     a {
       color: @mainColor1;
     }
   }
 }
+
+.lt-menu-item-select-title {
+  padding-left: 36px;
+  line-height: 36px;
+  color: @comColor2;
+  cursor: pointer;
+  &:hover {
+    color: @mainColor1;
+    background-color: @comColor5;
+  }
+}
+
+.el-menu-item-select-opend .lt-menu-item-select-title {
+  color: @mainColor1;
+  background-color: @comColor5;
+}
+
+.lt-menu-item-select-content {
+  overflow: hidden;
+}
+
+.menu-item-select-animate-enter-active, .menu-item-select-animate-leave-active{
+  transition: height .5s;
+}
+.menu-item-select-animate-enter, .menu-item-select-animate-leave-to {
+  height: 0px !important;
+}
+
 .router-link-active {
   a {
     color: @mainColor1;
   }
-  background-color: @comColor5;
 }

@@ -1,4 +1,4 @@
-import dropdown from './src/dropdown';
+import dropdown from './src/dropdown.vue';
 export {
   dropdown
 }
