@@ -18,6 +18,7 @@
                 <lt-menu-item :href="'/message'"><span>Message 消息通知</span></lt-menu-item>
                 <lt-menu-item :href="'/pagination'"><span>Pagination 分页</span></lt-menu-item>
                 <lt-menu-item :href="'/iconfont'"><span>iconfont</span></lt-menu-item>
+                <lt-menu-item :href="'/dropdown'"><span>Dropdown 下拉菜单</span></lt-menu-item>
               </lt-menu>
             </lt-aside>
             <lt-main height="100%">
