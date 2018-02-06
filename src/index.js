@@ -10,7 +10,7 @@ import Scroll from '../packages/scroll/index.js';
 import { Aside, Footer, Header, Layout, Main } from '../packages/layout/index.js';
 import { Menu, MenuItem } from '../packages/menu/index.js';
 import Pagination from '../packages/pagination/index'
-//import test from '../packages/layout/index.js';
+import Dropdown from '../packages/dropdown/index.js';
 
 const prefix = 'Lt';
 
@@ -26,7 +26,7 @@ const packages = {
   Menu,
   MenuItem,
   Pagination,
-  // Dropdown
+  Dropdown
 }
 
 const install = function(Vue) {

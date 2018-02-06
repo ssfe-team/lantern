@@ -10,6 +10,7 @@ import menu from './document/menu.md';
 import scroll from './document/scroll.md';
 import message from './document/message.md';
 import pagination from './document/pagination.md';
+import dropdown from './document/dropdown.md';
 
 export default [
   {
@@ -35,5 +36,9 @@ export default [
   {
     path: '/pagination',
     component: pagination
+  },
+  {
+    path: '/dropdown',
+    component: dropdown
   }
 ]

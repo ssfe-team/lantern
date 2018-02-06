@@ -17,6 +17,7 @@
                 <lt-menu-item :href="'/scroll'"><span slot="text">滚动条</span></lt-menu-item>
                 <lt-menu-item :href="'/message'"><span slot="text">Message 消息通知</span></lt-menu-item>
                 <lt-menu-item :href="'/pagination'"><span slot="text">Pagination 分页</span></lt-menu-item>
+                <lt-menu-item :href="'/dropdown'"><span slot="text">Dropdown 下拉菜单</span></lt-menu-item>
               </lt-menu>
             </lt-aside>
             <lt-main height="100%">
