@@ -1,27 +1,40 @@
 <template>
   <router-link class="lt-menu-item" :to="href" tag="li">
-    <div>
-      <a :href="href">
-        <slot name="text"></slot>
-      </a>
-    </div>
-    <slot name="childItem" v-if="isFocus"></slot>
+    <a :href="href">
+      <div @click="itemClick">
+        <slot></slot>
+      </div>
+    </a>
   </router-link>
 </template>
 <script>
+import Emitter from '../../../src/mixins/emitter.js';
 export default {
   name: 'MenuItem',
-  data() {
-    return {
-      isFocus: false
-    }
-  },
+  mixins: [ Emitter ],
   props: {
     href: {
-      type: String,
+      required: true,
       default: '/',
-      required: true
+      type: String
+    },
+    selectOpendChangeDrag: {
+      type: String
     }
+  },
+  methods: {
+    itemClick() {
+      this.dispatch('Menu', 'updateActiveName', this.$parent._uid);
+    }
+  },
+  mounted() {
+    /*
+    let route = this.$route;
+    if(/#/.test(this.href)) {
+      if(route.hash === this.href) {
+        this.itemClick();
+      }
+    }*/
   }
 }
 </script>
