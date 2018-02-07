@@ -1,5 +1,12 @@
 <template>
-  <router-link class="lt-menu-item" :to="href" tag="li">
+  <li v-if="isOut">
+    <a :href="href">
+      <div @click="itemClick">
+        <slot></slot>
+      </div>
+    </a>
+  </li>
+  <router-link class="lt-menu-item" :to="href" tag="li" v-else>
     <a :href="href">
       <div @click="itemClick">
         <slot></slot>
@@ -20,6 +27,14 @@ export default {
     },
     selectOpendChangeDrag: {
       type: String
+    }
+  },
+  computed: {
+    isOut() {
+      if(/\/\//.test(this.href)) {
+        return true;
+      }
+      return false;
     }
   },
   methods: {
