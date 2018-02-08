@@ -1,4 +1,2 @@
-import dropdown from './src/dropdown';
-export {
-  dropdown
-}
+import dropdown from './src/dropdown.vue';
+export default dropdown

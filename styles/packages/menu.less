@@ -2,27 +2,67 @@
  * @Author: bianhao 
  * @Date: 2018-01-15 18:16:28 
  * @Last Modified by: bianhao
- * @Last Modified time: 2018-01-29 18:06:39
+ * @Last Modified time: 2018-02-05 17:23:02
  */
 .lt-menu-item {
-  padding-left: 36px;
+  padding-left: 48px;
+  line-height: 36px;
   a {
-    line-height: 36px;
     color: @comColor2;
-    text-decoration: none;
-    display: inline-block;
     width: 100%;
-    padding-left: 5px;
+    display: inline-block;
+    text-decoration: none;
   }
   &:hover {
+    color: @mainColor1;
+    background-color: @comColor5; 
     a {
       color: @mainColor1;
     }
   }
 }
+
+.lt-menu-item-select-title {
+  padding-left: 48px;
+  padding-right: 48px;
+  line-height: 36px;
+  color: @comColor2;
+  cursor: pointer;
+  &:hover {
+    color: @mainColor1;
+    background-color: @comColor5;
+  }
+  .iconfont {
+    font-size: 12px;
+    float: right;
+    transition: transform .5s;
+  }
+}
+
+.el-menu-item-select-opend .lt-menu-item-select-title {
+  color: @mainColor1;
+  background-color: @comColor5;
+  .iconfont {
+    transform: rotate(180deg);  
+  }
+}
+
+.lt-menu-item-select-content {
+  overflow: hidden;
+  .lt-menu-item {
+    padding-left: 96px;
+  }
+}
+
+.menu-item-select-animate-enter-active, .menu-item-select-animate-leave-active{
+  transition: height .5s;
+}
+.menu-item-select-animate-enter, .menu-item-select-animate-leave-to {
+  height: 0px !important;
+}
+
 .router-link-active {
   a {
     color: @mainColor1;
   }
-  background-color: @comColor5;
 }
