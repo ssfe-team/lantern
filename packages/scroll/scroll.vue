@@ -144,7 +144,6 @@ export default {
       this.wrapWidth = wrapNode.clientWidth - this.style.barWidth;
       this.innerHeight = slotnode.scrollHeight;
       this.innerWidth = slotnode.scrollWidth;
-      console.log(slotnode)
       if(this.wrapHeight < this.innerHeight) {
         this.barHPercent = this.wrapHeight / this.innerHeight;
         this.rightBarShow = true;

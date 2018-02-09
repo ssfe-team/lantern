@@ -2,7 +2,7 @@
  * @Author: bianhao 
  * @Date: 2017-12-21 15:32:04 
  * @Last Modified by: bianhao
- * @Last Modified time: 2018-02-05 15:24:49
+ * @Last Modified time: 2018-02-07 17:18:06
  */
 import Message from '../packages/message/index.js';
 import WaterFall from '../packages/water-fall/index.js';
@@ -37,7 +37,6 @@ const packages = {
 
 const install = function(Vue) {
   Object.keys(packages).forEach(key => {
-    console.log(prefix + key);
     Vue.component(prefix + key, packages[key]);
   });
   Vue.prototype.$message = Message;
