@@ -8,8 +8,8 @@ import Message from '../packages/message/index.js';
 import WaterFall from '../packages/water-fall/index.js';
 import Scroll from '../packages/scroll/index.js';
 import { Aside, Footer, Header, Layout, Main } from '../packages/layout/index.js';
+import Dropdown from '../packages/dropdown/index.js';
 import { Menu, MenuItem, MenuItemGroup, MenuItemSelect } from '../packages/menu/index.js';
-import { Dropdown } from '../packages/dropdown/index.js';
 import Pagination from '../packages/pagination/index.js'
 import IconFont from '../packages/iconfont/index.js'
 //import test from '../packages/layout/index.js';
@@ -32,7 +32,6 @@ const packages = {
   Dropdown,
   Pagination,
   IconFont
-  // Dropdown
 }
 
 const install = function(Vue) {
