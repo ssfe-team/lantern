@@ -1,19 +1,19 @@
 <template>
     <transition name="lt-message-fade">
         <div
-                :class="[
-        'lt-message',
-        type && !iconClass ? `lt-message--${ type }` : '',
-        center ? 'is-center' : '',
-        showClose ? 'is-closable' : '',
-        customClass]"
-                v-show="visible"
-                @mouseenter="clearTimer"
-                @mouseleave="startTimer"
-                role="alert"
+          :class="[
+            'lt-message',
+            type && !iconClass ? `lt-message--${ type }` : '',
+            center ? 'is-center' : '',
+            showClose ? 'is-closable' : '',
+            customClass]"
+          v-show="visible"
+          @mouseenter="clearTimer"
+          @mouseleave="startTimer"
+          role="alert"
         >
-            <i :class="iconClass" v-if="iconClass"></i>
-            <i :class="typeClass" v-else></i>
+            <lt-icon-font :class="iconClass" v-if="iconClass"></lt-icon-font>
+            <lt-icon-font :class="typeClass" v-else></lt-icon-font>
             <slot>
                 <p v-if="!dangerouslyUseHTMLString" class="lt-message__content">{{ message }}</p>
                 <p v-else v-html="message" class="lt-message__content"></p>
@@ -25,10 +25,10 @@
 
 <script type="text/babel">
   const typeMap = {
-    success: 'success',
-    info: 'info',
-    warning: 'warning',
-    error: 'error'
+    success: 'confirm',
+    info: 'details',
+    warning: 'details',
+    error: 'cancel'
   }
 
   export default {
@@ -53,17 +53,9 @@
     props: {},
 
     computed: {
-      iconWrapClass () {
-        const classes = ['lt-message__icon']
-        if (this.type && !this.iconClass) {
-          classes.push(`lt-message__icon--${ this.type }`)
-        }
-        return classes
-      },
-
       typeClass () {
         return this.type && !this.iconClass
-          ? `lt-message__icon lt-icon-${ typeMap[this.type] }`
+          ? `lt-message__icon icon-${ typeMap[this.type] }`
           : ''
       }
     },
@@ -141,19 +133,6 @@
             height: 16px;
             margin: 12px 16px 12px 24px;
             float: left;
-            background-image: url(./img/message_icon.svg);
-        }
-        .lt-icon-info {
-            background-position: 0px -16px; // TODO
-        }
-        .lt-icon-success {
-            background-position: 0px -16px;
-        }
-        .lt-icon-error {
-            background-position: -16px -16px;
-        }
-        .lt-icon-warning {
-            background-position: -32px -16px;
         }
 
         .lt-message__content {
