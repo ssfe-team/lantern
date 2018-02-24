@@ -10,7 +10,6 @@ export default {
   props: {
     title: {
       type: String,
-      default: '导航组',
       required: true
     }
   }
