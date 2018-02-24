@@ -29,7 +29,12 @@ export default {
         'icon-close',
         'icon-tickcross',
         'icon-right',
-        'icon-left'
+        'icon-left',
+        'icon-mylike',
+        'icon-mybuy',
+        'icon-recycle',
+        'icon-mydesign',
+        'icon-mytemplate'
       ]
     }
   }

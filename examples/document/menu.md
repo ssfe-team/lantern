@@ -17,7 +17,7 @@
   <lt-menu>
     <lt-menu-item :href="'#1'"><span>导航1</span></lt-menu-item>
     <lt-menu-item :href="'#2'"><span>导航2</span></lt-menu-item>
-    <lt-menu-item :href="'#3'"><span>导航3</span></lt-menu-item>
+    <lt-menu-item @itemClick="itemClick"><span>导航3</span></lt-menu-item>
     <lt-menu-item-select :height="'72px'" @titleClick="skip('#4-1')">
       <span slot="title">导航4</span>
       <lt-menu-item :href="'#4-1'"><span>导航4-1</span></lt-menu-item>
@@ -33,6 +33,9 @@ export default {
   methods: {
     skip: function(href) {
       this.$router.push(href);
+    },
+    itemClick() {
+      alert('无跳转');
     }
   }
 }

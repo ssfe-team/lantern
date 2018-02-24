@@ -7,22 +7,24 @@
          @mouseenter="handleMouseenter"
          @mouseleave="handleMouseleave"
     >
-        <div class="drop-down-sel" :style="dropDownStyle">
+        <div class="drop-down-sel" :style="itemStyle">
             <span :title="da.sel">{{da.sel}}</span>
         </div>
         <transition name="dropdown-fade">
             <div class="drop-down-list"
                  v-show="currentVisible"
-                 :style="{maxHeight: height + 'px', top: dropDownDropTop}"
+                 :style="{maxHeight: height + 'px', top: dropDownTop}"
             >
                 <div
                         class="drop-down-list-option"
                         v-for="(item, index) in da.opt"
                         :key="index"
                         :class="{disabled:item.dis, selected:item.sel}"
+                        :style="itemStyle"
                         @click.stop="handleItemClick(item, index)"
                 >
                     <span class="option-title" :title="item.des">{{item.des}}</span>
+                    <lt-icon-font v-if="item.sel" class="icon-tickcross"></lt-icon-font>
                 </div>
             </div>
         </transition>
@@ -54,8 +56,8 @@
         default: 'hover'
       },
       size: {
-        type: [String, Number],
-        default: 'small'
+        type: Number,
+        default: 28
       },
       height: { // 自定义下拉列表高度，超出显示滚动条
         type: Number,
@@ -63,22 +65,21 @@
       }
     },
     computed: {
-      dropDownDropTop() {
-        let height =  this.isAbove ? -(this.height + 2) : 32
-        return height + 'px'
+      dropDownTop () {
+        let height = this.dData.length * this.size
+        height = height < this.height ? height : this.height
+        let top = this.isAbove ? -(height + 2) : (this.size + 2)
+        return top + 'px'
       },
-      dropDownStyle () {
-        switch (this.size) {
-          case 'small':
-            return {}
-          case 32:
-          case '32':
-            return {
-              'height': 32 + 'px',
-              'line-height': 32 + 'px',
-              'font-size': 14 + 'px'
-            }
+      itemStyle () {
+        return {
+          'height': this.size + 'px',
+          'line-height': this.size + 'px',
+          'font-size': this.fontSize + 'px'
         }
+      },
+      fontSize () {
+        return this.size / (28 / 12)
       }
     },
     created () {
@@ -88,7 +89,7 @@
       dData () {
         this.dealData()
       },
-      currentVisible(v) {
+      currentVisible (v) {
         if (v) {
           let bottom = this.$refs.dropdown.getBoundingClientRect().bottom
           this.isAbove = (document.body.clientHeight - bottom) < this.height
