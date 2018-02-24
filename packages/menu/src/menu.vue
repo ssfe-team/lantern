@@ -8,24 +8,20 @@ export default {
   name: 'Menu',
   data() {
     return {
-      // 改变select open状态的标记
-      selectOpendChangeDrag: ''
     }
   },
   props: {
-    // 手风琴模式
+    // 手风琴模式，即每次只能打开一个子菜单
     accordion: {
       default: false,
       type: Boolean 
     }
   },
-  mothods: {
-    itemClickFun(name) {
-      this.selectOpendChangeDrag = name;
-    }
-  },
   created() {
     this.$on('updateActiveName', (_uid) => {
+      if(!this.accordion) {
+        return;
+      }
       this.$children.forEach(item => {
         if(item.$options.name === 'MenuItemSelect' && item._uid !== _uid) {
           item.opend = false;
