@@ -10,7 +10,8 @@
              :style="itemStyle"
              @mouseenter="handleMouseenter"
         >
-            <span :title="da.sel">{{da.sel}}</span>
+            <span class="sel-text" :title="da.sel">{{da.sel}}</span>
+            <lt-icon-font class="icon-dropdown"></lt-icon-font>
         </div>
         <transition name="dropdown-fade">
             <div class="drop-down-list"
@@ -30,7 +31,6 @@
                 </div>
             </div>
         </transition>
-        <lt-icon-font class="icon-dropdown"></lt-icon-font>
     </div>
 </template>
 <script>
@@ -39,7 +39,7 @@
     data () {
       return {
         da: { // 处理后的数据
-          sel: '',
+          sel: '请选择',
           opt: []
         },
         currentVisible: false, // 是否显示列表
@@ -103,11 +103,12 @@
       // 处理传入数据
       dealData () {
         Object.assign(this.da.opt, this.dData)
-        for (let i = 0, len = this.dData.length; i < len; i++) {
-          if (i === 0) {
-            this.da.sel = this.da.opt[0].des
-          }
+        for (let i = 0, len = this.da.opt.length; i < len; i++) {
           this.da.opt[i].des = this.da.opt[i].des ? this.da.opt[i].des : '未命名'
+
+          if (this.da.opt[i].sel) {
+            this.da.sel = this.da.opt[i].des
+          }
         }
       },
       handleClick () {

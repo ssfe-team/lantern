@@ -7,14 +7,23 @@
   cursor: pointer;
 
   .drop-down-sel {
+    position: relative;
     height: 28px;
     line-height: 28px;
-    width: 105px;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
     font-size: 12px;
     color: #4A4A4A;
+    .sel-text {
+      display: inline-block;
+      width: 83%;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+    .icon-dropdown {
+      position: absolute;
+      right: 0;
+      z-index: 2;
+    }
   }
 
   .drop-down-list {
@@ -72,12 +81,5 @@
         right: 16px;
       }
     }
-  }
-  .icon-dropdown {
-    position: absolute;
-    top: 50%;
-    right: 0;
-    z-index: 2;
-    transform: translateY(-50%);
   }
 }
