@@ -142,44 +142,32 @@
       position: relative;
       box-shadow: 0 2px 4px 0 rgba(0,0,0,.16);
 
-      &:hover{
-        //background: #ffffff;
-        //box-shadow: 0 2px 4px 0 rgba(0,0,0,.16);
+      &>i{
+        position: absolute;
+        left:9px;
+        top:7px;
+        &:before{
+          color: #9B9B9B;
+        }
+
       }
     }
     .prev{
-      &:after{
-        content: "";
-        position: absolute;
-        left:11px;
-        top:7px;
-        width: 10px;
-        height: 18px;
-        background: url("pagination_left.svg");
-      }
       &:hover{
         background: #ffffff;
         box-shadow: 0 2px 8px 0 rgba(0,0,0,.04);
-        &:after{
-          background: url("pagination_left_active.svg");
+        &>i:before{
+          color: #07AEFC;
         }
       }
     }
     .next{
-      &:after{
-        content: "";
-        position: absolute;
-        left:11px;
-        top:7px;
-        width: 10px;
-        height: 18px;
-        background: url("pagination_right.svg");
-      }
+
       &:hover{
         background: #ffffff;
         box-shadow: 0 2px 8px 0 rgba(0,0,0,.04);
-        &:after{
-          background: url("pagination_right_active.svg");
+        &>i:before{
+          color: #07AEFC;
         }
       }
     }

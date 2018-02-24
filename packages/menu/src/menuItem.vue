@@ -29,9 +29,6 @@ export default {
   props: {
     href: {
       type: String
-    },
-    selectOpendChangeDrag: {
-      type: String
     }
   },
   computed: {
@@ -47,15 +44,6 @@ export default {
       this.dispatch('Menu', 'updateActiveName', this.$parent._uid);
       this.$emit('itemClick', eve);
     }
-  },
-  mounted() {
-    /*
-    let route = this.$route;
-    if(/#/.test(this.href)) {
-      if(route.hash === this.href) {
-        this.itemClick();
-      }
-    }*/
   }
 }
 </script>
