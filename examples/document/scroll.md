@@ -2,7 +2,7 @@
 
 ::: demo demo
 ```html
-  <div style="width: 600px; height: 400px">
+  <div style="width: 400px; height: 300px">
     <lt-scroll>
       <p style="width: 800px">1.测试内容测试内容测试内容测试内容测试内容测试内容测试内容测试内容测试内容</p>
       <br />
