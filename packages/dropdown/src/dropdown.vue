@@ -4,10 +4,12 @@
          class="drop-down"
          :class="{poped: currentVisible, above: isAbove}"
          @click="handleClick"
-         @mouseenter="handleMouseenter"
          @mouseleave="handleMouseleave"
     >
-        <div class="drop-down-sel" :style="itemStyle">
+        <div class="drop-down-sel"
+             :style="itemStyle"
+             @mouseenter="handleMouseenter"
+        >
             <span :title="da.sel">{{da.sel}}</span>
         </div>
         <transition name="dropdown-fade">
@@ -28,6 +30,7 @@
                 </div>
             </div>
         </transition>
+        <lt-icon-font class="icon-dropdown"></lt-icon-font>
     </div>
 </template>
 <script>
@@ -93,7 +96,6 @@
         if (v) {
           let bottom = this.$refs.dropdown.getBoundingClientRect().bottom
           this.isAbove = (document.body.clientHeight - bottom) < this.height
-
         }
       }
     },
