@@ -18,7 +18,9 @@
       </span>
     </div>
     <div class="paging-sele sele">
-      <div class="prev" @click="butjump('p')"></div>
+      <div class="prev" @click="butjump('p')">
+        <lt-icon-font class="icon-left"></lt-icon-font>
+      </div>
       <div class="number" :style="{width:numberWidth+'px'}" :data="numberWidth" ref="number">
         <div class="shadow-layout-left" v-if="count>7&&current>4" :style="{background: bgcolor}">
           <span>
@@ -30,8 +32,11 @@
           </span>
         </div>
         <ul class="main-layout" :style="{left:listLeft+'px'}" ref="mainLayout">
-          <li v-for="index in numbers"
-              :class="index.style">
+          <li
+            v-for="(index,i) in numbers"
+            :key="i"
+            :class="index.style"
+          >
             <a @click="lijump" v-if="type === 'event'">{{index.content}}</a>
             <router-link :to="index.router" v-else-if="type === 'route'">{{index.content}}</router-link>
             <a v-else>type error</a>
@@ -43,23 +48,27 @@
           </span>
           <span>
             <a v-if="type === 'event'" @click="$emit('jumpUrl',numbers.length)">{{numbers.length}}</a>
-            <router-link :to="numbers[numbers.length-1].router" v-else-if="type === 'route'">{{numbers.length}}</router-link>
+            <router-link
+              :to="numbers[numbers.length-1].router"
+              v-else-if="type === 'route'"
+            >{{numbers.length}}</router-link>
           </span>
         </div>
-        <!--<ul class="second-layout">-->
-        <!--<li v-for="index in numbers"><a href="">{{index}}</a></li>-->
-        <!--</ul>-->
       </div>
-      <div class="next" @click="butjump('n')"></div>
+      <div class="next" @click="butjump('n')">
+        <lt-icon-font class="icon-right"></lt-icon-font>
+      </div>
     </div>
   </div>
 </template>
 
 <style lang="less" scoped>
-  @import "../../../styles/packages/pagination/pagination.less";
+  @import "../../../styles/packages/pagination.less";
 </style>
 
 <script>
+  // import
+
   export default {
     data () {
       return {
@@ -96,18 +105,18 @@
         this.numbers.push({
           content: i,
           style: i == this.current ? {active: true} : {active: false},
-          router: typeof this.routePath === 'function' && this.routePath(i)
+          router: typeof this.routePath === 'function' && this.routePath(i),
         })
       }
     },
-    computed:{
-      numberWidth(){
+    computed: {
+      numberWidth () {
         if (this.count < 7) {
           return 25 * this.count
         } else {
           return 176
         }
-      }
+      },
     },
     watch: {
       count: function () {
@@ -116,7 +125,7 @@
           this.numbers.push({
             content: i,
             style: i == this.current ? {active: true} : {active: false},
-            router: typeof this.routePath === 'function' && this.routePath(i)
+            router: typeof this.routePath === 'function' && this.routePath(i),
           })
         }
       },
@@ -155,7 +164,7 @@
       },
       inputjump () {
         if (this.inputValue == null) return
-        this.$emit('jumpUrl', this.inputValue|0)
+        this.$emit('jumpUrl', this.inputValue | 0)
       },
       butjump (c) {
         if (c == 'p' && this.current != 1) {

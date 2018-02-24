@@ -90,7 +90,7 @@ export default {
         zIndex: 'auto',
         wrapWidth: '100%',
         wrapHeight: '100%',
-        autoHide: 1
+        autoHide: true
       },
       // 是否显示右侧滚动条
       rightBarShow: false,
@@ -129,6 +129,7 @@ export default {
     }
   },
   mounted() {
+    console.log(this.barStyle)
     Object.assign(this.style, this.barStyle);
     this.getPercent();
   },
@@ -152,8 +153,18 @@ export default {
     getPercent() {
       const wrapNode = this.$refs.wrap;
       const slotnode = this.$refs.inner;
-      this.wrapHeight = wrapNode.clientHeight - this.style.barHeight;
-      this.wrapWidth = wrapNode.clientWidth - this.style.barWidth;
+      if(this.barStyle.wrapWidth.includes('px')) {
+        this.wrapWidth = parseInt(this.barStyle.wrapWidth) - this.style.barWidth;
+      } else {
+        this.wrapWidth = wrapNode.clientHeight - this.style.barWidth;
+      }
+      if(this.barStyle.wrapHeight.includes('px')) {
+        this.wrapHeight = parseInt(this.barStyle.wrapHeight) - this.style.barHeight;
+      } else {
+        this.wrapHeight = wrapNode.clientHeight - this.style.barHeight;
+      }
+      // this.wrapHeight = wrapNode.clientHeight - this.style.barHeight;
+      // this.wrapWidth = wrapNode.clientWidth - this.style.barWidth;
       this.innerHeight = slotnode.scrollHeight;
       this.innerWidth = slotnode.scrollWidth;
       if(this.wrapHeight < this.innerHeight) {
