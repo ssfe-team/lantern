@@ -79,39 +79,12 @@
       text-overflow: ellipsis;
       white-space: nowrap;
 
-      &:after {
-        position: absolute;
-        content: '';
-        width: 16px;
-        height: 16px;
-        top: 10px;
-        right: 16px;
-        background-image: url("./dropdown_selected.svg");
-        background-repeat: no-repeat;
-        display: none;
-      }
-
       &:hover {
         background: #F2F2F2;
-        &:after {
-          display: block;
-          background-position: 0 0;
-        }
       }
 
       &:active {
         background: #F3F3F3;
-        &:after {
-          display: block;
-          background-position: 0 -24px;
-        }
-      }
-
-      &[class~='selected'] {
-        &:after {
-          display: block;
-          background-position: 0 -24px;
-        }
       }
 
       &[class~='disabled'] {
@@ -133,5 +106,9 @@
   }
   .option-title {
     width: 20px;
+  }
+  .icon-tickcross {
+    position: absolute;
+    right: 16px;
   }
 }
