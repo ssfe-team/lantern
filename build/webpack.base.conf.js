@@ -2,16 +2,21 @@
  * @Author: bianhao 
  * @Date: 2017-12-20 20:36:20 
  * @Last Modified by: bianhao
- * @Last Modified time: 2018-02-05 15:26:47
+ * @Last Modified time: 2018-02-25 11:03:55
  */
 
 const path = require('path');
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
 
+function resolve(dir) {
+  return path.join(__dirname, '..', dir);
+}
+
 const baseConfig = {
   resolve: {
     alias: {
-      'vue$': 'vue/dist/vue.esm.js'
+      'vue$': 'vue/dist/vue.esm.js',
+      'lantern': resolve('/')
     },
     extensions: ['.js', '.vue', '.json'],
   },
