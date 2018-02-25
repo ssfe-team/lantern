@@ -21,7 +21,7 @@
       <lt-menu-item @itemClick="itemClick"><span>导航3</span></lt-menu-item>
     </lt-menu-item-group>
     <lt-menu-item-group :title="'导航组2'">
-      <lt-menu-item-select :height="'72px'" @titleClick="skip('#4-1')">
+      <lt-menu-item-select @titleClick="skip('#4-1')">
         <span slot="title">导航4</span>
         <lt-menu-item :href="'#4-1'"><span>导航4-1</span></lt-menu-item>
         <lt-menu-item :href="'#4-2'"><span>导航4-2</span></lt-menu-item>

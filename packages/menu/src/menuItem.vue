@@ -22,7 +22,7 @@
   </li>
 </template>
 <script>
-import Emitter from '../../../src/mixins/emitter.js';
+import Emitter from 'lantern/src/mixins/emitter.js';
 export default {
   name: 'MenuItem',
   mixins: [ Emitter ],

@@ -5,3 +5,10 @@
 @import './menu.less';
 @import './scroll.less';
 @import 'dropDown.less';
+
+
+@transition-time: .2s;
+
+.collapse-transition {
+  transition: @transition-time height ease-in-out, @transition-time padding-top ease-in-out, @transition-time padding-bottom ease-in-out;
+}
