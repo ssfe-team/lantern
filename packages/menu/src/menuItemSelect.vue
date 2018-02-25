@@ -14,8 +14,6 @@
 <script>
 import LtCollapseTransition from 'lantern/src/transitions/collapse-transition';
 
-console.log(LtCollapseTransition);
-
 export default {
   name: 'MenuItemSelect',
   components: { LtCollapseTransition },
