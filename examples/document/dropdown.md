@@ -79,16 +79,16 @@ des|列表中将要显示的名称|String|-
 dis|禁用该项|Boolean|false
 
 注：传入`dData`前须对其每个元素增加一个名称为`des`的属性，其值为列表中将要显示的名称，例：
-```html
+```js
 dData: [
-          {
-            des: '测试1'
-          },
-          {
-            des: '测试2',
-            dis: true // 禁用
-          }
-        ]
+  {
+    des: '测试1'
+  },
+  {
+    des: '测试2',
+    dis: true // 禁用
+  }
+]
 ```
 
 #### Dropdown events
