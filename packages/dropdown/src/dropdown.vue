@@ -4,11 +4,14 @@
          class="drop-down"
          :class="{poped: currentVisible, above: isAbove}"
          @click="handleClick"
-         @mouseenter="handleMouseenter"
          @mouseleave="handleMouseleave"
     >
-        <div class="drop-down-sel" :style="itemStyle">
-            <span :title="da.sel">{{da.sel}}</span>
+        <div class="drop-down-sel"
+             :style="itemStyle"
+             @mouseenter="handleMouseenter"
+        >
+            <span class="sel-text" :title="da.sel">{{da.sel}}</span>
+            <lt-icon-font class="icon-dropdown"></lt-icon-font>
         </div>
         <transition name="dropdown-fade">
             <div class="drop-down-list"
@@ -36,7 +39,7 @@
     data () {
       return {
         da: { // 处理后的数据
-          sel: '',
+          sel: '请选择',
           opt: []
         },
         currentVisible: false, // 是否显示列表
@@ -93,7 +96,6 @@
         if (v) {
           let bottom = this.$refs.dropdown.getBoundingClientRect().bottom
           this.isAbove = (document.body.clientHeight - bottom) < this.height
-
         }
       }
     },
@@ -101,11 +103,12 @@
       // 处理传入数据
       dealData () {
         Object.assign(this.da.opt, this.dData)
-        for (let i = 0, len = this.dData.length; i < len; i++) {
-          if (i === 0) {
-            this.da.sel = this.da.opt[0].des
-          }
+        for (let i = 0, len = this.da.opt.length; i < len; i++) {
           this.da.opt[i].des = this.da.opt[i].des ? this.da.opt[i].des : '未命名'
+
+          if (this.da.opt[i].sel) {
+            this.da.sel = this.da.opt[i].des
+          }
         }
       },
       handleClick () {

@@ -11,7 +11,8 @@
 <div class="iconlist-md-wrap">
   <div v-for="item in iconlist" class="iconfont-md-content">
     <lt-icon-font :class="item" class="iconfont-md-show"></lt-icon-font>
-    <div class="iconfont-md-title">{{item}}</div>
+    <div class="iconfont-md-title">{{item[0]}}</div>
+    <div class="iconfont-md-code">{{item[1]}}</div>
   </div>
 </div>
 
@@ -21,20 +22,20 @@ export default {
   data() {
     return {
       iconlist: [
-        'icon-signout',
-        'icon-confirm',
-        'icon-details',
-        'icon-cancel',
-        'icon-dropdown',
-        'icon-close',
-        'icon-tickcross',
-        'icon-right',
-        'icon-left',
-        'icon-mylike',
-        'icon-mybuy',
-        'icon-recycle',
-        'icon-mydesign',
-        'icon-mytemplate'
+        ['icon-signout', '\\e604'],
+        ['icon-confirm', '\\e605'],
+        ['icon-details', '\\e606'],
+        ['icon-cancel', '\\e607'],
+        ['icon-dropdown', '\\e608'],
+        ['icon-close', '\\e609'],
+        ['icon-tickcross', '\\e60a'],
+        ['icon-right', '\\e60b'],
+        ['icon-left', '\\e60c'],
+        ['icon-mylike', '\\e60d'],
+        ['icon-mybuy', '\\e60e'],
+        ['icon-recycle', '\\e60f'],
+        ['icon-mydesign', '\\e610'],
+        ['icon-mytemplate', '\\e611']
       ]
     }
   }
@@ -53,6 +54,7 @@ export default {
   width: 100%;
   display: block;
 }
-.iconfont-md-title {
+.iconfont-md-code {
+  margin-top: 10px;
 }
 </style>
