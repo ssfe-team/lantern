@@ -7,26 +7,13 @@
     >
       <p style="">1.测试内容测试内容测试内容测试内容测试内容测试内容测试内容测试内容测试内容</p>
       <br />
-      <br />
-      <br />
       <span style="display:inline-block; width: 400px; height:100px; background: linear-gradient(to right, blue, white); border: 1px solid black;"></span>
-      <br />
-      <br />
       <br />
       <p>2.测试内容测试内容测试内容测试内容测试内容测试内容测试内容测试内容测试内容</p>
       <br />
-      <br />
-      <br />
-      <br />
       <p>3.测试内容测试内容测试内容测试内容测试内容测试内容测试内容测试内容测试内容</p>
       <br />
-      <br />
-      <br />
-      <br />
       <p>4.测试内容测试内容测试内容测试内容测试内容测试内容测试内容测试内容测试内容</p>
-      <br />
-      <br />
-      <br />
       <br />
       <p>5.测试内容测试内容测试内容测试内容测试内容测试内容测试内容测试内容测试内容</p>
     </lt-scroll>
