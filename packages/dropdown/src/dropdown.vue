@@ -13,7 +13,7 @@
             <span class="sel-text" :title="da.sel">{{da.sel}}</span>
             <lt-icon-font class="icon-dropdown"></lt-icon-font>
         </div>
-        <transition name="dropdown-fade">
+         <lt-collapse-transition>
             <div class="drop-down-list"
                  v-show="currentVisible"
                  :style="{maxHeight: height + 'px', top: dropDownTop}"
@@ -30,10 +30,12 @@
                     <lt-icon-font v-if="item.sel" class="icon-tickcross"></lt-icon-font>
                 </div>
             </div>
-        </transition>
+        </lt-collapse-transition>
     </div>
 </template>
 <script>
+import LtCollapseTransition from 'lantern/src/transitions/collapse-transition';
+  
   export default {
     name: 'Dropdown',
     data () {
@@ -142,16 +144,9 @@
         this.$set(this.da, 'opt', arr)
         this.$set(this.da, 'sel', arr[index].des)
       }
+    },
+    components: {
+      LtCollapseTransition
     }
   }
 </script>
-
-<style lang="less" scoped>
-    .dropdown-fade-enter-active, .dropdown-fade-leave-active {
-        transition: opacity .5s;
-    }
-
-    .dropdown-fade-enter, .dropdown-fade-leave-active {
-        opacity: 0;
-    }
-</style>
