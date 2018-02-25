@@ -13,13 +13,14 @@
           :style="{
             'width': style.wrapWidth,
             'height': style.wrapHeight,
+            'padding-right': style.barWidth + 'px',
+            'padding-bottom': style.barHeight + 'px'
           }"
     >
       <div class="scroll-content" ref="inner"
           @scroll.stop="setScrollLeftTop"
           :style="{
-            'padding-right': style.barWidth + 'px',
-            'padding-bottom': style.barHeight + 'px'
+            
           }">
         <slot
           @scroll.stop=""
@@ -131,7 +132,9 @@ export default {
   mounted() {
     console.log(this.barStyle)
     Object.assign(this.style, this.barStyle);
-    this.getPercent();
+    this.$nextTick(() => {
+      this.getPercent();
+    });
   },
   watch: {
 
@@ -284,6 +287,7 @@ export default {
     height: 100%;
     overflow: hidden;
     position: relative;
+    box-sizing: border-box;
     &::-webkit-scrollbar {
       display: none;
     }
@@ -293,7 +297,6 @@ export default {
       width: 100%;
       height: 100%;
       overflow: auto;
-      box-sizing: border-box;
       position: relative;
       padding-top: 1px;
       padding-bottom: 1px;

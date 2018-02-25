@@ -68,7 +68,7 @@ Dropdown 组件支持自定义高度。
 ---|---|---|---|---|
 dData|要显示的列表项数据|Array|-|[]
 trigger|触发方式|String|hover/click|hover
-size|菜单高度|Number|-|28
+size|下拉框高度|Number|-|28
 height|下拉列表最大高度|Number|-|250
 
 #### dData 说明
