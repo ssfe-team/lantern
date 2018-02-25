@@ -13,7 +13,7 @@
             <span class="sel-text" :title="da.sel">{{da.sel}}</span>
             <lt-icon-font class="icon-dropdown"></lt-icon-font>
         </div>
-        <transition name="dropdown-fade">
+        <lt-collapse-transition>
             <div class="drop-down-list"
                  v-show="currentVisible"
                  :style="{maxHeight: height + 'px', top: dropDownTop}"
@@ -30,128 +30,127 @@
                     <lt-icon-font v-if="item.sel" class="icon-tickcross"></lt-icon-font>
                 </div>
             </div>
-        </transition>
+        </lt-collapse-transition>
     </div>
 </template>
 <script>
-  export default {
-    name: 'Dropdown',
-    data () {
+import LtCollapseTransition from 'lantern/src/transitions/collapse-transition'
+
+export default {
+  name: 'Dropdown',
+  data() {
+    return {
+      da: {
+        // 处理后的数据
+        sel: '请选择',
+        opt: []
+      },
+      currentVisible: false, // 是否显示列表
+      isAbove: false // 是否显示在下拉框的上方
+    }
+  },
+  props: {
+    dData: {
+      type: Array,
+      required: true,
+      default: () => {
+        return []
+      }
+    },
+    trigger: {
+      // 显示列表的触发方式
+      type: String,
+      default: 'hover'
+    },
+    size: {
+      // 下拉框高度
+      type: Number,
+      default: 28
+    },
+    height: {
+      // 自定义下拉列表高度，超出显示滚动条
+      type: Number,
+      default: 250
+    }
+  },
+  computed: {
+    dropDownTop() {
+      let height = this.dData.length * this.size
+      height = height < this.height ? height : this.height
+      let top = this.isAbove ? -(height + 2) : this.size + 2
+      return top + 'px'
+    },
+    itemStyle() {
       return {
-        da: { // 处理后的数据
-          sel: '请选择',
-          opt: []
-        },
-        currentVisible: false, // 是否显示列表
-        isAbove: false // 是否显示在下拉框的上方
+        height: this.size + 'px',
+        'line-height': this.size + 'px',
+        'font-size': this.fontSize + 'px'
       }
     },
-    props: {
-      dData: {
-        type: Array,
-        required: true,
-        default: () => {
-          return []
-        }
-      },
-      trigger: { // 显示列表的触发方式
-        type: String,
-        default: 'hover'
-      },
-      size: {
-        type: Number,
-        default: 28
-      },
-      height: { // 自定义下拉列表高度，超出显示滚动条
-        type: Number,
-        default: 250
-      }
-    },
-    computed: {
-      dropDownTop () {
-        let height = this.dData.length * this.size
-        height = height < this.height ? height : this.height
-        let top = this.isAbove ? -(height + 2) : (this.size + 2)
-        return top + 'px'
-      },
-      itemStyle () {
-        return {
-          'height': this.size + 'px',
-          'line-height': this.size + 'px',
-          'font-size': this.fontSize + 'px'
-        }
-      },
-      fontSize () {
-        return this.size / (28 / 12)
-      }
-    },
-    created () {
+    fontSize() {
+      return this.size / (28 / 12)
+    }
+  },
+  created() {
+    this.dealData()
+  },
+  watch: {
+    dData() {
       this.dealData()
     },
-    watch: {
-      dData () {
-        this.dealData()
-      },
-      currentVisible (v) {
-        if (v) {
-          let bottom = this.$refs.dropdown.getBoundingClientRect().bottom
-          this.isAbove = (document.body.clientHeight - bottom) < this.height
+    currentVisible(v) {
+      if (v) {
+        let bottom = this.$refs.dropdown.getBoundingClientRect().bottom
+        this.isAbove = document.body.clientHeight - bottom < this.height
+      }
+    }
+  },
+  methods: {
+    // 处理传入数据
+    dealData() {
+      Object.assign(this.da.opt, this.dData)
+      for (let i = 0, len = this.da.opt.length; i < len; i++) {
+        this.da.opt[i].des = this.da.opt[i].des ? this.da.opt[i].des : '未命名'
+
+        if (this.da.opt[i].sel) {
+          this.da.sel = this.da.opt[i].des
         }
       }
     },
-    methods: {
-      // 处理传入数据
-      dealData () {
-        Object.assign(this.da.opt, this.dData)
-        for (let i = 0, len = this.da.opt.length; i < len; i++) {
-          this.da.opt[i].des = this.da.opt[i].des ? this.da.opt[i].des : '未命名'
-
-          if (this.da.opt[i].sel) {
-            this.da.sel = this.da.opt[i].des
-          }
-        }
-      },
-      handleClick () {
-        if (this.trigger !== 'click') {
-          return false
-        }
-        this.currentVisible = !this.currentVisible
-      },
-      handleMouseenter () {
-        if (this.trigger !== 'hover') {
-          return false
-        }
-        this.currentVisible = true
-      },
-      handleMouseleave () {
-        if (this.trigger !== 'hover') {
-          return false
-        }
-        this.currentVisible = false
-      },
-      // 处理列表项点击
-      handleItemClick (item, index) {
-        if (item.dis) return
-        let arr = []
-        for (let i = 0; i < this.da.opt.length; i++) {
-          arr[i] = this.da.opt[i]
-          arr[i].sel = i === index
-        }
-        this.currentVisible = false
-        this.$emit('select', this.da.opt[index])
-        this.$set(this.da, 'opt', arr)
-        this.$set(this.da, 'sel', arr[index].des)
+    handleClick() {
+      if (this.trigger !== 'click') {
+        return false
       }
+      this.currentVisible = !this.currentVisible
+    },
+    handleMouseenter() {
+      if (this.trigger !== 'hover') {
+        return false
+      }
+      this.currentVisible = true
+    },
+    handleMouseleave() {
+      if (this.trigger !== 'hover') {
+        return false
+      }
+      this.currentVisible = false
+    },
+    // 处理列表项点击
+    handleItemClick(item, index) {
+      if (item.dis) return
+      let arr = []
+      for (let i = 0; i < this.da.opt.length; i++) {
+        arr[i] = this.da.opt[i]
+        arr[i].sel = i === index
+      }
+      this.currentVisible = false
+      this.$emit('select', this.da.opt[index])
+      this.$set(this.da, 'opt', arr)
+      this.$set(this.da, 'sel', arr[index].des)
     }
+  },
+  components: {
+    LtCollapseTransition
   }
+}
 </script>
-
-<style lang="less" scoped>
-    .dropdown-fade-enter-active, .dropdown-fade-leave-active {
-        transition: opacity .5s;
-    }
-
-    .dropdown-fade-enter, .dropdown-fade-leave-active {
-        opacity: 0;
-    }
-</style>

@@ -3,15 +3,14 @@
   position: relative;
   display: inline-block;
   padding: 0 0 0 16px;
-  border: #ECECEC solid 1px;
+  border: @comColor5 solid 1px;
   cursor: pointer;
-
   .drop-down-sel {
     position: relative;
     height: 28px;
     line-height: 28px;
     font-size: 12px;
-    color: #4A4A4A;
+    color: @comColor1;
     .sel-text {
       display: inline-block;
       width: 83%;
@@ -25,7 +24,6 @@
       z-index: 2;
     }
   }
-
   .drop-down-list {
     position: absolute;
     top: 32px;
@@ -33,40 +31,36 @@
     width: 100%;
     max-height: 250px;
     overflow: auto;
-    background: #FFFFFF;
+    background: @comColor7;
     box-shadow: 0 1px 4px 0 rgba(0, 0, 0, .08);
     z-index: 2;
-
     .drop-down-list-option {
       position: relative;
       height: 32px;
       padding: 0 32px 0 16px;
-      background: #fff;
-      color: #4A4A4A;
+      background: @comColor7;
+      color: @comColor2;
       font-size: 12px;
       line-height: 32px;
       cursor: pointer;
       overflow: hidden;
       text-overflow: ellipsis;
       white-space: nowrap;
-
       &:hover {
-        background: #F2F2F2;
+        background: @comColor6;
       }
-
       &:active {
-        background: #F3F3F3;
+        background: @comColor6;
       }
-
       &[class~='disabled'] {
         cursor: default;
-        color: #CDCDCD;
-        background: #FAFAFA;
-
-        &:hover, &:active {
+        color: @comColor4;
+        background: @comColor6;
+        &:hover,
+        &:active {
           cursor: default;
-          color: #CDCDCD;
-          background: #FAFAFA;
+          color: @comColor4;
+          background: @comColor6;
           font-weight: normal;
           &:after {
             display: none;
