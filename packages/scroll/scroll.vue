@@ -19,11 +19,8 @@
     >
       <div class="scroll-content" ref="inner"
           @scroll.stop="setScrollLeftTop"
-          :style="{
-            
-          }">
+      >
         <slot
-          @scroll.stop=""
           @scrollReload="scrollReload"
         ></slot>
       </div>
@@ -45,7 +42,7 @@
               'background-color': style.barColor,
               'width': style.barWidth + 'px',
               'opacity': style.barOpacityInactive,
-              'height': barHPercent * 100 + '%',
+              'height': rightBarHeight + 'px',
               'top': barTop + 'px'
               }"
         ></div>
@@ -66,7 +63,7 @@
               :class="{'bottom-bar-active': bottomActive}"
               :style="{
                 'background-color': style.barColor,
-                'width': barWPercent * 100 + '%',
+                'width': bottomBarWidth + 'px',
                 'opacity': style.barOpacityInactive,
                 'height': style.barHeight + 'px',
                 'left': barLeft + 'px'
@@ -115,8 +112,8 @@ export default {
       innerHeight: 0,
       innerWidth: 0,
       // 滚动条的宽高
-      barHPercent: 0,
-      barWPercent: 0,
+      rightBarHeight: 0,
+      bottomBarWidth: 0,
 
       // 内容的滚动距离
       scrollTop: 0,
@@ -133,7 +130,7 @@ export default {
     console.log(this.barStyle)
     Object.assign(this.style, this.barStyle);
     this.$nextTick(() => {
-      this.getPercent();
+      this.scrollReload();
     });
   },
   watch: {
@@ -142,11 +139,11 @@ export default {
   computed: {
     barTop() {
       let percent = this.scrollTop / (this.innerHeight - this.wrapHeight);
-      return (1 - this.barHPercent) * this.wrapHeight * percent;
+      return (this.wrapHeight - this.rightBarHeight) * percent;
     },
     barLeft() {
       let percent = this.scrollLeft / (this.innerWidth - this.wrapWidth);
-      return (1 - this.barWPercent) * this.wrapWidth * percent;
+      return (this.wrapWidth - this.bottomBarWidth) * percent;
     }
   },
   methods: {
@@ -171,16 +168,15 @@ export default {
       this.innerHeight = slotnode.scrollHeight;
       this.innerWidth = slotnode.scrollWidth;
       if(this.wrapHeight < this.innerHeight) {
-        this.barHPercent = this.wrapHeight / this.innerHeight;
+        this.rightBarHeight = this.wrapHeight / this.innerHeight * this.wrapHeight;
         this.rightBarShow = true;
       }
       if(this.wrapWidth < this.innerWidth) {
-        this.barWPercent = this.wrapHeight / this.innerWidth;
+        this.bottomBarWidth = this.wrapWidth / this.innerWidth * this.wrapWidth;
         this.bottomBarShow = true;
       }
     },
     setScrollLeftTop(eve) {
-      // let node = eve ? eve.target : this.$slots.default[0]['elm'];
       let node = eve ? eve.target : this.$refs.inner;
       if(this.scrollTop != node.scrollTop) {
         this.rightActive = true;
@@ -205,15 +201,15 @@ export default {
           move,
           newTop,
           percent,
-          scrollTop;
+          scrollTop,
+          oldTop = this.barTop;
       let nodeMousemove = (eve) => {
         nowY = eve.clientY;
         move = nowY - startY;
-        startY = eve.clientY;
-        newTop = this.barTop + move;
+        newTop = oldTop + move;
         newTop = newTop < 0 ? 0 : newTop;
-        newTop = newTop > (1 - this.barHPercent) * this.wrapHeight ? (1 - this.barHPercent) * this.wrapHeight : newTop;
-        percent = newTop / ((1 - this.barHPercent) * this.wrapHeight);
+        newTop = newTop > this.wrapHeight - this.rightBarHeight ? this.wrapHeight - this.rightBarHeight : newTop;
+        percent = newTop / (this.wrapHeight - this.rightBarHeight);
         scrollTop = (this.innerHeight - this.wrapHeight) * percent;
         this.$refs.inner.scrollTop = scrollTop;
         this.scrollTop = scrollTop;
@@ -242,15 +238,15 @@ export default {
           move,
           newLeft,
           percent,
-          scrollLeft;
+          scrollLeft,
+          oldLeft = this.barLeft;
       let nodeMousemove = (eve) => {
         nowX = eve.clientX;
         move = nowX - startX;
-        startX = eve.clientX;
-        newLeft = this.barLeft + move;
+        newLeft = oldLeft + move;
         newLeft = newLeft < 0 ? 0 : newLeft;
-        newLeft = newLeft > (1 - this.barWPercent) * this.wrapWidth ? (1 - this.barWPercent) * this.wrapWidth : newLeft;
-        percent = newLeft / ((1 - this.barWPercent) * this.wrapWidth);
+        newLeft = newLeft > this.wrapWidth - this.bottomBarWidth ? this.wrapWidth - this.bottomBarWidth : newLeft;
+        percent = newLeft / (this.wrapWidth - this.bottomBarWidth);
         scrollLeft = (this.innerWidth - this.wrapWidth) * percent;
         this.$refs.inner.scrollLeft = scrollLeft;
         this.scrollLeft = scrollLeft;
@@ -298,8 +294,9 @@ export default {
       height: 100%;
       overflow: auto;
       position: relative;
-      padding-top: 1px;
-      padding-bottom: 1px;
+      padding: 0px;
+      // padding-top: 1px;
+      // padding-bottom: 1px;
       &::-webkit-scrollbar {
         display: none;
       }
