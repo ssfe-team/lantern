@@ -55,7 +55,6 @@
 ### 路由模式下routePath的一个栗子
 
 ```javascript
-
 import Vue from 'vue'
 Vue.component('', {
   methods: {
@@ -69,7 +68,6 @@ Vue.component('', {
     }
   }
 })
-
 ```
 
 ::::vuecode::::
