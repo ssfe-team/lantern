@@ -119,7 +119,17 @@
       },
     },
     watch: {
-      count: function () {
+      count () {
+        this.numbers = []
+        for (let i = 1; i <= this.count; i++) {
+          this.numbers.push({
+            content: i,
+            style: i == this.current ? {active: true} : {active: false},
+            router: typeof this.routePath === 'function' && this.routePath(i),
+          })
+        }
+      },
+      routePath () {
         this.numbers = []
         for (let i = 1; i <= this.count; i++) {
           this.numbers.push({
