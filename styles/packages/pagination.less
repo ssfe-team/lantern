@@ -1,3 +1,5 @@
+@import "./colors";
+
 .paging{
   height: 32px;
   //width: 370px;
@@ -19,17 +21,15 @@
     width: 106px;
     height:100%;
     float: left;
-    //border-radius: 4px;
-    //overflow: hidden;
     margin-right: 8px;
 
     &:hover{
       z-index: 1;
-      background: #FFFFff;
+      background: @comColor7;
       box-shadow: 0 2px 8px 0 rgba(7,174,252,.16);
 
       input{
-        background: #FFFFff;
+        background: @comColor7;
         box-shadow: 0 2px 8px 0 rgba(7,174,252,.16);
       }
     }
@@ -56,36 +56,36 @@
         margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
       }
       &::-webkit-input-placeholder { /* WebKit browsers */
-        color:#CDCDCD;
+        color:@comColor4;
       }
       &:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
-        color:#CDCDCD;
+        color:@comColor4;
       }
       &:-moz-placeholder { /* Mozilla Firefox 19+ */
-        color:#CDCDCD;
+        color:@comColor4;
       }
       &:-ms-input-placeholder { /* Internet Explorer 10+ */
-        color:#CDCDCD;
+        color:@comColor4;
       }
 
       &:hover{
         z-index: 1;
-        background: #FFFFff;
+        background: @comColor7;
         box-shadow: 0 2px 8px 0 rgba(7,174,252,.16);
       }
 
       &[class~='active']{
-        background: #FFFFff;
+        background: @comColor7;
         box-shadow: 0 2px 8px 0 rgba(7,174,252,.16);
       }
 
       &:focus{
         z-index: 1;
-        background: #FFFFff;
+        background: @comColor7;
         box-shadow: 0 2px 8px 0 rgba(7,174,252,.16);
         outline: none;
         &+span{
-          color: #626262;
+          color: @comColor2;
         }
       }
     }
@@ -109,13 +109,13 @@
 
       &:hover{
         z-index: 1;
-        background: #FFFFff;
-        color: #07AEFC;
+        background: @comColor7;
+        color: @mainColor1;
       }
       &:active{
         z-index: 1;
-        background: #07AEFC;
-        color: #ffffff;
+        background: @mainColor1;
+        color: @comColor7;
       }
     }
   }
@@ -147,27 +147,27 @@
         left:9px;
         top:7px;
         &:before{
-          color: #9B9B9B;
+          color: @comColor3;
         }
 
       }
     }
     .prev{
       &:hover{
-        background: #ffffff;
+        background: @comColor7;
         box-shadow: 0 2px 8px 0 rgba(0,0,0,.04);
         &>i:before{
-          color: #07AEFC;
+          color: @mainColor1;
         }
       }
     }
     .next{
 
       &:hover{
-        background: #ffffff;
+        background: @comColor7;
         box-shadow: 0 2px 8px 0 rgba(0,0,0,.04);
         &>i:before{
-          color: #07AEFC;
+          color: @mainColor1;
         }
       }
     }
@@ -197,7 +197,7 @@
 
           a{
             font-weight: bold;
-            color: #07AEFC;
+            color: @mainColor1;
           }
 
         }
