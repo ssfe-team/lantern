@@ -24,133 +24,93 @@
 </template>
 
 <script type="text/babel">
-  const typeMap = {
-    success: 'confirm',
-    info: 'details',
-    warning: 'details',
-    error: 'cancel'
-  }
+const typeMap = {
+  success: 'confirm',
+  info: 'details',
+  warning: 'details',
+  error: 'cancel'
+}
 
-  export default {
-    name: 'Message',
-    data () {
-      return {
-        visible: false,
-        message: '',
-        duration: 3000,
-        type: 'info',
-        iconClass: '',
-        customClass: '',
-        onClose: null,
-        showClose: false,
-        closed: false,
-        timer: null,
-        dangerouslyUseHTMLString: false,
-        center: false
+export default {
+  name: 'Message',
+  data() {
+    return {
+      visible: false,
+      message: '',
+      duration: 3000,
+      type: 'info',
+      iconClass: '',
+      customClass: '',
+      onClose: null,
+      showClose: false,
+      closed: false,
+      timer: null,
+      dangerouslyUseHTMLString: false,
+      center: false
+    }
+  },
+
+  props: {},
+
+  computed: {
+    typeClass() {
+      return this.type && !this.iconClass
+        ? `lt-message__icon icon-${typeMap[this.type]}`
+        : ''
+    }
+  },
+
+  watch: {
+    closed(newVal) {
+      if (newVal) {
+        this.visible = false
+        this.$el.addEventListener('transitionend', this.destroyElement)
+      }
+    }
+  },
+
+  methods: {
+    destroyElement() {
+      this.$el.removeEventListener('transitionend', this.destroyElement)
+      this.$destroy(true)
+      this.$el.parentNode.removeChild(this.$el)
+    },
+
+    close() {
+      this.closed = true
+      if (typeof this.onClose === 'function') {
+        this.onClose(this)
       }
     },
 
-    props: {},
-
-    computed: {
-      typeClass () {
-        return this.type && !this.iconClass
-          ? `lt-message__icon icon-${ typeMap[this.type] }`
-          : ''
-      }
+    clearTimer() {
+      clearTimeout(this.timer)
     },
 
-    watch: {
-      closed (newVal) {
-        if (newVal) {
-          this.visible = false
-          this.$el.addEventListener('transitionend', this.destroyElement)
-        }
-      }
-    },
-
-    methods: {
-      destroyElement () {
-        this.$el.removeEventListener('transitionend', this.destroyElement)
-        this.$destroy(true)
-        this.$el.parentNode.removeChild(this.$el)
-      },
-
-      close () {
-        this.closed = true
-        if (typeof this.onClose === 'function') {
-          this.onClose(this)
-        }
-      },
-
-      clearTimer () {
-        clearTimeout(this.timer)
-      },
-
-      startTimer () {
-        if (this.duration > 0) {
-          this.timer = setTimeout(() => {
-            if (!this.closed) {
-              this.close()
-            }
-          }, this.duration)
-        }
-      },
-      keydown (e) {
-        if (e.keyCode === 27) { // esc关闭消息
+    startTimer() {
+      if (this.duration > 0) {
+        this.timer = setTimeout(() => {
           if (!this.closed) {
             this.close()
           }
-        }
+        }, this.duration)
       }
     },
-    mounted () {
-      this.startTimer()
-      document.addEventListener('keydown', this.keydown)
-    },
-    beforeDestroy () {
-      document.removeEventListener('keydown', this.keydown)
+    keydown(e) {
+      if (e.keyCode === 27) {
+        // esc关闭消息
+        if (!this.closed) {
+          this.close()
+        }
+      }
     }
+  },
+  mounted() {
+    this.startTimer()
+    document.addEventListener('keydown', this.keydown)
+  },
+  beforeDestroy() {
+    document.removeEventListener('keydown', this.keydown)
   }
+}
 </script>
-
-<style lang="less" scoped>
-    .lt-message {
-        position: fixed;
-        top: 40px;
-        left: 50%;
-        transform: translateX(-50%);
-        display: inline-block;
-        height: 40px;
-        background-color: #fff;
-        //border-radius: 4px;
-        box-shadow: 0 1px 4px 0 rgba(0, 0, 0, .08);
-        z-index: 100010;
-
-        .lt-message__icon {
-            display: inline-block;
-            width: 16px;
-            height: 16px;
-            margin: 12px 16px 12px 24px;
-            float: left;
-        }
-
-        .lt-message__content {
-            display: inline-block;
-            float: left;
-            font-size: 14px;
-            color: #4A4A4A;
-            margin: 13px 24px 13px 0;
-        }
-
-    }
-
-    .lt-message-fade-enter-active, .lt-message-fade-leave-active {
-        transition: opacity .5s, transform .5s;
-    }
-
-    .lt-message-fade-enter, .lt-message-fade-leave-active {
-        opacity: 0;
-        transform: translate(-50%, -24px);
-    }
-</style>

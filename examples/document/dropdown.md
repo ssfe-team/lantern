@@ -68,7 +68,7 @@ Dropdown 组件支持自定义高度。
 ---|---|---|---|---|
 dData|要显示的列表项数据|Array|-|[]
 trigger|触发方式|String|hover/click|hover
-size|菜单高度|Number|-|28
+size|下拉框高度|Number|-|28
 height|下拉列表最大高度|Number|-|250
 
 #### dData 说明
@@ -79,16 +79,16 @@ des|列表中将要显示的名称|String|-
 dis|禁用该项|Boolean|false
 
 注：传入`dData`前须对其每个元素增加一个名称为`des`的属性，其值为列表中将要显示的名称，例：
-```html
+```js
 dData: [
-          {
-            des: '测试1'
-          },
-          {
-            des: '测试2',
-            dis: true // 禁用
-          }
-        ]
+  {
+    des: '测试1'
+  },
+  {
+    des: '测试2',
+    dis: true // 禁用
+  }
+]
 ```
 
 #### Dropdown events

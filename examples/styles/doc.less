@@ -23,6 +23,9 @@
       border-radius: 3px;
     }
   }
+  pre {
+    margin: 0px;
+  }
   blockquote {
     border-left: 2px solid #07aefc;
     padding: 1px;
@@ -55,9 +58,28 @@
     }
   }
 }
-.hljs-html {
+.hljs-html, .hljs-js{
+  position: relative;
   line-height: 1.5em;
+  display: block;
+  margin: 0px;
+  padding: 20px 15px 12px;
+  background-color: #FAFAFA;
+  &::before {
+    color: #9B9B9B;
+    position: absolute;
+    top: 5px;
+    right: 15px;
+  }
 }
+
+.hljs-html::before {
+  content: 'html';
+}
+.hljs-js::before {
+  content: 'javascript';
+}
+
 .hljs-built_in, .hljs-doctag, .hljs-keyword, .hljs-name, .hljs-section, .hljs-selector-class, .hljs-selector-id, .hljs-selector-tag, .hljs-strong, .hljs-tag, .hljs-title, .hljs-type {
   color: #3182bd;
 }
