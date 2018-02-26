@@ -1,6 +1,6 @@
 # lantern
 
-### 基于 Vue.js 的UI库
+### 基于 Vue.js 的前端UI库
 
 ## Install
 ```shell
