@@ -1,0 +1,79 @@
+.lt-select {
+  width: 150px;
+  position: relative;
+  display: inline-block;
+  padding: 0 0 0 16px;
+  border: @comColor5 solid 1px;
+  cursor: pointer;
+}
+.lt-select__link {
+  position: relative;
+  height: 28px;
+  line-height: 28px;
+  font-size: 12px;
+  color: @comColor1;
+}
+.lt-select__selected-text {
+  display: inline-block;
+  width: 83%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.lt-select__icon-dropdown {
+  position: absolute;
+  right: 0;
+  z-index: 2;
+}
+.lt-select__list {
+  position: absolute;
+  top: 32px;
+  left: 0;
+  width: 100%;
+  max-height: 250px;
+  overflow: auto;
+  background: @comColor7;
+  box-shadow: 0 1px 4px 0 rgba(0, 0, 0, .08);
+  z-index: 2;
+}
+.lt-select__list-option {
+  position: relative;
+  height: 32px;
+  padding: 0 32px 0 16px;
+  background: @comColor7;
+  color: @comColor2;
+  font-size: 12px;
+  line-height: 32px;
+  cursor: pointer;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  &:hover {
+    background: @comColor6;
+  }
+  &:active {
+    background: @comColor6;
+  }
+  &[class~='disabled'] {
+    cursor: default;
+    color: @comColor4;
+    background: @comColor6;
+    &:hover,
+    &:active {
+      cursor: default;
+      color: @comColor4;
+      background: @comColor6;
+      font-weight: normal;
+      &:after {
+        display: none;
+      }
+    }
+  }
+}
+.lt-select__option-title {
+  width: 20px;
+}
+.lt-select__icon-tickcross {
+  position: absolute;
+  right: 16px;
+}
