@@ -14,6 +14,21 @@
 
 ::: demo demo
 ```html
+  <lt-menu :mode="'horizontal'">
+    <lt-menu-item :href="'#1'"><span>导航1</span></lt-menu-item>
+    <lt-menu-item :href="'#2'"><span>导航2</span></lt-menu-item>
+    <lt-menu-item @itemClick="itemClick"><span>导航3</span></lt-menu-item>
+    <lt-menu-item-select>
+        <span slot="title">导航4</span>
+        <lt-menu-item :href="'#4-1'"><span>导航4-1</span></lt-menu-item>
+        <lt-menu-item :href="'#4-2'"><span>导航4-2</span></lt-menu-item>
+      </lt-menu-item-select>
+  </lt-menu>
+```
+:::
+
+::: demo demo
+```html
   <lt-menu>
     <lt-menu-item-group :title="'导航组1'">
       <lt-menu-item :href="'#1'"><span>导航1</span></lt-menu-item>
@@ -48,6 +63,7 @@
 参数|说明|类型|可选值|默认值
 --------|--------|--------|--------|--------
 accordion|是否开启手风琴模式（一次只能打开一个子菜单）|Boolean|-|false
+mode|menu垂直还是水平|String|horizontal / vertical|vertical
 
 ### MenuItemGroup参数
 参数|说明|类型|可选值|默认值
