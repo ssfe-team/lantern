@@ -1,7 +1,7 @@
 <template>
   <li class="lt-menu-item-group">
-    <div class="lt-menu-item-group-title">{{title}}</div>
-    <ul class="lt-menu-item-group-content"><slot></slot></ul>
+    <div class="lt-menu-group__title">{{title}}</div>
+    <ul class="lt-menu-group__content"><slot></slot></ul>
   </li>
 </template>
 <script>

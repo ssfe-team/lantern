@@ -1,5 +1,5 @@
 <template>
-  <i class="iconfont"></i>
+  <i class="lt-iconfont"></i>
 </template>
 <script>
 export default {
