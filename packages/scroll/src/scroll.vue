@@ -7,7 +7,7 @@
           'padding-bottom': style.barHeight + 'px'
         }"
   > -->
-    <div  class="scroll-container"
+    <div  class="lt-scroll__container"
           ref="wrap"
           @scroll.stop=""
           :style="{
@@ -17,14 +17,14 @@
             'padding-bottom': style.barHeight + 'px'
           }"
     >
-      <div class="scroll-content" ref="inner"
+      <div class="lt-scroll__content" ref="inner"
           @scroll.stop="setScrollLeftTop"
       >
         <slot
           @scrollReload="scrollReload"
         ></slot>
       </div>
-      <div  class="scroll-track scroll-right"
+      <div  class="lt-scroll__track lt-scroll__track--right"
             v-if="rightBarShow"
             :style="{
               'background-color': style.trackColor,
@@ -33,11 +33,11 @@
               'zIndex': style.zIndex,
               'border-radius': style.barWidth / 2 + 'px'
             }"
-            :class="{'auto-hide': style.autoHide && !barMousedown}"
+            :class="{'lt-scroll__track--auto-hide': style.autoHide && !barMousedown}"
             @mousedown.stop="rightMousedown"
       >
-        <div  class="scroll-bar"
-              :class="{'right-bar-active': rightActive}"
+        <div  class="lt-scroll__bar lt-scroll__bar--right"
+              :class="{'lt-scroll__bar--active': rightActive}"
               :style="{
               'background-color': style.barColor,
               'width': style.barWidth + 'px',
@@ -47,7 +47,7 @@
               }"
         ></div>
       </div>
-      <div  class="scroll-track scroll-bottom"
+      <div  class="lt-scroll__track lt-scroll__track--bottom"
             v-if="bottomBarShow"
             :style="{
               'background-color': style.trackColor,
@@ -56,11 +56,11 @@
               'zIndex': style.zIndex,
               'border-radius': style.barHeight / 2 + 'px'
             }"
-            :class="{'auto-hide': style.autoHide && !barMousedown}"
+            :class="{'lt-scroll__track--auto-hide': style.autoHide && !barMousedown}"
             @mousedown.stop="bottomMousedown"
       >
-        <div  class="scroll-bar"
-              :class="{'bottom-bar-active': bottomActive}"
+        <div  class="lt-scroll__bar lt-scroll__bar--bottom"
+              :class="{'lt-scroll__bar--active': bottomActive}"
               :style="{
                 'background-color': style.barColor,
                 'width': bottomBarWidth + 'px',
@@ -73,6 +73,11 @@
     </div>
   <!-- </div> -->
 </template>
+
+<style lang="less">
+  @import "../../../styles/packages/scroll.less";
+</style>
+
 <script>
 export default {
   name: 'Scroll',
@@ -101,6 +106,8 @@ export default {
       // 下侧滚动条激活状态
       bottomActive: false,
       activeClock: null,
+      rightActiveClock: null,
+      bottomActiveClock: null,
       activeClockDelay: 800,
 
       wrapSize: {},
@@ -216,14 +223,14 @@ export default {
       }
 
       this.barMousedown = true;
-      clearTimeout(this.activeClock);
+      clearTimeout(this.rightActiveClock);
       this.rightBarShow = true;
 
       let nodeMouseup = () => {
         window.removeEventListener('mousemove', nodeMousemove);
         window.removeEventListener('mouseup', nodeMouseup);
         this.barMousedown = false;
-        this.activeClock = setTimeout(() => {
+        this.rightActiveClock = setTimeout(() => {
           this.rightActive = false;
         }, this.activeClockDelay);
       }
@@ -253,14 +260,14 @@ export default {
       }
 
       this.barMousedown = true;
-      clearTimeout(this.activeClock);
+      clearTimeout(this.bottomActiveClock);
       this.bottomActive = true;
 
       let nodeMouseup = () => {
         window.removeEventListener('mousemove', nodeMousemove);
         window.removeEventListener('mouseup', nodeMouseup);
         this.barMousedown = false;
-        this.activeClock = setTimeout(() => {
+        this.bottomActiveClock = setTimeout(() => {
           this.bottomActive = false;
         }, this.activeClockDelay);
       }
@@ -271,101 +278,3 @@ export default {
   }
 }
 </script>
-
-<style lang="less" scoped>
-// .scroll-wrap {
-//   width: 100%;
-//   height: 100%;
-//   overflow: hidden;
-//   position: relative;
-  .scroll-container {
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
-    position: relative;
-    box-sizing: border-box;
-    &::-webkit-scrollbar {
-      display: none;
-    }
-    .scroll-content {
-      // border-right: 20px solid transparent;
-      // border-bottom: 20px solid transparent;
-      width: 100%;
-      height: 100%;
-      overflow: auto;
-      position: relative;
-      padding: 0px;
-      // padding-top: 1px;
-      // padding-bottom: 1px;
-      &::-webkit-scrollbar {
-        display: none;
-      }
-      &::-moz-scrollbar {
-        display: none;
-      }
-      &::-o-scrollbar {
-        display: none;
-      }
-    }
-    .scroll-track {
-      background-color: #eee;
-      opacity: 1;
-      position: absolute;
-      transition: opacity .34s ease-out;
-      -webkit-transition: opacity .34s ease-out;
-      &[class~="auto-hide"] {
-        opacity: 0;
-      }
-      .scroll-bar {
-        opacity: 0.3;
-        position: relative;
-        display: block;
-        cursor: pointer;
-        border-radius: inherit;
-        background-color: #959595;
-        transition: opacity .34s ease-out;
-        -webkit-transition: opacity .34s ease-out;
-        -moz-transition: opacity .34s ease-out;
-        -o-transition: opacity .34s ease-out;
-      }
-    }
-    &:hover {
-      .scroll-track {
-        opacity: 1;
-      }
-    }
-    .scroll-right {
-      width: 6px;
-      top: 0;
-      bottom: 0;
-      right: 0;
-      .scroll-bar {
-        width: 6px;
-        transform: translateY(0%);
-        &:hover {
-          opacity: 0.8 !important;
-        }
-        &[class~="right-bar-active"] {
-          opacity: 0.8 !important;
-        }
-      }
-    }
-    .scroll-bottom {
-      height: 6px;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      .scroll-bar {
-        height: 6px;
-        transform: translateX(0%);
-        &:hover {
-          opacity: 0.8 !important;
-        }
-        &[class~="bottom-bar-active"] {
-          opacity: 0.8 !important;
-        }
-      }
-    }
-  }
-// }
-</style>

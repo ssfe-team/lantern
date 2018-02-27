@@ -5,9 +5,9 @@
     <lt-scroll
       :barStyle="{wrapWidth: '300px', wrapHeight: '200px'}"
     >
+      <span style="display:inline-block; width: 400px; height:60px; background: linear-gradient(to right, blue, white); border: 1px solid black;"></span>
       <p style="">1.测试内容测试内容测试内容测试内容测试内容测试内容测试内容测试内容测试内容</p>
       <br />
-      <span style="display:inline-block; width: 400px; height:100px; background: linear-gradient(to right, blue, white); border: 1px solid black;"></span>
       <br />
       <p>2.测试内容测试内容测试内容测试内容测试内容测试内容测试内容测试内容测试内容</p>
       <br />
@@ -16,6 +16,7 @@
       <p>4.测试内容测试内容测试内容测试内容测试内容测试内容测试内容测试内容测试内容</p>
       <br />
       <p>5.测试内容测试内容测试内容测试内容测试内容测试内容测试内容测试内容测试内容</p>
+      <span style="display:inline-block; width: 400px; height:60px; background: linear-gradient(to right, blue, white); border: 1px solid black;"></span>
     </lt-scroll>
 ```
 :::
