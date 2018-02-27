@@ -2,7 +2,7 @@
  * @Author: bianhao 
  * @Date: 2018-01-15 18:16:28 
  * @Last Modified by: bianhao
- * @Last Modified time: 2018-02-26 17:44:18
+ * @Last Modified time: 2018-02-27 11:17:31
  */
 .lt-menu-item {
   padding-left: 48px;
@@ -25,7 +25,7 @@
   }
 }
 
-.lt-menu-item-select-title {
+.lt-menu-select__title {
   padding-left: 48px;
   padding-right: 48px;
   line-height: 36px;
@@ -35,22 +35,22 @@
     color: @mainColor1;
     background-color: @comColor5;
   }
-  .iconfont {
+  .lt-iconfont {
     font-size: 12px;
     float: right;
     transition: transform .5s;
   }
 }
 
-.lt-menu-item-select-opend .lt-menu-item-select-title {
+.lt-menu-select--opend .lt-menu-select__title {
   color: @mainColor1;
   background-color: @comColor5;
-  .iconfont {
+  .lt-iconfont {
     transform: rotate(180deg);  
   }
 }
 
-.lt-menu-item-select-content {
+.lt-menu-select__content {
   overflow: hidden;
   .lt-menu-item {
     padding-left: 84px;
@@ -63,7 +63,7 @@
   }
 }
 
-.lt-menu-item-group-title {
+.lt-menu-group__title {
   color: @comColor3;
   padding-left: 36px;
   line-height: 24px;

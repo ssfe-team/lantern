@@ -7,7 +7,7 @@
   url('iconfont.svg?t=1517837465583#iconfont') format('svg'); /* iOS 4.1- */
 }
 
-.iconfont {
+.lt-iconfont {
   font-family:"iconfont" !important;
   font-size:16px;
   font-style:normal;
@@ -15,31 +15,30 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-.icon-signout:before { content: "\e604"; }
+.lt-iconfont.icon-signout:before { content: "\e604"; }
 
-.icon-confirm:before { content: "\e605"; }
+.lt-iconfont.icon-confirm:before { content: "\e605"; }
 
-.icon-details:before { content: "\e606"; }
+.lt-iconfont.icon-details:before { content: "\e606"; }
 
-.icon-cancel:before { content: "\e607"; }
+.lt-iconfont.icon-cancel:before { content: "\e607"; }
 
-.icon-dropdown:before { content: "\e608"; }
+.lt-iconfont.icon-dropdown:before { content: "\e608"; }
 
-.icon-close:before { content: "\e609"; }
+.lt-iconfont.icon-close:before { content: "\e609"; }
 
-.icon-tickcross:before { content: "\e60a"; }
+.lt-iconfont.icon-tickcross:before { content: "\e60a"; }
 
-.icon-right:before { content: "\e60b"; }
+.lt-iconfont.icon-right:before { content: "\e60b"; }
 
-.icon-left:before { content: "\e60c"; }
+.lt-iconfont.icon-left:before { content: "\e60c"; }
 
-.icon-mydesign:before { content: "\e60d"; }
+.lt-iconfont.icon-mydesign:before { content: "\e60d"; }
 
-.icon-recycle:before { content: "\e60e"; }
+.lt-iconfont.icon-recycle:before { content: "\e60e"; }
 
-.icon-mybuy:before { content: "\e60f"; }
+.lt-iconfont.icon-mybuy:before { content: "\e60f"; }
 
-.icon-mylike:before { content: "\e610"; }
+.lt-iconfont.icon-mylike:before { content: "\e610"; }
 
-.icon-mytemplate:before { content: "\e611"; }
-
+.lt-iconfont.icon-mytemplate:before { content: "\e611"; }

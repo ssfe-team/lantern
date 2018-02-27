@@ -1,11 +1,11 @@
 <template>
-  <li class="lt-menu-item-select" :class="{'lt-menu-item-select-opend': opend}" @click="opend = !opend">
-    <div class="lt-menu-item-select-title" @click="titleClick">
+  <li class="lt-menu-select" :class="{'lt-menu-select--opend': opend}" @click="opend = !opend">
+    <div class="lt-menu-select__title" @click="titleClick">
       <slot name="title"></slot>
       <lt-icon-font class="icon-dropdown"></lt-icon-font>
     </div>
     <lt-collapse-transition>
-      <ul class="lt-menu-item-select-content" v-show="opend" ref="childContent" @click.stop>
+      <ul class="lt-menu-select__content" v-show="opend" ref="childContent" @click.stop>
         <slot></slot>
       </ul>
     </lt-collapse-transition>
