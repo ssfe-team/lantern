@@ -1,33 +1,33 @@
 <!--Created by suti(https://github.com/suti), modified by Chuanfeng(https://github.com/ChuanfengZhang)-->
 <template>
     <div ref="dropdown"
-         class="lt-drop-down"
+         class="lt-select"
          :class="{poped: currentVisible, above: isAbove}"
          @click="handleClick"
          @mouseleave="handleMouseleave"
     >
-        <div class="lt-drop-down__link"
+        <div class="lt-select__link"
              :style="itemStyle"
              @mouseenter="handleMouseenter"
         >
-            <span class="lt-drop-down__selected-text" :title="da.sel">{{da.sel}}</span>
-            <lt-icon-font class="lt-drop-down__icon-dropdown icon-dropdown"></lt-icon-font>
+            <span class="lt-select__selected-text" :title="da.sel">{{da.sel}}</span>
+            <lt-icon-font class="lt-select__icon-dropdown icon-dropdown"></lt-icon-font>
         </div>
         <lt-collapse-transition>
-            <div class="lt-drop-down__list"
+            <div class="lt-select__list"
                  v-show="currentVisible"
                  :style="{maxHeight: height + 'px', top: dropDownTop}"
             >
                 <div
-                        class="lt-drop-down__list-option"
+                        class="lt-select__list-option"
                         v-for="(item, index) in da.opt"
                         :key="index"
                         :class="{disabled:item.dis, selected:item.sel}"
                         :style="itemStyle"
                         @click.stop="handleItemClick(item, index)"
                 >
-                    <span class="lt-drop-down__option-title" :title="item.des">{{item.des}}</span>
-                    <lt-icon-font v-if="item.sel" class="lt-drop-down__icon-tickcross icon-tickcross"></lt-icon-font>
+                    <span class="lt-select__option-title" :title="item.des">{{item.des}}</span>
+                    <lt-icon-font v-if="item.sel" class="lt-select__icon-tickcross icon-tickcross"></lt-icon-font>
                 </div>
             </div>
         </lt-collapse-transition>
