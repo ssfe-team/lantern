@@ -1,6 +1,6 @@
-## Dropdown 下拉菜单
+## Select 选择器
 
-将动作或菜单折叠到下拉菜单中。
+当选项过多时，使用下拉菜单展示并选择内容。
 
 ### 基础用法
 
@@ -9,7 +9,7 @@
 :::demo demo
 ```html
     <template>
-      <lt-dropdown :d-data="dData"></lt-dropdown>
+      <lt-select :d-data="dData"></lt-select>
     </template>
     
     <script>
@@ -42,8 +42,8 @@
 :::demo demo
 ```html
  <template>
-      <lt-dropdown :d-data="dData"></lt-dropdown>
-      <lt-dropdown :d-data="dData" trigger="click"></lt-dropdown>
+      <lt-select :d-data="dData"></lt-select>
+      <lt-select :d-data="dData" trigger="click"></lt-select>
  </template>
 ```
 :::
@@ -55,9 +55,9 @@ Dropdown 组件支持自定义高度。
 :::demo demo
 ```html
  <template>
-      <lt-dropdown :d-data="dData"></lt-dropdown>
-      <lt-dropdown :d-data="dData" :size="32"></lt-dropdown>
-      <lt-dropdown :d-data="dData" :size="48"></lt-dropdown>
+      <lt-select :d-data="dData"></lt-select>
+      <lt-select :d-data="dData" :size="32"></lt-select>
+      <lt-select :d-data="dData" :size="48"></lt-select>
  </template>
 ```
 :::
@@ -95,7 +95,7 @@ dData: [
 
 名称|说明|返回值
 ---|---|---
-select|点击菜单项时触发|菜单项的所有数据
+lt-select|点击菜单项时触发|菜单项的所有数据
 
 ::::vuecode::::
 <script>

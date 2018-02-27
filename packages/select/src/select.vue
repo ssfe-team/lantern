@@ -37,7 +37,7 @@
 import LtCollapseTransition from 'lantern/src/transitions/collapse-transition'
 
 export default {
-  name: 'Dropdown',
+  name: 'Select',
   data() {
     return {
       da: {
