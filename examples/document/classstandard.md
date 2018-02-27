@@ -4,17 +4,17 @@
 
 ### 什么是BEM
 
-[BEM](http://getbem.com/) 是由 [Yandex](https://www.yandex.com/) 公司提出的前端命名方法论。BEM的名称来源于该方法的三个组成部分，B（Block：块），E（Element：元素）和M（Modifier：修饰符）
+[BEM](http://getbem.com/) 是由 [Yandex](https://www.yandex.com/) 公司提出的前端命名方法论。BEM的名称来源于该方法的三个组成部分，B（Block：块），E（Element：元素）和 M（Modifier：修饰符）
 
 #### 块（Block）
 
-块类似于html5中的section，是一个相对独立的实体，类似一个网页中的header，一个块可以包含其他快，类似header块里面包含搜索块
+块类似于html5中的section，是一个相对独立的实体，类似一个网页中的header，一个块可以包含其他块，类似header块里面包含搜索块
 
 #### 元素（Element）
 
 元素是块的一部分，并且只有在当前块中他才有存在意义，类似搜索块中的搜索按钮
 
-#### 修饰符（Modifie）
+#### 修饰符（Modifier）
 
 修饰符用来定义块或者元素的外观和行为，块或者元素修饰符不同会显示出不同的外观，类似横向导航跟纵向导航，按钮的常规、hover和点击状态
 
