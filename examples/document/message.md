@@ -63,58 +63,6 @@
 ```
 :::
 
-### 可关闭(缺图标)
-
-可以添加关闭按钮。
-
-:::demo demo
-```html
-    <template>
-      <button @click="open5">消息</button>
-      <button @click="open6">成功</button>
-      <button @click="open7">警告</button>
-      <button @click="open8">错误</button>
-    </template>
-    
-    <script>
-      export default {
-        methods: {
-          open5() {
-            this.$message({
-              showClose: true,
-              message: '这是一条消息提示'
-            });
-          },
-    
-          open6() {
-            this.$message({
-              showClose: true,
-              message: '恭喜你，这是一条成功消息',
-              type: 'success'
-            });
-          },
-    
-          open7() {
-            this.$message({
-              showClose: true,
-              message: '警告哦，这是一条警告消息',
-              type: 'warning'
-            });
-          },
-    
-          open8() {
-            this.$message({
-              showClose: true,
-              message: '错了哦，这是一条错误消息',
-              type: 'error'
-            });
-          }
-        }
-      }
-    </script>
-```
-:::
-
 ### 文字居中
 使用 `center` 属性让文字水平居中。
 
