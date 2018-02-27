@@ -1,18 +1,18 @@
 .markdowndoc {
   padding-left: 10px;
   padding-top: 50px;
-  h2 {
+  & > h2 {
     font-size: 24px;
     font-weight: 400;
     color: @mainColor1;
   }
-  h3 {
+  & > h3 {
     margin-top: 50px;
     font-size: 18px;
     font-weight: 400;
     color: @comColor2;
   }
-  p {
+  & > p {
     font-size: 14px;
     line-height: 1.5em;
     color: @comColor3;
@@ -23,11 +23,11 @@
       border-radius: 3px;
     }
   }
-  ol {
+  & > ol {
     padding-left: 14px;
     list-style: decimal;
   }
-  li {
+  & > li {
     font-size: 14px;
     line-height: 1.5em;
     color: #9b9b9b;
@@ -35,7 +35,7 @@
   pre {
     margin: 0px;
   }
-  blockquote {
+  & > blockquote {
     border-left: 2px solid #07aefc;
     padding: 1px;
     padding-left: 20px;
