@@ -134,7 +134,6 @@ export default {
     }
   },
   mounted() {
-    console.log(this.barStyle)
     Object.assign(this.style, this.barStyle);
     this.$nextTick(() => {
       this.scrollReload();
