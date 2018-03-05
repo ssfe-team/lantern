@@ -2,19 +2,17 @@
  * @Author: bianhao 
  * @Date: 2018-01-15 18:16:28 
  * @Last Modified by: bianhao
- * @Last Modified time: 2018-02-27 11:17:31
+ * @Last Modified time: 2018-02-27 16:23:49
  */
 .lt-menu-item {
   padding-left: 48px;
   line-height: 36px;
+  cursor: pointer;
   a {
     color: @comColor2;
     width: 100%;
     display: inline-block;
     text-decoration: none;
-  }
-  div {
-    cursor: pointer;
   }
   &:hover {
     color: @mainColor1;
@@ -68,4 +66,54 @@
   padding-left: 36px;
   line-height: 24px;
   margin: 10px 0px;
+}
+
+.lt-menu--horizontal {
+  &::after {
+    clear: both;
+    content: "";
+    display: table;
+  }
+}
+
+.lt-menu--horizontal .lt-menu-item{
+  float: left;
+  padding: 0px 20px;
+  &:hover {
+    background-color: transparent;
+  }
+}
+
+.lt-menu--horizontal .lt-menu-group__title {
+  display: none;
+}
+
+.lt-menu--horizontal .lt-menu-select {
+  float: left;
+  .lt-menu-select__title {
+    padding: 0px 20px;
+    &:hover {
+      background-color: transparent;
+    }
+    .lt-iconfont {
+      margin-left: 5px;
+    }
+  }
+  .lt-menu-select__content {
+    position: absolute;
+    background: @comColor7;
+    border-radius: 3px;
+    box-shadow: 0px 0px 5px @comColor5;
+    z-index: 1000;
+  }
+}
+
+.lt-menu--horizontal .lt-menu-select__content .lt-menu-item {
+  float: none;
+}
+
+.lt-menu--horizontal .lt-menu-select--opend  {
+  .lt-menu-select__title {
+    background-color: transparent;
+  }
 }
