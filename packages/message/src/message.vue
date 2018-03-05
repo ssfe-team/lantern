@@ -5,7 +5,6 @@
             'lt-message',
             type && !iconClass ? `lt-message--${ type }` : '',
             center ? 'is-center' : '',
-            showClose ? 'is-closable' : '',
             customClass]"
           v-show="visible"
           @mouseenter="clearTimer"
@@ -18,7 +17,6 @@
                 <p v-if="!dangerouslyUseHTMLString" class="lt-message__content">{{ message }}</p>
                 <p v-else v-html="message" class="lt-message__content"></p>
             </slot>
-            <i v-if="showClose" class="lt-message__closeBtn lt-icon-close" @click="close"></i>
         </div>
     </transition>
 </template>
@@ -42,7 +40,6 @@ export default {
       iconClass: '',
       customClass: '',
       onClose: null,
-      showClose: false,
       closed: false,
       timer: null,
       dangerouslyUseHTMLString: false,

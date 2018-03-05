@@ -10,7 +10,7 @@ import menu from './document/menu.md';
 import scroll from './document/scroll.md';
 import message from './document/message.md';
 import pagination from './document/pagination.md';
-import dropdown from './document/dropdown.md';
+import select from './document/select.md';
 import iconfont from './document/iconfont.md';
 import classstandard from './document/classstandard.md';
 
@@ -40,8 +40,8 @@ export default [
     component: pagination
   },
   {
-    path: '/dropdown',
-    component: dropdown
+    path: '/select',
+    component: select
   },
   {
     path: '/iconfont',

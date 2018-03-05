@@ -1,5 +1,5 @@
 <template>
-  <menu class="lt-menu">
+  <menu class="lt-menu" :class="{'lt-menu--horizontal': mode === 'horizontal'}">
     <slot></slot>
   </menu>
 </template>
@@ -15,6 +15,11 @@ export default {
     accordion: {
       default: false,
       type: Boolean 
+    },
+    // menu显示方式（纵向或者横向）
+    mode: {
+      default: 'vertical',
+      type: String
     }
   },
   created() {
