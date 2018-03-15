@@ -159,12 +159,12 @@ export default {
     getPercent() {
       const wrapNode = this.$refs.wrap;
       const slotnode = this.$refs.inner;
-      if(this.barStyle.wrapWidth.includes('px')) {
+      if(this.style.wrapWidth.includes('px')) {
         this.wrapWidth = parseInt(this.barStyle.wrapWidth) - this.style.barWidth;
       } else {
         this.wrapWidth = wrapNode.clientHeight - this.style.barWidth;
       }
-      if(this.barStyle.wrapHeight.includes('px')) {
+      if(this.style.wrapHeight.includes('px')) {
         this.wrapHeight = parseInt(this.barStyle.wrapHeight) - this.style.barHeight;
       } else {
         this.wrapHeight = wrapNode.clientHeight - this.style.barHeight;
