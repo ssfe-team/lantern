@@ -1,3 +1,3 @@
-import pagination from './src/pagination.vue'
+import pagination from './src/paginationnew.vue'
 
 export default pagination
