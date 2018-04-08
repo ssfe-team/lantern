@@ -46,6 +46,11 @@
     border: 1px solid #E7E7E7;
     .demo-code-result {
       padding: 20px;
+      &::after {
+        display: block;
+        content: '';
+        clear: both;
+      }
     }
     .demo-code-content {
       border-top: 1px solid #E7E7E7;
@@ -105,14 +110,12 @@ table {
   }
   th {
     padding: 8px;
-    border:1px solid #CDCDCD;
-    max-width: 300px;
+    border-bottom: 1px solid #CDCDCD;
     min-width: 100px;
   }
   td {
     padding: 8px;
-    border:1px solid #CDCDCD;
-    max-width: 300px;
-    min-width: 100px;
+    border-bottom: 1px solid #CDCDCD;
+    min-width: 200px;
   }
 }

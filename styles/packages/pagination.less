@@ -1,262 +1,78 @@
-@import "./colors";
-
-.paging{
-  height: 32px;
-  //width: 370px;
-  //position: absolute;
-  background: #f8f8f8;
-
-  a{
-    text-decoration: none;
-    background: transparent !important;
-  }
-  
-  &:after{
-    content: '';
-    clear: both;
-    display: block;
-  }
-
-  .jump{
-    width: 106px;
-    height:100%;
-    float: left;
-    margin-right: 8px;
-
-    &:hover{
-      z-index: 1;
-      background: @comColor7;
-      box-shadow: 0 2px 8px 0 rgba(7,174,252,.16);
-
-      input{
-        background: @comColor7;
-        box-shadow: 0 2px 8px 0 rgba(7,174,252,.16);
-      }
-    }
-
-
-    input{
-      width:58px;
+.lt-pagination {
+  .jumpwrap {
+    display: inline-block;
+    height: 28px;
+    .jump-input, .jump-btn{
       height: 100%;
-      float: left;
-      background: #F8F8F8;
-      box-shadow: 0 2px 4px 0 rgba(0,0,0,.16);
-      box-sizing: border-box;
-      padding: 0 0 0 8px;
-      text-align: left;
-      line-height:32px;
-      color: #4F4F4F;
-      font-size: 14px;
+      line-height: 28px;
+      background: #f8f8f8;
+      outline: none;
       border: none;
-      border-radius:4px 0 0 4px;
-
-      &::-webkit-outer-spin-button,
-      &::-webkit-inner-spin-button {
-        -webkit-appearance: none;
-        margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
-      }
-      &::-webkit-input-placeholder { /* WebKit browsers */
-        color:@comColor4;
-      }
-      &:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
-        color:@comColor4;
-      }
-      &:-moz-placeholder { /* Mozilla Firefox 19+ */
-        color:@comColor4;
-      }
-      &:-ms-input-placeholder { /* Internet Explorer 10+ */
-        color:@comColor4;
-      }
-
-      &:hover{
-        z-index: 1;
-        background: @comColor7;
-        box-shadow: 0 2px 8px 0 rgba(7,174,252,.16);
-      }
-
-      &[class~='active']{
-        background: @comColor7;
-        box-shadow: 0 2px 8px 0 rgba(7,174,252,.16);
-      }
-
-      &:focus{
-        z-index: 1;
-        background: @comColor7;
-        box-shadow: 0 2px 8px 0 rgba(7,174,252,.16);
-        outline: none;
-        &+span{
-          color: @comColor2;
-        }
+      text-align: center;
+      min-width: 50px;
+      box-shadow: 0 2px 4px 0 rgba(0,0,0,.16);
+      display: inline-block;
+    }
+    .jump-input {
+      border-top-left-radius: 4px;
+      border-bottom-left-radius: 4px;
+    }
+    .jump-btn {
+      color: #9B9B9B;
+      border-top-right-radius: 4px;
+      border-bottom-right-radius: 4px;
+      cursor: pointer;
+      float: right;
+      &:hover {
+        background: #07aefc;
+        color: #fff;
       }
     }
-
-    span{
-      width:48px;
-      height: 100%;
-      float: left;
-      background: #F8F8F8;
-      text-align: center;
-      line-height:32px;
-      color: #BDBDBD;
-      font-size: 14px;
-      cursor: pointer;
-      box-shadow: 0 2px 4px 0 rgba(0,0,0,.16);
-      border-radius: 0 4px 4px 0;
-      //border-top-left-radius: 0;
-      //border-top-right-radius: 4px;
-      //border-bottom-right-radius: 0;
-      //border-bottom-left-radius: 4px;
-
-      &:hover{
-        z-index: 1;
-        background: @comColor7;
-        color: @mainColor1;
+  }
+  button:not(.jump-btn), li {
+    min-width: 30px;
+    height: 28px;
+    text-align: center;
+    outline: none;
+    border: none;
+    cursor: pointer;
+    border-radius: 4px;
+    display: inline-block;
+    margin: 0px 4px;
+    box-shadow: 0 2px 4px 0 rgba(0,0,0,.16);
+    &.disabled {
+      cursor: not-allowed;
+    }
+  }
+  button {
+    i {
+      font-size: 12px;
+      color: #9B9B9B;
+    }
+    &:not(.disabled):hover {
+      i {
+        color: #07aefc;
       }
-      &:active{
-        z-index: 1;
-        background: @mainColor1;
-        color: @comColor7;
+    }
+  }
+  ul {
+    display: inline-block;
+    li {
+      padding: 0px 5px;
+      line-height: 28px;
+      color: #9B9B9B;
+      &:not(.disabled):hover {
+        color: #07aefc;
       }
+      &.active {
+        color: #07aefc;
+      }
+    }
+  }
+  &.isbackground {
+    button, li{
+      background: #f8f8f8;
     }
   }
   
-  .sele{
-    height: 100%;
-    //width:256px;
-    float: left;
-    background: transparent;
-
-    &:after{
-      content: '';
-      clear: both;
-      display: block;
-    }
-    
-    .prev,.next{
-      cursor: pointer;
-      float: left;
-      width: 32px;
-      height:32px;
-      border-radius: 4px;
-      background: #F8F8F8;
-      position: relative;
-      box-shadow: 0 2px 4px 0 rgba(0,0,0,.16);
-
-      &>i{
-        position: absolute;
-        left:9px;
-        top:7px;
-        &:before{
-          color: @comColor3;
-        }
-
-      }
-    }
-    .prev{
-      &:hover{
-        background: @comColor7;
-        box-shadow: 0 2px 8px 0 rgba(0,0,0,.04);
-        &>i:before{
-          color: @mainColor1;
-        }
-      }
-    }
-    .next{
-
-      &:hover{
-        background: @comColor7;
-        box-shadow: 0 2px 8px 0 rgba(0,0,0,.04);
-        &>i:before{
-          color: @mainColor1;
-        }
-      }
-    }
-
-    .number{
-      margin: 0 16px 0 0;
-      height: 100%;
-      width: 176px;
-      float: left;
-      position: relative;
-      overflow: hidden;
-
-      ul li{
-        height: 100%;
-        width:16px;
-        margin-left: 9px;
-        text-align: center;
-        float: left;
-        cursor: pointer;
-
-        a{
-          color: #cdcdcd;
-          line-height: 32px;
-        }
-
-        &[class*="active"]{
-
-          a{
-            font-weight: bold;
-            color: @mainColor1;
-          }
-
-        }
-      }
-
-      .main-layout{
-        position: absolute;
-        display: block;
-        top:0;
-        left:0;
-        transition: left .4s ease;
-      }
-
-      .shadow-layout-left{
-        height: 100%;
-        width: 50px;
-        position: absolute;
-        top:0;
-        left:0;
-        z-index:9;
-        background-color: #f8f8f8;
-
-        span{
-          height: 100%;
-          width:16px;
-          margin-left: 9px;
-          text-align: center;
-          float: left;
-          cursor: pointer;
-
-          a{
-            color: #cdcdcd;
-            line-height: 32px;
-          }
-        }
-      }
-
-      .shadow-layout{
-        height: 100%;
-        width: 50px;
-        position: absolute;
-        top:0;
-        left:125px;
-        background-color: #f8f8f8;
-
-        span{
-          height: 100%;
-          width:16px;
-          margin-left: 9px;
-          text-align: center;
-          float: left;
-          cursor: pointer;
-
-          a{
-            color: #cdcdcd;
-            line-height: 32px;
-          }
-        }
-      }
-    }
-  }
 }
