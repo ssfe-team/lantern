@@ -42,31 +42,31 @@
 ```
 :::
 
-### lt-layout 参数
+### lt-layout Attributes
 
 参数|说明|类型|可选值|默认值
 --------|--------|--------|--------|--------
 isRow|控制子元素的排列方向|Boolean|true/false|false
 
-### lt-header 参数
+### lt-header Attributes
 
 参数|说明|类型|可选值|默认值
 --------|--------|--------|--------|--------
 height|header高度|String|-|60px
 
-### lt-main 参数
+### lt-main Attributes
 
 参数|说明|类型|可选值|默认值
 --------|--------|--------|--------|--------
 height|main高度|String|-|120px
 
-### lt-aside 参数
+### lt-aside Attributes
 
 参数|说明|类型|可选值|默认值
 --------|--------|--------|--------|--------
 width|aside宽度|String|-|200px
 
-### lt-footer 参数
+### lt-footer Attributes
 
 参数|说明|类型|可选值|默认值
 --------|--------|--------|--------|--------
