@@ -162,7 +162,7 @@ export default {
       if(this.style.wrapWidth.includes('px')) {
         this.wrapWidth = parseInt(this.barStyle.wrapWidth) - this.style.barWidth;
       } else {
-        this.wrapWidth = wrapNode.clientHeight - this.style.barWidth;
+        this.wrapWidth = wrapNode.clientWidth - this.style.barWidth;
       }
       if(this.style.wrapHeight.includes('px')) {
         this.wrapHeight = parseInt(this.barStyle.wrapHeight) - this.style.barHeight;
