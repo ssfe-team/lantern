@@ -5,34 +5,17 @@
 ```html
     <template>
       <lt-Pagination
-          bgcolor="#FFF"
-          :count="count"
-          :current="current"
-          :type="'route'"
-          :routePath="pageNo => 'pagination?pageNo=' + pageNo"
-          @jumpUrl="jumpUrl"
+        :total="total"
+        :current="current"
       ></lt-Pagination>
     </template>
     <script>
       export default {
         data () {
           return {
-            count: 10,
-            current: 1
+            total: 8,
+            current: 4
           }
-        },
-        methods: {
-          jumpUrl (pageNo) {
-            this.$router.push('pagination?pageNo=' + pageNo)
-          }
-        },
-        watch: {
-          $route (val) {
-            this.current = val.query.pageNo
-          }
-        },
-        mounted () {
-          this.current = this.$route.query.pageNo || 1
         }
       }
     </script>
@@ -75,22 +58,9 @@ Vue.component('', {
       export default {
         data () {
           return {
-            count: 10,
-            current: 1
+            total: 10,
+            current: 4
           }
-        },
-        methods: {
-          jumpUrl (pageNo) {
-            this.$router.push('pagination?pageNo=' + pageNo)
-          }
-        },
-        watch: {
-          $route (val) {
-            this.current = val.query.pageNo
-          }
-        },
-        mounted () {
-          this.current = this.$route.query.pageNo || 1
         }
       }
 </script>

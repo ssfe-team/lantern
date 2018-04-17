@@ -20,6 +20,7 @@
                   <lt-menu-item :href="'/pagination'"><span>Pagination 分页</span></lt-menu-item>
                   <lt-menu-item :href="'/iconfont'"><span>iconfont</span></lt-menu-item>
                   <lt-menu-item :href="'/select'"><span>Select 选择器</span></lt-menu-item>
+                  <lt-menu-item :href="'/input'"><span>输入框input</span></lt-menu-item>
                 </lt-menu-item-group>
                 <lt-menu-item-group :title="'规范文档'">
                   <lt-menu-item :href="'/classstandard'"><span>class命名规范</span></lt-menu-item>

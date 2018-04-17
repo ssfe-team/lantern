@@ -2,7 +2,7 @@
  * @Author: bianhao 
  * @Date: 2017-12-21 15:32:04 
  * @Last Modified by: bianhao
- * @Last Modified time: 2018-02-07 17:18:06
+ * @Last Modified time: 2018-04-07 17:26:21
  */
 import Message from '../packages/message/index.js';
 import WaterFall from '../packages/water-fall/index.js';
@@ -12,7 +12,7 @@ import Select from '../packages/select/index.js';
 import { Menu, MenuItem, MenuItemGroup, MenuItemSelect } from '../packages/menu/index.js';
 import Pagination from '../packages/pagination/index.js'
 import IconFont from '../packages/iconfont/index.js'
-//import test from '../packages/layout/index.js';
+import Input from '../packages/input/index.js'
 
 const prefix = 'Lt';
 
@@ -31,7 +31,8 @@ const packages = {
   MenuItemSelect,
   Select,
   Pagination,
-  IconFont
+  IconFont,
+  Input
 }
 
 const install = function(Vue) {
