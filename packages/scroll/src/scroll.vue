@@ -13,8 +13,8 @@
           :style="{
             'width': style.wrapWidth,
             'height': style.wrapHeight,
-            'padding-right': style.barWidth + 'px',
-            'padding-bottom': style.barHeight + 'px'
+            'padding-right': rightBarShow ? style.barWidth + 'px' : '0',
+            'padding-bottom': bottomBarShow ? style.barHeight + 'px' : '0'
           }"
     >
       <div class="lt-scroll__content" ref="inner"
@@ -159,25 +159,28 @@ export default {
     getPercent() {
       const wrapNode = this.$refs.wrap;
       const slotnode = this.$refs.inner;
-      if(this.style.wrapWidth.includes('px')) {
-        this.wrapWidth = parseInt(this.barStyle.wrapWidth) - this.style.barWidth;
-      } else {
-        this.wrapWidth = wrapNode.clientHeight - this.style.barWidth;
-      }
       if(this.style.wrapHeight.includes('px')) {
-        this.wrapHeight = parseInt(this.barStyle.wrapHeight) - this.style.barHeight;
+        this.wrapHeight = parseInt(this.barStyle.wrapHeight);
       } else {
-        this.wrapHeight = wrapNode.clientHeight - this.style.barHeight;
+        this.wrapHeight = wrapNode.clientHeight;
+      }
+      if(this.style.wrapWidth.includes('px')) {
+        this.wrapWidth = parseInt(this.barStyle.wrapWidth);
+      } else {
+        this.wrapWidth = wrapNode.clientWidth;
       }
       // this.wrapHeight = wrapNode.clientHeight - this.style.barHeight;
       // this.wrapWidth = wrapNode.clientWidth - this.style.barWidth;
       this.innerHeight = slotnode.scrollHeight;
       this.innerWidth = slotnode.scrollWidth;
       if(this.wrapHeight < this.innerHeight) {
+        this.wrapHeight -= this.style.barHeight;
         this.rightBarHeight = this.wrapHeight / this.innerHeight * this.wrapHeight;
         this.rightBarShow = true;
       }
       if(this.wrapWidth < this.innerWidth) {
+        this.wrapWidth -= this.style.barWidth;
+        this.wrapWidth = wrapNode.clientWidth - this.style.barWidth;
         this.bottomBarWidth = this.wrapWidth / this.innerWidth * this.wrapWidth;
         this.bottomBarShow = true;
       }
