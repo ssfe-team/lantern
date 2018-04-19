@@ -2,7 +2,6 @@ import { addClass, removeClass } from 'lantern/src/utils/dom';
 
 const Transition = {
   beforeEnter(el) {
-    console.log(el);
     addClass(el, 'collapse-transition');
     if (!el.dataset) el.dataset = {};
 
