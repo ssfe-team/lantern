@@ -34,15 +34,20 @@ export default {
   computed: {
     isOut() {
       if(/\/\//.test(this.href)) {
-        return true;
+        return true
       }
-      return false;
+      return false
     }
   },
   methods: {
     itemClick(eve) {
-      this.dispatch('Menu', 'updateActiveName', this.$parent._uid);
-      this.$emit('itemClick', eve);
+      this.dispatch('Menu', 'updateActiveName', this.$parent._uid)
+      this.$emit('itemClick', eve)
+    }
+  },
+  mounted() {
+    if(this.href == this.$route.path) {
+      this.dispatch('Menu', 'updateActiveName', this.$parent._uid)
     }
   }
 }
