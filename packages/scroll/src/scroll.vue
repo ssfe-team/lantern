@@ -131,6 +131,10 @@ export default {
     barStyle: {
       required: false,
       type: Object
+    },
+    scrollReloadTag: {
+      required: false,
+      type: Number
     }
   },
   mounted() {
@@ -140,7 +144,9 @@ export default {
     });
   },
   watch: {
-
+    scrollReloadTag() {
+      this.scrollReload();
+    }
   },
   computed: {
     barTop() {
