@@ -24,14 +24,12 @@ export default {
   },
   created() {
     this.$on('updateActiveName', (_uid) => {
-      if(!this.accordion) {
-        return;
-      }
       this.$children.forEach(item => {
-        if(item.$options.name === 'MenuItemSelect' && item._uid !== _uid) {
-          item.opend = false;
-        }
-      });
+        if(this.accordion && item.$options.name === 'MenuItemSelect' && item._uid !== _uid) 
+          item.opend = false
+        if(item.$options.name === 'MenuItemSelect' && item._uid === _uid && !item.opend) 
+          item.opend = true
+      })
     })
   }
 }
