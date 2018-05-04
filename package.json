@@ -10,7 +10,7 @@
     "buildcss": "webpack --progress --hide-modules --config ./build/webpack.build.css.conf.js",
     "buildjs": "webpack --progress --hide-modules --config ./build/webpack.build.js.conf.js",
     "clean": "rimraf lib/*",
-    "deploy": "npm run build & npm publish"
+    "deploy": "npm run build && npm publish"
   },
   "repository": "git+https://github.com/ssfe-team/lantern.git",
   "author": "ssfe",
