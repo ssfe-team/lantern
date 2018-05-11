@@ -146,6 +146,7 @@ options|自定义 popper.js 的配置项，具体配置见 [popper.js 文档](ht
 ##### Poptip events
 
 事件名|说明|返回值
+---|---|---
 on-popper-show|在提示框显示时触发|无
 on-popper-hide|在提示框消失时触发|无
 on-ok|点击确定的回调，只在 confirm 模式下有效|无
@@ -154,6 +155,7 @@ on-cancel|点击取消的回调，只在 confirm 模式下有效|无
 ##### Poptip slot
 
 名称|说明|
+---|---
 无|主体内容
 title|提示框标题，定义此 slot 时，会覆盖 props `title`
 content|提示框内容，定义此 slot 时，会覆盖 props `content`，只在非 confirm 模式下有效
