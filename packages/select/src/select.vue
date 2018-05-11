@@ -11,7 +11,7 @@
              @mouseenter="handleMouseenter"
         >
             <span class="lt-select__selected-text" :title="da.sel">{{da.sel}}</span>
-            <lt-icon-font class="lt-select__icon-dropdown icon-dropdown"></lt-icon-font>
+            <lt-icon type="dropdown" class="lt-select__icon-dropdown"></lt-icon>
         </div>
         <lt-collapse-transition>
             <div class="lt-select__list"
@@ -27,7 +27,7 @@
                         @click.stop="handleItemClick(item, index)"
                 >
                     <span class="lt-select__option-title" :title="item.des">{{item.des}}</span>
-                    <lt-icon-font v-if="item.sel" class="lt-select__icon-tickcross icon-tickcross"></lt-icon-font>
+                    <lt-icon v-if="item.sel" type="tickcross" class="lt-select__icon-dropdown"></lt-icon>
                 </div>
             </div>
         </lt-collapse-transition>
