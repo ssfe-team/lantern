@@ -9,7 +9,7 @@
 ::: demo demo
 ```html
     <template>
-      <button @click="open">点我显示消息提示</button>
+      <lt-button @click="open">点我显示消息提示</lt-button>
     </template>
     
     <script>
@@ -31,10 +31,10 @@
 :::demo demo
 ```html
     <template>
-      <button @click="open2">成功</button>
-      <button @click="open3">警告</button>
-      <button @click="open">消息(缺图标)</button>
-      <button @click="open4">错误</button>
+      <lt-button @click="open2">成功</lt-button>
+      <lt-button @click="open3">警告</lt-button>
+      <lt-button @click="open">消息</lt-button>
+      <lt-button @click="open4">错误</lt-button>
     </template>
     
     <script>
@@ -69,7 +69,7 @@
 :::demo demo
 ```html
     <template>
-      <button :plain="true" @click="openCenter">文字居中</button>
+      <lt-button :plain="true" @click="openCenter">文字居中</lt-button>
     </template>
     
     <script>
@@ -97,7 +97,7 @@
 
 ```html
     <template>
-      <button :plain="true" @click="openHTML">使用 HTML 片段</button>
+      <lt-button :plain="true" @click="openHTML">使用 HTML 片段</lt-button>
     </template>
     
     <script>
