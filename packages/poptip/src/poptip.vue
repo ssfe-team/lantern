@@ -38,12 +38,12 @@
                         </div>
                     </div>
                     <div :class="[prefixCls + '-inner']" v-if="!confirm">
-                        <div :class="[prefixCls + '-title']" v-if="showTitle" ref="title">
+                        <div :class="[prefixCls + '-title']" v-if="showTitle" ref="title" :style="innerStyles">
                             <slot name="title">
                                 <div :class="[prefixCls + '-title-inner']">{{ title }}</div>
                             </slot>
                         </div>
-                        <div :class="[prefixCls + '-body']">
+                        <div :class="[prefixCls + '-body']" :style="innerStyles">
                             <div :class="[prefixCls + '-body-content']">
                                 <slot name="content">
                                     <div :class="[prefixCls + '-body-content-inner']">{{ content }}</div>
@@ -109,6 +109,9 @@
       },
       popperClass: {
         type: String
+      },
+      padding: {
+        type: String
       }
     },
     data () {
@@ -142,6 +145,14 @@
 
         if (this.width) {
           style.width = `${this.width}px`
+        }
+        return style
+      },
+      innerStyles() {
+        let style = {}
+
+        if (this.padding) {
+          style.padding = `${this.padding}px`
         }
         return style
       },
