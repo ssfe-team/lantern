@@ -17,7 +17,7 @@
                     :class="popperClasses"
                     :style="styles"
                     ref="popper"
-                    v-if="visible"
+                    v-show="visible"
                     @click="handleTransferClick"
                     @mouseenter="handleMouseenter"
                     @mouseleave="handleMouseleave"
