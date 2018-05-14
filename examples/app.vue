@@ -23,10 +23,11 @@
                   <!--<lt-menu-item :href="'/select'"><span>Select 选择器</span></lt-menu-item>-->
                   <!--<lt-menu-item :href="'/input'"><span>Input 输入框</span></lt-menu-item>-->
                   <lt-menu-item :href="'/poptip'"><span>Poptip 气泡提示</span></lt-menu-item>
+                  <lt-menu-item :href="'/tooltip'"><span>Tooltip 文字提示</span></lt-menu-item>
                   <lt-menu-item :href="'/checkbox'"><span>Checkbox 多选框</span></lt-menu-item>
                   <lt-menu-item :href="'/button'"><span>Button 按钮</span></lt-menu-item>
                   <lt-menu-item :href="'/radio'"><span>Radio 单选框</span></lt-menu-item>
-                  <!--<lt-menu-item :href="'/slider'"><span>Slider 滑块</span></lt-menu-item>-->
+                  <lt-menu-item :href="'/slider'"><span>Slider 滑块</span></lt-menu-item>
                 </lt-menu-item-select>
                 <lt-menu-item-group :title="'规范文档'">
                   <lt-menu-item :href="'/classstandard'"><span>class命名规范</span></lt-menu-item>
