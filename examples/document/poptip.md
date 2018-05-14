@@ -135,7 +135,7 @@ trigger|触发方式，可选值为`hover`（悬停）`click`（点击）`focus`
 title|显示的标题|String \| Number|-
 content|显示的正文内容，只在非 confirm 模式下有效|String \| Number|空
 placement|提示框出现的位置，可选值为`top` `top-start` `top-end` `bottom` `bottom-start` `bottom-end` `left` `left-start` `left-end` `right` `right-start` `right-end`，支持自动识别|String|top
-width|宽度，最小宽度为 150px，在 confirm 模式下，默认最大宽度为 300px|String \| Number|-
+customStyle|自定义样式|Object|-
 confirm|是否开启对话框模式|Boolean|false
 ok-text|确定按钮的文字，只在 confirm 模式下有效|String|确定
 cancel-text|取消按钮的文字，只在 confirm 模式下有效|String|	取消

@@ -90,8 +90,8 @@
         type: [String, Number],
         default: ''
       },
-      width: {
-        type: [String, Number]
+      customStyle: {
+          type: Object
       },
       confirm: {
         type: Boolean,
@@ -143,9 +143,12 @@
       styles () {
         let style = {}
 
-        if (this.width) {
-          style.width = `${this.width}px`
-        }
+        // style = JSON.parse(JSON.stringify(this.customStyle))
+        style = this.customStyle
+
+        // Object.keys(style).forEach(e => {
+        //     style[e].indexOf('!important') === -1 ? style[e] += ' !important' : ''
+        // })
         return style
       },
       innerStyles() {

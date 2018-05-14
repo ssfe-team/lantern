@@ -1,6 +1,6 @@
 {
   "name": "lantern-ui",
-  "version": "0.9.38",
+  "version": "0.9.39",
   "description": "Lantern-ui基于Vue.js的前端UI库",
   "main": "lib/lantern.js",
   "scripts": {
