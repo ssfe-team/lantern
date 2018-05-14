@@ -14,6 +14,7 @@ import select from './document/select.md';
 import iconfont from './document/iconfont.md';
 import classstandard from './document/classstandard.md';
 import input from './document/input.md';
+import tooltip from './document/tooltip.md'
 import poptip from './document/poptip.md'
 import checkbox from './document/checkbox.md'
 import button from './document/button.md'
@@ -64,6 +65,10 @@ export default [
   {
     path: '/poptip',
     component: poptip
+  },
+  {
+    path: '/tooltip',
+    component: tooltip
   },
   {
     path: '/checkbox',
