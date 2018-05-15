@@ -13,6 +13,7 @@ import { Menu, MenuItem, MenuItemGroup, MenuItemSelect } from '../packages/menu/
 import Pagination from '../packages/pagination/index.js'
 import Icon from '../packages/icon/index.js'
 import Input from '../packages/input/index.js'
+import InputNumber from '../packages/input-number/index.js'
 import Poptip from '../packages/poptip/index.js'
 import Checkbox from '../packages/checkbox/index.js'
 import CheckboxGroup from '../packages/checkbox-group/index.js'
@@ -21,8 +22,8 @@ import ButtonGroup from '../packages/button-group/index.js'
 import Radio from '../packages/radio/index.js'
 import RadioGroup from '../packages/radio-group/index.js'
 import Slider from '../packages/slider/index.js'
-import InputNumer from '../packages/input-number/index.js'
 import Tooltip from '../packages/tooltip/index.js'
+import Switch from '../packages/switch/index.js'
 
 
 const prefix = 'Lt';
@@ -44,6 +45,7 @@ const packages = {
   Pagination,
   Icon,
   Input,
+  InputNumber,
   Poptip,
   Checkbox,
   CheckboxGroup,
@@ -52,8 +54,8 @@ const packages = {
   Radio,
   RadioGroup,
   Slider,
-  InputNumer,
-  Tooltip
+  Tooltip,
+  Switch
 }
 
 const install = function(Vue) {
@@ -61,7 +63,6 @@ const install = function(Vue) {
     Vue.component(prefix + key, packages[key]);
   });
   Vue.prototype.$message = Message;
-
 }
 
 if (typeof window !== 'undefined' && window.Vue) {
