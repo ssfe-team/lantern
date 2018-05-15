@@ -26,6 +26,7 @@ export default {
         ['confirm', '\\e605'],
         ['details', '\\e606'],
         ['cancel', '\\e607'],
+        ['chevron-up', '\\e616'],
         ['dropdown', '\\e608'],
         ['close', '\\e609'],
         ['tickcross', '\\e60a'],
