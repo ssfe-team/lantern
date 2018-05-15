@@ -1,29 +1,36 @@
+@prefix: "lt-";
+
 .lt-message {
   position: fixed;
-  top: 40px;
+  top: 65px;
   left: 50%;
   transform: translateX(-50%);
   display: inline-block;
-  height: 40px;
   background-color: @comColor7;
-  box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.08);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, .16);
+  border-radius: 4px;
   z-index: 100010;
   .lt-message__icon {
+    float: left;
     width: 16px;
     height: 16px;
-    margin: 12px 16px 12px 24px;
-    float: left;
-    &[class~="icon-confirm"] {
+    margin: 10px 16px 10px 24px;
+    &[class~="@{prefix}icon-confirm"] {
       &:before {
         color: #07AEFC;
       }
     }
-    &[class~="icon-details"] {
+    &[class~="@{prefix}icon-details"].warn {
       &:before {
         color: #F6A623;
       }
     }
-    &[class~="icon-cancel"] {
+    &[class~="@{prefix}icon-details"].info {
+      &:before {
+        color: #07aefc;
+      }
+    }
+    &[class~="@{prefix}icon-cancel"] {
       &:before {
         color: #FF3D67;
       }
@@ -33,7 +40,7 @@
     float: left;
     font-size: 14px;
     color: @comColor1;
-    margin: 13px 24px 13px 0;
+    margin: 10px 24px 10px 0;
   }
 }
 

@@ -6,7 +6,7 @@
  */
 
 /**
- * 生成waterFal我测试数据
+ * 生成waterFall测试数据
  * 
  * @param {Number} num 数据条目
  */

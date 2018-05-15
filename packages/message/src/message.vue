@@ -11,8 +11,8 @@
           @mouseleave="startTimer"
           role="alert"
         >
-            <lt-icon-font :class="iconClass" v-if="iconClass"></lt-icon-font>
-            <lt-icon-font :class="typeClass" v-else></lt-icon-font>
+            <lt-icon :class="iconClass" v-if="iconClass"></lt-icon>
+            <lt-icon class="lt-message__icon" :type="typeClass" v-else></lt-icon>
             <slot>
                 <p v-if="!dangerouslyUseHTMLString" class="lt-message__content">{{ message }}</p>
                 <p v-else v-html="message" class="lt-message__content"></p>
@@ -24,8 +24,8 @@
 <script type="text/babel">
 const typeMap = {
   success: 'confirm',
-  info: 'details',
-  warning: 'details',
+  info: 'details info',
+  warning: 'details warn',
   error: 'cancel'
 }
 
@@ -52,7 +52,7 @@ export default {
   computed: {
     typeClass() {
       return this.type && !this.iconClass
-        ? `lt-message__icon icon-${typeMap[this.type]}`
+        ? `${typeMap[this.type]}`
         : ''
     }
   },
