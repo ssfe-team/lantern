@@ -5,11 +5,11 @@
       <input class="jump-input" type="number" :max="total" min="1" :value="nowPage" ref="jumpInput"><button class="jump-btn" @click="jumpPageClick">跳页</button>
     </div>
     <button class="btn-prev" @click="prev()" :class="{disabled: nowPage == 1}">
-      <lt-icon type="left"></lt-icon>
+      <lt-icon type="chevron-left"></lt-icon>
     </button><ul>
       <li v-for="(value, key) in pageList" :key="value + key" :class="{active: value == nowPage, disabled: value == '...'}" @click="jumpPage(value)">{{value}}</li>
     </ul><button class="btn-next" @click="next" :class="{disabled: nowPage == total}">
-      <lt-icon type="right"></lt-icon>
+      <lt-icon type="chevron-right"></lt-icon>
     </button>
   </div>
 </template>

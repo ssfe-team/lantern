@@ -2,9 +2,11 @@
 
 ### 使用方式
 
+::: demo demo :::
 ```html
-<lt-icon type="left"></lt-icon>
+<lt-icon type="mydesign"></lt-icon>
 ```
+:::
 
 ### API
 

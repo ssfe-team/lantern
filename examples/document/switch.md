@@ -39,7 +39,7 @@
        <span slot="close">关</span>
    </lt-switch>
    <lt-switch>
-       <lt-icon type="tickcross" slot="open" size="12"></lt-icon>
+       <lt-icon type="checkmark" slot="open"></lt-icon>
        <lt-icon type="close" slot="close"></lt-icon>
    </lt-switch>
    <br><br>

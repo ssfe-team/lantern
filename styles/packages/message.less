@@ -1,4 +1,4 @@
-@prefix: "lt-";
+@iconfont-prefix: lt-icon-;
 
 .lt-message {
   position: fixed;
@@ -15,22 +15,22 @@
     width: 16px;
     height: 16px;
     margin: 10px 16px 10px 24px;
-    &[class~="@{prefix}icon-confirm"] {
+    &[class~="@{iconfont-prefix}checkmark-circled"] {
       &:before {
         color: #07AEFC;
       }
     }
-    &[class~="@{prefix}icon-details"].warn {
+    &[class~="@{iconfont-prefix}information-circled"].warn {
       &:before {
         color: #F6A623;
       }
     }
-    &[class~="@{prefix}icon-details"].info {
+    &[class~="@{iconfont-prefix}information-circled"].info {
       &:before {
         color: #07aefc;
       }
     }
-    &[class~="@{prefix}icon-cancel"] {
+    &[class~="@{iconfont-prefix}close-circled"] {
       &:before {
         color: #FF3D67;
       }
