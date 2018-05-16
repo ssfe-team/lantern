@@ -6,13 +6,22 @@
 <lt-icon type="left"></lt-icon>
 ```
 
+### API
+
+#### Icon props
+
+属性|说明|类型|默认值
+---|---|---|---
+type|图标的名称|String|-
+size|图标的大小，单位是 px|Number \| String|-
+color|图标的颜色|String|-
+
 ### 类名列表
 
 <div class="iconlist-md-wrap">
   <div v-for="item in iconlist" class="iconfont-md-content">
-    <lt-icon :type="item[0]" class="iconfont-md-show"></lt-icon>
-    <div class="iconfont-md-title">{{item[0]}}</div>
-    <div class="iconfont-md-code">{{item[1]}}</div>
+    <lt-icon :type="item" class="iconfont-md-show"></lt-icon>
+    <div class="iconfont-md-title">{{item}}</div>
   </div>
 </div>
 
@@ -22,21 +31,68 @@ export default {
   data() {
     return {
       iconlist: [
-        ['signout', '\\e604'],
-        ['confirm', '\\e605'],
-        ['details', '\\e606'],
-        ['cancel', '\\e607'],
-        ['chevron-up', '\\e616'],
-        ['dropdown', '\\e608'],
-        ['close', '\\e609'],
-        ['tickcross', '\\e60a'],
-        ['right', '\\e60b'],
-        ['left', '\\e60c'],
-        ['mylike', '\\e60d'],
-        ['mybuy', '\\e60e'],
-        ['recycle', '\\e60f'],
-        ['mydesign', '\\e610'],
-        ['mytemplate', '\\e611']
+        'signout',
+        'close',
+        'mydesign',
+        'recycle',
+        'mybuy',
+        'mylike',
+        'mytemplate',
+        'wenhao',
+        'qq',
+        'weixin',
+        'chevron-up',
+        'chevron-down',
+        'chevron-left',
+        'chevron-right',
+        'information-circled',
+        'close-circled',
+        'checkmark',
+        'checkmark-circled',
+        'ios-arrow-up',
+        'ios-arrow-down',
+        'ios-arrow-left',
+        'ios-arrow-right',
+        'ios-arrow-forward',
+        'ios-arrow-back',
+        'ios-checkmark-outline',
+        'ios-checkmark-empty',
+        'ios-checkmark',
+        'android-close',
+        'ios-close-outline',
+        'ios-close-empty',
+        'ios-close',
+        'trash-a',
+        'trash-b',
+        'load-a',
+        'load-b',
+        'load-c',
+        'load-d',
+        'log-in',
+        'log-out',
+        'ios-arrow-thin-up',
+        'ios-arrow-thin-down',
+        'ios-arrow-thin-left',
+        'ios-arrow-thin-right',
+        'ios-plus',
+        'ios-plus-empty',
+        'ios-plus-outline',
+        'ios-minus',
+        'ios-minus-empty',
+        'ios-minus-outline',
+        'information',
+        'ios-information',
+        'ios-information-empty',
+        'ios-information-outline',
+        'help',
+        'help-circled',
+        'ios-help',
+        'ios-help-outline',
+        'ios-help-empty',
+        'search',
+        'ios-search',
+        'ios-search-strong',
+        'android-search',
       ]
     }
   }
