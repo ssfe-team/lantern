@@ -6,9 +6,14 @@
  * @Last Modified time: 2018-03-29 18:07:07
  */
 body {
-  font: 14px/1.2 -apple-system,PingFang SC,Hiragino Sans GB,Arial,Microsoft YaHei,Helvetica Neue,sans-serif;
+  font-family: @font-family;
+  font-size: @font-size-base;
+  line-height: @line-height-base;
+  color: @text-color;
+  background-color: @body-background;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;
-  padding: 0; margin: 0;
 }
 body, div, dl, dt, dd, ul, ol, li, form, fieldset, legend, input, textarea, blockquote, th, td, hr, button, article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
   margin: 0;
@@ -43,6 +48,35 @@ abbr,acronym {
 button, input, optgroup, select, textarea {
   color: inherit;
 }
+a {
+  color: @link-color;
+  background: transparent;
+  text-decoration: none;
+  outline: none;
+  cursor: pointer;
+  transition: color @transition-time ease;
+
+  &:hover {
+    color: @link-hover-color;
+  }
+
+  &:active {
+    color: @link-active-color;
+  }
+
+  &:active,
+  &:hover {
+    outline: 0;
+    text-decoration: none;
+  }
+
+  &[disabled] {
+    color: #ccc;
+    cursor: @cursor-disabled;
+    pointer-events: none;
+  }
+}
+
 * {
   box-sizing:border-box;
   -moz-box-sizing:border-box; /* Firefox */
