@@ -12,9 +12,11 @@ var devConfig = {
   entry: ['./src/index.js'],
   output: {
     path: resolve('lib'),
-    publicPath: '/lib/',
+    publicPath: '../lib/',
+    filename: 'lantern.js',
+    library: 'lantern-ui',
     libraryTarget: 'umd',
-    filename: 'lantern.js'
+    umdNamedDefine: true,
   },
   externals: {
     vue: {
@@ -32,6 +34,7 @@ var devConfig = {
     }),
     new webpack.optimize.UglifyJsPlugin({
       sourceMap: false,
+      parallel: true,
       compress: {
         warnings: false
       }
