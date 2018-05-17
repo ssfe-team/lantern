@@ -32,6 +32,6 @@
   }
 </script>
 
-<style lang="less">
+<style lang="less" scoped>
     @import 'iconfont.less';
 </style>
