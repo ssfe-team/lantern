@@ -3,14 +3,14 @@
 ### 使用方式
 
 ```html
-<lt-icon-font class="icon-left"></lt-icon-font>
+<lt-icon type="left"></lt-icon>
 ```
 
 ### 类名列表
 
 <div class="iconlist-md-wrap">
   <div v-for="item in iconlist" class="iconfont-md-content">
-    <lt-icon-font :class="item" class="iconfont-md-show"></lt-icon-font>
+    <lt-icon :type="item[0]" class="iconfont-md-show"></lt-icon>
     <div class="iconfont-md-title">{{item[0]}}</div>
     <div class="iconfont-md-code">{{item[1]}}</div>
   </div>
@@ -22,20 +22,21 @@ export default {
   data() {
     return {
       iconlist: [
-        ['icon-signout', '\\e604'],
-        ['icon-confirm', '\\e605'],
-        ['icon-details', '\\e606'],
-        ['icon-cancel', '\\e607'],
-        ['icon-dropdown', '\\e608'],
-        ['icon-close', '\\e609'],
-        ['icon-tickcross', '\\e60a'],
-        ['icon-right', '\\e60b'],
-        ['icon-left', '\\e60c'],
-        ['icon-mylike', '\\e60d'],
-        ['icon-mybuy', '\\e60e'],
-        ['icon-recycle', '\\e60f'],
-        ['icon-mydesign', '\\e610'],
-        ['icon-mytemplate', '\\e611']
+        ['signout', '\\e604'],
+        ['confirm', '\\e605'],
+        ['details', '\\e606'],
+        ['cancel', '\\e607'],
+        ['chevron-up', '\\e616'],
+        ['dropdown', '\\e608'],
+        ['close', '\\e609'],
+        ['tickcross', '\\e60a'],
+        ['right', '\\e60b'],
+        ['left', '\\e60c'],
+        ['mylike', '\\e60d'],
+        ['mybuy', '\\e60e'],
+        ['recycle', '\\e60f'],
+        ['mydesign', '\\e610'],
+        ['mytemplate', '\\e611']
       ]
     }
   }
@@ -53,6 +54,7 @@ export default {
   font-size: 30px !important;
   width: 100%;
   display: block;
+  margin-bottom: 8px;
 }
 .iconfont-md-code {
   margin-top: 10px;
