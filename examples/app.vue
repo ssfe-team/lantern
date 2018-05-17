@@ -13,15 +13,23 @@
               <lt-menu>
                 <lt-menu-item-select :title="'组件文档'">
                   <span slot="title">组件文档</span>
-                  <lt-menu-item :href="'/color'"><span>标准色</span></lt-menu-item>
-                  <lt-menu-item :href="'/layout'"><span>Layout布局容器</span></lt-menu-item>
-                  <lt-menu-item :href="'/menu'"><span>导航菜单</span></lt-menu-item>
-                  <lt-menu-item :href="'/scroll'"><span>滚动条</span></lt-menu-item>
+                  <lt-menu-item :href="'/color'"><span>Color 标准色</span></lt-menu-item>
+                  <lt-menu-item :href="'/layout'"><span>Layout 布局容器</span></lt-menu-item>
+                  <lt-menu-item :href="'/menu'"><span>Menu 导航菜单</span></lt-menu-item>
+                  <lt-menu-item :href="'/scroll'"><span>Scroll 滚动条</span></lt-menu-item>
                   <lt-menu-item :href="'/message'"><span>Message 消息通知</span></lt-menu-item>
                   <lt-menu-item :href="'/pagination'"><span>Pagination 分页</span></lt-menu-item>
-                  <lt-menu-item :href="'/iconfont'"><span>iconfont</span></lt-menu-item>
-                  <lt-menu-item :href="'/select'"><span>Select 选择器</span></lt-menu-item>
-                  <lt-menu-item :href="'/input'"><span>输入框input</span></lt-menu-item>
+                  <lt-menu-item :href="'/icon'"><span>Icon 图标</span></lt-menu-item>
+                  <!--<lt-menu-item :href="'/select'"><span>Select 选择器</span></lt-menu-item>-->
+                  <!--<lt-menu-item :href="'/input'"><span>Input 输入框</span></lt-menu-item>-->
+                  <lt-menu-item :href="'/input-number'"><span>InputNumber 数字输入框</span></lt-menu-item>
+                  <lt-menu-item :href="'/poptip'"><span>Poptip 气泡提示</span></lt-menu-item>
+                  <lt-menu-item :href="'/tooltip'"><span>Tooltip 文字提示</span></lt-menu-item>
+                  <lt-menu-item :href="'/checkbox'"><span>Checkbox 多选框</span></lt-menu-item>
+                  <lt-menu-item :href="'/button'"><span>Button 按钮</span></lt-menu-item>
+                  <lt-menu-item :href="'/radio'"><span>Radio 单选框</span></lt-menu-item>
+                  <lt-menu-item :href="'/slider'"><span>Slider 滑块</span></lt-menu-item>
+                  <lt-menu-item :href="'/switch'"><span>Switch 开关</span></lt-menu-item>
                 </lt-menu-item-select>
                 <lt-menu-item-group :title="'规范文档'">
                   <lt-menu-item :href="'/classstandard'"><span>class命名规范</span></lt-menu-item>

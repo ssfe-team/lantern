@@ -26,6 +26,8 @@
 参数|说明|类型|必选|默认值
 --------|--------|--------|--------|--------
 barStyle|滚动条配置(通过该对象传递滚动条所有的配置)|Object|否|{}
+scrollReloadTag|滚动条重载标志|Number|否|null
+defaultScrollTop|滚动条默认高度|Number|否|null
 
 <br>
 <br>

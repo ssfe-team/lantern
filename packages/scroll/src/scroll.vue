@@ -135,6 +135,10 @@ export default {
     scrollReloadTag: {
       required: false,
       type: Number
+    },
+    defaultScrollTop: {
+      required: false,
+      type: Number
     }
   },
   mounted() {
@@ -142,10 +146,18 @@ export default {
     this.$nextTick(() => {
       this.scrollReload();
     });
+    if (this.defaultScrollTop) {
+      this.scrollTop = this.defaultScrollTop
+      this.$refs.inner.scrollTop = this.defaultScrollTop
+    }
   },
   watch: {
     scrollReloadTag() {
       this.scrollReload();
+    },
+    defaultScrollTop() {
+      this.scrollTop = this.defaultScrollTop
+      this.$refs.inner.scrollTop = this.defaultScrollTop    
     }
   },
   computed: {
