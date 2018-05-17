@@ -11,7 +11,7 @@
              @mouseenter="handleMouseenter"
         >
             <span class="lt-select__selected-text" :title="da.sel">{{da.sel}}</span>
-            <lt-icon type="dropdown" class="lt-select__icon-dropdown"></lt-icon>
+            <lt-icon type="ios-arrow-down" class="lt-select__icon-dropdown"></lt-icon>
         </div>
         <lt-collapse-transition>
             <div class="lt-select__list"

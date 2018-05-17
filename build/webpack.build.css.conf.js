@@ -12,7 +12,7 @@ var devConfig = {
   entry: ['./src/index.less'],
   output: {
     path: resolve('lib'),
-    publicPath: '/lib/',
+    publicPath: '../lib/',
     filename: 'lantern.css'
   },
   plugins: [

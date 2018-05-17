@@ -19,7 +19,7 @@
     const prefixCls = 'lt-switch';
 
     export default {
-        name: 'Switch',
+        name: 'LtSwitch',
         mixins: [ Emitter ],
         props: {
             value: {

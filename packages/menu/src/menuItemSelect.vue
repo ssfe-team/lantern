@@ -2,7 +2,7 @@
   <li class="lt-menu-select" :class="{'lt-menu-select--opend': opend}" @click="opend = !opend">
     <div class="lt-menu-select__title" @click="titleClick">
       <slot name="title"></slot>
-      <lt-icon type="dropdown"></lt-icon>
+      <lt-icon type="chevron-down"></lt-icon>
     </div>
     <lt-collapse-transition>
       <ul class="lt-menu-select__content" v-show="opend" ref="childContent" @click.stop>

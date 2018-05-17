@@ -22,6 +22,7 @@ import button from './document/button.md'
 import radio from './document/radio.md'
 import slider from './document/slider.md'
 import Switch from './document/switch.md'
+import Breadcrumb from './document/breadcrumb.md'
 
 export default [
   {
@@ -92,8 +93,12 @@ export default [
     path: '/slider',
     component: slider
   },
-    {
-      path: '/switch',
-      component: Switch
-    }
+  {
+    path: '/switch',
+    component: Switch
+  },
+  {
+    path: '/breadcrumb',
+    component: Breadcrumb
+  }
 ]
