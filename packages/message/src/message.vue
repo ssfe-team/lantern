@@ -11,7 +11,7 @@
           @mouseleave="startTimer"
           role="alert"
         >
-            <lt-icon :class="iconClass" v-if="iconClass"></lt-icon>
+            <lt-icon :type="iconClass" v-if="iconClass"></lt-icon>
             <lt-icon class="lt-message__icon" :type="typeClass" v-else></lt-icon>
             <slot>
                 <p v-if="!dangerouslyUseHTMLString" class="lt-message__content">{{ message }}</p>
@@ -22,12 +22,13 @@
 </template>
 
 <script type="text/babel">
-const typeMap = {
-  success: 'confirm',
-  info: 'details info',
-  warning: 'details warn',
-  error: 'cancel'
-}
+
+  const typeMap = {
+  success: 'checkmark-circled',
+  info: 'information-circled info',
+  warning: 'information-circled warn',
+  error: 'close-circled'
+  }
 
 export default {
   name: 'Message',

@@ -11,15 +11,18 @@ import scroll from './document/scroll.md';
 import message from './document/message.md';
 import pagination from './document/pagination.md';
 import select from './document/select.md';
-import iconfont from './document/iconfont.md';
+import icon from './document/icon.md';
 import classstandard from './document/classstandard.md';
 import input from './document/input.md';
+import inputNumber from './document/inputNumber.md';
 import tooltip from './document/tooltip.md'
 import poptip from './document/poptip.md'
 import checkbox from './document/checkbox.md'
 import button from './document/button.md'
 import radio from './document/radio.md'
 import slider from './document/slider.md'
+import Switch from './document/switch.md'
+import Breadcrumb from './document/breadcrumb.md'
 
 export default [
   {
@@ -51,8 +54,8 @@ export default [
     component: select
   },
   {
-    path: '/iconfont',
-    component: iconfont
+    path: '/icon',
+    component: icon
   },
   {
     path: '/classstandard',
@@ -61,6 +64,10 @@ export default [
   {
     path: '/input',
     component: input
+  },
+  {
+    path: '/input-number',
+    component: inputNumber
   },
   {
     path: '/poptip',
@@ -85,5 +92,13 @@ export default [
   {
     path: '/slider',
     component: slider
+  },
+  {
+    path: '/switch',
+    component: Switch
+  },
+  {
+    path: '/breadcrumb',
+    component: Breadcrumb
   }
 ]

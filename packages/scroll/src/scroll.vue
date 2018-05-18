@@ -148,6 +148,7 @@ export default {
     });
     if (this.defaultScrollTop) {
       this.scrollTop = this.defaultScrollTop
+      this.$refs.inner.scrollTop = this.defaultScrollTop
     }
   },
   watch: {
@@ -155,7 +156,8 @@ export default {
       this.scrollReload();
     },
     defaultScrollTop() {
-      this.scrollTop = this.defaultScrollTop      
+      this.scrollTop = this.defaultScrollTop
+      this.$refs.inner.scrollTop = this.defaultScrollTop    
     }
   },
   computed: {

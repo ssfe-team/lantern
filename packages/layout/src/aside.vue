@@ -1,5 +1,5 @@
 <template>
-  <aside class="lt-aside" :style="{ width }">
+  <aside class="lt-aside" :style="styles">
     <slot></slot>
   </aside>
 </template>
@@ -10,6 +10,14 @@ export default {
     width: {
       type: String,
       default: '200px'
+    }
+  },
+  computed: {
+    styles() {
+      return {
+        'width': this.width,
+        'min-width': this.width
+      }
     }
   }
 }

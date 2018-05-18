@@ -1,5 +1,7 @@
 ## Button 按钮
 
+### 概述
+
 基础组件，触发业务逻辑时使用。
 
 ### 代码示例
@@ -102,7 +104,7 @@
 ```
 :::
 
-#### 加载中状态（缺图标）
+#### 加载中状态
 
 通过添加`loading`属性可以让按钮处于加载中状态，后两个按钮在点击时进入加载状态。
 
@@ -172,17 +174,17 @@
          <br><br>
          <lt-button-group>
              <lt-button type="primary">
-                 <lt-icon type="left"></lt-icon>
+                 <lt-icon type="chevron-left"></lt-icon>
                  Backward
              </lt-button>
              <lt-button type="primary">
                  Forward
-                 <lt-icon type="right"></lt-icon>
+                 <lt-icon type="chevron-right"></lt-icon>
              </lt-button>
          </lt-button-group>
          <lt-button-group>
-             <lt-button type="primary" icon="left"></lt-button>
-             <lt-button type="primary" icon="right"></lt-button>
+             <lt-button type="primary" icon="chevron-left"></lt-button>
+             <lt-button type="primary" icon="chevron-right"></lt-button>
          </lt-button-group>
          <lt-button-group>
              <lt-button type="ghost" icon="mylike"></lt-button>
@@ -195,17 +197,17 @@
          <br><br>
          <lt-button-group shape="circle">
              <lt-button type="primary">
-                 <lt-icon type="left"></lt-icon>
+                 <lt-icon type="chevron-left"></lt-icon>
                  Backward
              </lt-button>
              <lt-button type="primary">
                  Forward
-                 <lt-icon type="right"></lt-icon>
+                 <lt-icon type="chevron-right"></lt-icon>
              </lt-button>
          </lt-button-group>
          <lt-button-group shape="circle">
-             <lt-button type="primary" icon="left"></lt-button>
-             <lt-button type="primary" icon="right"></lt-button>
+             <lt-button type="primary" icon="chevron-left"></lt-button>
+             <lt-button type="primary" icon="chevron-right"></lt-button>
          </lt-button-group>
          <lt-button-group shape="circle">
              <lt-button type="ghost" icon="mylike"></lt-button>
