@@ -50,6 +50,20 @@
     }
 }
 
+.button-disabled {
+    &.disabled,
+    &[disabled],
+    fieldset[disabled] & {
+        &,
+        &:hover,
+        &:focus,
+        &:active,
+        &.active {
+            .button-color(@btn-disable-color; @btn-disable-bg; @btn-disable-border);
+        }
+    }
+}
+
 .button-group-base(@btnClassName) {
     position: relative;
     display: inline-block;
@@ -175,7 +189,8 @@
 
 // Default
 .btn-default() {
-    .button-variant(@btn-default-color; @btn-default-bg; @btn-default-border);
+    .button-color(@btn-default-color; @btn-default-bg; @btn-default-border);
+    .button-disabled();
 
     &:hover
         //&:focus
@@ -191,7 +206,8 @@
 
 // Primary
 .btn-primary() {
-    .button-variant(@btn-primary-color; @btn-primary-bg; @primary-color);
+    .button-color(@btn-primary-color; @btn-primary-bg; @primary-color);
+    .button-disabled();
 
     &:hover {
         background: @background-color-linear-gradient-blue;
@@ -206,7 +222,8 @@
 
 // Ghost
 .btn-ghost() {
-    .button-variant(@btn-ghost-color, @btn-ghost-bg, @btn-ghost-border);
+    .button-color(@btn-ghost-color, @btn-ghost-bg, @btn-ghost-border);
+    .button-disabled();
 
     &:hover
         //&:focus
@@ -222,7 +239,9 @@
 
 // Dashed
 .btn-dashed() {
-    .button-variant(@btn-ghost-color, @btn-ghost-bg, @btn-ghost-border);
+    .button-color(@btn-ghost-color, @btn-ghost-bg, @btn-ghost-border);
+    .button-disabled();
+
     border-style: dashed;
 
     &:hover
@@ -239,7 +258,7 @@
 
 // Text
 .btn-text() {
-    .button-variant(@btn-ghost-color, @btn-ghost-bg, transparent);
+    .button-color(@btn-ghost-color, @btn-ghost-bg, transparent);
 
     // for disabled
     &.disabled,
@@ -274,7 +293,8 @@
     }
 }
 .btn-color(@color) {
-    .button-variant(@btn-primary-color; @color; @color);
+    .button-color(@btn-primary-color; @color; @color);
+    .button-disabled();
 
     &:hover,
         //&:focus,
