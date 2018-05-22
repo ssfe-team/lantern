@@ -1,11 +1,11 @@
 <template>
-  <li class="lt-menu-select" :class="{'lt-menu-select--opend': opend}" @click="opend = !opend">
+  <li class="lt-menu-select" :class="{'lt-menu-select--opened': opened}" @click="opened = !opened">
     <div class="lt-menu-select__title" @click="titleClick">
       <slot name="title"></slot>
       <lt-icon type="chevron-down"></lt-icon>
     </div>
     <lt-collapse-transition>
-      <ul class="lt-menu-select__content" v-show="opend" ref="childContent" @click.stop>
+      <ul class="lt-menu-select__content" v-show="opened" ref="childContent" @click.stop>
         <slot></slot>
       </ul>
     </lt-collapse-transition>
@@ -19,7 +19,7 @@ export default {
   components: { LtCollapseTransition },
   data() {
     return {
-      opend: false
+      opened: false
     }
   },
   methods: {

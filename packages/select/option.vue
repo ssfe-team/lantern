@@ -1,0 +1,83 @@
+<template>
+    <li
+        :class="classes"
+        @click.stop="select"
+        @mousedown.prevent
+        @touchstart.prevent
+    ><slot>{{ showLabel }}</slot></li>
+</template>
+<script>
+    import Emitter from 'lantern/src/mixins/emitter';
+    import { findComponentUpward } from 'lantern/src/utils/assist';
+
+    const prefixCls = 'lt-select-item';
+
+    export default {
+        name: 'ltOption',
+        componentName: 'select-item',
+        mixins: [ Emitter ],
+        props: {
+            value: {
+                type: [String, Number],
+                required: true
+            },
+            label: {
+                type: [String, Number]
+            },
+            disabled: {
+                type: Boolean,
+                default: false
+            },
+            selected: {
+                type: Boolean,
+                default: false
+            },
+            isFocused: {
+                type: Boolean,
+                default: false
+            }
+        },
+        data () {
+            return {
+                searchLabel: '',  // the slot value (textContent)
+                autoComplete: false
+            };
+        },
+        computed: {
+            classes () {
+                return [
+                    `${prefixCls}`,
+                    {
+                        [`${prefixCls}-disabled`]: this.disabled,
+                        [`${prefixCls}-selected`]: this.selected && !this.autoComplete,
+                        [`${prefixCls}-focus`]: this.isFocused
+                    }
+                ];
+            },
+            showLabel () {
+                return (this.label) ? this.label : this.value;
+            },
+            optionLabel(){
+                return (this.$el && this.$el.textContent) || this.label;
+            }
+        },
+        methods: {
+            select () {
+                if (this.disabled) return false;
+
+                this.dispatch('ltSelect', 'on-select-selected', {
+                    value: this.value,
+                    label: this.optionLabel,
+                });
+                this.$emit('on-select-selected', {
+                    value: this.value,
+                    label: this.optionLabel,
+                });
+            },
+        },
+        mounted () {
+            const Select = findComponentUpward(this, 'ltSelect');
+            if (Select) this.autoComplete = Select.autoComplete;
+        },
+    };
+</script>

@@ -26,6 +26,9 @@ import Tooltip from '../packages/tooltip/index.js'
 import Switch from '../packages/switch/index.js'
 import Breadcrumb from '../packages/breadcrumb/index.js'
 import BreadcrumbItem from '../packages/breadcrumb-item/index.js'
+import Dropdown from '../packages/dropdown/index.js'
+import DropdownItem from '../packages/dropdown-item/index.js'
+import DropdownMenu from '../packages/dropdown-menu/index.js'
 
 
 const prefix = 'Lt';
@@ -59,7 +62,10 @@ const packages = {
   Tooltip,
   Switch,
   Breadcrumb,
-  BreadcrumbItem
+  BreadcrumbItem,
+  Dropdown,
+  DropdownMenu,
+  DropdownItem,
 }
 
 const install = function(Vue) {
