@@ -59,6 +59,7 @@
         &:focus,
         &:active,
         &.active {
+            background: none;
             .button-color(@btn-disable-color; @btn-disable-bg; @btn-disable-border);
         }
     }
@@ -190,7 +191,6 @@
 // Default
 .btn-default() {
     .button-color(@btn-default-color; @btn-default-bg; @btn-default-border);
-    .button-disabled();
 
     &:hover
         //&:focus
@@ -202,12 +202,12 @@
         .button-color(shade(@primary-color, 5%); white; shade(@primary-color, 5%));
     }
     .active-btn-color(@primary-color);
+    .button-disabled();
 }
 
 // Primary
 .btn-primary() {
     .button-color(@btn-primary-color; @btn-primary-bg; @primary-color);
-    .button-disabled();
 
     &:hover {
         background: @background-color-linear-gradient-blue;
@@ -218,12 +218,12 @@
         color: @btn-primary-color;
     }
     .active-btn-color(@primary-color);
+    .button-disabled();
 }
 
 // Ghost
 .btn-ghost() {
     .button-color(@btn-ghost-color, @btn-ghost-bg, @btn-ghost-border);
-    .button-disabled();
 
     &:hover
         //&:focus
@@ -235,12 +235,12 @@
         .button-color(shade(@primary-color, 5%); @btn-ghost-bg; shade(@primary-color, 5%));
     }
     .active-btn-color(@primary-color);
+    .button-disabled();
 }
 
 // Dashed
 .btn-dashed() {
     .button-color(@btn-ghost-color, @btn-ghost-bg, @btn-ghost-border);
-    .button-disabled();
 
     border-style: dashed;
 
@@ -254,6 +254,7 @@
         .button-color(shade(@primary-color, 5%); @btn-ghost-bg; shade(@primary-color, 5%));
     }
     .active-btn-color(@primary-color);
+    .button-disabled();
 }
 
 // Text
@@ -294,7 +295,6 @@
 }
 .btn-color(@color) {
     .button-color(@btn-primary-color; @color; @color);
-    .button-disabled();
 
     &:hover,
         //&:focus,
@@ -304,6 +304,7 @@
     }
 
     .active-btn-color(@color);
+    .button-disabled();
 }
 
 // Circle for Icon
