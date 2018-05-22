@@ -33,8 +33,8 @@
                             </div>
                         </div>
                         <div :class="[prefixCls + '-footer']">
-                            <i-button type="text" size="small" @click.native="cancel">{{ localeCancelText }}</i-button>
-                            <i-button type="primary" size="small" @click.native="ok">{{ localeOkText }}</i-button>
+                            <lt-button type="text" size="small" @click.native="cancel">{{ localeCancelText }}</lt-button>
+                            <lt-button type="primary" size="small" @click.native="ok">{{ localeOkText }}</lt-button>
                         </div>
                     </div>
                     <div :class="[prefixCls + '-inner']" v-if="!confirm">
@@ -58,7 +58,7 @@
 </template>
 <script>
   import Popper from '../../base/popper.js'
-  import iButton from '../../button/src/button.vue'
+  import ltButton from '../../button/src/button.vue'
   import clickoutside from 'lantern/src/directives/clickoutside.js'
   import TransferDom from 'lantern/src/directives/transfer-dom.js'
   import { oneOf } from 'lantern/src/utils/assist'
@@ -69,7 +69,7 @@
     name: 'Poptip',
     mixins: [Popper],
     directives: { clickoutside, TransferDom },
-    components: { iButton },
+    components: { ltButton },
     props: {
       trigger: {
         validator (value) {

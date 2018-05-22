@@ -21,6 +21,7 @@
   "homepage": "https://github.com/ssfe-team/lantern#readme",
   "dependencies": {
     "popper.js": "^1.14.3",
+    "v-click-outside-x": "^2.4.0",
     "vue": "^2.5.13"
   },
   "devDependencies": {
@@ -36,7 +37,6 @@
     "file-loader": "^1.1.6",
     "highlight.js": "^9.12.0",
     "html-webpack-plugin": "^2.30.1",
-    "lerna": "^2.5.1",
     "less": "^2.7.3",
     "less-loader": "^4.0.5",
     "markdown-it": "^8.4.0",
