@@ -36,6 +36,11 @@ export default {
       type: Boolean
     }
   },
+  watch: {
+    current(v) {
+      this.nowPage = v
+    }
+  },
   mounted() {
     if(this.total <= 7) {
       for(let i = 0;i < this.total;i++) {

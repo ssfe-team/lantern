@@ -2,6 +2,7 @@ var path = require('path');
 var webpack = require('webpack');
 var merge = require('webpack-merge');
 var baseConfig = require('./webpack.base.conf.js');
+const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
 
 function resolve(dir) {
   return path.join(__dirname, '..', dir);
@@ -32,12 +33,9 @@ var devConfig = {
         NODE_ENV: '"production"'
       }
     }),
-    new webpack.optimize.UglifyJsPlugin({
+    new UglifyJSPlugin({
       sourceMap: false,
-      parallel: true,
-      compress: {
-        warnings: false
-      }
+      parallel: true
     }),
     new webpack.LoaderOptionsPlugin({
       minimize: true
