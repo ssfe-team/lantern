@@ -23,6 +23,7 @@ import radio from './document/radio.md'
 import slider from './document/slider.md'
 import Switch from './document/switch.md'
 import Breadcrumb from './document/breadcrumb.md'
+import Dropdown from './document/dropdown.md'
 
 export default [
   {
@@ -100,5 +101,9 @@ export default [
   {
     path: '/breadcrumb',
     component: Breadcrumb
+  },
+  {
+    path: '/dropdown',
+    component: Dropdown
   }
 ]
