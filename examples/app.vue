@@ -11,8 +11,7 @@
           <lt-layout class="main-wrap-layout" :isRow="mainLayoutIsRow">
             <lt-aside width="300px">
               <lt-menu>
-                <lt-menu-item-select :title="'组件文档'">
-                  <span slot="title">组件文档</span>
+                <lt-menu-item-group :title="'组件文档'">
                   <lt-menu-item :href="'/color'"><span>Color 标准色</span></lt-menu-item>
                   <lt-menu-item :href="'/layout'"><span>Layout 布局容器</span></lt-menu-item>
                   <lt-menu-item :href="'/menu'"><span>Menu 导航菜单</span></lt-menu-item>
@@ -30,7 +29,9 @@
                   <lt-menu-item :href="'/radio'"><span>Radio 单选框</span></lt-menu-item>
                   <lt-menu-item :href="'/slider'"><span>Slider 滑块</span></lt-menu-item>
                   <lt-menu-item :href="'/switch'"><span>Switch 开关</span></lt-menu-item>
-                </lt-menu-item-select>
+                  <lt-menu-item :href="'/breadcrumb'"><span>Breadcrumb 面包屑</span></lt-menu-item>
+                  <lt-menu-item :href="'/dropdown'"><span>Dropdown 下拉菜单</span></lt-menu-item>
+                </lt-menu-item-group>
                 <lt-menu-item-group :title="'规范文档'">
                   <lt-menu-item :href="'/classstandard'"><span>class命名规范</span></lt-menu-item>
                 </lt-menu-item-group>

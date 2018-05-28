@@ -24,6 +24,11 @@ import RadioGroup from '../packages/radio-group/index.js'
 import Slider from '../packages/slider/index.js'
 import Tooltip from '../packages/tooltip/index.js'
 import Switch from '../packages/switch/index.js'
+import Breadcrumb from '../packages/breadcrumb/index.js'
+import BreadcrumbItem from '../packages/breadcrumb-item/index.js'
+import Dropdown from '../packages/dropdown/index.js'
+import DropdownItem from '../packages/dropdown-item/index.js'
+import DropdownMenu from '../packages/dropdown-menu/index.js'
 
 
 const prefix = 'Lt';
@@ -55,7 +60,12 @@ const packages = {
   RadioGroup,
   Slider,
   Tooltip,
-  Switch
+  Switch,
+  Breadcrumb,
+  BreadcrumbItem,
+  Dropdown,
+  DropdownMenu,
+  DropdownItem,
 }
 
 const install = function(Vue) {

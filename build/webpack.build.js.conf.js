@@ -2,6 +2,7 @@ var path = require('path');
 var webpack = require('webpack');
 var merge = require('webpack-merge');
 var baseConfig = require('./webpack.base.conf.js');
+const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
 
 function resolve(dir) {
   return path.join(__dirname, '..', dir);
@@ -12,9 +13,11 @@ var devConfig = {
   entry: ['./src/index.js'],
   output: {
     path: resolve('lib'),
-    publicPath: '/lib/',
+    publicPath: '../lib/',
+    filename: 'lantern.js',
+    library: 'lantern-ui',
     libraryTarget: 'umd',
-    filename: 'lantern.js'
+    umdNamedDefine: true,
   },
   externals: {
     vue: {
@@ -30,11 +33,9 @@ var devConfig = {
         NODE_ENV: '"production"'
       }
     }),
-    new webpack.optimize.UglifyJsPlugin({
+    new UglifyJSPlugin({
       sourceMap: false,
-      compress: {
-        warnings: false
-      }
+      parallel: true
     }),
     new webpack.LoaderOptionsPlugin({
       minimize: true

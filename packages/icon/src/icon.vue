@@ -31,7 +31,3 @@
     }
   }
 </script>
-
-<style lang="less">
-    @import 'iconfont.less';
-</style>
