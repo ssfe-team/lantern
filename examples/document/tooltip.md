@@ -18,13 +18,31 @@
 ```
 :::
 
+#### 主题
+
+Tooltip 组件提供了两个不同的主题：`blue`和`light`。
+
+通过设置effect属性来改变主题，默认为dark。
+
+::: demo demo
+```html
+  <lt-tooltip content="这是提示文字">
+      <lt-button>BLue</lt-button>
+  </lt-tooltip>
+  <lt-tooltip content="这是提示文字" effect="light">
+      <lt-button>Light</lt-button>
+  </lt-tooltip>
+```
+:::
+
+
 #### 位置
 
 组件提供了12个不同的方向显示Tooltip，具体配置可查看API。
 
 ::: demo demo
 ```html
-   <lt-tooltip content="Top Start 文字提示" placement="top-start">
+   <lt-tooltip content="Top Start 文字提示" placement="top-start" style="margin-bottom: 16px">
      <lt-button>Top Left</lt-button>
    </lt-tooltip>
    <lt-tooltip  content="Top Center 文字提示" placement="top">
