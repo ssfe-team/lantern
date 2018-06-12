@@ -16,9 +16,14 @@
         .popper(@tooltip-arrow, @tooltip-arrow-width, @tooltip-distance, @tooltip-bg);
     }
 
+    &-popper.is-light{
+        .popper(@tooltip-arrow, @tooltip-arrow-width, @tooltip-distance, @tooltip-light-bg);
+    }
+
     &-inner{
         max-width: @tooltip-max-width;
         padding: 4px 8px;
+        font-size: @font-size-small;
         line-height: 1;
         color: @tooltip-color;
         text-align: left;
@@ -27,6 +32,10 @@
         border-radius: @border-radius-small;
         box-shadow: @shadow-base;
         white-space: nowrap;
+    }
+    &-inner.is-light{
+        color: @text-color;
+        background-color: @tooltip-light-bg;
     }
 
     &-arrow{
