@@ -13,7 +13,7 @@
                     :data-transfer="transfer"
                     v-transfer-dom>
                 <div :class="[prefixCls + '-content']">
-                    <div :class="[prefixCls + '-arrow']"></div>
+                    <div :class="[prefixCls + '-arrow']" v-if="visibleArrow"></div>
                     <div :class="[prefixCls + '-inner', 'is-' + effect]">
                         <slot name="content">{{ content }}</slot>
                     </div>
@@ -68,6 +68,10 @@
         type: String,
         default: 'blue'
       },
+      visibleArrow: {
+        type: Boolean,
+        default: true
+      }
     },
     data () {
       return {
