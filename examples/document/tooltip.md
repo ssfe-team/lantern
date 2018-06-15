@@ -124,6 +124,7 @@ disabled|是否禁用提示框|Boolean|false
 delay|延迟显示，单位毫秒|Number|0
 always|是否总是可见|Boolean|false
 transfer|是否将弹层放置于 body 内，在 Tabs、带有 fixed 的 Table 列内使用时，建议添加此属性，它将不受父级样式影响，从而达到更好的效果|Boolean|false
+visible-arrow|是否显示 Tooltip 箭头|Boolean|true
 options|自定义 popper.js 的配置项，具体配置见 [popper.js 文档](https://popper.js.org/popper-documentation.html)|Object|![](https://ws3.sinaimg.cn/large/006tKfTcly1fr42hc9bx7j308z05taa5.jpg)
 
 #### Tooltip events

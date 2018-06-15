@@ -141,6 +141,7 @@ ok-text|确定按钮的文字，只在 confirm 模式下有效|String|确定
 cancel-text|取消按钮的文字，只在 confirm 模式下有效|String|	取消
 transfer|是否将弹层放置于 body 内，在 Tabs、带有 fixed 的 Table 列内使用时，建议添加此属性，它将不受父级样式影响，从而达到更好的效果|Boolean|false
 offset|出现位置的偏移量|Number\|String|0
+visible-arrow|是否显示 Tooltip 箭头|Boolean|true
 popper-class|给 Poptip 设置 class-name，在使用 transfer 时会很有用|String|-
 options|自定义 popper.js 的配置项，具体配置见 [popper.js 文档](https://popper.js.org/popper-documentation.html)|Object|![](https://ws3.sinaimg.cn/large/006tKfTcly1fr42hc9bx7j308z05taa5.jpg)
 padding|自定义内容 padding|String|8 16

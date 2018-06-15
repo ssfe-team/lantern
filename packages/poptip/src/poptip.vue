@@ -24,7 +24,7 @@
                     :data-transfer="transfer"
                     v-transfer-dom>
                 <div :class="[prefixCls + '-content']">
-                    <div :class="[prefixCls + '-arrow']"></div>
+                    <div :class="[prefixCls + '-arrow']" v-if="visibleArrow"></div>
                     <div :class="[prefixCls + '-inner']" v-if="confirm">
                         <div :class="[prefixCls + '-body']">
                             <i class="lt-icon lt-icon-help-circled"></i>
@@ -112,6 +112,10 @@
       },
       padding: {
         type: String
+      },
+      visibleArrow: {
+        type: Boolean,
+        default: true
       }
     },
     data () {
