@@ -31,6 +31,7 @@
                   <lt-menu-item :href="'/switch'"><span>Switch 开关</span></lt-menu-item>
                   <lt-menu-item :href="'/breadcrumb'"><span>Breadcrumb 面包屑</span></lt-menu-item>
                   <lt-menu-item :href="'/dropdown'"><span>Dropdown 下拉菜单</span></lt-menu-item>
+                  <lt-menu-item :href="'/modal'"><span>Modal 弹框</span></lt-menu-item>
                 </lt-menu-item-group>
                 <lt-menu-item-group :title="'规范文档'">
                   <lt-menu-item :href="'/classstandard'"><span>class命名规范</span></lt-menu-item>
