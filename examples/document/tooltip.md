@@ -18,13 +18,31 @@
 ```
 :::
 
+#### 主题
+
+Tooltip 组件提供了两个不同的主题：`blue`和`light`。
+
+通过设置effect属性来改变主题，默认为dark。
+
+::: demo demo
+```html
+  <lt-tooltip content="这是提示文字">
+      <lt-button>BLue</lt-button>
+  </lt-tooltip>
+  <lt-tooltip content="这是提示文字" effect="light">
+      <lt-button>Light</lt-button>
+  </lt-tooltip>
+```
+:::
+
+
 #### 位置
 
 组件提供了12个不同的方向显示Tooltip，具体配置可查看API。
 
 ::: demo demo
 ```html
-   <lt-tooltip content="Top Start 文字提示" placement="top-start">
+   <lt-tooltip content="Top Start 文字提示" placement="top-start" style="margin-bottom: 16px">
      <lt-button>Top Left</lt-button>
    </lt-tooltip>
    <lt-tooltip  content="Top Center 文字提示" placement="top">
@@ -106,6 +124,7 @@ disabled|是否禁用提示框|Boolean|false
 delay|延迟显示，单位毫秒|Number|0
 always|是否总是可见|Boolean|false
 transfer|是否将弹层放置于 body 内，在 Tabs、带有 fixed 的 Table 列内使用时，建议添加此属性，它将不受父级样式影响，从而达到更好的效果|Boolean|false
+visible-arrow|是否显示 Tooltip 箭头|Boolean|true
 options|自定义 popper.js 的配置项，具体配置见 [popper.js 文档](https://popper.js.org/popper-documentation.html)|Object|![](https://ws3.sinaimg.cn/large/006tKfTcly1fr42hc9bx7j308z05taa5.jpg)
 
 #### Tooltip events
