@@ -2,7 +2,7 @@
  * @Author: bianhao 
  * @Date: 2017-12-21 15:32:04 
  * @Last Modified by: bianhao
- * @Last Modified time: 2018-04-07 17:26:21
+ * @Last Modified time: 2018-06-19 16:35:55
  */
 import Message from '../packages/message/index.js';
 import WaterFall from '../packages/water-fall/index.js';
@@ -29,6 +29,7 @@ import BreadcrumbItem from '../packages/breadcrumb-item/index.js'
 import Dropdown from '../packages/dropdown/index.js'
 import DropdownItem from '../packages/dropdown-item/index.js'
 import DropdownMenu from '../packages/dropdown-menu/index.js'
+import Modal from '../packages/modal/index.js'
 
 
 const prefix = 'Lt';
@@ -66,6 +67,7 @@ const packages = {
   Dropdown,
   DropdownMenu,
   DropdownItem,
+  Modal
 }
 
 const install = function(Vue) {
