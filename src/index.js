@@ -2,7 +2,7 @@
  * @Author: bianhao 
  * @Date: 2017-12-21 15:32:04 
  * @Last Modified by: bianhao
- * @Last Modified time: 2018-06-19 16:35:55
+ * @Last Modified time: 2018-06-21 21:10:52
  */
 import Message from '../packages/message/index.js';
 import WaterFall from '../packages/water-fall/index.js';
@@ -30,6 +30,8 @@ import Dropdown from '../packages/dropdown/index.js'
 import DropdownItem from '../packages/dropdown-item/index.js'
 import DropdownMenu from '../packages/dropdown-menu/index.js'
 import Modal from '../packages/modal/index.js'
+
+import vClickOutside from 'v-click-outside-x';
 
 
 const prefix = 'Lt';
@@ -78,7 +80,8 @@ const install = function(Vue) {
 }
 
 if (typeof window !== 'undefined' && window.Vue) {
-  install(window.Vue);
+  install(window.Vue)
+  window.Vue.use(vClickOutside)
 };
 
 const API = {
