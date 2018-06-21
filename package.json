@@ -1,6 +1,6 @@
 {
   "name": "lantern-ui",
-  "version": "0.9.77",
+  "version": "0.10.0",
   "description": "Lantern-ui——基于Vue.js的前端UI库",
   "main": "lib/lantern.js",
   "scripts": {
@@ -21,7 +21,7 @@
   "homepage": "https://github.com/ssfe-team/lantern#readme",
   "dependencies": {
     "popper.js": "^1.14.3",
-    "v-click-outside-x": "^2.4.0",
+    "v-click-outside-x": "^3.0.1",
     "vue": "^2.5.13"
   },
   "devDependencies": {
