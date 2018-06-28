@@ -1,6 +1,6 @@
 /*
- * @Author: bianhao 
- * @Date: 2017-12-21 16:28:31 
+ * @Author: bianhao
+ * @Date: 2017-12-21 16:28:31
  * @Last Modified by: bianhao
  * @Last Modified time: 2018-01-29 17:45:09
  */
@@ -9,7 +9,9 @@ import App from './app.vue';
 import VueRouter from 'vue-router';
 import Lantern from '../src/index.js';
 import routes from './route.config.js';
+import * as vClickOutside from 'v-click-outside-x';
 
+Vue.use(vClickOutside);
 Vue.use(VueRouter);
 const router = new VueRouter({
   mode: 'history',
