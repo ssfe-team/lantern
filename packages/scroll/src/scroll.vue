@@ -39,11 +39,11 @@
         <div  class="lt-scroll__bar lt-scroll__bar--right"
               :class="{'lt-scroll__bar--active': rightActive}"
               :style="{
-              'background-color': style.barColor,
-              'width': style.barWidth + 'px',
-              'opacity': style.barOpacityInactive,
-              'height': rightBarHeight + 'px',
-              'top': barTop + 'px'
+                'background-color': style.barColor,
+                'width': style.barWidth + 'px',
+                'opacity': style.barOpacityInactive,
+                'height': rightBarHeight + 'px',
+                'top': barTop + 'px'
               }"
         ></div>
       </div>
@@ -110,8 +110,6 @@ export default {
       bottomActiveClock: null,
       activeClockDelay: 800,
 
-      wrapSize: {},
-
       // 容器的宽高
       wrapHeight: 0,
       wrapWidth: 0,
@@ -139,6 +137,10 @@ export default {
     defaultScrollTop: {
       required: false,
       type: Number
+    },
+    scrollToTop: {
+      required: false,
+      type: Number
     }
   },
   mounted() {
@@ -157,7 +159,11 @@ export default {
     },
     defaultScrollTop() {
       this.scrollTop = this.defaultScrollTop
-      this.$refs.inner.scrollTop = this.defaultScrollTop    
+      this.$refs.inner.scrollTop = this.defaultScrollTop
+    },
+    scrollToTop() {
+      this.scrollTop = 0
+      this.$refs.inner.scrollTop = 0
     }
   },
   computed: {
