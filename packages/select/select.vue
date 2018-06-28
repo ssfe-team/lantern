@@ -2,6 +2,7 @@
     <div
         :class="classes"
         v-click-outside.capture="onClickOutside"
+        v-click-outside:mousedown.capture="onClickOutside"
     >
         <div
             ref="reference"
@@ -72,7 +73,6 @@
 <script>
     import Icon from '../icon';
     import Drop from './dropdown.vue';
-    import vClickOutside from 'v-click-outside-x/index';
     import TransferDom from 'lantern/src/directives/transfer-dom';
     import { oneOf } from 'lantern/src/utils/assist';
     import Emitter from 'lantern/src/mixins/emitter';
@@ -127,7 +127,7 @@
         name: 'ltSelect',
         mixins: [ Emitter ],
         components: { FunctionalOptions, Drop, Icon, SelectHead },
-        directives: { clickOutside: vClickOutside.directive, TransferDom },
+        directives: { TransferDom },
         props: {
             value: {
                 type: [String, Number, Array],
@@ -393,7 +393,7 @@
             clearSingleSelect(){ // PUBLIC API
                 this.$emit('on-clear');
                 this.hideMenu();
-                if (this.clearable) this.values = [];
+                if (this.clearable) this.reset();
             },
             getOptionData(value){
                 const option = this.flatOptions.find(({componentOptions}) => componentOptions.propsData.value === value);
@@ -480,6 +480,8 @@
                 }
             },
             reset(){
+                this.query = '';
+                this.focusIndex = -1;
                 this.unchangedQuery = true;
                 this.values = [];
             },

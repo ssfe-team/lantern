@@ -3,7 +3,7 @@
             :class="classes"
             @mouseenter="handleMouseenter"
             @mouseleave="handleMouseleave"
-            v-clickoutside="handleClose">
+            v-click-outside="handleClose">
         <div
                 :class="[prefixCls + '-rel']"
                 ref="reference"
@@ -24,7 +24,7 @@
                     :data-transfer="transfer"
                     v-transfer-dom>
                 <div :class="[prefixCls + '-content']">
-                    <div :class="[prefixCls + '-arrow']"></div>
+                    <div :class="[prefixCls + '-arrow']" v-if="visibleArrow"></div>
                     <div :class="[prefixCls + '-inner']" v-if="confirm">
                         <div :class="[prefixCls + '-body']">
                             <i class="lt-icon lt-icon-help-circled"></i>
@@ -59,7 +59,6 @@
 <script>
   import Popper from '../../base/popper.js'
   import ltButton from '../../button/src/button.vue'
-  import clickoutside from 'lantern/src/directives/clickoutside.js'
   import TransferDom from 'lantern/src/directives/transfer-dom.js'
   import { oneOf } from 'lantern/src/utils/assist'
 
@@ -68,7 +67,7 @@
   export default {
     name: 'Poptip',
     mixins: [Popper],
-    directives: { clickoutside, TransferDom },
+    directives: { TransferDom },
     components: { ltButton },
     props: {
       trigger: {
@@ -112,6 +111,10 @@
       },
       padding: {
         type: String
+      },
+      visibleArrow: {
+        type: Boolean,
+        default: true
       }
     },
     data () {

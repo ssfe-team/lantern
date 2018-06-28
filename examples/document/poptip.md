@@ -12,7 +12,7 @@ Poptip 还包含 confirm 确认框，与 Modal 不同的是，它会出现在就
 
 支持三种触发方式：鼠标悬停、点击、聚焦。默认是点击。
 
-注意 Poptip 内的文本使用了 white-space: nowrap;，即不自动换行，如需展示很多内容并自动换行时，建议给内容 slot 增加样式 white-space: normal;。
+注意 Poptip 内的文本使用了 `white-space: nowrap;`，即不自动换行，如需展示很多内容并自动换行时，建议给内容 slot 增加样式 `white-space: normal;`。
 
 ::: demo demo
 ```html
@@ -59,7 +59,7 @@ Poptip 还包含 confirm 确认框，与 Modal 不同的是，它会出现在就
    <lt-poptip  trigger="hover" title="Title" content="content" placement="bottom-start">
      <lt-button>Bottom Left</lt-button>
    </lt-poptip>
-   <lt-poptip  trigger="hover" title="Title" content="content" placement="bottom">
+   <lt-poptip  trigger="click" title="Title" content="content" placement="bottom">
      <lt-button>Bottom Center</lt-button>
    </lt-poptip>
    <lt-poptip  trigger="hover" title="Title" content="content" placement="bottom-end">
@@ -74,7 +74,7 @@ Poptip 还包含 confirm 确认框，与 Modal 不同的是，它会出现在就
 
 ::: demo demo
 ```html
-<lt-poptip trigger="click" title="Title" content="content" placement="right">
+<lt-poptip trigger="click" placement="right">
      <lt-button>click 激活</lt-button>
      <div class="api" slot="content">
          <table>
@@ -141,6 +141,7 @@ ok-text|确定按钮的文字，只在 confirm 模式下有效|String|确定
 cancel-text|取消按钮的文字，只在 confirm 模式下有效|String|	取消
 transfer|是否将弹层放置于 body 内，在 Tabs、带有 fixed 的 Table 列内使用时，建议添加此属性，它将不受父级样式影响，从而达到更好的效果|Boolean|false
 offset|出现位置的偏移量|Number\|String|0
+visible-arrow|是否显示 Tooltip 箭头|Boolean|true
 popper-class|给 Poptip 设置 class-name，在使用 transfer 时会很有用|String|-
 options|自定义 popper.js 的配置项，具体配置见 [popper.js 文档](https://popper.js.org/popper-documentation.html)|Object|![](https://ws3.sinaimg.cn/large/006tKfTcly1fr42hc9bx7j308z05taa5.jpg)
 padding|自定义内容 padding|String|8 16

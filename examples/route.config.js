@@ -2,7 +2,7 @@
  * @Author: bianhao 
  * @Date: 2018-01-05 11:19:37 
  * @Last Modified by: bianhao
- * @Last Modified time: 2018-04-07 17:28:20
+ * @Last Modified time: 2018-06-19 14:45:02
  */
 import color from './document/color.md';
 import layout from './document/layout.md';
@@ -24,6 +24,7 @@ import slider from './document/slider.md'
 import Switch from './document/switch.md'
 import Breadcrumb from './document/breadcrumb.md'
 import Dropdown from './document/dropdown.md'
+import Modal from './document/modal.md'
 
 export default [
   {
@@ -105,5 +106,9 @@ export default [
   {
     path: '/dropdown',
     component: Dropdown
+  },
+  {
+    path: '/modal',
+    component: Modal
   }
 ]
