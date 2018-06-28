@@ -20,7 +20,6 @@
 </template>
 <script>
     import Drop from '../../select/dropdown.vue';
-    import clickoutside from 'lantern/src/directives/clickoutside';
     import TransferDom from 'lantern/src/directives/transfer-dom';
     import { oneOf, findComponentUpward } from 'lantern/src/utils/assist';
 
@@ -28,7 +27,7 @@
 
     export default {
         name: 'Dropdown',
-        directives: { clickoutside, TransferDom },
+        directives: { TransferDom },
         components: { Drop },
         props: {
             trigger: {
