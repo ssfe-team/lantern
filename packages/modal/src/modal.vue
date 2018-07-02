@@ -20,7 +20,7 @@ export default {
 
   model: {
     prop: 'show',
-    event: 'toggleShow'
+    event: 'toggle-show'
   },
 
   props: {
@@ -32,7 +32,7 @@ export default {
 
   methods: {
     close() {
-      this.$emit('toggleShow', !this.show)
+      this.$emit('toggle-show', !this.show)
     }
   }
 }
