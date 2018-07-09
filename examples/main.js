@@ -9,9 +9,7 @@ import App from './app.vue';
 import VueRouter from 'vue-router';
 import Lantern from '../src/index.js';
 import routes from './route.config.js';
-import * as vClickOutside from 'v-click-outside-x';
 
-Vue.use(vClickOutside);
 Vue.use(VueRouter);
 const router = new VueRouter({
   mode: 'history',
