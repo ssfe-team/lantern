@@ -59,6 +59,7 @@
 <script>
   import Popper from '../../base/popper.js'
   import ltButton from '../../button/src/button.vue'
+  import {directive as clickOutside} from 'v-click-outside-x';
   import TransferDom from 'lantern/src/directives/transfer-dom.js'
   import { oneOf } from 'lantern/src/utils/assist'
 
@@ -67,7 +68,7 @@
   export default {
     name: 'Poptip',
     mixins: [Popper],
-    directives: { TransferDom },
+    directives: { clickOutside, TransferDom },
     components: { ltButton },
     props: {
       trigger: {
