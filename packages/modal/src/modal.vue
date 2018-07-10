@@ -1,21 +1,16 @@
 <template> 
   <div class="lt-modal" v-if="show">
-    <transition name="lt-modal__mask--fade">
-      <div class="lt-modal__mask" v-if="show" @click.self="close"></div>
-    </transition>
-    <transition name="lt-modal__content--fade">
-      <div class="lt-modal__content" v-if="show">
-        <slot></slot>
-      </div>
-    </transition>
+    <div class="lt-modal__mask" v-if="show" @click.self="close"></div>
+    <div class="lt-modal__content" v-if="show">
+      <slot></slot>
+    </div>
   </div>
 </template>
 <script>
 export default {
   name: 'Modal',
   data() {
-    return {
-    }
+    return {}
   },
 
   model: {
