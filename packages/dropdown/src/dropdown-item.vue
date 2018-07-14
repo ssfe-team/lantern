@@ -1,5 +1,5 @@
 <template>
-    <li :class="classes"><slot></slot></li>
+    <li :class="classes" @click="handleClick"><slot></slot></li>
 </template>
 <script>
 const prefixCls = 'lt-dropdown-item'
