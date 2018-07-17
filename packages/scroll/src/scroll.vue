@@ -13,8 +13,8 @@
           :style="{
             'width': style.wrapWidth,
             'height': style.wrapHeight,
-            'padding-right': rightBarShow && false ? style.barWidth + 'px' : '0',
-            'padding-bottom': bottomBarShow && false ? style.barHeight + 'px' : '0'
+            'padding-right': rightBarShow  ? style.barWidth + 'px' : '0',
+            'padding-bottom': bottomBarShow  ? style.barHeight + 'px' : '0'
           }"
     >
       <div class="lt-scroll__content" ref="inner"
