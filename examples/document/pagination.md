@@ -35,6 +35,11 @@
 |routePath|路由的计算func|Function|null|模式为route时必选|
 |jumpUrl|event模式下返回点击的页码|Emit|pageNo=>{}|必选|
 
+#### Events
+事件名|说明|返回值
+---|---|---
+on-change|跳页|页码
+
 ### 路由模式下routePath的一个栗子
 
 ```javascript

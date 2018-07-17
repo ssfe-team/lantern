@@ -3,20 +3,22 @@
 ### 使用方式
 
 ::: demo demo :::
+
 ```html
 <lt-icon type="mydesign"></lt-icon>
 ```
+
 :::
 
 ### API
 
 #### Icon props
 
-属性|说明|类型|默认值
----|---|---|---
-type|图标的名称|String|-
-size|图标的大小，单位是 px|Number \| String|-
-color|图标的颜色|String|-
+| 属性  | 说明                  | 类型             | 默认值 |
+| ----- | --------------------- | ---------------- | ------ |
+| type  | 图标的名称            | String           | -      |
+| size  | 图标的大小，单位是 px | Number \| String | -      |
+| color | 图标的颜色            | String           | -      |
 
 ### 类名列表
 
@@ -28,6 +30,7 @@ color|图标的颜色|String|-
 </div>
 
 ::::vuecode::::
+
 <script>
 export default {
   data() {
@@ -95,6 +98,8 @@ export default {
         'ios-search',
         'ios-search-strong',
         'android-search',
+        'maximize',
+        'minimize'
       ]
     }
   }

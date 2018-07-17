@@ -73,6 +73,7 @@
 <script>
     import Icon from '../icon';
     import Drop from './dropdown.vue';
+    import {directive as clickOutside} from 'v-click-outside-x';
     import TransferDom from 'lantern/src/directives/transfer-dom';
     import { oneOf } from 'lantern/src/utils/assist';
     import Emitter from 'lantern/src/mixins/emitter';
@@ -127,7 +128,7 @@
         name: 'ltSelect',
         mixins: [ Emitter ],
         components: { FunctionalOptions, Drop, Icon, SelectHead },
-        directives: { TransferDom },
+        directives: { clickOutside, TransferDom },
         props: {
             value: {
                 type: [String, Number, Array],

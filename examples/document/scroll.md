@@ -1,9 +1,11 @@
 ### 实例
 
 ::: demo demo
+
 ```html
     <lt-scroll
       :barStyle="{wrapWidth: '300px', wrapHeight: '200px'}"
+      :bottomScrollShow="false"
     >
       <span style="display:inline-block; width: 400px; height:60px; background: linear-gradient(to right, blue, white); border: 1px solid black;"></span>
       <p style="">1.测试内容测试内容测试内容测试内容测试内容测试内容测试内容测试内容测试内容</p>
@@ -19,19 +21,20 @@
       <span style="display:inline-block; width: 400px; height:60px; background: linear-gradient(to right, blue, white); border: 1px solid black;"></span>
     </lt-scroll>
 ```
+
 :::
 
 ### lt-scroll 参数
 
-参数|说明|类型|必选|默认值
---------|--------|--------|--------|--------
-barStyle|滚动条配置(通过该对象传递滚动条所有的配置)|Object|否|{}
-scrollReloadTag|滚动条重载标志|Number|否|null
-defaultScrollTop|滚动条默认高度|Number|否|null
+| 参数             | 说明                                       | 类型   | 必选 | 默认值 |
+| ---------------- | ------------------------------------------ | ------ | ---- | ------ |
+| barStyle         | 滚动条配置(通过该对象传递滚动条所有的配置) | Object | 否   | {}     |
+| scrollReloadTag  | 滚动条重载标志                             | Number | 否   | null   |
+| defaultScrollTop | 滚动条默认高度                             | Number | 否   | null   |
 
 <br>
 <br>
- 
+
 参数|说明|类型|必选|默认值
 --------|--------|--------|--------|--------
 barColor|滚动条的颜色|String|否|'#959595'
@@ -44,8 +47,8 @@ wrapWidth|容器的宽度(带单位的字符串如'100%'、'100px')|String|否|'
 wrapHeight|容器的高度(带单位的字符串如'100%'、'100px')|String|否|'100%'
 autoHide|是否自动隐藏滚动条|Bollen|否|true
 
-
 ::::vuecode::::
+
 <style lang='less'>
 
 </style>

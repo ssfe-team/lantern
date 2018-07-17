@@ -59,7 +59,7 @@ export default {
     jumpPage(index) {
       if(this.nowPage == index || index == '...') return;
       this.nowPage = index;
-      this.$emit('changeSize', index);
+      this.$emit('on-change', index);
       this.setState();
     },
     // 上页
