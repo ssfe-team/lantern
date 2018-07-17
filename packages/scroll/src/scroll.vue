@@ -75,13 +75,13 @@
 </template>
 
 <style lang="less">
-  @import "../../../styles/packages/scroll.less";
+@import '../../../styles/packages/scroll.less';
 </style>
 
 <script>
 export default {
   name: 'Scroll',
-  data () {
+  data() {
     return {
       // 滚动条默认样式
       style: {
@@ -141,13 +141,18 @@ export default {
     scrollToTop: {
       required: false,
       type: Number
+    },
+    bottomScrollShow: {
+      required: false,
+      type: Boolean,
+      default: true
     }
   },
   mounted() {
-    Object.assign(this.style, this.barStyle);
+    Object.assign(this.style, this.barStyle)
     this.$nextTick(() => {
-      this.scrollReload();
-    });
+      this.scrollReload()
+    })
     if (this.defaultScrollTop) {
       this.scrollTop = this.defaultScrollTop
       this.$refs.inner.scrollTop = this.defaultScrollTop
@@ -155,7 +160,7 @@ export default {
   },
   watch: {
     scrollReloadTag() {
-      this.scrollReload();
+      this.scrollReload()
     },
     defaultScrollTop() {
       this.scrollTop = this.defaultScrollTop
@@ -168,138 +173,140 @@ export default {
   },
   computed: {
     barTop() {
-      let percent = this.scrollTop / (this.innerHeight - this.wrapHeight);
-      return (this.wrapHeight - this.rightBarHeight) * percent;
+      let percent = this.scrollTop / (this.innerHeight - this.wrapHeight)
+      return (this.wrapHeight - this.rightBarHeight) * percent
     },
     barLeft() {
-      let percent = this.scrollLeft / (this.innerWidth - this.wrapWidth);
-      return (this.wrapWidth - this.bottomBarWidth) * percent;
+      let percent = this.scrollLeft / (this.innerWidth - this.wrapWidth)
+      return (this.wrapWidth - this.bottomBarWidth) * percent
     }
   },
   methods: {
     scrollReload() {
-      this.getPercent();
+      this.getPercent()
     },
     getPercent() {
-      const wrapNode = this.$refs.wrap;
-      const slotnode = this.$refs.inner;
-      if(this.style.wrapHeight.includes('px')) {
-        this.wrapHeight = parseInt(this.barStyle.wrapHeight);
+      const wrapNode = this.$refs.wrap
+      const slotnode = this.$refs.inner
+      if (this.style.wrapHeight.includes('px')) {
+        this.wrapHeight = parseInt(this.barStyle.wrapHeight)
       } else {
-        this.wrapHeight = wrapNode.clientHeight;
+        this.wrapHeight = wrapNode.clientHeight
       }
-      if(this.style.wrapWidth.includes('px')) {
-        this.wrapWidth = parseInt(this.barStyle.wrapWidth);
+      if (this.style.wrapWidth.includes('px')) {
+        this.wrapWidth = parseInt(this.barStyle.wrapWidth)
       } else {
-        this.wrapWidth = wrapNode.clientWidth;
+        this.wrapWidth = wrapNode.clientWidth
       }
       // this.wrapHeight = wrapNode.clientHeight - this.style.barHeight;
       // this.wrapWidth = wrapNode.clientWidth - this.style.barWidth;
-      this.innerHeight = slotnode.scrollHeight;
-      this.innerWidth = slotnode.scrollWidth;
-      if(this.wrapHeight < this.innerHeight) {
-        this.wrapHeight -= this.style.barHeight;
-        this.rightBarHeight = this.wrapHeight / this.innerHeight * this.wrapHeight;
-        this.rightBarShow = true;
+      this.innerHeight = slotnode.scrollHeight
+      this.innerWidth = slotnode.scrollWidth
+      if (this.wrapHeight < this.innerHeight) {
+        this.wrapHeight -= this.style.barHeight
+        this.rightBarHeight = this.wrapHeight / this.innerHeight * this.wrapHeight
+        this.rightBarShow = true
       }
-      if(this.wrapWidth < this.innerWidth) {
-        this.wrapWidth -= this.style.barWidth;
-        this.wrapWidth = wrapNode.clientWidth - this.style.barWidth;
-        this.bottomBarWidth = this.wrapWidth / this.innerWidth * this.wrapWidth;
-        this.bottomBarShow = true;
+      if (this.bottomScrollShow) {
+        if (this.wrapWidth < this.innerWidth) {
+          this.wrapWidth -= this.style.barWidth
+          this.wrapWidth = wrapNode.clientWidth - this.style.barWidth
+          this.bottomBarWidth = this.wrapWidth / this.innerWidth * this.wrapWidth
+          this.bottomBarShow = true
+        }
       }
     },
     setScrollLeftTop(eve) {
-      let node = eve ? eve.target : this.$refs.inner;
-      if(this.scrollTop != node.scrollTop) {
-        this.rightActive = true;
+      let node = eve ? eve.target : this.$refs.inner
+      if (this.scrollTop != node.scrollTop) {
+        this.rightActive = true
       }
-      if(this.scrollLeft != node.scrollLeft) {
-        this.bottomActive = true;
+      if (this.scrollLeft != node.scrollLeft) {
+        this.bottomActive = true
       }
-      this.scrollLeft = node.scrollLeft;
-      this.scrollTop = node.scrollTop;
-      if(!this.barMousedown) {
-        clearTimeout(this.activeClock);
+      this.scrollLeft = node.scrollLeft
+      this.scrollTop = node.scrollTop
+      if (!this.barMousedown) {
+        clearTimeout(this.activeClock)
         this.activeClock = setTimeout(() => {
-          this.rightActive = false;
-          this.bottomActive = false;
-        }, this.activeClockDelay);
+          this.rightActive = false
+          this.bottomActive = false
+        }, this.activeClockDelay)
       }
     },
     rightMousedown(eve) {
-      eve.preventDefault();
+      eve.preventDefault()
       let startY = eve.clientY,
-          nowY,
-          move,
-          newTop,
-          percent,
-          scrollTop,
-          oldTop = this.barTop;
-      let nodeMousemove = (eve) => {
-        nowY = eve.clientY;
-        move = nowY - startY;
-        newTop = oldTop + move;
-        newTop = newTop < 0 ? 0 : newTop;
-        newTop = newTop > this.wrapHeight - this.rightBarHeight ? this.wrapHeight - this.rightBarHeight : newTop;
-        percent = newTop / (this.wrapHeight - this.rightBarHeight);
-        scrollTop = (this.innerHeight - this.wrapHeight) * percent;
-        this.$refs.inner.scrollTop = scrollTop;
-        this.scrollTop = scrollTop;
+        nowY,
+        move,
+        newTop,
+        percent,
+        scrollTop,
+        oldTop = this.barTop
+      let nodeMousemove = eve => {
+        nowY = eve.clientY
+        move = nowY - startY
+        newTop = oldTop + move
+        newTop = newTop < 0 ? 0 : newTop
+        newTop = newTop > this.wrapHeight - this.rightBarHeight ? this.wrapHeight - this.rightBarHeight : newTop
+        percent = newTop / (this.wrapHeight - this.rightBarHeight)
+        scrollTop = (this.innerHeight - this.wrapHeight) * percent
+        this.$refs.inner.scrollTop = scrollTop
+        this.scrollTop = scrollTop
       }
 
-      this.barMousedown = true;
-      clearTimeout(this.rightActiveClock);
-      this.rightBarShow = true;
+      this.barMousedown = true
+      clearTimeout(this.rightActiveClock)
+      this.rightBarShow = true
 
       let nodeMouseup = () => {
-        window.removeEventListener('mousemove', nodeMousemove);
-        window.removeEventListener('mouseup', nodeMouseup);
-        this.barMousedown = false;
+        window.removeEventListener('mousemove', nodeMousemove)
+        window.removeEventListener('mouseup', nodeMouseup)
+        this.barMousedown = false
         this.rightActiveClock = setTimeout(() => {
-          this.rightActive = false;
-        }, this.activeClockDelay);
+          this.rightActive = false
+        }, this.activeClockDelay)
       }
 
-      window.addEventListener('mousemove', nodeMousemove);
-      window.addEventListener('mouseup', nodeMouseup);
+      window.addEventListener('mousemove', nodeMousemove)
+      window.addEventListener('mouseup', nodeMouseup)
     },
     bottomMousedown(eve) {
-      eve.preventDefault();
+      eve.preventDefault()
       let startX = eve.clientX,
-          nowX,
-          move,
-          newLeft,
-          percent,
-          scrollLeft,
-          oldLeft = this.barLeft;
-      let nodeMousemove = (eve) => {
-        nowX = eve.clientX;
-        move = nowX - startX;
-        newLeft = oldLeft + move;
-        newLeft = newLeft < 0 ? 0 : newLeft;
-        newLeft = newLeft > this.wrapWidth - this.bottomBarWidth ? this.wrapWidth - this.bottomBarWidth : newLeft;
-        percent = newLeft / (this.wrapWidth - this.bottomBarWidth);
-        scrollLeft = (this.innerWidth - this.wrapWidth) * percent;
-        this.$refs.inner.scrollLeft = scrollLeft;
-        this.scrollLeft = scrollLeft;
+        nowX,
+        move,
+        newLeft,
+        percent,
+        scrollLeft,
+        oldLeft = this.barLeft
+      let nodeMousemove = eve => {
+        nowX = eve.clientX
+        move = nowX - startX
+        newLeft = oldLeft + move
+        newLeft = newLeft < 0 ? 0 : newLeft
+        newLeft = newLeft > this.wrapWidth - this.bottomBarWidth ? this.wrapWidth - this.bottomBarWidth : newLeft
+        percent = newLeft / (this.wrapWidth - this.bottomBarWidth)
+        scrollLeft = (this.innerWidth - this.wrapWidth) * percent
+        this.$refs.inner.scrollLeft = scrollLeft
+        this.scrollLeft = scrollLeft
       }
 
-      this.barMousedown = true;
-      clearTimeout(this.bottomActiveClock);
-      this.bottomActive = true;
+      this.barMousedown = true
+      clearTimeout(this.bottomActiveClock)
+      this.bottomActive = true
 
       let nodeMouseup = () => {
-        window.removeEventListener('mousemove', nodeMousemove);
-        window.removeEventListener('mouseup', nodeMouseup);
-        this.barMousedown = false;
+        window.removeEventListener('mousemove', nodeMousemove)
+        window.removeEventListener('mouseup', nodeMouseup)
+        this.barMousedown = false
         this.bottomActiveClock = setTimeout(() => {
-          this.bottomActive = false;
-        }, this.activeClockDelay);
+          this.bottomActive = false
+        }, this.activeClockDelay)
       }
 
-      window.addEventListener('mousemove', nodeMousemove);
-      window.addEventListener('mouseup', nodeMouseup);
+      window.addEventListener('mousemove', nodeMousemove)
+      window.addEventListener('mouseup', nodeMouseup)
     }
   }
 }

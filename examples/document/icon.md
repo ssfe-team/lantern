@@ -98,7 +98,8 @@ export default {
         'ios-search',
         'ios-search-strong',
         'android-search',
-        'maximize'
+        'maximize',
+        'minimize'
       ]
     }
   }
