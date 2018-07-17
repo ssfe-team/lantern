@@ -146,6 +146,11 @@ export default {
       required: false,
       type: Boolean,
       default: true
+    },
+    rightScrollShow: {
+      required: false,
+      type: Boolean,
+      default: true
     }
   },
   mounted() {
@@ -201,19 +206,21 @@ export default {
       // this.wrapHeight = wrapNode.clientHeight - this.style.barHeight;
       // this.wrapWidth = wrapNode.clientWidth - this.style.barWidth;
       this.innerHeight = slotnode.scrollHeight
+      console.log(this.innerHeight)
       this.innerWidth = slotnode.scrollWidth
-      if (this.wrapHeight < this.innerHeight) {
-        this.wrapHeight -= this.style.barHeight
-        this.rightBarHeight = this.wrapHeight / this.innerHeight * this.wrapHeight
+      if (this.rightScrollShow && this.wrapHeight < this.innerHeight) {
         this.rightBarShow = true
       }
-      if (this.bottomScrollShow) {
-        if (this.wrapWidth < this.innerWidth) {
-          this.wrapWidth -= this.style.barWidth
-          this.wrapWidth = wrapNode.clientWidth - this.style.barWidth
-          this.bottomBarWidth = this.wrapWidth / this.innerWidth * this.wrapWidth
-          this.bottomBarShow = true
-        }
+      if (this.bottomScrollShow && this.wrapWidth < this.innerWidth) {
+        this.bottomBarShow = true
+      }
+      if (this.rightBarShow) {
+        if(this.bottomBarShow) this.wrapHeight -= this.style.barHeight
+        this.rightBarHeight = this.wrapHeight / this.innerHeight * this.wrapHeight
+      }
+      if (this.bottomBarShow) {
+        if(this.rightBarShow) this.wrapWidth -= this.style.barWidth
+        this.bottomBarWidth = this.wrapWidth / this.innerWidth * this.wrapWidth
       }
     },
     setScrollLeftTop(eve) {
