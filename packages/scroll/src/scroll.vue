@@ -165,6 +165,10 @@ export default {
   },
   watch: {
     scrollReloadTag() {
+      this.scrollTop = 0
+      this.$refs.inner.scrollTop = 0
+      this.scrollLeft = 0
+      this.$refs.inner.scrollLeft = 0
       this.scrollReload()
     },
     defaultScrollTop() {
@@ -206,13 +210,19 @@ export default {
       // this.wrapHeight = wrapNode.clientHeight - this.style.barHeight;
       // this.wrapWidth = wrapNode.clientWidth - this.style.barWidth;
       this.innerHeight = slotnode.scrollHeight
-      console.log(this.innerHeight)
       this.innerWidth = slotnode.scrollWidth
+      console.log('scroll wrapHeight: ' + this.wrapHeight)
+      console.log('scroll innerHeight: ' + this.innerHeight)
+      console.log('scroll compute')
       if (this.rightScrollShow && this.wrapHeight < this.innerHeight) {
         this.rightBarShow = true
+      } else {
+        this.rightBarShow = false
       }
       if (this.bottomScrollShow && this.wrapWidth < this.innerWidth) {
         this.bottomBarShow = true
+      } else {
+        this.bottomBarShow = false
       }
       if (this.rightBarShow) {
         if(this.bottomBarShow) this.wrapHeight -= this.style.barHeight
@@ -222,6 +232,8 @@ export default {
         if(this.rightBarShow) this.wrapWidth -= this.style.barWidth
         this.bottomBarWidth = this.wrapWidth / this.innerWidth * this.wrapWidth
       }
+      console.log('scroll wrapHeight: ' + this.wrapHeight)
+      console.log('scroll innerHeight: ' + this.innerHeight)
     },
     setScrollLeftTop(eve) {
       let node = eve ? eve.target : this.$refs.inner
