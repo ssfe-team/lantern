@@ -25,6 +25,7 @@ import Switch from './document/switch.md'
 import Breadcrumb from './document/breadcrumb.md'
 import Dropdown from './document/dropdown.md'
 import Modal from './document/modal.md'
+import Steps from './document/steps.md'
 
 export default [
   {
@@ -110,5 +111,9 @@ export default [
   {
     path: '/modal',
     component: Modal
+  },
+  {
+    path: '/steps',
+    component: Steps
   }
 ]

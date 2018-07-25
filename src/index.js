@@ -30,6 +30,8 @@ import Dropdown from '../packages/dropdown/index.js'
 import DropdownItem from '../packages/dropdown-item/index.js'
 import DropdownMenu from '../packages/dropdown-menu/index.js'
 import Modal from '../packages/modal/index.js'
+import Steps from '../packages/steps/index.js'
+import Step from '../packages/step/index.js'
 
 const prefix = 'Lt';
 
@@ -66,7 +68,9 @@ const packages = {
   Dropdown,
   DropdownMenu,
   DropdownItem,
-  Modal
+  Modal,
+  Steps,
+  Step
 }
 
 const install = function(Vue) {
