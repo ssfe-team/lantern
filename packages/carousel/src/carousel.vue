@@ -1,7 +1,7 @@
 <template>
     <!-- carousel: carousels、inv、styleObject、target -->
     <div class="carousel-show" @mouseover="clearInv" @mouseout="runInv">
-    <transition-group tag="ul" class='carousel-ul' :name="name">
+    <transition-group tag="ul" class='carousel-ul' :name="behavior">
       <li v-for="(item , index) in carousels" :key="index" v-show="index === activeIndex">
         <a :href="item.href" :target="target">
           <img :src="item.src" alt="">

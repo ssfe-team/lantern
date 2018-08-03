@@ -4,6 +4,8 @@
  * @Last Modified by: bianhao
  * @Last Modified time: 2018-06-19 14:45:02
  */
+import install from './document/install.md'
+import start from './document/start.md'
 import color from './document/color.md';
 import layout from './document/layout.md';
 import menu from './document/menu.md';
@@ -29,6 +31,18 @@ import Steps from './document/steps.md'
 import Carousel from './document/carousel.md'
 
 export default [
+  {
+    path: '/',
+    component: install
+  },
+  {
+    path: '/install',
+    component: install
+  },
+  {
+    path: '/start',
+    component: start
+  },
   {
     path: '/color',
     component: color

@@ -8,7 +8,7 @@
 
 最简单的用法。
 
-注意 lt-tooltip 内的文本使用了 white-space: nowrap;，即不自动换行，如需展示很多内容并自动换行时，建议给内容 slot 增加样式 white-space: normal;。
+注意 lt-tooltip 内的文本使用了 `white-space: nowrap;`，即不自动换行，如需展示很多内容并自动换行时，建议给内容 slot 增加样式 `white-space: normal;`。
 
 ::: demo demo
 ```html
