@@ -26,11 +26,11 @@
                         href: '#'
                     },
                     {
-                        src: 'https://pm1.narvii.com/6000/9903477ba2e37a58c9587bd5fe575e66837e6ec1_hq.jpg',
+                        src:'https://desk-fd.zol-img.com.cn/t_s960x600c5/g5/M00/02/03/ChMkJlbKx2qIKPxiAAlXILFmr4gAALHzQFig2UACVc4500.jpg',
                          href: '#'
                     },
                     {
-                        src: 'http://animeflow.net/files/submissions/Girl_under_a_sakura_tree_907002852.jpg',
+                        src: 'http://old.bz55.com/uploads/allimg/140616/1-140616095126.jpg',
                         href: '#'
                     },
                     {
@@ -78,11 +78,11 @@ target | 图片打开方式,可选值为`_blank`、`_parent` | String | _blank
                         href: '#'
                     },
                     {
-                        src: 'https://pm1.narvii.com/6000/9903477ba2e37a58c9587bd5fe575e66837e6ec1_hq.jpg',
+                        src:'https://desk-fd.zol-img.com.cn/t_s960x600c5/g5/M00/02/03/ChMkJlbKx2qIKPxiAAlXILFmr4gAALHzQFig2UACVc4500.jpg',
                          href: '#'
                     },
                     {
-                        src: 'http://animeflow.net/files/submissions/Girl_under_a_sakura_tree_907002852.jpg',
+                        src: 'http://old.bz55.com/uploads/allimg/140616/1-140616095126.jpg',
                         href: '#'
                     },
                     {
