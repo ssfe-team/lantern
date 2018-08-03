@@ -28,6 +28,7 @@ import Breadcrumb from './document/breadcrumb.md'
 import Dropdown from './document/dropdown.md'
 import Modal from './document/modal.md'
 import Steps from './document/steps.md'
+import Carousel from './document/carousel.md'
 
 export default [
   {
@@ -129,5 +130,9 @@ export default [
   {
     path: '/steps',
     component: Steps
+  },
+  {
+    path: '/carousel',
+    component: Carousel
   }
 ]
