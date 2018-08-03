@@ -22,7 +22,7 @@
                         href: '#'
                     },
                     {
-                        src: 'http://deskbg.com/s3/wpp/27/27900/5-centimeters-second-parking-desktop-background.jpg',
+                        src: 'http://dwz.cn/ov3FVVOf',
                         href: '#'
                     },
                     {
@@ -74,7 +74,7 @@ target | 图片打开方式,可选值为`_blank`、`_parent` | String | _blank
                         href: '#'
                     },
                     {
-                        src: 'http://deskbg.com/s3/wpp/27/27900/5-centimeters-second-parking-desktop-background.jpg',
+                        src: 'http://dwz.cn/ov3FVVOf',
                         href: '#'
                     },
                     {
