@@ -21,7 +21,7 @@
                   <lt-menu-item href="/message"><span>Message 消息通知</span></lt-menu-item>
                   <lt-menu-item href="/pagination"><span>Pagination 分页</span></lt-menu-item>
                   <lt-menu-item href="/icon"><span>Icon 图标</span></lt-menu-item>
-                  <!--<lt-menu-item href="/select"><span>Select 选择器</span></lt-menu-item>-->
+                  <!-- <lt-menu-item href="/select"><span>Select 选择器</span></lt-menu-item> -->
                   <!--<lt-menu-item href="/input"><span>Input 输入框</span></lt-menu-item>-->
                   <lt-menu-item href="/input-number"><span>InputNumber 数字输入框</span></lt-menu-item>
                   <lt-menu-item href="/poptip"><span>Poptip 气泡提示</span></lt-menu-item>
@@ -35,7 +35,8 @@
                   <lt-menu-item href="/dropdown"><span>Dropdown 下拉菜单</span></lt-menu-item>
                   <lt-menu-item href="/modal"><span>Modal 弹框</span></lt-menu-item>
                   <lt-menu-item href="/steps"><span>Steps 步骤条</span></lt-menu-item>
-                  <lt-menu-item href="/carousel"><span>Carousel 轮播图</span></lt-menu-item>  
+                  <lt-menu-item href="/carousel"><span>Carousel 轮播图</span></lt-menu-item>
+                  <lt-menu-item href="/selector"><span>Selector 选择器</span></lt-menu-item>  
                 </lt-menu-item-group>
                 <lt-menu-item-group title="规范文档">
                   <lt-menu-item href="/classstandard"><span>class命名规范</span></lt-menu-item>
