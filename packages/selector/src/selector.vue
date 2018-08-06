@@ -1,6 +1,6 @@
 <template>
   <!-- selector：list-->
-  <div class="selector">
+  <div class="selector" v-click-outside="handleClose">
     <div class="selector__input">
       <input type="text" class="input__ipt" v-model="val" @click="selectShow = !selectShow" />
       <span class="input__icon" :class="inputIcon" @click="selectShow = !selectShow"></span>
@@ -12,11 +12,11 @@
 
 <script>
 import selectOption from './option'
+import {directive as clickOutside} from 'v-click-outside-x';
 export default {
   name: 'Selector',
-  components: {
-    selectOption
-  },
+  components: { selectOption },
+  directives: { clickOutside },  
   data () {
     return {
       selectShow: false,
@@ -32,6 +32,13 @@ export default {
   methods: {
     selectValueHandle (value) {
       this.val = value
+    },
+    handleClose () {
+      console.log("1234")
+      console.log(this.selectShow)
+      if(this.selectShow){
+        this.selectShow = false
+      }
     }
   },
   computed: {
