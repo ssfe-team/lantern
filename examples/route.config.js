@@ -29,6 +29,7 @@ import Dropdown from './document/dropdown.md'
 import Modal from './document/modal.md'
 import Steps from './document/steps.md'
 import Carousel from './document/carousel.md'
+import Selector from './document/selector.md'
 
 export default [
   {
@@ -134,5 +135,9 @@ export default [
   {
     path: '/carousel',
     component: Carousel
+  },
+  {
+    path: '/selector',
+    component: Selector
   }
 ]

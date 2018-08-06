@@ -33,6 +33,8 @@ import Modal from '../packages/modal/index.js'
 import Steps from '../packages/steps/index.js'
 import Step from '../packages/step/index.js'
 import Carousel from '../packages/carousel/index.js'
+import Selector from '../packages/selector/index.js'
+import Option from '../packages/select-option/index.js'
 
 const prefix = 'Lt';
 
@@ -72,7 +74,9 @@ const packages = {
   Modal,
   Steps,
   Step,
-  Carousel
+  Carousel,
+  Selector,
+  Option
 }
 
 const install = function(Vue) {
