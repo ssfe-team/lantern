@@ -45,7 +45,9 @@
                 height: '420px'
             },
             visualStyle: {
+                width: '100%',
                 maxWidth: '1366px',
+                height: '420px'
             },
             behavior: 'move',
             target: '_blank'
@@ -102,7 +104,9 @@ imgStyle | 图片的宽高 | Object | -
                 height: '420px'
             },
             visualStyle: {
+                width: '100%',
                 maxWidth: '1366px',
+                height: '420px'
             },
             behavior: 'move',
             target: '_blank'

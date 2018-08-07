@@ -1,6 +1,6 @@
 <template>                                   
     <!-- carousel: carousels、inv、style、transitionBehavior、target -->
-    <div class="carousel-show" @mouseover="clearInv" @mouseout="runInv" :style="visuaStyle">
+    <div class="carousel-show" @mouseover="clearInv" @mouseout="runInv" :style="visualStyle">
     <transition-group tag="ul" class='carousel-ul' :name="behavior">
       <li v-for="(item , index) in carousels" :key="index" v-show="index === activeIndex">
         <a :href="item.href" :target="target" :style="getAStyle(index)"></a>
@@ -38,13 +38,13 @@ export default {
       type: String,
       default: 'move'
     },
-    visuaStyle: {
+    visualStyle: {
       type: Object,
       default () {
         return {
           width: '100%',
           maxWidth: '1920px',
-          height:'420px'
+          height: '420px'
         }
       }
     },
