@@ -14,9 +14,9 @@
         <a :class="{'active': index === activeIndex}"></a>
       </li>
     </ul>
-    <div class="controlBtn">
-      <a class="prev" @click="goto(prevIndex)"><span></span></a>
-      <a class="next" @click="goto(nextIndex)"><span></span></a>
+    <div class="lt-carousel-controlBtn">
+      <a class="lt-carousel-controlBtn-prev" @click="goto(prevIndex)"><span></span></a>
+      <a class="lt-carousel-controlBtn-next" @click="goto(nextIndex)"><span></span></a>
     </div>
   </div>
 </template>
