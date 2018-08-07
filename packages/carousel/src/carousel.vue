@@ -1,11 +1,9 @@
-<template>
-    <!-- carousel: carousels、inv、styleObject、target -->
-    <div class="carousel-show" @mouseover="clearInv" @mouseout="runInv">
+<template>                                   
+    <!-- carousel: carousels、inv、style、transitionBehavior、target -->
+    <div class="carousel-show" @mouseover="clearInv" @mouseout="runInv" :style="visuaStyle">
     <transition-group tag="ul" class='carousel-ul' :name="behavior">
       <li v-for="(item , index) in carousels" :key="index" v-show="index === activeIndex">
-        <a :href="item.href" :target="target">
-          <img :src="item.src" alt="">
-        </a>
+        <a :href="item.href" :target="target" :style="getAStyle(index)"></a>
       </li>
     </transition-group>
     <ul class="carousel-pages">
@@ -28,7 +26,7 @@ export default {
   props: {
     carousels: {
       type: Array,
-      default () {}
+      default:[{}]
     },
     inv: {
       type: Number,
@@ -37,6 +35,21 @@ export default {
     behavior: {
       type: String,
       default: 'move'
+    },
+    visuaStyle: {
+      type: Object,
+      default: {
+        width: '100%',
+        maxWidth: '1920px',
+        height:'420px'
+      }
+    },
+    imgStyle: {
+      type: Object,
+      default: {
+        width: '100%',
+        height:'420px'
+      }
     },
     target: {
       type: String,
@@ -62,12 +75,19 @@ export default {
       } else {
         return this.activeIndex + 1
       }
-    }
+    },
+
   },
   methods: {
     goto (index) {
       this.activeIndex = index
     },
+     getAStyle (index) {
+      return {
+        backgroundImage: `url(${this.carousels[index].src})`,
+        ...this.imgStyle
+      }
+    } ,  
     runInv () {
       this.invId = setInterval(() => {
         this.goto(this.nextIndex)
@@ -82,3 +102,4 @@ export default {
   }
 }
 </script>
+
