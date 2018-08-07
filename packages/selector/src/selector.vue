@@ -34,8 +34,6 @@ export default {
       this.val = value
     },
     handleClose () {
-      console.log("1234")
-      console.log(this.selectShow)
       if(this.selectShow){
         this.selectShow = false
       }
