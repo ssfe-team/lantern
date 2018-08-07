@@ -26,7 +26,9 @@ export default {
   props: {
     carousels: {
       type: Array,
-      default:[{}]
+      default () {
+        return []
+      }
     },
     inv: {
       type: Number,
@@ -38,17 +40,21 @@ export default {
     },
     visuaStyle: {
       type: Object,
-      default: {
-        width: '100%',
-        maxWidth: '1920px',
-        height:'420px'
+      default () {
+        return {
+          width: '100%',
+          maxWidth: '1920px',
+          height:'420px'
+        }
       }
     },
     imgStyle: {
       type: Object,
-      default: {
-        width: '100%',
-        height:'420px'
+      default () {
+        return {
+          width: '100%',
+          height:'420px'
+        }
       }
     },
     target: {
@@ -75,14 +81,13 @@ export default {
       } else {
         return this.activeIndex + 1
       }
-    },
-
+    }
   },
   methods: {
     goto (index) {
       this.activeIndex = index
     },
-     getAStyle (index) {
+    getAStyle (index) {
       return {
         backgroundImage: `url(${this.carousels[index].src})`,
         ...this.imgStyle

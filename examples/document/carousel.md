@@ -11,7 +11,7 @@
 
 ::: demo demo :::
 ```html
-<lt-carousel :carousels="carousels" :inv="inv" :imgStyle="styleObject" :visualStyle="visualStyle" :transitionBehavior="behavior" :target="target">
+<lt-carousel :carousels="carousels" :inv="inv" :imgStyle="imgStyle" :visualStyle="visualStyle" :transitionBehavior="behavior" :target="target">
 </lt-carousel>
 <script>
     export default {
