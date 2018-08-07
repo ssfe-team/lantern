@@ -11,14 +11,15 @@
 
 ::: demo demo :::
 ```html
-<lt-carousel :carousels="carousels" :inv="inv" :style="styleObject" :transitionBehavior="behavior" :target="target"></lt-carousel>
+<lt-carousel :carousels="carousels" :inv="inv" :imgStyle="styleObject" :visualStyle="visualStyle" :transitionBehavior="behavior" :target="target">
+</lt-carousel>
 <script>
     export default {
         data () {
             return {
                 carousels: [
                     {
-                        src:'https://wallup.net/wp-content/uploads/2015/12/86881-anime-Hatsune_Miku-Vocaloid-cherry_blossom-748x421.jpg',
+                        src:'https://i.loli.net/2018/08/07/5b6951694a660.jpg',
                         href: '#'
                     },
                     {
@@ -39,9 +40,12 @@
                     }
                 ],
             inv: 3000,
-            styleObject: {
-                width: '300px',
-                height: '168px'
+            imgStyle: {
+                width: '100%',
+                height: '420px'
+            },
+            visualStyle: {
+                maxWidth: '1366px',
             },
             behavior: 'move',
             target: '_blank'
@@ -62,6 +66,8 @@ carousels | 图片列表 | Array | -
 inv | 自动轮播速度 | Number | 1000
 behavior | 图片过渡行为`move`、`fade` | String | move
 target | 图片打开方式,可选值为`_blank`、`_parent` | String | _blank
+visualStyle | 可视区的宽度 | Object | 1920px
+imgStyle | 图片的宽高 | Object | -
 
 ::::vuecode::::
 <script>
@@ -70,7 +76,7 @@ target | 图片打开方式,可选值为`_blank`、`_parent` | String | _blank
             return {
                 carousels: [
                     {
-                        src:'https://wallup.net/wp-content/uploads/2015/12/86881-anime-Hatsune_Miku-Vocaloid-cherry_blossom-748x421.jpg',
+                        src:'https://i.loli.net/2018/08/07/5b6951694a660.jpg',
                         href: '#'
                     },
                     {
@@ -91,9 +97,12 @@ target | 图片打开方式,可选值为`_blank`、`_parent` | String | _blank
                     }
                 ],
             inv: 3000,
-            styleObject: {
-                width: '748px',
-                height: '421px'
+            imgStyle: {
+                width: '100%',
+                height: '420px'
+            },
+            visualStyle: {
+                maxWidth: '1366px',
             },
             behavior: 'move',
             target: '_blank'
