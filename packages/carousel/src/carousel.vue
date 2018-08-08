@@ -1,6 +1,6 @@
-<template>                                   
-    <!-- carousel: carousels、inv、style、transitionBehavior、target -->
-    <div class="carousel-show" @mouseover="clearInv" @mouseout="runInv" :style="visualStyle">
+<template>
+  <!-- carousel: carousels、inv、style、transitionBehavior、target -->
+  <div class="carousel-show" @mouseover="clearInv" @mouseout="runInv" :style="visualStyle">
     <transition-group tag="ul" class='carousel-ul' :name="behavior">
       <li v-for="(item , index) in carousels" :key="index" v-show="index === activeIndex">
         <a :href="item.href" :target="target" :style="getAStyle(index)"></a>
@@ -21,90 +21,90 @@
   </div>
 </template>
 <script>
-export default {
-  name: 'Carousel',
-  props: {
-    carousels: {
-      type: Array,
-      default () {
-        return []
-      }
-    },
-    inv: {
-      type: Number,
-      default: 1000
-    },
-    behavior: {
-      type: String,
-      default: 'move'
-    },
-    visualStyle: {
-      type: Object,
-      default () {
-        return {
-          width: '100%',
-          maxWidth: '1920px',
-          height: '420px'
+  export default {
+    name: 'Carousel',
+    props: {
+      carousels: {
+        type: Array,
+        default () {
+          return []
         }
-      }
-    },
-    imgStyle: {
-      type: Object,
-      default () {
-        return {
-          width: '100%',
-          height:'420px'
+      },
+      inv: {
+        type: Number,
+        default: 1000
+      },
+      behavior: {
+        type: String,
+        default: 'move'
+      },
+      visualStyle: {
+        type: Object,
+        default () {
+          return {
+            width: '100%',
+            maxWidth: '1920px',
+            height: '420px'
+          }
         }
+      },
+      imgStyle: {
+        type: Object,
+        default () {
+          return {
+            width: '100%',
+            height: '420px'
+          }
+        }
+      },
+      target: {
+        type: String,
+        default: '_blank'
       }
     },
-    target: {
-      type: String,
-      default: '_blank'
-    }
-  },
-  data () {
-    return {
-      activeIndex: 0
-    }
-  },
-  computed: {
-    prevIndex () {
-      if (this.activeIndex === 0) {
-        return this.carousels.length - 1
-      } else {
-        return this.activeIndex - 1
-      }
-    },
-    nextIndex () {
-      if (this.activeIndex === this.carousels.length - 1) {
-        return 0
-      } else {
-        return this.activeIndex + 1
-      }
-    }
-  },
-  methods: {
-    goto (index) {
-      this.activeIndex = index
-    },
-    getAStyle (index) {
+    data () {
       return {
-        backgroundImage: `url(${this.carousels[index].src})`,
-        ...this.imgStyle
+        activeIndex: 0
       }
-    } ,  
-    runInv () {
-      this.invId = setInterval(() => {
-        this.goto(this.nextIndex)
-      }, this.inv)
     },
-    clearInv () {
-      clearInterval(this.invId)
+    computed: {
+      prevIndex () {
+        if (this.activeIndex === 0) {
+          return this.carousels.length - 1
+        } else {
+          return this.activeIndex - 1
+        }
+      },
+      nextIndex () {
+        if (this.activeIndex === this.carousels.length - 1) {
+          return 0
+        } else {
+          return this.activeIndex + 1
+        }
+      }
+    },
+    mounted () {
+      this.runInv()
+    },
+    methods: {
+      goto (index) {
+        this.activeIndex = index
+      },
+      getAStyle (index) {
+        return {
+          backgroundImage: `url(${this.carousels[index].src})`,
+          ...this.imgStyle
+        }
+      },
+      runInv () {
+        this.invId = setInterval(() => {
+          this.goto(this.nextIndex)
+        }, this.inv)
+      },
+      clearInv () {
+        clearInterval(this.invId)
+      }
     }
-  },
-  mounted () {
-    this.runInv()
   }
-}
 </script>
 
