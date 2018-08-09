@@ -32,7 +32,6 @@
 | defaultScrollTop | 滚动条默认高度                             | Number | 否   | null   |
 | rightScrollShow | 是否显示右部滚动条                             | Boolean | 否   | true   |
 | bottomScrollShow | 是否显示底部滚动条                             | Boolean | 否   | true   |
-| scrollToTop | 是否滚动到顶部                             | Number | 否   |    |
 
 <br>
 <br>

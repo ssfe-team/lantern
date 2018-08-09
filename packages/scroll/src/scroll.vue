@@ -178,12 +178,6 @@ export default {
     scrollToTop() {
       this.scrollTop = 0
       this.$refs.inner.scrollTop = 0
-    },
-    $route() {
-      this.scrollTop = 0
-      this.$refs.inner.scrollTop = 0
-      this.scrollLeft = 0
-      this.$refs.inner.scrollLeft = 0
     }
   },
   computed: {
