@@ -39,7 +39,7 @@
                   <lt-menu-item href="/selector"><span>Selector 选择器</span></lt-menu-item>  
                 </lt-menu-item-group>
                 <lt-menu-item-group title="规范文档">
-                  <lt-menu-item href="/classstandard"><span>class命名规范</span></lt-menu-item>
+                  <lt-menu-item href="/classstandard"><span>class 命名规范</span></lt-menu-item>
                 </lt-menu-item-group>
               </lt-menu>
             </lt-aside>
