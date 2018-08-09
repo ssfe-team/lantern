@@ -1,12 +1,14 @@
-.selector{
+.lt-selector{
     display: inline-block;
 }
-.selector__input{
+.lt-selector__input{
     display: flex;
+    align-items: center;
 }
-.input__ipt {
+.lt-selector__input-ipt {
+    font-size: 12px !important;
     margin-left: 15px;
-    height: 25px;
+    height: 30px;
     width: 190px;
     line-height: 30px;
     border-radius: 5px;
@@ -16,45 +18,55 @@
     font-size: 16px;
     padding-left: 10px;
 }
-.input__ipt:focus {
-    border-color: lightskyblue;
+.lt-selector__input-ipt:focus{
+    border-color: #5EA2FF;
 }
-.input__icon{
-    width: 0;
-    height: 0;
+.lt-selector__input-icon{
+    width: 6px;
+    height: 6px;
     margin-left: -20px;
-    margin-top: 10px;
+    transition: transform 0.3s;
     cursor:pointer;
 }
-.input__triangle--down{
-    border-left: 7px solid transparent;
-    border-right: 7px solid transparent;
-    border-top: 8px solid #ccc;
+.lt-input__triangle--down{
+    border-left: 1.2px solid #9B9B9B;
+    border-top: 1.2px solid #9B9B9B;
+    transform: rotate(-135deg);
 }
-.input__triangle--up{
-    border-left: 7px solid transparent;
-    border-right: 7px solid transparent;
-    border-bottom: 8px solid #ccc;
+.lt-input__triangle--up{
+    border-left: 1.2px solid #9B9B9B;
+    border-top: 1.2px solid #9B9B9B;
+    transform: rotate(45deg);
 }
-.option{
+.lt-option{
     /* margin: 0 auto; */
     margin-top: 5px;
     margin-left: 10px;
     width: 200px;
     height: auto;
     box-shadow: .5px .5px .5px .5px #CCC;
-    padding: 0px;
   }
-.option li{
+.lt-option li{
+      font-size: 12px !important;
       color: #333;
       line-height: 25px;
-      width: 200px;
       text-align: center;
-      box-sizing: border-box;
-      list-style:none;
   }
-.option li:hover{
+.lt-option li:hover{
       color:#fff;
       background: #C9C9D5;
       cursor:pointer;
-  }
+  }   
+.lt-selector__clear{
+    margin-left: -25px;
+    cursor:pointer;
+}
+.lt-option__li--disabled{
+    cursor: not-allowed;
+    color: #9b9b9b !important;
+}
+.lt-option__li--disabled:hover{
+    color: #9b9b9b !important;
+    background: #fff !important;
+    cursor: not-allowed !important;
+}
