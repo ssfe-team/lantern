@@ -1,22 +1,22 @@
 <template>                                   
     <!-- carousel: carousels、inv、style、transitionBehavior、target -->
-    <div class="carousel-show" @mouseover="clearInv" @mouseout="runInv" :style="visualStyle">
-    <transition-group tag="ul" class='carousel-ul' :name="behavior">
+    <div class="lt-carousel" @mouseover="clearInv" @mouseout="runInv" :style="visualStyle">
+    <transition-group tag="ul" class='lt-carousel__img' :name="behavior">
       <li v-for="(item , index) in carousels" :key="index" v-show="index === activeIndex">
         <a :href="item.href" :target="target" :style="getAStyle(index)"></a>
       </li>
     </transition-group>
-    <ul class="carousel-pages">
+    <ul class="lt-carousel__pages">
       <li v-for="(item, index) in carousels" :key="index"
           @click="goto(index)"
-          class="carousel-page-point"
+          class="lt-carousel__pages-point"
       >
         <a :class="{'active': index === activeIndex}"></a>
       </li>
     </ul>
-    <div class="lt-carousel-controlBtn">
-      <a class="lt-carousel-controlBtn-prev" @click="goto(prevIndex)"><span></span></a>
-      <a class="lt-carousel-controlBtn-next" @click="goto(nextIndex)"><span></span></a>
+    <div class="lt-carousel__controlBtn">
+      <a class="lt-carousel__controlBtn-prev" @click="goto(prevIndex)"><span></span></a>
+      <a class="lt-carousel__controlBtn-next" @click="goto(nextIndex)"><span></span></a>
     </div>
   </div>
 </template>
