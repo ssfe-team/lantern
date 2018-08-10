@@ -33,9 +33,11 @@ new Vue({
 
 ```js
 npm i babel-plugin-import -D
+```
 
 然后，将 .babelrc 修改为：
 
+```js
 {
   "plugins": [["import", {
     "libraryName": "lantern-ui",
