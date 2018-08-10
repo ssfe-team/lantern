@@ -52,8 +52,8 @@ npm i babel-plugin-import -D
 import Vue from 'vue';
 import { Button, Scroll } from 'lantern-ui';
 import App from './App.vue';
-
 Vue.component('LtScroll', Scroll);
+Vue.component('LtButton', Button);
 
 new Vue({
   el: '#app',
