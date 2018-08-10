@@ -208,7 +208,7 @@
 #### selector props
 
 属性|说明|类型|可选值|默认值
----|---|---|---|----
+---|---|---|---|---
 list | 选择项列表 | Array | - | -
 trigger | 触发方式 | String | click/hover |click
 clearable | 清空选择项 | Boolean | - | false
