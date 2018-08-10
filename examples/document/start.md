@@ -2,41 +2,42 @@
 
 ### 引入 lantern-ui
 
-一般在 webpack 入口页面 `main.js` 中如下配置：
+你可以引入整个 lantern-ui，或是根据需要仅引入部分组件。我们先介绍如何引入完整的 lantern-ui。
+
+#### 完整引入
+
+在 main.js 中写入以下内容：
 
 ```js
 import Vue from 'vue';
-import VueRouter from 'vue-router';
-import App from 'components/app.vue';
-import Routers from './router.js';
 import Lantern from 'lantern-ui';
 import 'lantern-ui/lib/lantern.css';
+import App from './App.vue';
 
-Vue.use(VueRouter);
 Vue.use(Lantern)
-
-// The routing configuration
-const RouterConfig = {
-    routes: Routers
-};
-const router = new VueRouter(RouterConfig);
 
 new Vue({
     el: '#app',
-    router: router,
     render: h => h(App)
 });
 
 ```
 
-### 按需引用
+以上代码便完成了 lantern-ui 的引入。需要注意的是，样式文件需要单独引入。
 
-借助插件 [babel-plugin-import](https://github.com/ant-design/babel-plugin-import) 可以实现按需加载组件，减少文件体积。首先安装，并在文件 `.babelrc` 中配置：
+#### 按需引用
+
+借助插件 [babel-plugin-import](https://github.com/ant-design/babel-plugin-import) 可以实现按需加载组件，减少文件体积。
+
+首先，安装 babel-plugin-import：
 
 ```js
-npm install babel-plugin-import --save-dev
+npm i babel-plugin-import -D
+```
 
-// .babelrc
+然后，将 .babelrc 修改为：
+
+```js
 {
   "plugins": [["import", {
     "libraryName": "lantern-ui",
@@ -48,9 +49,17 @@ npm install babel-plugin-import --save-dev
 然后这样按需引入组件，就可以减小体积了：
 
 ```js
-import { Scroll } from 'lantern-ui';
+import Vue from 'vue';
+import { Button, Scroll } from 'lantern-ui';
+import App from './App.vue';
 Vue.component('LtScroll', Scroll);
+Vue.component('LtButton', Button);
+
+new Vue({
+  el: '#app',
+  render: h => h(App)
+});
 ```
 
-### 特别提醒
+**特别提醒**
  - 按需引用仍然需要导入样式，即在 main.js 或根组件执行 `import 'lantern-ui/lib/lantern.css'`;
