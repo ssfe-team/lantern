@@ -1,0 +1,122 @@
+// 基本模式
+.lt-step {
+    display: flex;
+    flex-direction: row;
+    color: #9b9b9b;
+    &__icon {
+      width: 26px;
+      height: 26px;
+      border-radius: 50%;
+      background: #cdcdcd;
+      text-align: center;
+      &[class~="activeBg"]{
+        background: @mainColor1;
+      }
+      &[class~="preBg"]{
+        background: white;
+        border: 1px solid @mainColor1;
+      }
+    }
+    &__icon-inner {
+      color: white;
+      text-align: center;
+      line-height: 26px;
+      font-size: 1.2em;
+      &[class~="preInner"]{
+        color: @mainColor1;
+      }
+    }
+    &__main {
+      display: flex;
+      flex-direction: column;
+    }
+    &__main-head {
+      display: flex;
+      flex-direction: row;
+    }
+    &__title {
+      margin-top: 5px;
+      margin-left: 10px;
+      &[class~="activeText"]{
+        color: @mainColor1;
+      }
+      &[class~="preText"]{
+        color: skyblue;
+      }
+    }
+    &__description {
+      color: #9b9b9b;
+      margin-top: 10px;
+      margin-left: 10px;
+      font-size: 0.8em;
+      &[class~="activeText"]{
+        color: @mainColor1;
+      }
+      &[class~="preText"]{
+        color: skyblue;
+      }
+    }
+    &[class~="active"] {
+      color: @mainColor1;
+    }
+  }
+  .lt-steps {
+    display: flex;
+    flex-direction: row;
+    .lt-step:not(:last-child) {
+      .lt-step__line {
+        width: 160px;
+        height: 1px;
+        margin-top: 15px;
+        margin-left: 5px;
+        margin-right: 5px;
+        background: #cdcdcd;
+        &[class~="activeBg"]{
+          background: @mainColor1;
+        }
+        &[class~="preBg"]{
+          background: skyblue;
+        }
+      }
+    }
+  }
+  
+  // 简洁版
+  .lt-steps--small {
+      .lt-step__description{
+          display: none;
+      }
+      .lt-step:not(:last-child) {
+        .lt-step__line {
+          width: 160px;
+          margin-right: 5px;
+        }
+      }
+  }
+  
+  // 垂直方向
+  .lt-steps--vertical{
+    flex-direction: column;
+    margin-left: 200px;
+     .lt-step:not(:last-child) {
+       .lt-step__line {
+         height: 100px;
+         width: 1px;
+         margin-top: 30px;
+         margin-left: -62.5px;
+         background: #cdcdcd;
+         margin-bottom: 5px;
+      }
+    }
+    .lt-step__main{
+      flex-direction: row;
+    }
+    .lt-step__description{
+      margin-top: 25px;
+    }
+    .lt-step:last-child {
+       .lt-step__line {
+        margin-left: -70px;
+      }
+    }
+  }

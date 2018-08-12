@@ -4,8 +4,7 @@
 
 ```html
     <lt-scroll
-      :barStyle="{wrapWidth: '300px', wrapHeight: '200px'}"
-      :bottomScrollShow="false"
+      :barStyle="{wrapWidth: '300px', wrapHeight: '600px', autoHide: false}"
     >
       <span style="display:inline-block; width: 400px; height:60px; background: linear-gradient(to right, blue, white); border: 1px solid black;"></span>
       <p style="">1.测试内容测试内容测试内容测试内容测试内容测试内容测试内容测试内容测试内容</p>
@@ -31,6 +30,9 @@
 | barStyle         | 滚动条配置(通过该对象传递滚动条所有的配置) | Object | 否   | {}     |
 | scrollReloadTag  | 滚动条重载标志                             | Number | 否   | null   |
 | defaultScrollTop | 滚动条默认高度                             | Number | 否   | null   |
+| rightScrollShow | 是否显示右部滚动条                             | Boolean | 否   | true   |
+| bottomScrollShow | 是否显示底部滚动条                             | Boolean | 否   | true   |
+| scrollToTop | 是否滚动到顶部                             | Number | 否   |    |
 
 <br>
 <br>

@@ -13,8 +13,8 @@
           :style="{
             'width': style.wrapWidth,
             'height': style.wrapHeight,
-            'padding-right': rightBarShow && false ? style.barWidth + 'px' : '0',
-            'padding-bottom': bottomBarShow && false ? style.barHeight + 'px' : '0'
+            'padding-right': rightBarShow  ? style.barWidth + 'px' : '0',
+            'padding-bottom': bottomBarShow  ? style.barHeight + 'px' : '0'
           }"
     >
       <div class="lt-scroll__content" ref="inner"
@@ -146,6 +146,11 @@ export default {
       required: false,
       type: Boolean,
       default: true
+    },
+    rightScrollShow: {
+      required: false,
+      type: Boolean,
+      default: true
     }
   },
   mounted() {
@@ -160,6 +165,10 @@ export default {
   },
   watch: {
     scrollReloadTag() {
+      this.scrollTop = 0
+      this.$refs.inner.scrollTop = 0
+      this.scrollLeft = 0
+      this.$refs.inner.scrollLeft = 0
       this.scrollReload()
     },
     defaultScrollTop() {
@@ -169,6 +178,12 @@ export default {
     scrollToTop() {
       this.scrollTop = 0
       this.$refs.inner.scrollTop = 0
+    },
+    $route() {
+      this.scrollTop = 0
+      this.$refs.inner.scrollTop = 0
+      this.scrollLeft = 0
+      this.$refs.inner.scrollLeft = 0
     }
   },
   computed: {
@@ -202,19 +217,29 @@ export default {
       // this.wrapWidth = wrapNode.clientWidth - this.style.barWidth;
       this.innerHeight = slotnode.scrollHeight
       this.innerWidth = slotnode.scrollWidth
-      if (this.wrapHeight < this.innerHeight) {
-        this.wrapHeight -= this.style.barHeight
-        this.rightBarHeight = this.wrapHeight / this.innerHeight * this.wrapHeight
+      console.log('scroll wrapHeight: ' + this.wrapHeight)
+      console.log('scroll innerHeight: ' + this.innerHeight)
+      console.log('scroll compute')
+      if (this.rightScrollShow && this.wrapHeight < this.innerHeight) {
         this.rightBarShow = true
+      } else {
+        this.rightBarShow = false
       }
-      if (this.bottomScrollShow) {
-        if (this.wrapWidth < this.innerWidth) {
-          this.wrapWidth -= this.style.barWidth
-          this.wrapWidth = wrapNode.clientWidth - this.style.barWidth
-          this.bottomBarWidth = this.wrapWidth / this.innerWidth * this.wrapWidth
-          this.bottomBarShow = true
-        }
+      if (this.bottomScrollShow && this.wrapWidth < this.innerWidth) {
+        this.bottomBarShow = true
+      } else {
+        this.bottomBarShow = false
       }
+      if (this.rightBarShow) {
+        if(this.bottomBarShow) this.wrapHeight -= this.style.barHeight
+        this.rightBarHeight = this.wrapHeight / this.innerHeight * this.wrapHeight
+      }
+      if (this.bottomBarShow) {
+        if(this.rightBarShow) this.wrapWidth -= this.style.barWidth
+        this.bottomBarWidth = this.wrapWidth / this.innerWidth * this.wrapWidth
+      }
+      console.log('scroll wrapHeight: ' + this.wrapHeight)
+      console.log('scroll innerHeight: ' + this.innerHeight)
     },
     setScrollLeftTop(eve) {
       let node = eve ? eve.target : this.$refs.inner

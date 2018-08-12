@@ -10,7 +10,7 @@ function resolve(dir) {
 
 var devConfig = {
   //entry: ['babel-polyfill', './src/index.js'],
-  entry: ['./src/index.js'],
+  entry: './src/index.js',
   output: {
     path: resolve('lib'),
     publicPath: '../lib/',
