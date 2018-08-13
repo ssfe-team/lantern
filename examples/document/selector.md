@@ -207,25 +207,25 @@
 
 #### selector props
 
-属性|说明|类型|可选值|默认值
+属性|说明|类型|默认值
 ---|---|---|---|---
-list | 选择项列表 | Array | - | -
-trigger | 触发方式 | String | click/hover |click
-clearable | 清空选择项 | Boolean | - | false
-size | 设置选择器尺寸 | Object | width/height | 200x30
+list | 选择项列表 | Array | -
+trigger | 触发方式 | String |click
+clearable | 清空选择项 | Boolean | false
+size | 设置选择器尺寸 | Object | 200x30
 
 #### list 说明
 
-属性|说明|类型|可选值|默认值
+属性|说明|类型|默认值
 ---|---|---|---|---
-label | 列表中将要显示的名称 | String | - | -
-disabled | 禁用该项 | Boolean | true/false |false
+label | 列表中将要显示的名称 | String | -
+disabled | 禁用该项 | Boolean | false
 
 #### selector evevt 说明
 
 事件名|说明|返回值
 ---|---|---
-selectValueHandle | 返回选中的列表项的`label`值 | 当前选中项
+select-value | 返回选中的列表项的`label`值 | 当前选中项
 
 ::::vuecode::::
 <script>

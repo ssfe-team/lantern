@@ -6,8 +6,7 @@
       <span v-if="!clearable || !hover || val == '请选择'" class="lt-selector__input-icon" :class="inputIcon" @click="selectShowHandel"></span>
       <span  @click="clearValueHandle">
         <lt-icon type="ios-close" v-if="clearable && hover && val != '请选择'" class="lt-selector__clear" color="#9B9B9B"></lt-icon>
-      </span>
-      <!-- <span @selectValue="selectValueHandle">[{{val}}]</span>   -->
+      </span> 
     </div>
     <!-- option：list、size -->
     <select-option class="lt-selector__option" v-show="selectShow" :list="list" @value="selectValueHandle" :style="optionStyle"></select-option>
@@ -55,7 +54,6 @@ export default {
     selectValueHandle (value) {
       this.val = value
       this.selectShow = false
-      this.$emit('select-value', value)
     },
     clearValueHandle () {
       this.list.forEach(element => {
@@ -88,6 +86,9 @@ export default {
       } else {
         return
       }
+    },
+    selectHandle () {
+      this.$emit('select-value', this.val)   
     }
   },
   computed: {
