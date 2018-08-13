@@ -1,4 +1,3 @@
-
 <template>                                   
     <!-- carousel: carousels、inv、style、transitionBehavior、target -->
     <div class="lt-carousel" @mouseover="clearInv" @mouseout="runInv" :style="visualStyle">
