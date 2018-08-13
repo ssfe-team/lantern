@@ -6,10 +6,12 @@
   "scripts": {
     "lanterninit": "yarn || npm install",
     "dev": "cross-env webpack-dev-server --open --hot --inline --host --port 8010 --config ./build/webpack.dev.conf.js",
-    "build": "npm run clean & npm run buildcss & npm run buildjs",
+    "build": "npm run cleanlib & npm run buildcss & npm run buildjs",
     "buildcss": "webpack --progress --hide-modules --config ./build/webpack.build.css.conf.js",
     "buildjs": "webpack --progress --hide-modules --config ./build/webpack.build.js.conf.js",
-    "clean": "rimraf lib/*",
+    "buildex": "webpack --progress --hide-modules --config ./build/webpack.build.js.ex.js",
+    "cleanlib": "rimraf lib/*",
+    "cleandist": "rimraf dist/*",
     "deploy": "npm run build && npm publish"
   },
   "repository": "git+https://github.com/ssfe-team/lantern.git",

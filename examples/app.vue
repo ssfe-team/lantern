@@ -56,7 +56,7 @@
 <script>
 export default {
   name: 'app',
-  data () {
+  data() {
     return {
       layoutWidth: '100%',
       mainLayoutIsRow: true
@@ -65,6 +65,6 @@ export default {
 }
 </script>
 <style lang="less">
-  @import '../src/index.less';
-  @import './styles/index.less';
+@import '../src/index.less';
+@import './styles/index.less';
 </style>
