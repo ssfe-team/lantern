@@ -9,6 +9,7 @@
           v-show="visible"
           @mouseenter="clearTimer"
           @mouseleave="startTimer"
+          @click="handleClick"
           role="alert"
         >
             <lt-icon :type="iconClass" v-if="iconClass"></lt-icon>
@@ -40,6 +41,7 @@ export default {
       type: 'info',
       iconClass: '',
       customClass: '',
+      onClick: null,
       onClose: null,
       closed: false,
       timer: null,
@@ -84,6 +86,9 @@ export default {
   },
 
   methods: {
+    handleClick() {
+      this.onClick && this.onClick()
+    },
     destroyElement() {
       this.$el.removeEventListener('transitionend', this.destroyElement)
       this.$destroy(true)

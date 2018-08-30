@@ -13,13 +13,13 @@
 ::: demo demo :::
 ```html
 <template>
-    <lt-selector :list="list"></lt-selector>
+    <lt-selector :list="list1"></lt-selector>
 </template>
 <script>
     export default {
         data () {
             return {
-                list: [
+                list1: [
                     {
                         label: '北京',
                     },
@@ -55,13 +55,13 @@
 :::demo demo
 ```html
  <template>
-      <lt-selector :list="list" trigger="hover"></lt-selector>
+      <lt-selector :list="list2" trigger="hover"></lt-selector>
  </template>
  <script>
     export default {
         data () {
             return {
-                list: [
+                list2: [
                     {
                         label: '北京',
                     },
@@ -93,13 +93,13 @@
 ::: demo demo :::
 ```html
 <template>
-    <lt-selector :list="list" :size="size"></lt-selector>
+    <lt-selector :list="list3" :size="size"></lt-selector>
 </template>
 <script>
     export default {
         data () {
             return {
-                list: [
+                list3: [
                     {
                         label: '北京',
                     },
@@ -134,13 +134,13 @@
 :::demo demo
 ```html
  <template>
-      <lt-selector :list="list" clearable></lt-selector>
+      <lt-selector :list="list4" clearable></lt-selector>
  </template>
  <script>
     export default {
         data () {
             return {
-                list: [
+                list4: [
                     {
                         label: '北京',
                     },
@@ -172,13 +172,13 @@
 :::demo demo
 ```html
  <template>
-      <lt-selector :list="list1"></lt-selector>
+      <lt-selector :list="list5"></lt-selector>
  </template>
  <script>
     export default {
         data () {
             return {
-                list1: [
+                list5: [
                     {
                         label: '北京',
                     },
@@ -207,51 +207,108 @@
 
 #### selector props
 
-属性|说明|类型|可选值|默认值
+属性|说明|类型|默认值
 ---|---|---|---|---
-list | 选择项列表 | Array | - | -
-trigger | 触发方式 | String | click/hover |click
-clearable | 清空选择项 | Boolean | - | false
-size | 设置选择器尺寸 | Object | width/height | 200x30
+list | 选择项列表 | Array | -
+trigger | 触发方式 | String |click
+clearable | 清空选择项 | Boolean | false
+size | 设置选择器尺寸 | Object | 200x30
 
 #### list 说明
 
-属性|说明|类型|可选值|默认值
+属性|说明|类型|默认值
 ---|---|---|---|---
-label | 列表中将要显示的名称 | String | - | -
-disabled | 禁用该项 | Boolean | true/false |false
+label | 列表中将要显示的名称 | String | -
+disabled | 禁用该项 | Boolean | false
+
+#### selector evevt 说明
+
+事件名|说明|返回值
+---|---|---
+select-value | 返回选中的列表项的`label`值 | 当前选中项
 
 ::::vuecode::::
 <script>
     export default {
         data () {
             return {
-                list: [
+                list1: [
                     {
-                        label: '北京',
+                        label: '北京'
                     },
                     {
-                        label: '上海',
+                        label: '上海'
                     },
                     {
-                        label: '深圳',
+                        label: '深圳'
                     },
                     {
-                        label: '西宁',
+                        label: '西宁'
                     },
                     {
                         label: '南阳'
                     }
                 ],
-                list1: [
+                list2: [
                     {
-                        label: '北京',
+                        label: '北京'
                     },
                     {
-                        label: '上海',
+                        label: '上海'
                     },
                     {
-                        label: '深圳',
+                        label: '深圳'
+                    },
+                    {
+                        label: '西宁'
+                    },
+                    {
+                        label: '南阳'
+                    }
+                ],
+                list3: [
+                    {
+                        label: '北京'
+                    },
+                    {
+                        label: '上海'
+                    },
+                    {
+                        label: '深圳'
+                    },
+                    {
+                        label: '西宁'
+                    },
+                    {
+                        label: '南阳'
+                    }
+                ],
+                list4: [
+                    {
+                        label: '北京'
+                    },
+                    {
+                        label: '上海'
+                    },
+                    {
+                        label: '深圳'
+                    },
+                    {
+                        label: '西宁'
+                    },
+                    {
+                        label: '南阳'
+                    }
+                ],
+                list5: [
+                    {
+                        label: '北京'
+                    },
+                    {
+                        label: '上海'
+                    },
+                    {
+                        label: '深圳'
                     },
                     {
                         label: '西宁',
