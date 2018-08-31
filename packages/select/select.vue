@@ -74,9 +74,9 @@
     import Icon from '../icon';
     import Drop from './dropdown.vue';
     import {directive as clickOutside} from 'v-click-outside-x';
-    import TransferDom from 'lantern/src/directives/transfer-dom';
-    import { oneOf } from 'lantern/src/utils/assist';
-    import Emitter from 'lantern/src/mixins/emitter';
+    import TransferDom from '../../src/directives/transfer-dom';
+    import { oneOf } from '../../src/utils/assist';
+    import Emitter from '../../src/mixins/emitter';
     import SelectHead from './select-head.vue';
     import FunctionalOptions from './functional-options.vue';
 

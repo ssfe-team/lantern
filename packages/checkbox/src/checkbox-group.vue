@@ -4,8 +4,8 @@
     </div>
 </template>
 <script>
-  import { findComponentsDownward, oneOf } from 'lantern/src/utils/assist'
-  import Emitter from 'lantern/src/mixins/emitter'
+  import { findComponentsDownward, oneOf } from '../../../src/utils/assist'
+  import Emitter from '../../../src/mixins/emitter'
 
   const prefixCls = 'lt-checkbox-group'
 

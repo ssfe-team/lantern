@@ -3,7 +3,7 @@
 </template>
 <script>
 const prefixCls = 'lt-dropdown-item'
-import { findComponentUpward } from 'lantern/src/utils/assist'
+import { findComponentUpward } from '../../../src/utils/assist'
 export default {
   name: 'DropdownItem',
   props: {

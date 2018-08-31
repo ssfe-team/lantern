@@ -12,7 +12,7 @@
   </li>
 </template>
 <script>
-import LtCollapseTransition from 'lantern/src/transitions/collapse-transition';
+import LtCollapseTransition from '../../../src/transitions/collapse-transition';
 
 export default {
   name: 'MenuItemSelect',

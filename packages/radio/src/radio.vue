@@ -15,8 +15,8 @@
     </label>
 </template>
 <script>
-    import { findComponentUpward, oneOf } from 'lantern/src/utils/assist';
-    import Emitter from 'lantern/src/mixins/emitter';
+    import { findComponentUpward, oneOf } from '../../../src/utils/assist';
+    import Emitter from '../../../src/mixins/emitter';
 
     const prefixCls = 'lt-radio';
 
