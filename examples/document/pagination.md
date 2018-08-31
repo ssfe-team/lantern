@@ -29,7 +29,7 @@
 |参数|说明|类型|默认值|可选|
 |---|---|---|---|---|
 |bgcolor|背景颜色|ColorHex|'#fff'|可选|
-|count|总页码|Number|1|必选|
+|total|总页码|Number|1|必选|
 |current|当前页码|Number|1|必选|
 |type|模式(event&#124;route)|String|'event'|可选|
 |routePath|路由的计算func|Function|null|模式为route时必选|
