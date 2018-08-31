@@ -21,8 +21,8 @@
 <script>
 import Drop from '../../select/dropdown.vue'
 import { directive as clickOutside } from 'v-click-outside-x'
-import TransferDom from 'lantern/src/directives/transfer-dom'
-import { oneOf, findComponentUpward } from 'lantern/src/utils/assist'
+import TransferDom from '../../../src/directives/transfer-dom'
+import { oneOf, findComponentUpward } from '../../../src/utils/assist'
 
 const prefixCls = 'lt-dropdown'
 

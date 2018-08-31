@@ -4,8 +4,8 @@
     </div>
 </template>
 <script>
-    import { oneOf, findComponentsDownward } from 'lantern/src/utils/assist';
-    import Emitter from 'lantern/src/mixins/emitter';
+    import { oneOf, findComponentsDownward } from '../../../src/utils/assist';
+    import Emitter from '../../../src/mixins/emitter';
 
     const prefixCls = 'lt-radio-group';
 
