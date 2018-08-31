@@ -63,9 +63,12 @@ Vue.component('', {
       export default {
         data () {
           return {
-            total: 10,
-            current: 4
+            total: 1,
+            current: 1
           }
+        },
+        mounted() {
+          this.total = 3
         }
       }
 </script>
