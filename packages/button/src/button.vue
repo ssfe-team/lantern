@@ -11,7 +11,7 @@
 </template>
 <script>
   import Icon from '../../icon'
-  import { oneOf } from 'lantern/src/utils/assist'
+  import { oneOf } from '../../../src/utils/assist'
 
   const prefixCls = 'lt-btn'
 
