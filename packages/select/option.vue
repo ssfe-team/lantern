@@ -7,8 +7,8 @@
     ><slot>{{ showLabel }}</slot></li>
 </template>
 <script>
-    import Emitter from 'lantern/src/mixins/emitter';
-    import { findComponentUpward } from 'lantern/src/utils/assist';
+    import Emitter from '../../src/mixins/emitter';
+    import { findComponentUpward } from '../../src/utils/assist';
 
     const prefixCls = 'lt-select-item';
 

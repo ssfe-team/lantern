@@ -13,8 +13,8 @@
     </span>
 </template>
 <script>
-    import { oneOf } from 'lantern/src/utils/assist';
-    import Emitter from 'lantern/src/mixins/emitter';
+    import { oneOf } from '../../../src/utils/assist';
+    import Emitter from '../../../src/mixins/emitter';
 
     const prefixCls = 'lt-switch';
 

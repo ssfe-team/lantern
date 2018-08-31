@@ -39,18 +39,26 @@ export default {
   watch: {
     current(v) {
       this.nowPage = v
+    },
+    total() {
+      this.handleTotal()
     }
   },
   mounted() {
-    if(this.total <= 7) {
-      for(let i = 0;i < this.total;i++) {
-        this.pageList.push(i + 1);
-      }
-    } else {
-      this.setState();
-    }
+    this.handleTotal()
   },
   methods: {
+    handleTotal() {
+      if(this.total <= 7) {
+        let arr = []
+        for(let i = 0;i < this.total;i++) {
+          arr.push(i + 1);
+        }
+        this.pageList = arr
+      } else {
+        this.setState();
+      }
+    },
     // 跳页点击
     jumpPageClick() {
       this.jumpPage(this.$refs.jumpInput.value);
