@@ -10,7 +10,8 @@
       border: none;
       text-align: center;
       min-width: 50px;
-      box-shadow: 0 2px 4px 0 rgba(0,0,0,.16);
+      // box-shadow: 0 2px 4px 0 rgba(0,0,0,.16);
+      box-shadow: 0 0 4px 0 rgba(0,0,0,.16);      
       display: inline-block;
     }
     .jump-input {
@@ -39,7 +40,7 @@
     border-radius: 4px;
     display: inline-block;
     margin: 0px 4px;
-    box-shadow: 0 2px 4px 0 rgba(0,0,0,.16);
+    // box-shadow: 0 2px 4px 0 rgba(0,0,0,.16);
     &.disabled {
       cursor: not-allowed;
     }
@@ -57,15 +58,20 @@
   }
   ul {
     display: inline-block;
+    vertical-align: bottom;
     li {
       padding: 0px 5px;
       line-height: 28px;
       color: #9B9B9B;
+      border: 1px solid #f8f8f8;
       &:not(.disabled):hover {
         color: #07aefc;
+        border: 1px solid #07aefc;
       }
       &.active {
-        color: #07aefc;
+        color: #fff !important;
+        background: #07aefc;
+        border: 1px solid #07aefc;
       }
     }
   }

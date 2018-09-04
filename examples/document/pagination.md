@@ -64,11 +64,11 @@ Vue.component('', {
         data () {
           return {
             total: 1,
-            current: 1
+            current: 4
           }
         },
         mounted() {
-          this.total = 3
+          this.total = 8
         }
       }
 </script>
