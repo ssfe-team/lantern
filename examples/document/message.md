@@ -63,6 +63,33 @@
 ```
 :::
 
+### 点击事件
+
+点击消息提示后执行自定义操作
+
+:::demo demo
+```html
+    <template>
+      <lt-button :plain="true" @click="clickSupport">点击事件</lt-button>
+    </template>
+    
+    <script>
+      export default {
+        methods: {
+          clickSupport() {
+            this.$message({
+              message: '点我点我点我',
+              onClick: () => {
+                alert('恭喜你点到了我！')
+              }
+            });
+          }
+        }
+      }
+    </script>
+```
+:::
+
 ### 文字居中
 使用 `center` 属性让文字水平居中。
 
@@ -171,7 +198,10 @@ import { Message } from 'lantern-ui';
       open2() {
         this.$message({
           message: '恭喜你，这是一条成功消息',
-          type: 'success'
+          type: 'success',
+                                       onClick: () => {
+                                         alert('成功啦')
+                                       }
         });
       },
 
@@ -214,6 +244,15 @@ import { Message } from 'lantern-ui';
           showClose: true,
           message: '错了哦，这是一条错误消息',
           type: 'error'
+        });
+      },
+      
+      clickSupport() {
+        this.$message({
+          message: '点我点我点我',
+          onClick: () => {
+            alert('恭喜你点到了我！')
+          }
         });
       },
 

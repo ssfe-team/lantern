@@ -1,21 +1,16 @@
-*{
-    margin: 0;
-    padding: 0;
-}
-li {
-   list-style: none;
-}
-.carousel-pages {
+
+.lt-carousel__pages {
     position: absolute;
     bottom: 20px;
-    left: 350px;
+    left: 50%;
+    margin-left: -39px;
     li {
       display: inline-block;
       height: 18px;
       a {
         display: block;
-        width: 6px;
-        height: 6px;
+        width: 8px;
+        height: 8px;
         margin: 0 5px;
         border: 1.5px solid #fff;
         border-radius: 10px;
@@ -23,63 +18,66 @@ li {
         -webkit-transition: all .2s;
         transition: all .2s;
         &.active {
-          width: 20px;
+          width: 26px;
           background: rgba(255, 255, 255, 0.4);
           border-color: #fff;
         }
       }
     }
   }
-  .controlBtn {
+  .lt-carousel__controlBtn {
     a {
       display: inline-block;
       position: absolute;
       top: 50%;
-      width: 30px;
-      height: 30px;
-      background: rgba(255, 255, 255, 0.4);
+      width: 40px;
+      height: 40px;
+      background: rgba(0, 0, 0, 0.08);
       border-radius: 100px;
+      margin-top: -20px;
       &:hover {
-        background: rgba(0, 0, 0, 0.3);
+        background: rgba(0, 0, 0, 0.24);
       }
     }
     span{
       position: absolute;
-      top: 10px;
+      top: 14px;
       height: 10px;
       width: 10px;
       border-left: 1.5px solid #fff;
       border-top: 1.5px solid #fff;
     }
   }
-  .prev {
+  .lt-carousel__controlBtn-prev {
     left: 30px;
     span {
-      left: 12px;
+      left: 16px;
       transform: rotate(-45deg)
+    }
   }
-  }
-  .next {
+  .lt-carousel__controlBtn-next {
     right: 30px;
     span {
-      left: 8px;
+      left: 14px;
       transform: rotate(135deg)
+    }
   }
-  }
-  .carousel-show {
+  .lt-carousel {
     position: relative;
     overflow: hidden;
+    margin: 0 auto;
   }
-  .carousel-ul {
+  .lt-carousel__img {
     width: 100%;
     height: 100%;
     li {
       position: absolute;
       width: 100%;
       height: 100%;
-      img {
-        width: 100%;
-        height: 100%;
+      a {
+        display: block;
+        background-size: cover;
+        background-position: center;
       }
     }
   }

@@ -178,6 +178,12 @@ export default {
     scrollToTop() {
       this.scrollTop = 0
       this.$refs.inner.scrollTop = 0
+    },
+    $route() {
+      this.scrollTop = 0
+      this.$refs.inner.scrollTop = 0
+      this.scrollLeft = 0
+      this.$refs.inner.scrollLeft = 0
     }
   },
   computed: {
@@ -211,9 +217,9 @@ export default {
       // this.wrapWidth = wrapNode.clientWidth - this.style.barWidth;
       this.innerHeight = slotnode.scrollHeight
       this.innerWidth = slotnode.scrollWidth
-      console.log('scroll wrapHeight: ' + this.wrapHeight)
-      console.log('scroll innerHeight: ' + this.innerHeight)
-      console.log('scroll compute')
+      // console.log('scroll wrapHeight: ' + this.wrapHeight)
+      // console.log('scroll innerHeight: ' + this.innerHeight)
+      // console.log('scroll compute')
       if (this.rightScrollShow && this.wrapHeight < this.innerHeight) {
         this.rightBarShow = true
       } else {
@@ -232,8 +238,8 @@ export default {
         if(this.rightBarShow) this.wrapWidth -= this.style.barWidth
         this.bottomBarWidth = this.wrapWidth / this.innerWidth * this.wrapWidth
       }
-      console.log('scroll wrapHeight: ' + this.wrapHeight)
-      console.log('scroll innerHeight: ' + this.innerHeight)
+      // console.log('scroll wrapHeight: ' + this.wrapHeight)
+      // console.log('scroll innerHeight: ' + this.innerHeight)
     },
     setScrollLeftTop(eve) {
       let node = eve ? eve.target : this.$refs.inner
