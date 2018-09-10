@@ -39,8 +39,8 @@
        <span slot="close">关</span>
    </lt-switch>
    <lt-switch>
-       <lt-icon type="checkmark" slot="open"></lt-icon>
-       <lt-icon type="close" slot="close"></lt-icon>
+       <lt-icon type="ios-checkmark-empty" slot="open"></lt-icon>
+       <lt-icon type="ios-close-empty" slot="close"></lt-icon>
    </lt-switch>
    <br><br>
    <lt-switch size="large">

@@ -82,9 +82,9 @@
 <script>
     import InputNumber from '../../input-number/src/input-number.vue';
     import Tooltip from '../../tooltip/src/tooltip.vue';
-    import { getStyle, oneOf } from 'lantern/src/utils/assist';
-    import { on, off } from 'lantern/src/utils/dom';
-    import Emitter from 'lantern/src/mixins/emitter';
+    import { getStyle, oneOf } from '../../../src/utils/assist';
+    import { on, off } from '../../../src/utils/dom';
+    import Emitter from '../../../src/mixins/emitter';
 
     const prefixCls = 'lt-slider';
 

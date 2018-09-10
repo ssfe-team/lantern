@@ -190,7 +190,7 @@
 
 // Default
 .btn-default() {
-    .button-color(@btn-default-color; @btn-default-bg; @btn-default-border);
+    .button-variant(@btn-default-color; @btn-default-bg; @btn-default-border);
 
     &:hover
         //&:focus
@@ -207,11 +207,9 @@
 
 // Primary
 .btn-primary() {
-    .button-color(@btn-primary-color; @btn-primary-bg; @primary-color);
+    .button-variant(@btn-primary-color; @btn-primary-bg; @primary-color);
 
-    &:hover {
-        background: @background-color-linear-gradient-blue;
-    }
+    &:hover,
     //&:focus,
     &:active,
     &.active {
@@ -223,7 +221,7 @@
 
 // Ghost
 .btn-ghost() {
-    .button-color(@btn-ghost-color, @btn-ghost-bg, @btn-ghost-border);
+    .button-variant(@btn-ghost-color, @btn-ghost-bg, @btn-ghost-border);
 
     &:hover
         //&:focus
@@ -240,7 +238,7 @@
 
 // Dashed
 .btn-dashed() {
-    .button-color(@btn-ghost-color, @btn-ghost-bg, @btn-ghost-border);
+    .button-variant(@btn-ghost-color, @btn-ghost-bg, @btn-ghost-border);
 
     border-style: dashed;
 
@@ -259,7 +257,7 @@
 
 // Text
 .btn-text() {
-    .button-color(@btn-ghost-color, @btn-ghost-bg, transparent);
+    .button-variant(@btn-ghost-color, @btn-ghost-bg, transparent);
 
     // for disabled
     &.disabled,
@@ -294,7 +292,8 @@
     }
 }
 .btn-color(@color) {
-    .button-color(@btn-primary-color; @color; @color);
+    //.button-color(@btn-primary-color; @color; @color);
+  .button-variant(@btn-primary-color; @color; @color);
 
     &:hover,
         //&:focus,

@@ -31,7 +31,7 @@
 </template>
 <script>
     import Icon from '../icon';
-    import Emitter from 'lantern/src/mixins/emitter';
+    import Emitter from '../../src/mixins/emitter';
 
     const prefixCls = 'lt-select';
 

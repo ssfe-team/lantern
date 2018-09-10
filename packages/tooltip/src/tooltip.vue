@@ -24,8 +24,8 @@
 </template>
 <script>
   import Popper from '../../base/popper'
-  import TransferDom from 'lantern/src/directives/transfer-dom'
-  import { oneOf } from 'lantern/src/utils/assist'
+  import TransferDom from '../../../src/directives/transfer-dom'
+  import { oneOf } from '../../../src/utils/assist'
 
   const prefixCls = 'lt-tooltip'
 
