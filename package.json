@@ -1,6 +1,6 @@
 {
   "name": "lantern-ui",
-  "version": "0.10.44",
+  "version": "0.10.45",
   "description": "Lantern-ui——基于Vue.js的前端UI库",
   "main": "lib/lantern.js",
   "scripts": {
@@ -12,7 +12,7 @@
     "buildex": "webpack --progress --hide-modules --config ./build/webpack.build.js.ex.js",
     "cleanlib": "rimraf lib/*",
     "cleandist": "rimraf dist/*",
-    "deploy": "npm run build && npm publish"
+    "deploy": "npm version patch && npm run build && npm publish"
   },
   "repository": "git+https://github.com/ssfe-team/lantern.git",
   "author": "ssfe",
