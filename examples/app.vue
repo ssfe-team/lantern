@@ -35,6 +35,7 @@
                   <lt-menu-item href="/dropdown"><span>Dropdown 下拉菜单</span></lt-menu-item>
                   <lt-menu-item href="/modal"><span>Modal 弹框</span></lt-menu-item>
                   <lt-menu-item href="/steps"><span>Steps 步骤条</span></lt-menu-item>
+                  <lt-menu-item href="/progress"><span>Progress 进度条</span></lt-menu-item>
                   <lt-menu-item href="/carousel"><span>Carousel 轮播图</span></lt-menu-item>
                   <lt-menu-item href="/selector"><span>Selector 选择器</span></lt-menu-item>  
                 </lt-menu-item-group>
