@@ -28,6 +28,7 @@ import Breadcrumb from './document/breadcrumb.md'
 import Dropdown from './document/dropdown.md'
 import Modal from './document/modal.md'
 import Steps from './document/steps.md'
+import Progress from './document/progress.md'
 import Carousel from './document/carousel.md'
 import Selector from './document/selector.md'
 
@@ -131,6 +132,10 @@ export default [
   {
     path: '/steps',
     component: Steps
+  },
+  {
+    path: '/progress',
+    component: Progress
   },
   {
     path: '/carousel',
