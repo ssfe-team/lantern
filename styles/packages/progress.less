@@ -1,0 +1,40 @@
+@progress-prefix-cls: ~"@{css-prefix}progress";
+
+.@{progress-prefix-cls} {
+  display: inline-block;
+  width: 100%;
+  font-size: 12px;
+  &-outer {
+    display: inline-block;
+    width: 100%;
+    padding-right: 0;
+    margin-right: 0;
+  }
+  &-show-info {
+    .@{progress-prefix-cls}-outer {
+      padding-right: 55px;
+      margin-right: -55px;
+    }
+  }
+  &-inner {
+    display: inline-block;
+    width: 100%;
+    background-color: rgb(197, 234, 254);
+    vertical-align: middle;
+    -webkit-border-radius: 100px;
+    -moz-border-radius: 100px;
+    border-radius: 100px;
+  }
+  &-bg {
+    background-color: #07AFEC;
+    transition: width ease .4s;
+  }
+  &-text {
+    display: inline-block;
+    color: #07AEFC;
+    font-size: 12px;
+    margin-left: 5px;
+    text-align: left;
+    vertical-align: middle;
+  }
+}
