@@ -8,7 +8,6 @@
       <lt-Pagination
         :total="total"
         :current="current"
-        @on-change="onChange"
       ></lt-Pagination>
     </template>
     <script>
