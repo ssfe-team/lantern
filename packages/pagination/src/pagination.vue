@@ -6,7 +6,7 @@
              :value="nowPage" ref="jumpInput" @keyup.enter="jumpPageClick">
       <button class="jump-btn" @click="jumpPageClick">跳页</button>
     </div>
-    <button class="btn-prev" @click="prev()" :class="{disabled: nowPage == 1}">
+    <button class="btn-prev" @click="prev" :class="{disabled: nowPage == 1}">
       <lt-icon type="chevron-left"></lt-icon>
     </button><ul>
       <li v-for="(value, key) in pageList" :key="value + key"
