@@ -67,8 +67,10 @@ export default {
       let pageNo = this.$refs.jumpInput.value
       if (pageNo < 1) {
         this.jumpPage(1)
+        this.$refs.jumpInput.value = 1
       } else if (pageNo > this.total) {
         this.jumpPage(this.total)
+        this.$refs.jumpInput.value = this.total
       } else {
         this.jumpPage(pageNo);
       }
