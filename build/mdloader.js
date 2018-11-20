@@ -28,14 +28,22 @@ md.use(require('markdown-it-container'), 'demo', {
 
     } else {
       //closing tag
-      return '</div><div class="demo-code-btn">点击查看源代码</div></div>\n';
+      return `</div><div class="demo-code-btn" onclick="let docList = document.getElementsByClassName('demo-code-btn');
+      for(var i=0;i<docList.length;i++){
+        docList[i].index=i;
+        docList[i].onclick=function () {
+          let docHtml = docList[this.index].previousSibling
+          if(docHtml.style.maxHeight == '0px'){ docHtml.style.maxHeight = '2000px'} else {docHtml.style.maxHeight = '0px'}
+        } 
+      }
+    ">点击查看源代码</div></div>\n`;
     }
   }
 });
 
 function makeShowHtml(docHtml, escapeHtml) {
   return '<div class="demo-code-wrap"><div class="demo-code-result">' + docHtml + '</div>' + 
-    '<div class="demo-code-content">\n';
+    '<div class="demo-code-content" style="max-height:0px">\n';
 }
 
 // 提取用例中的html
