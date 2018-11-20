@@ -1,4 +1,5 @@
 ## 分页
+
 ### 实例
 
 ::: demo demo
@@ -7,6 +8,7 @@
       <lt-Pagination
         :total="total"
         :current="current"
+        @on-change="onChange"
       ></lt-Pagination>
     </template>
     <script>
@@ -21,8 +23,6 @@
     </script>
 ```
 :::
-
-
 
 ### Usage
 
@@ -40,7 +40,7 @@
 ---|---|---
 on-change|跳页|页码
 
-### 路由模式下routePath的一个栗子
+### 路由模式下 routePath 的一个栗子
 
 ```javascript
 import Vue from 'vue'

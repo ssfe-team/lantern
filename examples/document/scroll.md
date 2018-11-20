@@ -34,8 +34,7 @@
 | bottomScrollShow | 是否显示底部滚动条                             | Boolean | 否   | true   |
 | scrollToTop | 是否滚动到顶部                             | Number | 否   |    |
 
-<br>
-<br>
+#### barStyle 配置说明
 
 参数|说明|类型|必选|默认值
 --------|--------|--------|--------|--------
