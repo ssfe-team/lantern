@@ -71,7 +71,11 @@
       border-top: 1px solid #e7e7e7;
       overflow: hidden;
       display: block;
-      transition: max-height .8s linear;
+      max-height: 0px;
+      transition: max-height .6s ease-in-out;
+      &.expand {
+        max-height: 2000px;
+      }
     }
     .demo-code-btn {
       width: 100%;
