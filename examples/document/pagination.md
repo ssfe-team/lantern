@@ -1,4 +1,5 @@
 ## 分页
+
 ### 实例
 
 ::: demo demo
@@ -22,8 +23,6 @@
 ```
 :::
 
-
-
 ### Usage
 
 |参数|说明|类型|默认值|可选|
@@ -40,7 +39,7 @@
 ---|---|---
 on-change|跳页|页码
 
-### 路由模式下routePath的一个栗子
+### 路由模式下 routePath 的一个栗子
 
 ```javascript
 import Vue from 'vue'
