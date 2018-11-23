@@ -64,7 +64,7 @@ export default {
     },
     // 跳页点击
     jumpPageClick() {
-      let pageNo = this.$refs.jumpInput.value
+      let pageNo = this.$refs.jumpInput.value | 0
       if (pageNo < 1) {
         this.jumpPage(1)
         this.$refs.jumpInput.value = 1
