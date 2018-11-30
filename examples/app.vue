@@ -37,7 +37,7 @@
                   <lt-menu-item href="/steps"><span>Steps 步骤条</span></lt-menu-item>
                   <lt-menu-item href="/progress"><span>Progress 进度条</span></lt-menu-item>
                   <lt-menu-item href="/carousel"><span>Carousel 轮播图</span></lt-menu-item>
-                  <lt-menu-item href="/selector"><span>Selector 选择器</span></lt-menu-item>  
+                  <lt-menu-item href="/selector"><span>Selector 选择器</span></lt-menu-item>
                 </lt-menu-item-group>
                 <lt-menu-item-group title="规范文档">
                   <lt-menu-item href="/classstandard"><span>class 命名规范</span></lt-menu-item>
@@ -51,16 +51,54 @@
         </div>
       </lt-main>
     </lt-layout>
+    <transition>
+      <a href="#app" class="go-to-top" v-show="goToTopShow">
+        <lt-icon type="chevron-up"></lt-icon>
+      </a>
+    </transition>
   </div>
 </template>
 
 <script>
+  import throttle from 'lantern/src/utils/throttle'
+
 export default {
   name: 'app',
   data() {
     return {
       layoutWidth: '100%',
-      mainLayoutIsRow: true
+      mainLayoutIsRow: true,
+      goToTopShow: false,
+    }
+  },
+  mounted() {
+    this.throttled = throttle(this.unThrottledFunc, 500)
+    window.addEventListener('scroll', () => {
+      this.throttled()
+    })
+    this.handleDemoCodeDisplay()
+  },
+  methods: {
+    unThrottledFunc() {
+      let top = document.documentElement.scrollTop || document.body.scrollTop
+      let height = document.documentElement.clientHeight || document.body.clientHeight
+      this.goToTopShow = top > height
+    },
+    handleDemoCodeDisplay() {
+      let docList = document.getElementsByClassName('demo-code-btn')
+      for (let i = 0, len = docList.length; i < len; i++) {
+        docList[i].onclick = () => {
+          let docHtml = docList[i].previousElementSibling
+          docHtml.classList.toggle('expand')
+          let text = '点击收起源代码'
+          if (!docHtml.classList.contains('expand')) {
+            text = '点击查看源代码'
+          }
+          setTimeout(() => {
+            docList[i].innerHTML = text
+          }, 400);
+        }
+      }
     }
   }
 }
@@ -68,4 +106,25 @@ export default {
 <style lang="less">
 @import '../src/index.less';
 @import './styles/index.less';
+</style>
+<style lang="less" scoped>
+  .go-to-top {
+    position: fixed;
+    right: 4%;
+    bottom: 113px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    color: #fff;
+    background: #07aefc;
+    z-index: 999999;
+    border-radius: 100px;
+    transition: all ease .2s;
+    &:hover {
+      box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.16);
+    }
+  }
 </style>
