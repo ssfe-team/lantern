@@ -52,9 +52,9 @@
       </lt-main>
     </lt-layout>
     <transition>
-      <a href="#app" class="go-to-top" v-show="goToTopShow">
+      <span class="go-to-top" @click="goToTop" v-show="goToTopShow">
         <lt-icon type="chevron-up"></lt-icon>
-      </a>
+      </span>
     </transition>
   </div>
 </template>
@@ -79,6 +79,16 @@ export default {
     this.handleDemoCodeDisplay()
   },
   methods: {
+    goToTop() {
+      const go = () => {
+        let top = document.documentElement.scrollTop
+        document.documentElement.scrollTop -= (top / 10)
+        if (document.documentElement.scrollTop > 0) {
+          window.requestAnimationFrame(go)
+        }
+      }
+      go()
+    },
     unThrottledFunc() {
       let top = document.documentElement.scrollTop || document.body.scrollTop
       let height = document.documentElement.clientHeight || document.body.clientHeight
@@ -123,6 +133,7 @@ export default {
     z-index: 999999;
     border-radius: 100px;
     transition: all ease .2s;
+    cursor: pointer;
     &:hover {
       box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.16);
     }
