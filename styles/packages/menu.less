@@ -1,11 +1,11 @@
 /*
- * @Author: bianhao 
- * @Date: 2018-01-15 18:16:28 
+ * @Author: bianhao
+ * @Date: 2018-01-15 18:16:28
  * @Last Modified by: bianhao
  * @Last Modified time: 2018-02-27 16:23:49
  */
 .lt-menu-item {
-  padding-left: 48px;
+  padding-left: 30px;
   line-height: 36px;
   cursor: pointer;
   a {
@@ -16,7 +16,7 @@
   }
   &:hover {
     color: @mainColor1;
-    background-color: @comColor5; 
+    background-color: @comColor5;
     a {
       color: @mainColor1;
     }
@@ -24,8 +24,8 @@
 }
 
 .lt-menu-select__title {
-  padding-left: 48px;
-  padding-right: 48px;
+  padding-left: 30px;
+  padding-right: 18px;
   line-height: 36px;
   color: @comColor2;
   cursor: pointer;
@@ -38,20 +38,24 @@
     float: right;
     transition: transform .5s;
   }
+  .icon {
+    margin-left: 52px;
+    font-size: 14px;
+  }
 }
 
 .lt-menu-select--opend .lt-menu-select__title {
   color: @mainColor1;
   background-color: @comColor5;
   .lt-iconfont {
-    transform: rotate(180deg);  
+    transform: rotate(180deg);
   }
 }
 
 .lt-menu-select__content {
   overflow: hidden;
   .lt-menu-item {
-    padding-left: 84px;
+    padding-left: 45px;
   }
 }
 
@@ -63,7 +67,7 @@
 
 .lt-menu-group__title {
   color: @comColor3;
-  padding-left: 36px;
+  padding-left: 16px;
   line-height: 24px;
   margin: 10px 0px;
 }

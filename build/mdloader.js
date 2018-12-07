@@ -35,7 +35,7 @@ md.use(require('markdown-it-container'), 'demo', {
 
 function makeShowHtml(docHtml, escapeHtml) {
   return '<div class="demo-code-wrap"><div class="demo-code-result">' + docHtml + '</div>' +
-    '<div class="demo-code-content" style="max-height:0px">\n';
+    '<div class="demo-code-content">\n';
 }
 
 // 提取用例中的html
