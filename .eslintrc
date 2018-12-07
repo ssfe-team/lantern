@@ -1,0 +1,12 @@
+{
+  "parserOptions": {
+    "ecmaVersion": 2018
+  },
+  "extends": [
+    "standard",
+    "plugin:vue/strongly-recommended"
+  ],
+  "rules": {
+    "semi": ["error", "never", { "beforeStatementContinuationChars": "never" }]
+  }
+}
