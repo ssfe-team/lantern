@@ -25,10 +25,10 @@
 <script type="text/babel">
 
   const typeMap = {
-  success: 'checkmark-circled',
-  info: 'information-circled',
-  warning: 'information-circled',
-  error: 'close-circled'
+    success: 'checkmark-circled',
+    info: 'information-circled',
+    warning: 'information-circled',
+    error: 'close-circled'
   }
 
 export default {

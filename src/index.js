@@ -90,7 +90,7 @@ const install = function(Vue) {
 
 if (typeof window !== 'undefined' && window.Vue) {
   install(window.Vue)
-};
+}
 
 const API = {
   ...packages,
