@@ -1,3 +1,3 @@
-import Option from '../selector/src/option.vue';
+// import Option from '../selector/src/option.vue';
 
-export default Option;
+// export default Option;

@@ -1,7 +1,7 @@
 import Selector from './src/selector.vue';
-import Option from './src/option.vue';
+import SelectorOption from './src/SelectorOption.vue';
 
 export {
   Selector,
-  Option
+  SelectorOption
 };
