@@ -9,7 +9,7 @@
       </span>
     </div>
     <!-- option：list、size -->
-    <lt-option class="lt-selector__option" v-show="selectShow" :list="list" @value="selectValueHandle" :style="optionStyle"></lt-option>
+    <lt-selector-option class="lt-selector__option" v-show="selectShow" :list="list" @value="selectValueHandle" :style="optionStyle"></lt-selector-option>
   </div>
 </template>
 
