@@ -34,8 +34,8 @@ import Steps from '../packages/steps/index.js'
 import Step from '../packages/step/index.js'
 import Progress from '../packages/progress/index.js'
 import Carousel from '../packages/carousel/index.js'
-import Selector from '../packages/selector/index.js'
-import Option from '../packages/select-option/index.js'
+import { Selector, Option } from '../packages/selector/index.js'
+// import Option from '../packages/select-option/index.js'
 
 const prefix = 'Lt';
 
