@@ -3,7 +3,7 @@
   <div class="lt-selector" v-click-outside="handleClose">
     <div class="lt-selector__input" @mouseover="showClearable" @mouseout="closeClearable">
       <input type="text" class="lt-selector__input-ipt" v-model="val" :style="SelectorStyle" @mouseover="hoverShow" @click="selectShowHandel"/>
-      <span v-if="!clearable || !hover || val == '请选择'" class="lt-selector__input-icon" :class="inputIcon" @click="selectShowHandel"></span>
+      <span v-if="!clearable || !hover || val == '请选择'" class="lt-selector__input-icon" @click="selectShowHandel"></span>
       <span  @click="clearValueHandle">
         <lt-icon type="ios-close" v-if="clearable && hover && val != '请选择'" class="lt-selector__clear" color="#9B9B9B"></lt-icon>
       </span>
@@ -54,6 +54,7 @@ export default {
     selectValueHandle (value) {
       this.val = value
       this.selectShow = false
+      this.$emit('selectedValue', value)
     },
     clearValueHandle () {
       this.list.forEach(element => {
@@ -87,9 +88,6 @@ export default {
         return
       }
     },
-    selectHandle () {
-      this.$emit('select-value', this.val)
-    }
   },
   computed: {
     inputIcon () {
