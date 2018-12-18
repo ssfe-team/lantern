@@ -22,7 +22,7 @@
 
 Tooltip 组件提供了两个不同的主题：`blue`和`light`。
 
-通过设置effect属性来改变主题，默认为dark。
+通过设置effect属性来改变主题，默认为 `blue`。
 
 ::: demo demo
 ```html
@@ -120,6 +120,7 @@ Tooltip 组件提供了两个不同的主题：`blue`和`light`。
 ---|---|---|---
 content|显示的内容|String \| Number|空
 placement|提示框出现的位置，可选值为`top` `top-start` `top-end` `bottom` `bottom-start` `bottom-end` `left` `left-start` `left-end` `right` `right-start` `right-end`，支持自动识别|String|bottom
+effect|主题|string|blue
 disabled|是否禁用提示框|Boolean|false
 delay|延迟显示，单位毫秒|Number|0
 always|是否总是可见|Boolean|false
