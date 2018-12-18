@@ -2,7 +2,7 @@
     <!-- carousel: carousels、inv、style、transitionBehavior、target -->
     <div class="lt-carousel" @mouseover="clearInv" @mouseout="runInv" :style="visualStyle">
     <transition-group tag="ul" class='lt-carousel__img' :name="trBehavior">
-      <li v-for="(item , index) in carousels" :key="index" v-show="index === activeIndex">
+      <li v-for="(item, index) in carousels" :key="item + '_' + index" v-show="index === activeIndex">
         <a :href="item.href" :target="target" :style="getAStyle(index)"></a>
       </li>
     </transition-group>
