@@ -1,7 +1,7 @@
-<template>                                   
+<template>
     <!-- carousel: carousels、inv、style、transitionBehavior、target -->
     <div class="lt-carousel" @mouseover="clearInv" @mouseout="runInv" :style="visualStyle">
-    <transition-group tag="ul" class='lt-carousel__img' :name="behavior">
+    <transition-group tag="ul" class='lt-carousel__img' :name="trBehavior">
       <li v-for="(item , index) in carousels" :key="index" v-show="index === activeIndex">
         <a :href="item.href" :target="target" :style="getAStyle(index)"></a>
       </li>
@@ -15,8 +15,8 @@
       </li>
     </ul>
     <div class="lt-carousel__controlBtn">
-      <a class="lt-carousel__controlBtn-prev" @click="goto(prevIndex)"><span></span></a>
-      <a class="lt-carousel__controlBtn-next" @click="goto(nextIndex)"><span></span></a>
+      <a class="lt-carousel__controlBtn-prev" @click="goto(prevIndex, 'prev')"><span></span></a>
+      <a class="lt-carousel__controlBtn-next" @click="goto(nextIndex, 'next')"><span></span></a>
     </div>
   </div>
 </template>
@@ -64,7 +64,8 @@
     },
     data () {
       return {
-        activeIndex: 0
+        activeIndex: 0,
+        isLeft: false
       }
     },
     computed: {
@@ -81,13 +82,29 @@
         } else {
           return this.activeIndex + 1
         }
+      },
+      trBehavior () {
+        if (this.behavior === 'move') {
+          if (this.isLeft) {
+            return 'move-left'
+          } else {
+            return 'move'
+          }
+        }
       }
     },
     mounted () {
       this.runInv()
     },
     methods: {
-      goto (index) {
+      goto (index, direction) {
+        if ( this.behavior === 'move') {
+          if (direction === 'prev') {
+            this.isLeft = true
+          } else {
+            this.isLeft = false
+          }
+        }
         this.activeIndex = index
       },
       getAStyle (index) {
@@ -98,7 +115,7 @@
       },
       runInv () {
         this.invId = setInterval(() => {
-          this.goto(this.nextIndex)
+          this.goto(this.nextIndex, 'next')
         }, this.inv)
       },
       clearInv () {
