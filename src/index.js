@@ -4,12 +4,12 @@
  * @Last Modified by: bianhao
  * @Last Modified time: 2018-06-21 21:10:52
  */
-import Message from '../packages/message/index.js';
-import WaterFall from '../packages/water-fall/index.js';
-import Scroll from '../packages/scroll/index.js';
-import { Aside, Footer, Header, Layout, Main } from '../packages/layout/index.js';
-import Select from '../packages/select/index.js';
-import { Menu, MenuItem, MenuItemGroup, MenuItemSelect } from '../packages/menu/index.js';
+import Message from '../packages/message/index.js'
+import WaterFall from '../packages/water-fall/index.js'
+import Scroll from '../packages/scroll/index.js'
+import { Aside, Footer, Header, Layout, Main } from '../packages/layout/index.js'
+import Select from '../packages/select/index.js'
+import { Menu, MenuItem, MenuItemGroup, MenuItemSelect } from '../packages/menu/index.js'
 import Pagination from '../packages/pagination/index.js'
 import Icon from '../packages/icon/index.js'
 import Input from '../packages/input/index.js'
@@ -37,7 +37,7 @@ import Carousel from '../packages/carousel/index.js'
 import { Selector, SelectorOption } from '../packages/selector/index.js'
 // import Option from '../packages/select-option/index.js'
 
-const prefix = 'Lt';
+const prefix = 'Lt'
 
 const packages = {
   Message,
@@ -81,11 +81,12 @@ const packages = {
   SelectorOption
 }
 
+/* eslint-disable */
 const install = function(Vue) {
   Object.keys(packages).forEach(key => {
-    Vue.component(prefix + key, packages[key]);
-  });
-  Vue.prototype.$message = Message;
+    Vue.component(prefix + key, packages[key])
+  })
+  Vue.prototype.$message = Message
 }
 
 if (typeof window !== 'undefined' && window.Vue) {
@@ -97,4 +98,4 @@ const API = {
   install
 }
 
-module.exports.default = module.exports = API;
+module.exports.default = module.exports = API
