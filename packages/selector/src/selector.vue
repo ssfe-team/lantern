@@ -3,23 +3,23 @@
   <div class="lt-selector" v-click-outside="handleClose">
     <div class="lt-selector__input" @mouseover="showClearable" @mouseout="closeClearable">
       <input type="text" class="lt-selector__input-ipt" v-model="val" :style="SelectorStyle" @mouseover="hoverShow" @click="selectShowHandel"/>
-      <span v-if="!clearable || !hover || val == '请选择'" class="lt-selector__input-icon" :class="inputIcon" @click="selectShowHandel"></span>
+      <span v-if="!clearable || !hover || val == '请选择'" class="lt-selector__input-icon" @click="selectShowHandel"></span>
       <span  @click="clearValueHandle">
         <lt-icon type="ios-close" v-if="clearable && hover && val != '请选择'" class="lt-selector__clear" color="#9B9B9B"></lt-icon>
-      </span> 
+      </span>
     </div>
     <!-- option：list、size -->
-    <select-option class="lt-selector__option" v-show="selectShow" :list="list" @value="selectValueHandle" :style="optionStyle"></select-option>
+    <lt-selector-option class="lt-selector__option" v-show="selectShow" :list="list" @value="selectValueHandle" :style="optionStyle"></lt-selector-option>
   </div>
 </template>
 
 <script>
-import selectOption from './option'
+// import selectOption from './option'
 import {directive as clickOutside} from 'v-click-outside-x';
 export default {
   name: 'Selector',
-  components: { selectOption },
-  directives: { clickOutside }, 
+  // components: { selectOption },
+  directives: { clickOutside },
   data () {
     return {
       selectShow: false,
@@ -54,6 +54,7 @@ export default {
     selectValueHandle (value) {
       this.val = value
       this.selectShow = false
+      this.$emit('selectedValue', value)
     },
     clearValueHandle () {
       this.list.forEach(element => {
@@ -87,9 +88,6 @@ export default {
         return
       }
     },
-    selectHandle () {
-      this.$emit('select-value', this.val)   
-    }
   },
   computed: {
     inputIcon () {
