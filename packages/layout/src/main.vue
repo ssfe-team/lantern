@@ -1,6 +1,9 @@
 <template>
-  <main class="lt-main" :style="{ height }">
-    <slot></slot>
+  <main
+    class="lt-main"
+    :style="{ height }"
+  >
+    <slot />
   </main>
 </template>
 <script>
@@ -9,7 +12,7 @@ export default {
   props: {
     height: {
       type: String,
-      default: '120px'
+      default: '100%'
     }
   }
 }
