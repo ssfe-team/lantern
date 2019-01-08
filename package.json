@@ -12,7 +12,8 @@
     "buildex": "webpack --progress --hide-modules --config ./build/webpack.build.js.ex.js",
     "cleanlib": "rimraf lib/*",
     "cleandist": "rimraf dist/*",
-    "deploy": "npm version patch && npm run build && npm publish"
+    "deploy": "npm version patch && npm run build && npm publish",
+    "eslint": "eslint"
   },
   "husky": {
     "hooks": {
@@ -35,6 +36,7 @@
   },
   "homepage": "https://github.com/ssfe-team/lantern#readme",
   "dependencies": {
+    "lodash.throttle": "^4.1.1",
     "popper.js": "^1.14.5",
     "v-click-outside-x": "^3.5.5",
     "vue": "^2.5.17"

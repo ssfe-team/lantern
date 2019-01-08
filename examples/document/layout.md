@@ -58,7 +58,7 @@ height|header高度|String|-|60px
 
 参数|说明|类型|可选值|默认值
 --------|--------|--------|--------|--------
-height|main高度|String|-|120px
+height|main高度|String|-|100%
 
 ### lt-aside Attributes
 

@@ -3,12 +3,11 @@
 ::: demo demo
 
 ```html
+  <div style="width:100%;height:300px">
     <lt-scroll
-      :barStyle="{wrapWidth: '300px', wrapHeight: '600px', autoHide: false}"
+      @on-scroll="onScroll"
     >
-      <span style="display:inline-block; width: 400px; height:60px; background: linear-gradient(to right, blue, white); border: 1px solid black;"></span>
-      <p style="">1.测试内容测试内容测试内容测试内容测试内容测试内容测试内容测试内容测试内容</p>
-      <br />
+      <p>1.测试内容测试内容测试内容测试内容测试内容测试内容测试内容测试内容测试内容</p>
       <br />
       <p>2.测试内容测试内容测试内容测试内容测试内容测试内容测试内容测试内容测试内容</p>
       <br />
@@ -16,9 +15,17 @@
       <br />
       <p>4.测试内容测试内容测试内容测试内容测试内容测试内容测试内容测试内容测试内容</p>
       <br />
-      <p>5.测试内容测试内容测试内容测试内容测试内容测试内容测试内容测试内容测试内容</p>
-      <span style="display:inline-block; width: 400px; height:60px; background: linear-gradient(to right, blue, white); border: 1px solid black;"></span>
+      <p>6.测试内容测试内容测试内容测试内容测试内容测试内容测试内容测试内容测试内容</p>
+      <br />
+      <p>7.测试内容测试内容测试内容测试内容测试内容测试内容测试内容测试内容测试内容</p>
+      <br />
+      <p>8.测试内容测试内容测试内容测试内容测试内容测试内容测试内容测试内容测试内容</p>
+      <br />
+      <p>9.测试内容测试内容测试内容测试内容测试内容测试内容测试内容测试内容测试内容</p>
+      <br />
+      <p>10.测试内容测试内容测试内容测试内容测试内容测试内容测试内容测试内容测试内容</p>
     </lt-scroll>
+  </div>
 ```
 
 :::
@@ -49,7 +56,15 @@ wrapHeight|容器的高度(带单位的字符串如'100%'、'100px')|String|否|
 autoHide|是否自动隐藏滚动条|Bollen|否|true
 
 ::::vuecode::::
-
-<style lang='less'>
+<script>
+export default {
+  methods: {
+    onScroll(eve) {
+      console.log(eve)
+    }
+  }
+}
+</script>
+<style lang="less" scoped>
 
 </style>
