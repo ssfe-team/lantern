@@ -1,40 +1,50 @@
 <template>
-  <div class="lt-input-wrap" :class="{maxlength: this.maxlength}">
-    <input v-if="this.type === 'input'"
+  <div
+    class="lt-input-wrap"
+    :class="{maxlength: this.maxlength}"
+  >
+    <input
+      v-if="this.type === 'input'"
       class="lt-input"
       :class="{disabled: this.disabled}"
-      type="text" 
+      type="text"
       :disabled="this.disabled"
       :readonly="this.readonly"
       :maxlength="this.maxlength"
       v-model="inputValue"
+      @change="$emit('change', $event.target.value)"
       :placeholder="this.placeholder"
-      @focus="this.$emit('focus', eve)"
-      @blur="this.$emit('blur', eve)"
-      @change="this.$emit('change', this.inputValue)"
-    />
-    <textarea v-else-if="this.type === 'textarea'" 
+    >
+    <textarea
+      v-else-if="this.type === 'textarea'"
       class="lt-textarea"
       :class="{disabled: this.disabled}"
       :disabled="this.disabled"
       :readonly="this.readonly"
       :maxlength="this.maxlength"
-      v-model="inputValue"
       :placeholder="this.placeholder"
       :rows="this.rows"
-      @focus="this.$emit('focus', eve)"
-      @blur="this.$emit('blur', eve)"
-      @change="this.$emit('change', this.inputValue)"
-    ></textarea>
-    <span v-if="this.maxlength" class="maxlengthtips">{{this.maxlengthtips}}</span>
+      v-model="inputValue"
+      @change="$emit('change', $event.target.value)"
+    />
+    <span
+      v-if="this.maxlength"
+      class="maxlengthtips"
+    >
+      {{ this.maxlengthtips }}
+    </span>
   </div>
 </template>
 <script>
 export default {
-  data() {
+  data () {
     return {
       inputValue: this.value
     }
+  },
+  model: {
+    prop: 'value',
+    event: 'change'
   },
   props: {
     // input类型
@@ -42,16 +52,13 @@ export default {
       type: String,
       default: 'text'
     },
-    value: {
-      type: String,
-      default: ''
-    },
     placeholder: {
       type: String,
       default: '请输入'
     },
     maxlength: {
-      type: Number | String
+      type: [Number, String],
+      default: ''
     },
     disabled: {
       type: Boolean,
@@ -62,13 +69,17 @@ export default {
       default: false
     },
     rows: {
-      type: Number | String,
+      type: [Number, String],
       default: 4
+    },
+    value: {
+      type: String,
+      default: ''
     }
   },
   computed: {
-    maxlengthtips() {
-      return this.inputValue.length + '/' + this.maxlength;
+    maxlengthtips () {
+      return (this.inputValue ? this.inputValue.length : '0') + '/' + this.maxlength
     }
   }
 }

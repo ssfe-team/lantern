@@ -49,8 +49,12 @@
                     <LtMenuItem href="/icon">
                       <span>Icon 图标</span>
                     </LtMenuItem>
-                    <!-- <LtMenuItem href="/select"><span>Select 选择器</span></LtMenuItem> -->
-                    <!--<LtMenuItem href="/input"><span>Input 输入框</span></LtMenuItem>-->
+                    <LtMenuItem href="/select">
+                      <span>Select 选择器</span>
+                    </LtMenuItem>
+                    <LtMenuItem href="/input">
+                      <span>Input 输入框</span>
+                    </LtMenuItem>
                     <LtMenuItem href="/input-number">
                       <span>InputNumber 数字输入框</span>
                     </LtMenuItem>
