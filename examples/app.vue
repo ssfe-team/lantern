@@ -49,8 +49,12 @@
                     <LtMenuItem href="/icon">
                       <span>Icon 图标</span>
                     </LtMenuItem>
-                    <!-- <LtMenuItem href="/select"><span>Select 选择器</span></LtMenuItem> -->
-                    <!--<LtMenuItem href="/input"><span>Input 输入框</span></LtMenuItem>-->
+                    <LtMenuItem href="/select">
+                      <span>Select 选择器</span>
+                    </LtMenuItem>
+                    <LtMenuItem href="/input">
+                      <span>Input 输入框</span>
+                    </LtMenuItem>
                     <LtMenuItem href="/input-number">
                       <span>InputNumber 数字输入框</span>
                     </LtMenuItem>
@@ -141,7 +145,6 @@ export default {
     window.addEventListener('scroll', () => {
       this.throttled()
     })
-    this.handleDemoCodeDisplay()
   },
   methods: {
     goToTop () {
@@ -158,22 +161,6 @@ export default {
       let top = document.documentElement.scrollTop || document.body.scrollTop
       let height = document.documentElement.clientHeight || document.body.clientHeight
       this.goToTopShow = top > height
-    },
-    handleDemoCodeDisplay () {
-      let docList = document.getElementsByClassName('demo-code-btn')
-      for (let i = 0, len = docList.length; i < len; i++) {
-        docList[i].onclick = () => {
-          let docHtml = docList[i].previousElementSibling
-          docHtml.classList.toggle('expand')
-          let text = '点击收起源代码'
-          if (!docHtml.classList.contains('expand')) {
-            text = '点击查看源代码'
-          }
-          setTimeout(() => {
-            docList[i].innerHTML = text
-          }, 400)
-        }
-      }
     }
   }
 }
