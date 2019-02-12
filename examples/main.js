@@ -19,8 +19,22 @@ const router = new VueRouter({
 
 Vue.use(Lantern)
 
+/* eslint-disable no-new */
 new Vue({
   el: '#app',
   render: h => h(App),
   router: router
 })
+
+window.expandCode = function () {
+  let btn = event.target
+  let docHtml = btn.previousElementSibling
+  docHtml.classList.toggle('expand')
+  let text = '点击收起源代码'
+  if (!docHtml.classList.contains('expand')) {
+    text = '点击查看源代码'
+  }
+  setTimeout(() => {
+    btn.innerHTML = text
+  }, 400)
+}

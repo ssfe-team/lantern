@@ -28,7 +28,7 @@ md.use(require('markdown-it-container'), 'demo', {
 
     } else {
       //closing tag
-      return `</div><div class="demo-code-btn">点击查看源代码</div></div>\n`;
+      return `</div><button class="demo-code-btn" onclick="expandCode()">点击查看源代码</button></div>\n`;
     }
   }
 });
@@ -48,5 +48,5 @@ module.exports = function(source) {
   let data = source.split('::::vuecode::::');
   let template = data[0];
   let vuecode = data[1];
-  return '<template><section class="markdowndoc">' + md.render(template) + '</section></template>' + data[1];
+  return '<template><section class="markdowndoc">' + md.render(template) + '</section></template>' + vuecode;
 }
