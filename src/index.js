@@ -36,6 +36,8 @@ import Progress from '../packages/progress/index.js'
 import Carousel from '../packages/carousel/index.js'
 import { Selector, SelectorOption } from '../packages/selector/index.js'
 // import Option from '../packages/select-option/index.js'
+import Form from '../packages/form/index.js'
+import FormItem from '../packages/form-item/index.js'
 
 const prefix = 'Lt'
 
@@ -78,7 +80,9 @@ const packages = {
   Progress,
   Carousel,
   Selector,
-  SelectorOption
+  SelectorOption,
+  Form,
+  FormItem
 }
 
 /* eslint-disable */
