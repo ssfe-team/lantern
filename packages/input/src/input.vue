@@ -4,10 +4,10 @@
     :class="{maxlength: this.maxlength}"
   >
     <input
-      v-if="this.type === 'input'"
+      v-if="this.type !== 'textarea'"
       class="lt-input"
       :class="{disabled: this.disabled}"
-      type="text"
+      :type="type"
       :disabled="this.disabled"
       :readonly="this.readonly"
       :maxlength="this.maxlength"
@@ -16,7 +16,7 @@
       :placeholder="this.placeholder"
     >
     <textarea
-      v-else-if="this.type === 'textarea'"
+      v-else
       class="lt-textarea"
       :class="{disabled: this.disabled}"
       :disabled="this.disabled"
@@ -36,6 +36,8 @@
   </div>
 </template>
 <script>
+import { oneOf } from 'lantern/src/utils/assist'
+
 export default {
   data () {
     return {
@@ -49,7 +51,9 @@ export default {
   props: {
     // input类型
     type: {
-      type: String,
+      validator (value) {
+        return oneOf(value, ['text', 'textarea', 'password', 'url', 'email', 'date'])
+      },
       default: 'text'
     },
     placeholder: {

@@ -52,6 +52,9 @@
                     <LtMenuItem href="/select">
                       <span>Select 选择器</span>
                     </LtMenuItem>
+                    <LtMenuItem href="/form">
+                      <span>Form 表单</span>
+                    </LtMenuItem>
                     <LtMenuItem href="/input">
                       <span>Input 输入框</span>
                     </LtMenuItem>

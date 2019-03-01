@@ -1,3 +1,5 @@
+@input-prefix-cls: ~"@{css-prefix}input";
+
 .inputrest {
   outline: none;
   padding: 4px;
@@ -29,15 +31,37 @@
   width: 280px;
   height: 40px;
   padding: 0 32px 0 12px;
-  background: #ffffff;
-  border: 1px solid #e7e7e7;
-  border-radius: 3px;
+  background: #f7f8f9;
+  border: 1px solid #e6e6e6;
+  border-radius: 4px;
   font-size: 12px;
   outline: none;
 
   &:focus {
+    background: #ffffff;
     border: 1px solid #07AEFC;
+    box-shadow: 0 0 0 2px rgba(7, 174, 252, .1);
   }
+}
+
+.@{form-item-prefix-cls}-error{
+    .@{input-prefix-cls}{
+        .input-error;
+        &-icon{
+            color: @error-color;
+        }
+    }
+    .@{input-prefix-cls}-group{
+        .input-group-error;
+    }
+    .@{transfer-prefix-cls} {
+        .@{input-prefix-cls} {
+            .input;
+            &-icon{
+                color: @subsidiary-color;
+            }
+        }
+    }
 }
 
 .lt-textarea {
