@@ -99,7 +99,12 @@ export default {
         'ios-search-strong',
         'android-search',
         'maximize',
-        'minimize'
+        'minimize',
+        'message',
+        'star',
+        'star-outline',
+        'eye',
+        'eye-off',
       ]
     }
   }
