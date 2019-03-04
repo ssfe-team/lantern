@@ -4,7 +4,7 @@
   </form>
 </template>
 <script>
-import { oneOf } from 'lantern/src/utils/assist'
+import { oneOf } from '../../src/utils/assist'
 
 const prefixCls = 'lt-form'
 

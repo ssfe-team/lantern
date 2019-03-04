@@ -21,7 +21,7 @@
 </template>
 <script>
 import AsyncValidator from 'async-validator'
-import Emitter from 'lantern/src/mixins/emitter'
+import Emitter from '../../src/mixins/emitter'
 
 const prefixCls = 'lt-form-item'
 
