@@ -6,7 +6,7 @@
         <a :href="item.href" :target="target" :style="getAStyle(index)"></a>
       </li>
     </transition-group>
-    <ul class="lt-carousel__pages">
+    <ul class="lt-carousel__pages" v-if="carousels.length > 1">
       <li v-for="(item, index) in carousels" :key="index"
           @click="goto(index)"
           class="lt-carousel__pages-point"
@@ -14,7 +14,7 @@
         <a :class="{'active': index === activeIndex}"></a>
       </li>
     </ul>
-    <div class="lt-carousel__controlBtn">
+    <div class="lt-carousel__controlBtn" v-if="carousels.length > 1">
       <a class="lt-carousel__controlBtn-prev" @click="goto(prevIndex, 'prev')"><span></span></a>
       <a class="lt-carousel__controlBtn-next" @click="goto(nextIndex, 'next')"><span></span></a>
     </div>
