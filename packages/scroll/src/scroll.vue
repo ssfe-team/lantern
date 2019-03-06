@@ -13,7 +13,7 @@
       ref="scrollTrackRight"
       @mouseenter.stop="onMouseenterRight"
       @mouseleave.stop="onMouseleaveRight"
-      :class="{'lt-scroll__track_active': showScrollRight, 'lt-scroll__track_hover': scrollRightHover}"
+      :class="{'lt-scroll__track_active': true, 'lt-scroll__track_hover': scrollRightHover}"
     >
       <div
         class="lt-scroll__bar lt-scroll__bar--right"
@@ -91,7 +91,8 @@ export default {
       // 多出来的20是为了隐藏原来的滚动条
       let contentHeight = $content.offsetHeight - 20
       let contentWidth = $content.offsetWidth - 20
-      let childHeight = $content.scrollHeight - 20
+      let childHeight = $content.scrollHeight - 3
+      console.log($content.scrollHeight, $content.offsetHeight, $content.clientHeight)
       let childWidth = $content.scrollWidth - 20
 
       if (this.scrollTop !== $content.scrollTop) {
