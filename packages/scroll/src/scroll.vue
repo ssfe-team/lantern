@@ -13,7 +13,8 @@
       ref="scrollTrackRight"
       @mouseenter.stop="onMouseenterRight"
       @mouseleave.stop="onMouseleaveRight"
-      :class="{'lt-scroll__track_active': true, 'lt-scroll__track_hover': scrollRightHover}"
+      :style="rightTrackStyles"
+      :class="{'lt-scroll__track_active': showScrollHeight, 'lt-scroll__track_hover': scrollRightHover}"
     >
       <div
         class="lt-scroll__bar lt-scroll__bar--right"
@@ -69,6 +70,10 @@ export default {
     hasBottom: {
       default: false,
       type: Boolean
+    },
+    zIndex: {
+      type: [Number, String],
+      default: 10
     }
   },
   created () {
@@ -79,7 +84,13 @@ export default {
     this.scrollLeft = this.$refs.scrollContent.scrollLeft
   },
   watch: {},
-  computed: {},
+  computed: {
+    rightTrackStyles () {
+      return {
+        zIndex: this.zIndex
+      }
+    }
+  },
   methods: {
     hideRightScroll () {
       this.rightTimer = setTimeout(() => {
