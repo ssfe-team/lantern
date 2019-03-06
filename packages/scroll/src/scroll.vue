@@ -14,7 +14,7 @@
       @mouseenter.stop="onMouseenterRight"
       @mouseleave.stop="onMouseleaveRight"
       :style="rightTrackStyles"
-      :class="{'lt-scroll__track_active': showScrollHeight, 'lt-scroll__track_hover': scrollRightHover}"
+      :class="{'lt-scroll__track_active': showScrollRight, 'lt-scroll__track_hover': scrollRightHover}"
     >
       <div
         class="lt-scroll__bar lt-scroll__bar--right"
