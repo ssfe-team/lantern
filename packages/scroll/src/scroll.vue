@@ -119,7 +119,8 @@ export default {
         this.hideRightScroll()
         // 设置回调
         this.$emit('on-scroll', {
-          'formBottom': childHeight - contentHeight - $content.scrollTop
+          'fromTop': $content.scrollTop,
+          'fromBottom': childHeight - contentHeight - $content.scrollTop,
         })
       }
 
