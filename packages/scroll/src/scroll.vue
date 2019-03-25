@@ -103,7 +103,7 @@ export default {
       let contentHeight = $content.offsetHeight - 20
       let contentWidth = $content.offsetWidth - 20
       let childHeight = $content.scrollHeight - 3
-      console.log($content.scrollHeight, $content.offsetHeight, $content.clientHeight)
+      // console.log($content.scrollHeight, $content.offsetHeight, $content.clientHeight)
       let childWidth = $content.scrollWidth - 20
 
       if (this.scrollTop !== $content.scrollTop) {
