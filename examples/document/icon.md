@@ -105,6 +105,10 @@ export default {
         'star-outline',
         'eye',
         'eye-off',
+        'volume-high',
+        'heart',
+        'heart-outline',
+        'arrow-dropdown',
       ]
     }
   }
