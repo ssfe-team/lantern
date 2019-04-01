@@ -3,6 +3,7 @@
     <div class="lt-modal__mask" @click.self="close"></div>
     <div class="lt-modal__content">
       <slot></slot>
+      <lt-icon class="lt-modal__close" type="close" size="22" @click="close"></lt-icon>
     </div>
   </div>
 </template>
