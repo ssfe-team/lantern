@@ -16,7 +16,8 @@ const baseConfig = {
   resolve: {
     alias: {
       'vue$': 'vue/dist/vue.esm.js',
-      'lantern': resolve('/')
+      'lantern': resolve('/'),
+      'styles': resolve('/styles')
     },
     extensions: ['.js', '.vue', '.json'],
   },

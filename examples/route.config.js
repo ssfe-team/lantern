@@ -1,22 +1,22 @@
 /*
- * @Author: bianhao 
- * @Date: 2018-01-05 11:19:37 
+ * @Author: bianhao
+ * @Date: 2018-01-05 11:19:37
  * @Last Modified by: bianhao
  * @Last Modified time: 2018-06-19 14:45:02
  */
 import install from './document/install.md'
 import start from './document/start.md'
-import color from './document/color.md';
-import layout from './document/layout.md';
-import menu from './document/menu.md';
-import scroll from './document/scroll.md';
-import message from './document/message.md';
-import pagination from './document/pagination.md';
-import select from './document/select.md';
-import icon from './document/icon.md';
-import classstandard from './document/classstandard.md';
-import input from './document/input.md';
-import inputNumber from './document/inputNumber.md';
+import color from './document/color.md'
+import layout from './document/layout.md'
+import menu from './document/menu.md'
+import scroll from './document/scroll.md'
+import message from './document/message.md'
+import pagination from './document/pagination.md'
+import select from './document/select.md'
+import icon from './document/icon.md'
+import classstandard from './document/classstandard.md'
+import input from './document/input.md'
+import inputNumber from './document/inputNumber.md'
 import tooltip from './document/tooltip.md'
 import poptip from './document/poptip.md'
 import checkbox from './document/checkbox.md'
@@ -31,6 +31,7 @@ import Steps from './document/steps.md'
 import Progress from './document/progress.md'
 import Carousel from './document/carousel.md'
 import Selector from './document/selector.md'
+import Form from './document/form.md'
 
 export default [
   {
@@ -144,5 +145,9 @@ export default [
   {
     path: '/selector',
     component: Selector
+  },
+  {
+    path: '/form',
+    component: Form
   }
 ]

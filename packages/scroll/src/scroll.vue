@@ -1,337 +1,155 @@
 <template>
-<!--   <div  @scroll.native=""
-        class="scroll-wrap"
-        ref="wrap"
-        :style="{
-          'padding-right': style.barWidth + 'px',
-          'padding-bottom': style.barHeight + 'px'
-        }"
-  > -->
-    <div  class="lt-scroll__container"
-          ref="wrap"
-          @scroll.stop=""
-          :style="{
-            'width': style.wrapWidth,
-            'height': style.wrapHeight,
-            'padding-right': rightBarShow  ? style.barWidth + 'px' : '0',
-            'padding-bottom': bottomBarShow  ? style.barHeight + 'px' : '0'
-          }"
+  <div class="lt-scroll__container">
+    <div
+      class="lt-scroll__content"
+      ref="scrollContent"
+      @scroll="handleScroll"
     >
-      <div class="lt-scroll__content" ref="inner"
-          @scroll.stop="setScrollLeftTop"
-      >
-        <slot
-          @scrollReload="scrollReload"
-        ></slot>
-      </div>
-      <div  class="lt-scroll__track lt-scroll__track--right"
-            v-if="rightBarShow"
-            :style="{
-              'background-color': style.trackColor,
-              'width': style.barWidth + 'px',
-              'bottom': 0 + 'px',
-              'zIndex': style.zIndex,
-              'border-radius': style.barWidth / 2 + 'px'
-            }"
-            :class="{'lt-scroll__track--auto-hide': style.autoHide && !barMousedown}"
-            @mousedown.stop="rightMousedown"
-      >
-        <div  class="lt-scroll__bar lt-scroll__bar--right"
-              :class="{'lt-scroll__bar--active': rightActive}"
-              :style="{
-                'background-color': style.barColor,
-                'width': style.barWidth + 'px',
-                'opacity': style.barOpacityInactive,
-                'height': rightBarHeight + 'px',
-                'top': barTop + 'px'
-              }"
-        ></div>
-      </div>
-      <div  class="lt-scroll__track lt-scroll__track--bottom"
-            v-if="bottomBarShow"
-            :style="{
-              'background-color': style.trackColor,
-              'height': style.barHeight + 'px',
-              'right': 0 + 'px',
-              'zIndex': style.zIndex,
-              'border-radius': style.barHeight / 2 + 'px'
-            }"
-            :class="{'lt-scroll__track--auto-hide': style.autoHide && !barMousedown}"
-            @mousedown.stop="bottomMousedown"
-      >
-        <div  class="lt-scroll__bar lt-scroll__bar--bottom"
-              :class="{'lt-scroll__bar--active': bottomActive}"
-              :style="{
-                'background-color': style.barColor,
-                'width': bottomBarWidth + 'px',
-                'opacity': style.barOpacityInactive,
-                'height': style.barHeight + 'px',
-                'left': barLeft + 'px'
-              }"
-        ></div>
-      </div>
+      <slot @scrollReload="scrollReload" />
     </div>
-  <!-- </div> -->
+    <div
+      class="lt-scroll__track lt-scroll__track--right"
+      v-if="hasRight"
+      ref="scrollTrackRight"
+      @mouseenter.stop="onMouseenterRight"
+      @mouseleave.stop="onMouseleaveRight"
+      :style="rightTrackStyles"
+      :class="{'lt-scroll__track_active': showScrollRight, 'lt-scroll__track_hover': scrollRightHover}"
+    >
+      <div
+        class="lt-scroll__bar lt-scroll__bar--right"
+        :style="{'height': scrollRightHeight + 'px', 'top': scrollRightTop + 'px'}"
+      />
+    </div>
+    <div
+      class="lt-scroll__track lt-scroll__track--bottom"
+      v-if="hasBottom"
+      ref="scrollTrackBottom"
+      :class="{'lt-scroll__track_active': showScrollBottom}"
+    >
+      <div
+        class="lt-scroll__bar lt-scroll__bar--bottom"
+        :style="{'width': scrollBottomWidth + 'px', 'left': scrollBottomLeft + 'px'}"
+      />
+    </div>
+  </div>
 </template>
 
-<style lang="less">
-@import '../../../styles/packages/scroll.less';
-</style>
-
 <script>
+import throttle from 'lodash.throttle'
+
 export default {
   name: 'Scroll',
-  data() {
+  data () {
     return {
-      // 滚动条默认样式
-      style: {
-        barColor: '#959595',
-        barWidth: 8,
-        barHeight: 8,
-        barOpacityInactive: 0.3,
-        trackColor: '#eee',
-        zIndex: 'auto',
-        wrapWidth: '100%',
-        wrapHeight: '100%',
-        autoHide: true
-      },
-      // 是否显示右侧滚动条
-      rightBarShow: false,
-      // 是否显示下侧滚动条
-      bottomBarShow: false,
-      // 滚动条上触发mousedown事件
-      barMousedown: false,
-      // 右侧滚动条激活状态
-      rightActive: false,
-      // 下侧滚动条激活状态
-      bottomActive: false,
-      activeClock: null,
-      rightActiveClock: null,
-      bottomActiveClock: null,
-      activeClockDelay: 800,
-
-      // 容器的宽高
-      wrapHeight: 0,
-      wrapWidth: 0,
-      // 内容的宽高
-      innerHeight: 0,
-      innerWidth: 0,
-      // 滚动条的宽高
-      rightBarHeight: 0,
-      bottomBarWidth: 0,
-
-      // 内容的滚动距离
+      showScrollRight: false,
+      scrollRightHeight: 0,
+      scrollRightTop: 0,
+      showScrollBottom: false,
+      scrollBottomWidth: 0,
+      scrollBottomLeft: 0,
+      // wheel事件节流
+      handleWheel: () => {},
+      rightTimer: null,
+      bottomTimer: null,
+      // 判断是横向滚动还是纵向滚动
+      scrollLeft: 0,
       scrollTop: 0,
-      scrollLeft: 0
+      // 滚动条增加active状态
+      scrollRightHover: false,
+      scrollBottomHover: false
     }
   },
   props: {
-    barStyle: {
-      required: false,
-      type: Object
+    // 默认有右侧滚动条
+    hasRight: {
+      default: true,
+      type: Boolean
     },
-    scrollReloadTag: {
-      required: false,
-      type: Number
+    // 默认无下方滚动条
+    hasBottom: {
+      default: false,
+      type: Boolean
     },
-    defaultScrollTop: {
-      required: false,
-      type: Number
-    },
-    scrollToTop: {
-      required: false,
-      type: Number
-    },
-    bottomScrollShow: {
-      required: false,
-      type: Boolean,
-      default: true
-    },
-    rightScrollShow: {
-      required: false,
-      type: Boolean,
-      default: true
+    zIndex: {
+      type: [Number, String],
+      default: 10
     }
   },
-  mounted() {
-    Object.assign(this.style, this.barStyle)
-    this.$nextTick(() => {
-      this.scrollReload()
-    })
-    if (this.defaultScrollTop) {
-      this.scrollTop = this.defaultScrollTop
-      this.$refs.inner.scrollTop = this.defaultScrollTop
-    }
+  created () {
+    this.handleScroll = throttle(this.onScroll, 16)
   },
-  watch: {
-    scrollReloadTag() {
-      this.scrollTop = 0
-      this.$refs.inner.scrollTop = 0
-      this.scrollLeft = 0
-      this.$refs.inner.scrollLeft = 0
-      this.scrollReload()
-    },
-    defaultScrollTop() {
-      this.scrollTop = this.defaultScrollTop
-      this.$refs.inner.scrollTop = this.defaultScrollTop
-    },
-    scrollToTop() {
-      this.scrollTop = 0
-      this.$refs.inner.scrollTop = 0
-    },
-    $route() {
-      this.scrollTop = 0
-      this.$refs.inner.scrollTop = 0
-      this.scrollLeft = 0
-      this.$refs.inner.scrollLeft = 0
-    }
+  mounted () {
+    this.scrollTop = this.$refs.scrollContent.scrollTop
+    this.scrollLeft = this.$refs.scrollContent.scrollLeft
   },
+  watch: {},
   computed: {
-    barTop() {
-      let percent = this.scrollTop / (this.innerHeight - this.wrapHeight)
-      return (this.wrapHeight - this.rightBarHeight) * percent
-    },
-    barLeft() {
-      let percent = this.scrollLeft / (this.innerWidth - this.wrapWidth)
-      return (this.wrapWidth - this.bottomBarWidth) * percent
+    rightTrackStyles () {
+      return {
+        zIndex: this.zIndex
+      }
     }
   },
   methods: {
-    scrollReload() {
-      this.getPercent()
+    hideRightScroll () {
+      this.rightTimer = setTimeout(() => {
+        this.showScrollRight = false
+      }, 1000)
     },
-    getPercent() {
-      const wrapNode = this.$refs.wrap
-      const slotnode = this.$refs.inner
-      if (this.style.wrapHeight.includes('px')) {
-        this.wrapHeight = parseInt(this.barStyle.wrapHeight)
-      } else {
-        this.wrapHeight = wrapNode.clientHeight
+    onScroll (eve) {
+      let $content = this.$refs.scrollContent
+      // 多出来的20是为了隐藏原来的滚动条
+      let contentHeight = $content.offsetHeight - 20
+      let contentWidth = $content.offsetWidth - 20
+      let childHeight = $content.scrollHeight - 3
+      // console.log($content.scrollHeight, $content.offsetHeight, $content.clientHeight)
+      let childWidth = $content.scrollWidth - 20
+
+      if (this.scrollTop !== $content.scrollTop) {
+        this.scrollTop = $content.scrollTop
+        this.showScrollRight = true
+        // 隐藏bottom滚动条
+        this.showScrollBottom = false
+        // 滚动条相关属性
+        this.scrollRightHeight = contentHeight / childHeight * contentHeight
+        this.scrollRightTop = (this.scrollTop / childHeight) * contentHeight
+        // 设置隐藏
+        clearTimeout(this.rightTimer)
+        this.hideRightScroll()
+        // 设置回调
+        this.$emit('on-scroll', {
+          'fromTop': $content.scrollTop,
+          'fromBottom': childHeight - contentHeight - $content.scrollTop,
+        })
       }
-      if (this.style.wrapWidth.includes('px')) {
-        this.wrapWidth = parseInt(this.barStyle.wrapWidth)
-      } else {
-        this.wrapWidth = wrapNode.clientWidth
-      }
-      // this.wrapHeight = wrapNode.clientHeight - this.style.barHeight;
-      // this.wrapWidth = wrapNode.clientWidth - this.style.barWidth;
-      this.innerHeight = slotnode.scrollHeight
-      this.innerWidth = slotnode.scrollWidth
-      // console.log('scroll wrapHeight: ' + this.wrapHeight)
-      // console.log('scroll innerHeight: ' + this.innerHeight)
-      // console.log('scroll compute')
-      if (this.rightScrollShow && this.wrapHeight < this.innerHeight) {
-        this.rightBarShow = true
-      } else {
-        this.rightBarShow = false
-      }
-      if (this.bottomScrollShow && this.wrapWidth < this.innerWidth) {
-        this.bottomBarShow = true
-      } else {
-        this.bottomBarShow = false
-      }
-      if (this.rightBarShow) {
-        if(this.bottomBarShow) this.wrapHeight -= this.style.barHeight
-        this.rightBarHeight = this.wrapHeight / this.innerHeight * this.wrapHeight
-      }
-      if (this.bottomBarShow) {
-        if(this.rightBarShow) this.wrapWidth -= this.style.barWidth
-        this.bottomBarWidth = this.wrapWidth / this.innerWidth * this.wrapWidth
-      }
-      // console.log('scroll wrapHeight: ' + this.wrapHeight)
-      // console.log('scroll innerHeight: ' + this.innerHeight)
-    },
-    setScrollLeftTop(eve) {
-      let node = eve ? eve.target : this.$refs.inner
-      if (this.scrollTop != node.scrollTop) {
-        this.rightActive = true
-      }
-      if (this.scrollLeft != node.scrollLeft) {
-        this.bottomActive = true
-      }
-      this.scrollLeft = node.scrollLeft
-      this.scrollTop = node.scrollTop
-      if (!this.barMousedown) {
-        clearTimeout(this.activeClock)
-        this.activeClock = setTimeout(() => {
-          this.rightActive = false
-          this.bottomActive = false
-        }, this.activeClockDelay)
+
+      if (this.scrollLeft !== $content.scrollLeft) {
+        this.scrollLeft = $content.scrollLeft
+        this.showScrollBottom = true
+        // 隐藏right滚动条
+        this.showScrollRight = false
+        // 滚动条相关属性
+        this.scrollBottomWidth = contentWidth / childWidth * contentWidth
+        this.scrollBottomLeft = this.scrollLeft / childWidth * contentWidth
+        // 设置隐藏
+        clearTimeout(this.bottomTimer)
+        this.bottomTimer = setTimeout(() => {
+          this.showScrollBottom = false
+        }, 1000)
       }
     },
-    rightMousedown(eve) {
-      eve.preventDefault()
-      let startY = eve.clientY,
-        nowY,
-        move,
-        newTop,
-        percent,
-        scrollTop,
-        oldTop = this.barTop
-      let nodeMousemove = eve => {
-        nowY = eve.clientY
-        move = nowY - startY
-        newTop = oldTop + move
-        newTop = newTop < 0 ? 0 : newTop
-        newTop = newTop > this.wrapHeight - this.rightBarHeight ? this.wrapHeight - this.rightBarHeight : newTop
-        percent = newTop / (this.wrapHeight - this.rightBarHeight)
-        scrollTop = (this.innerHeight - this.wrapHeight) * percent
-        this.$refs.inner.scrollTop = scrollTop
-        this.scrollTop = scrollTop
+    onMouseenterRight (eve) {
+      if (this.showScrollRight) {
+        this.scrollRightHover = true
+        clearTimeout(this.rightTimer)
       }
-
-      this.barMousedown = true
-      clearTimeout(this.rightActiveClock)
-      this.rightBarShow = true
-
-      let nodeMouseup = () => {
-        window.removeEventListener('mousemove', nodeMousemove)
-        window.removeEventListener('mouseup', nodeMouseup)
-        this.barMousedown = false
-        this.rightActiveClock = setTimeout(() => {
-          this.rightActive = false
-        }, this.activeClockDelay)
-      }
-
-      window.addEventListener('mousemove', nodeMousemove)
-      window.addEventListener('mouseup', nodeMouseup)
     },
-    bottomMousedown(eve) {
-      eve.preventDefault()
-      let startX = eve.clientX,
-        nowX,
-        move,
-        newLeft,
-        percent,
-        scrollLeft,
-        oldLeft = this.barLeft
-      let nodeMousemove = eve => {
-        nowX = eve.clientX
-        move = nowX - startX
-        newLeft = oldLeft + move
-        newLeft = newLeft < 0 ? 0 : newLeft
-        newLeft = newLeft > this.wrapWidth - this.bottomBarWidth ? this.wrapWidth - this.bottomBarWidth : newLeft
-        percent = newLeft / (this.wrapWidth - this.bottomBarWidth)
-        scrollLeft = (this.innerWidth - this.wrapWidth) * percent
-        this.$refs.inner.scrollLeft = scrollLeft
-        this.scrollLeft = scrollLeft
+    onMouseleaveRight (eve) {
+      if (this.scrollRightHover) {
+        this.scrollRightHover = false
+        this.hideRightScroll()
       }
-
-      this.barMousedown = true
-      clearTimeout(this.bottomActiveClock)
-      this.bottomActive = true
-
-      let nodeMouseup = () => {
-        window.removeEventListener('mousemove', nodeMousemove)
-        window.removeEventListener('mouseup', nodeMouseup)
-        this.barMousedown = false
-        this.bottomActiveClock = setTimeout(() => {
-          this.bottomActive = false
-        }, this.activeClockDelay)
-      }
-
-      window.addEventListener('mousemove', nodeMousemove)
-      window.addEventListener('mouseup', nodeMouseup)
     }
   }
 }

@@ -1,85 +1,156 @@
 <template>
   <div id="app">
-    <lt-layout class="ltdemo-wrap" :width="layoutWidth">
-      <lt-header class="ltdemo-header" height="60px">
-        <div class="header-nav">
-          <span>Lantern-创客贴前端UI库</span>
-        </div>
-      </lt-header>
-      <lt-main class="ltdemo-main" height="100%">
-        <div class="main-wrap">
-          <lt-layout class="main-wrap-layout" :isRow="mainLayoutIsRow">
-            <lt-aside width="300px">
-              <lt-menu>
-                <lt-menu-item href="/install"><span>安装</span></lt-menu-item>
-                <lt-menu-item href="/start"><span>快速上手</span></lt-menu-item>
-                <lt-menu-item-group title="组件文档">
-                  <lt-menu-item href="/color"><span>Color 标准色</span></lt-menu-item>
-                  <lt-menu-item href="/layout"><span>Layout 布局容器</span></lt-menu-item>
-                  <lt-menu-item href="/menu"><span>Menu 导航菜单</span></lt-menu-item>
-                  <lt-menu-item href="/scroll"><span>Scroll 滚动条</span></lt-menu-item>
-                  <lt-menu-item href="/message"><span>Message 消息通知</span></lt-menu-item>
-                  <lt-menu-item href="/pagination"><span>Pagination 分页</span></lt-menu-item>
-                  <lt-menu-item href="/icon"><span>Icon 图标</span></lt-menu-item>
-                  <!-- <lt-menu-item href="/select"><span>Select 选择器</span></lt-menu-item> -->
-                  <!--<lt-menu-item href="/input"><span>Input 输入框</span></lt-menu-item>-->
-                  <lt-menu-item href="/input-number"><span>InputNumber 数字输入框</span></lt-menu-item>
-                  <lt-menu-item href="/poptip"><span>Poptip 气泡提示</span></lt-menu-item>
-                  <lt-menu-item href="/tooltip"><span>Tooltip 文字提示</span></lt-menu-item>
-                  <lt-menu-item href="/checkbox"><span>Checkbox 多选框</span></lt-menu-item>
-                  <lt-menu-item href="/button"><span>Button 按钮</span></lt-menu-item>
-                  <lt-menu-item href="/radio"><span>Radio 单选框</span></lt-menu-item>
-                  <lt-menu-item href="/slider"><span>Slider 滑块</span></lt-menu-item>
-                  <lt-menu-item href="/switch"><span>Switch 开关</span></lt-menu-item>
-                  <lt-menu-item href="/breadcrumb"><span>Breadcrumb 面包屑</span></lt-menu-item>
-                  <lt-menu-item href="/dropdown"><span>Dropdown 下拉菜单</span></lt-menu-item>
-                  <lt-menu-item href="/modal"><span>Modal 弹框</span></lt-menu-item>
-                  <lt-menu-item href="/steps"><span>Steps 步骤条</span></lt-menu-item>
-                  <lt-menu-item href="/progress"><span>Progress 进度条</span></lt-menu-item>
-                  <lt-menu-item href="/carousel"><span>Carousel 轮播图</span></lt-menu-item>
-                  <lt-menu-item href="/selector"><span>Selector 选择器</span></lt-menu-item>
-                </lt-menu-item-group>
-                <lt-menu-item-group title="规范文档">
-                  <lt-menu-item href="/classstandard"><span>class 命名规范</span></lt-menu-item>
-                </lt-menu-item-group>
-              </lt-menu>
-            </lt-aside>
-            <lt-main height="100%">
-              <router-view></router-view>
-            </lt-main>
-          </lt-layout>
-        </div>
-      </lt-main>
-    </lt-layout>
-    <transition>
-      <span class="go-to-top" @click="goToTop" v-show="goToTopShow">
-        <lt-icon type="chevron-up"></lt-icon>
-      </span>
-    </transition>
+    <LtScroll :has-bottom="true">
+      <LtLayout
+        class="ltdemo-wrap"
+        :width="layoutWidth"
+      >
+        <LtHeader
+          class="ltdemo-header"
+          height="60px"
+        >
+          <div class="header-nav">
+            <span>Lantern-创客贴前端UI库</span>
+          </div>
+        </LtHeader>
+        <LtMain class="ltdemo-main">
+          <div class="main-wrap">
+            <LtLayout
+              class="main-wrap-layout"
+              :is-row="mainLayoutIsRow"
+            >
+              <LtAside width="300px">
+                <LtMenu>
+                  <LtMenuItem href="/install">
+                    <span>安装</span>
+                  </LtMenuItem>
+                  <LtMenuItem href="/start">
+                    <span>快速上手</span>
+                  </LtMenuItem>
+                  <LtMenuItemGroup title="组件文档">
+                    <LtMenuItem href="/color">
+                      <span>Color 标准色</span>
+                    </LtMenuItem>
+                    <LtMenuItem href="/layout">
+                      <span>Layout 布局容器</span>
+                    </LtMenuItem>
+                    <LtMenuItem href="/menu">
+                      <span>Menu 导航菜单</span>
+                    </LtMenuItem>
+                    <LtMenuItem href="/scroll">
+                      <span>Scroll 滚动条</span>
+                    </LtMenuItem>
+                    <LtMenuItem href="/message">
+                      <span>Message 消息通知</span>
+                    </LtMenuItem>
+                    <LtMenuItem href="/pagination">
+                      <span>Pagination 分页</span>
+                    </LtMenuItem>
+                    <LtMenuItem href="/icon">
+                      <span>Icon 图标</span>
+                    </LtMenuItem>
+                    <LtMenuItem href="/select">
+                      <span>Select 选择器</span>
+                    </LtMenuItem>
+                    <LtMenuItem href="/form">
+                      <span>Form 表单</span>
+                    </LtMenuItem>
+                    <LtMenuItem href="/input">
+                      <span>Input 输入框</span>
+                    </LtMenuItem>
+                    <LtMenuItem href="/input-number">
+                      <span>InputNumber 数字输入框</span>
+                    </LtMenuItem>
+                    <LtMenuItem href="/poptip">
+                      <span>Poptip 气泡提示</span>
+                    </LtMenuItem>
+                    <LtMenuItem href="/tooltip">
+                      <span>Tooltip 文字提示</span>
+                    </LtMenuItem>
+                    <LtMenuItem href="/checkbox">
+                      <span>Checkbox 多选框</span>
+                    </LtMenuItem>
+                    <LtMenuItem href="/button">
+                      <span>Button 按钮</span>
+                    </LtMenuItem>
+                    <LtMenuItem href="/radio">
+                      <span>Radio 单选框</span>
+                    </LtMenuItem>
+                    <LtMenuItem href="/slider">
+                      <span>Slider 滑块</span>
+                    </LtMenuItem>
+                    <LtMenuItem href="/switch">
+                      <span>Switch 开关</span>
+                    </LtMenuItem>
+                    <LtMenuItem href="/breadcrumb">
+                      <span>Breadcrumb 面包屑</span>
+                    </LtMenuItem>
+                    <LtMenuItem href="/dropdown">
+                      <span>Dropdown 下拉菜单</span>
+                    </LtMenuItem>
+                    <LtMenuItem href="/modal">
+                      <span>Modal 弹框</span>
+                    </LtMenuItem>
+                    <LtMenuItem href="/steps">
+                      <span>Steps 步骤条</span>
+                    </LtMenuItem>
+                    <LtMenuItem href="/progress">
+                      <span>Progress 进度条</span>
+                    </LtMenuItem>
+                    <LtMenuItem href="/carousel">
+                      <span>Carousel 轮播图</span>
+                    </LtMenuItem>
+                    <LtMenuItem href="/selector">
+                      <span>Selector 选择器</span>
+                    </LtMenuItem>
+                  </LtMenuItemGroup>
+                  <LtMenuItemGroup title="规范文档">
+                    <LtMenuItem href="/classstandard">
+                      <span>class 命名规范</span>
+                    </LtMenuItem>
+                  </LtMenuItemGroup>
+                </LtMenu>
+              </LtAside>
+              <LtMain height="100%">
+                <RouterView />
+              </LtMain>
+            </LtLayout>
+          </div>
+        </LtMain>
+      </LtLayout>
+      <Transition>
+        <span
+          class="go-to-top"
+          @click="goToTop"
+          v-show="goToTopShow"
+        >
+          <LtIcon type="chevron-up" />
+        </span>
+      </Transition>
+    </LtScroll>
   </div>
 </template>
 
 <script>
-  import throttle from 'lantern/src/utils/throttle'
+import throttle from 'lantern/src/utils/throttle'
 
 export default {
-  name: 'app',
-  data() {
+  name: 'App',
+  data () {
     return {
       layoutWidth: '100%',
       mainLayoutIsRow: true,
-      goToTopShow: false,
+      goToTopShow: false
     }
   },
-  mounted() {
+  mounted () {
     this.throttled = throttle(this.unThrottledFunc, 500)
     window.addEventListener('scroll', () => {
       this.throttled()
     })
-    this.handleDemoCodeDisplay()
   },
   methods: {
-    goToTop() {
+    goToTop () {
       const go = () => {
         let top = document.documentElement.scrollTop
         document.documentElement.scrollTop -= (top / 10)
@@ -89,26 +160,10 @@ export default {
       }
       go()
     },
-    unThrottledFunc() {
+    unThrottledFunc () {
       let top = document.documentElement.scrollTop || document.body.scrollTop
       let height = document.documentElement.clientHeight || document.body.clientHeight
       this.goToTopShow = top > height
-    },
-    handleDemoCodeDisplay() {
-      let docList = document.getElementsByClassName('demo-code-btn')
-      for (let i = 0, len = docList.length; i < len; i++) {
-        docList[i].onclick = () => {
-          let docHtml = docList[i].previousElementSibling
-          docHtml.classList.toggle('expand')
-          let text = '点击收起源代码'
-          if (!docHtml.classList.contains('expand')) {
-            text = '点击查看源代码'
-          }
-          setTimeout(() => {
-            docList[i].innerHTML = text
-          }, 400);
-        }
-      }
     }
   }
 }
@@ -117,7 +172,10 @@ export default {
 @import '../src/index.less';
 @import './styles/index.less';
 </style>
-<style lang="less" scoped>
+<style lang="less">
+  body {
+    overflow: hidden;
+  }
   .go-to-top {
     position: fixed;
     right: 4%;

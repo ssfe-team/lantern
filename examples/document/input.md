@@ -1,4 +1,14 @@
 ## 输入框input
+表单组件
+
+### 基础用法
+:::demo demo
+```html
+  <div>
+    <LtInput type="input" v-model="test" />
+  </div>
+```
+:::
 
 ### 文本域
 
@@ -46,3 +56,19 @@ rows|行数（只有在type为textarea才生效）|String , Number|-|4
 blur|input失去焦点触发|event
 focus|input得到焦点触发|event
 change|input值更改触发|value: input的value值
+
+::::vuecode::::
+<script>
+export default {
+  data () {
+    return {
+      test: ''
+    }
+  },
+  watch: {
+    test: function () {
+      console.log(this.test)
+    }
+  }
+}
+</script>

@@ -1,7 +1,7 @@
 <template>
   <div class="lt-modal" v-if="show">
-    <div class="lt-modal__mask" v-if="show" @click.self="close"></div>
-    <div class="lt-modal__content" v-if="show">
+    <div class="lt-modal__mask" @click.self="close"></div>
+    <div class="lt-modal__content">
       <slot></slot>
       <lt-icon class="lt-modal__close" type="close" size="22" @click="close"></lt-icon>
     </div>
@@ -10,7 +10,7 @@
 <script>
 export default {
   name: 'Modal',
-  data() {
+  data () {
     return {}
   },
 
@@ -23,12 +23,18 @@ export default {
     show: {
       type: Boolean,
       default: false
+    },
+    disabled: {
+      type: Boolean,
+      default: false
     }
   },
 
   methods: {
-    close() {
-      this.$emit('toggle-show', !this.show)
+    close () {
+      if (!this.disabled) {
+        this.$emit('toggle-show', !this.show)
+      }
     }
   }
 }
