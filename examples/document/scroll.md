@@ -43,7 +43,6 @@ zIndex|CSS z-index 属性|Number, String|否|10
 export default {
   methods: {
     onScroll(eve) {
-      console.log(eve)
     },
   }
 }
