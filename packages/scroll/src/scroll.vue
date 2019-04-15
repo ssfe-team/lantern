@@ -150,6 +150,7 @@ export default {
       }
 
       document.addEventListener('mouseup', () => {
+        this.hideRightScroll()
         document.removeEventListener('mousemove', mousemoveFun)
       })
     },
