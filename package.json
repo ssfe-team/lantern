@@ -21,7 +21,9 @@
     }
   },
   "lint-staged": {
-    "*.{js, vue}": "eslint"
+    "src/**/*.{js, vue}": "eslint",
+    "packages/**/*.{js, vue}": "eslint",
+    "examples/**/*.{js, vue}": "eslint"
   },
   "repository": "git+https://github.com/ssfe-team/lantern.git",
   "author": "ssfe",
