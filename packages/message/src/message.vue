@@ -124,7 +124,7 @@ export default {
       }
     }
   },
-  mounted() {
+  mounted () {
     this.startTimer()
     document.addEventListener('keydown', this.keydown)
   },
