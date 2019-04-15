@@ -25,16 +25,16 @@
 
 <script type="text/babel">
 
-  const typeMap = {
-    success: 'checkmark-circled',
-    info: 'information-circled',
-    warning: 'information-circled',
-    error: 'close-circled'
-  }
+const typeMap = {
+  success: 'checkmark-circled',
+  info: 'information-circled',
+  warning: 'information-circled',
+  error: 'close-circled'
+}
 
 export default {
   name: 'Message',
-  data() {
+  data () {
     return {
       visible: false,
       message: '',
@@ -56,12 +56,12 @@ export default {
   props: {},
 
   computed: {
-    typeClass() {
+    typeClass () {
       return this.type && !this.iconClass
         ? `${typeMap[this.type]}`
         : ''
     },
-    iconColor() {
+    iconColor () {
       let color = null
       switch (this.type) {
         case 'success':
@@ -80,7 +80,7 @@ export default {
   },
 
   watch: {
-    closed(newVal) {
+    closed (newVal) {
       if (newVal) {
         this.visible = false
         this.$el.addEventListener('transitionend', this.destroyElement)
@@ -89,30 +89,30 @@ export default {
   },
 
   methods: {
-    handleClick() {
+    handleClick () {
       this.onClick && this.onClick()
     },
-    handleClickAppendText() {
+    handleClickAppendText () {
       this.onClickAppendText && this.onClickAppendText()
     },
-    destroyElement() {
+    destroyElement () {
       this.$el.removeEventListener('transitionend', this.destroyElement)
       this.$destroy(true)
       this.$el.parentNode.removeChild(this.$el)
     },
 
-    close() {
+    close () {
       this.closed = true
       if (typeof this.onClose === 'function') {
         this.onClose(this)
       }
     },
 
-    clearTimer() {
+    clearTimer () {
       clearTimeout(this.timer)
     },
 
-    startTimer() {
+    startTimer () {
       if (this.duration > 0) {
         this.timer = setTimeout(() => {
           if (!this.closed) {
@@ -121,7 +121,7 @@ export default {
         }, this.duration)
       }
     },
-    keydown(e) {
+    keydown (e) {
       if (e.keyCode === 27) {
         // esc关闭消息
         if (!this.closed) {
@@ -130,11 +130,11 @@ export default {
       }
     }
   },
-  mounted() {
+  mounted () {
     this.startTimer()
     document.addEventListener('keydown', this.keydown)
   },
-  beforeDestroy() {
+  beforeDestroy () {
     document.removeEventListener('keydown', this.keydown)
   }
 }
