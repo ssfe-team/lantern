@@ -18,6 +18,7 @@
                 <p v-if="!dangerouslyUseHTMLString" class="lt-message__content">{{ message }}</p>
                 <p v-else v-html="message" class="lt-message__content"></p>
             </slot>
+            <span class="lt-message__appent-text" @click.stop="handleClickAppendText">{{appendText}}</span>
         </div>
     </transition>
 </template>
@@ -46,7 +47,9 @@ export default {
       closed: false,
       timer: null,
       dangerouslyUseHTMLString: false,
-      center: false
+      center: false,
+      appendText: '',
+      onClickAppendText: null
     }
   },
 
@@ -88,6 +91,9 @@ export default {
   methods: {
     handleClick() {
       this.onClick && this.onClick()
+    },
+    handleClickAppendText() {
+      this.onClickAppendText && this.onClickAppendText()
     },
     destroyElement() {
       this.$el.removeEventListener('transitionend', this.destroyElement)

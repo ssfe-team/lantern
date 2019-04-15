@@ -5,22 +5,26 @@
   top: 65px;
   left: 50%;
   transform: translateX(-50%);
-  display: inline-block;
+  display: flex;
+  align-items: center;
   background-color: @comColor7;
+  padding: 0 24px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, .16);
   border-radius: 4px;
   z-index: 100010;
   .lt-message__icon {
-    float: left;
     width: 16px;
     height: 16px;
-    margin: 10px 16px 10px 24px;
+    margin-right: 16px;
   }
   .lt-message__content {
-    float: left;
     font-size: 14px;
     color: @comColor1;
-    margin: 10px 24px 10px 0;
+  }
+  .lt-message__appent-text {
+    color: #07AEFC;
+    margin-left: 10px;
+    cursor: pointer;
   }
 }
 

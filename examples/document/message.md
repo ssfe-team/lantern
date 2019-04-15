@@ -90,7 +90,36 @@
 ```
 :::
 
+### 增加自定义操作
+
+::: demo demo :::
+
+```html
+    <template>
+      <lt-button @click="showAppendText">删除（带恢复操作）</lt-button>
+    </template>
+    
+    <script>
+      export default {
+        methods: {
+          showAppendText() {
+            let deleteMessage = this.$message({
+              message: '删除成功',
+              appendText: '恢复',
+              onClickAppendText: () => {
+                this.$message('恢复成功')
+                deleteMessage.close()
+              }
+            });
+          }
+        }
+      }
+    </script>
+```
+:::
+
 ### 文字居中
+
 使用 `center` 属性让文字水平居中。
 
 :::demo demo
@@ -179,7 +208,7 @@ import { Message } from 'lantern-ui';
 
 ::::vuecode::::
 <script>
-  module.exports = {
+  export default {
     methods: {
       open() {
         this.$message('这是一条消息提示');
@@ -199,9 +228,9 @@ import { Message } from 'lantern-ui';
         this.$message({
           message: '恭喜你，这是一条成功消息',
           type: 'success',
-                                       onClick: () => {
-                                         alert('成功啦')
-                                       }
+          onClick: () => {
+            alert('成功啦')
+          }
         });
       },
 
@@ -252,6 +281,17 @@ import { Message } from 'lantern-ui';
           message: '点我点我点我',
           onClick: () => {
             alert('恭喜你点到了我！')
+          }
+        });
+      },
+
+      showAppendText() {
+        let deleteMessage = this.$message({
+          message: '删除成功',
+          appendText: '恢复',
+          onClickAppendText: () => {
+            this.$message('恢复成功')
+            deleteMessage.close()
           }
         });
       },
