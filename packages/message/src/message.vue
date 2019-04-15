@@ -1,26 +1,26 @@
 <template>
-    <transition name="lt-message-fade">
-        <div
-          :class="[
-            'lt-message',
-            type && !iconClass ? `lt-message--${ type }` : '',
-            center ? 'is-center' : '',
-            customClass]"
-          v-show="visible"
-          @mouseenter="clearTimer"
-          @mouseleave="startTimer"
-          @click="handleClick"
-          role="alert"
-        >
-            <lt-icon :type="iconClass" v-if="iconClass"></lt-icon>
-            <lt-icon class="lt-message__icon" :type="typeClass" :color="iconColor" v-else></lt-icon>
-            <slot>
-                <p v-if="!dangerouslyUseHTMLString" class="lt-message__content">{{ message }}</p>
-                <p v-else v-html="message" class="lt-message__content"></p>
-            </slot>
-            <span class="lt-message__appent-text" @click.stop="handleClickAppendText">{{appendText}}</span>
-        </div>
-    </transition>
+  <transition name="lt-message-fade">
+    <div
+      :class="[
+        'lt-message',
+        type && !iconClass ? `lt-message--${ type }` : '',
+        center ? 'is-center' : '',
+        customClass]"
+      v-show="visible"
+      @mouseenter="clearTimer"
+      @mouseleave="startTimer"
+      @click="handleClick"
+      role="alert"
+    >
+      <lt-icon :type="iconClass" v-if="iconClass" />
+      <lt-icon class="lt-message__icon" :type="typeClass" :color="iconColor" v-else />
+      <slot>
+        <p v-if="!dangerouslyUseHTMLString" class="lt-message__content">{{ message }}</p>
+        <p v-else v-html="message" class="lt-message__content"></p>
+      </slot>
+      <span class="lt-message__appent-text" @click.stop="handleClickAppendText">{{appendText}}</span>
+    </div>
+  </transition>
 </template>
 
 <script type="text/babel">
