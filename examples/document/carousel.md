@@ -11,7 +11,16 @@
 
 ::: demo demo :::
 ```html
-<lt-carousel :carousels="carousels" :inv="inv" :imgStyle="imgStyle" :visualStyle="visualStyle" :transitionBehavior="behavior" :target="target">
+<lt-carousel 
+  :carousels="carousels" 
+  :inv="inv" 
+  :imgStyle="imgStyle" 
+  :visualStyle="visualStyle" 
+  :behavior="behavior" 
+  :target="target" 
+  :showTurnBtn="showTurnBtn"
+  :handleType="handleType"
+>
 </lt-carousel>
 <script>
     export default {
@@ -50,8 +59,10 @@
                 height: '420px'
             },
             behavior: 'move',
-            target: '_blank'
-            }
+            target: '_blank',
+            showTurnBtn: true,
+            handleType: 'click'
+          }
         }
     }
 </script>
@@ -70,6 +81,8 @@ behavior | 图片过渡行为`move`、`fade` | String | move
 target | 图片打开方式,可选值为`_blank`、`_parent` | String | _blank
 visualStyle | 可视区的宽度 | Object | 1920px
 imgStyle | 图片的宽高 | Object | -
+showTurnBtn | 是否显示左右翻页按钮 | Boolean | true
+handelType | 底部页码图标执行跳页操作方式 | String | hover
 
 ::::vuecode::::
 <script>
@@ -109,16 +122,10 @@ imgStyle | 图片的宽高 | Object | -
                 height: '420px'
             },
             behavior: 'move',
-            target: '_blank'
-            }
+            target: '_blank',
+            showTurnBtn: true,
+            handleType: 'click'
+          }
         },
-        methods: {
-           switchBehavior () {
-               this.behavior = 'fade'
-           },
-           switchTarget () {
-               this.target = '_parent'
-           }
-        }
     }
 </script>
