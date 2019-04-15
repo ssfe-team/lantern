@@ -146,7 +146,8 @@ export default {
       
       this.moveStart = {
         x: eve.clientX,
-        y: eve.clientY
+        y: eve.clientY,
+        scrollRightTop: this.scrollRightTop
       }
 
       document.addEventListener('mouseup', () => {
@@ -162,9 +163,8 @@ export default {
       let { contentWidth, contentHeight, childWidth, childHeight } = this.getContentPosition()
       
       let move_y = current_y - this.moveStart.y
-      this.moveStart.y = current_y
 
-      let scrollTop = (this.scrollRightTop + move_y) / contentHeight * childHeight
+      let scrollTop = (this.moveStart.scrollRightTop + move_y) / contentHeight * childHeight
 
       $content.scrollTop = scrollTop
 
