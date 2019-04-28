@@ -91,7 +91,7 @@ export default {
     validateField (prop, cb) {
       const field = this.fields.filter(field => field.prop === prop)[0]
       if (!field) {
-        throw new Error('[lantern warn]: must call validateField with valid prop string!')
+        throw new Error('[Lantern warn]: must call validateField with valid prop string!')
       }
 
       field.validate('', cb)

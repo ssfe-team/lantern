@@ -38,7 +38,7 @@ function getPropByPath (obj, path) {
     if (key in tempObj) {
       tempObj = tempObj[key]
     } else {
-      throw new Error('[lantern warn]: please transfer a valid prop path to form item!')
+      throw new Error('[Lantern warn]: please transfer a valid prop path to form item!')
     }
   }
   return {
@@ -94,9 +94,12 @@ export default {
     }
   },
   watch: {
-    error (val) {
-      this.validateMessage = val
-      this.validateState = val === '' ? '' : 'error'
+    error: {
+      handler (val) {
+        this.validateMessage = val
+        this.validateState = val ? 'error' : ''
+      },
+      immediate: true
     },
     validateStatus (val) {
       this.validateState = val

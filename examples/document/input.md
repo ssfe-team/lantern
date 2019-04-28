@@ -5,7 +5,7 @@
 :::demo demo
 ```html
   <div>
-    <LtInput type="input" v-model="test" />
+    <LtInput v-model="test" />
   </div>
 ```
 :::
