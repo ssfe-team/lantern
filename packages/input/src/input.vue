@@ -11,9 +11,10 @@
       :disabled="this.disabled"
       :readonly="this.readonly"
       :maxlength="this.maxlength"
-      v-model="inputValue"
-      @change="$emit('change', $event.target.value)"
       :placeholder="this.placeholder"
+      v-model="inputValue"
+      @blur="handleBlur"
+      @change="$emit('change', $event.target.value)"
     >
     <textarea
       v-else
@@ -36,9 +37,12 @@
   </div>
 </template>
 <script>
-import { oneOf } from '../../../src/utils/assist.js'
+import { oneOf, findComponentUpward } from '../../../src/utils/assist'
+import Emitter from '../../../src/mixins/emitter'
 
 export default {
+  name: 'Input',
+  mixins: [ Emitter ],
   data () {
     return {
       inputValue: this.value
@@ -84,6 +88,14 @@ export default {
   computed: {
     maxlengthtips () {
       return (this.inputValue ? this.inputValue.length : '0') + '/' + this.maxlength
+    }
+  },
+  methods: {
+    handleBlur (event) {
+      this.$emit('on-blur', event)
+      if (!findComponentUpward(this, ['DatePicker', 'TimePicker', 'Cascader', 'Search'])) {
+        this.dispatch('FormItem', 'on-form-blur', this.currentValue)
+      }
     }
   }
 }

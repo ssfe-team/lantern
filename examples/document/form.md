@@ -12,8 +12,7 @@
 
 ::: demo demo :::
 ```html
-<p style="margin: 0; height: 20px; color: red;">{{ errMsg }}</p>
-<LtForm ref="formInline" :show-message="false" :model="formInline" :rules="ruleInline">
+<LtForm ref="formInline" :model="formInline" :rules="ruleInline">
   <LtFormItem prop="user">
       <LtInput type="text" v-model="formInline.user" placeholder="Username"></LtInput>
   </LtFormItem>
@@ -74,7 +73,6 @@ label|label 内容
 export default {
   data() {
     return {
-      errMsg: '',
       passwordShow: false,
       formInline: {
           user: '',
@@ -93,13 +91,12 @@ export default {
   },
   methods: {
       handleSubmit(name) {
-          this.$refs[name].validate((valid, msgArr) => {
-              if (valid) {
-                this.errMsg = ''
-              } else {
-                this.errMsg = msgArr[0] || ''
-                console.log(msgArr)
-              }
+          this.$refs[name].validate((valid) => {
+            if (valid) {
+                this.$message.success('Success!');
+            } else {
+                this.$message.error('Fail!');
+            }
           })
       }
   }
