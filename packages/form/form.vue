@@ -9,7 +9,7 @@ import { oneOf } from '../../src/utils/assist'
 const prefixCls = 'lt-form'
 
 export default {
-  name: 'ltForm',
+  name: 'LtForm',
   props: {
     model: {
       type: Object
@@ -70,18 +70,16 @@ export default {
       return new Promise(resolve => {
         let valid = true
         let count = 0
-        let errorMsgArr = []
         this.fields.forEach(field => {
           field.validate('', errors => {
             if (errors) {
-              errorMsgArr.push(field.validateMessage)
               valid = false
             }
             if (++count === this.fields.length) {
               // all finish
               resolve(valid)
               if (typeof callback === 'function') {
-                callback(valid, errorMsgArr)
+                callback(valid)
               }
             }
           })

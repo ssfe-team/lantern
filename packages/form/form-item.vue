@@ -253,7 +253,7 @@ export default {
   },
   mounted () {
     if (this.prop) {
-      this.dispatch('ltForm', 'on-form-item-add', this)
+      this.dispatch('LtForm', 'on-form-item-add', this)
 
       Object.defineProperty(this, 'initialValue', {
         value: this.getFieldValue()
@@ -263,7 +263,7 @@ export default {
     }
   },
   beforeDestroy () {
-    this.dispatch('ltForm', 'on-form-item-remove', this)
+    this.dispatch('LtForm', 'on-form-item-remove', this)
   }
 }
 </script>
