@@ -3,11 +3,12 @@
 ::: demo demo
 
 ```html
-  <div style="width:100%;height:300px">
+  <div style="width: 500px;height: 300px">
     <lt-scroll
       @on-scroll="onScroll"
+      :hasBottom="true"
     >
-      <p>1.测试内容测试内容测试内容测试内容测试内容测试内容测试内容测试内容测试内容</p>
+      <div style="width: 2000px;background: linear-gradient(to right, blue, red);color: white">测试</div>
       <br />
       <p>2.测试内容测试内容测试内容测试内容测试内容测试内容测试内容测试内容测试内容</p>
       <br />

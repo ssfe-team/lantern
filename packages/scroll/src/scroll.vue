@@ -19,18 +19,22 @@
       <div
         class="lt-scroll__bar lt-scroll__bar--right"
         :style="{'height': scrollRightHeight + 'px', 'top': scrollRightTop + 'px'}"
-        @mousedown="moveInit"
+        @mousedown="moveInitRight"
       />
     </div>
     <div
       class="lt-scroll__track lt-scroll__track--bottom"
       v-if="hasBottom"
       ref="scrollTrackBottom"
-      :class="{'lt-scroll__track_active': showScrollBottom}"
+      @mouseenter.stop="onMouseenterBottom"
+      @mouseleave.stop="onMouseleaveBottom"
+      :style="rightTrackStyles"
+      :class="{'lt-scroll__track_active': showScrollBottom, 'lt-scroll__track_hover': scrollBottomHover}"
     >
       <div
         class="lt-scroll__bar lt-scroll__bar--bottom"
         :style="{'width': scrollBottomWidth + 'px', 'left': scrollBottomLeft + 'px'}"
+        @mousedown="moveInitBottom"
       />
     </div>
   </div>
@@ -95,6 +99,11 @@ export default {
         this.showScrollRight = false
       }, 1000)
     },
+    hideBottomScroll () {
+      this.bottomTimer = setTimeout(() => {
+        this.showScrollBottom = false
+      }, 1000)
+    },
     getContentPosition () {
       // 多出来的20是为了隐藏原来的滚动条
       let $content = this.$refs.scrollContent
@@ -109,9 +118,12 @@ export default {
       }
     },
     onScroll (eve) {
-      let { contentWidth, contentHeight, childWidth, childHeight, scrollTop } = this.getContentPosition()
+      let { contentWidth, contentHeight, childWidth, childHeight, scrollLeft, scrollTop } = this.getContentPosition()
+
+      let scrollDrag = false
 
       if (this.scrollTop !== scrollTop) {
+        scrollDrag = true
         this.scrollTop = scrollTop
         this.showScrollRight = true
         // 隐藏bottom滚动条
@@ -122,10 +134,29 @@ export default {
         // 设置隐藏
         clearTimeout(this.rightTimer)
         this.hideRightScroll()
+      }
+
+      if(this.scrollLeft !== scrollLeft) {
+        scrollDrag = true
+        this.scrollLeft = scrollLeft
+        this.showScrollBottom = true
+        // 隐藏bottom滚动条
+        this.showScrollRight = false
+        // 滚动条相关属性
+        this.scrollBottomWidth = contentWidth / childWidth * contentWidth
+        this.scrollBottomLeft = (this.scrollLeft / childWidth) * contentWidth
+        // 设置隐藏
+        clearTimeout(this.bottomTimer)
+        this.hideBottomScroll()
+      }
+
+      if(scrollDrag) {
         // 设置回调
         this.$emit('on-scroll', {
           'fromTop': scrollTop,
           'fromBottom': childHeight - contentHeight - scrollTop,
+          'fromLeft': scrollLeft,
+          'fromRight': childWidth - contentWidth - scrollLeft,
         })
       }
     },
@@ -140,8 +171,19 @@ export default {
         this.hideRightScroll()
       }
     },
-    moveInit (eve) {
-      let mousemoveFun = throttle(this.onMouseMove, 16)
+    onMouseenterBottom () {
+      this.showScrollBottom = true
+      this.scrollBottomHover = true
+      clearTimeout(this.bottomTimer)
+    },
+    onMouseleaveBottom () {
+      if (this.scrollBottomHover) {
+        this.scrollBottomHover = false
+        this.hideBottomScroll()
+      }
+    },
+    moveInitRight (eve) {
+      let mousemoveFun = throttle(this.onMouseMoveRight, 16)
       document.addEventListener('mousemove', mousemoveFun)
       
       this.moveStart = {
@@ -155,7 +197,7 @@ export default {
         document.removeEventListener('mousemove', mousemoveFun)
       })
     },
-    onMouseMove(eve) {
+    onMouseMoveRight(eve) {
       let $content = this.$refs.scrollContent
       let current_x = eve.clientX,
         current_y = eve.clientY
@@ -170,17 +212,53 @@ export default {
 
       // 清空onScroll中设置的定时器
       clearTimeout(this.rightTimer)
+    },
+    moveInitBottom (eve) {
+      let mousemoveFun = throttle(this.onMouseMoveBottom, 16)
+      document.addEventListener('mousemove', mousemoveFun)
+      
+      this.moveStart = {
+        x: eve.clientX,
+        y: eve.clientY,
+        scrollBottomLeft: this.scrollBottomLeft
+      }
+
+      document.addEventListener('mouseup', () => {
+        this.hideBottomScroll()
+        document.removeEventListener('mousemove', mousemoveFun)
+      })
+    },
+    onMouseMoveBottom(eve) {
+      let $content = this.$refs.scrollContent
+      let current_x = eve.clientX,
+        current_y = eve.clientY
+
+      let { contentWidth, contentHeight, childWidth, childHeight } = this.getContentPosition()
+      
+      let move_x = current_x - this.moveStart.x
+
+      let scrollLeft = (this.moveStart.scrollBottomLeft + move_x) / contentWidth * childWidth
+
+      $content.scrollLeft = scrollLeft
+
+      // 清空onScroll中设置的定时器
+      clearTimeout(this.bottomTimer)
     }
   },
   mounted () {
     // 初始化滚动条位置
-    let { contentHeight, childHeight } = this.getContentPosition()
+    let { contentHeight, childHeight, contentWidth, childWidth } = this.getContentPosition()
 
     this.scrollTop = this.$refs.scrollContent.scrollTop
     this.scrollLeft = this.$refs.scrollContent.scrollLeft
 
+    // 纵向滚动条
     this.scrollRightHeight = contentHeight / childHeight * contentHeight
     this.scrollRightTop = (this.scrollTop / childHeight) * contentHeight
+
+    // 横向滚动条
+    this.scrollBottomWidth = contentWidth / childWidth * contentWidth
+    this.scrollBottomLeft = (this.scrollLeft / childWidth) * contentWidth
   }
 }
 </script>

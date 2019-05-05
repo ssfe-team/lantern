@@ -28,6 +28,11 @@
   right: 0px;
   top: 0px;
   padding: 0px 2px;
+
+  &.lt-scroll__track_hover {
+    border-left: 1px solid #E6E6E6;
+    width: 14px;
+  } 
 }
 
 .lt-scroll__track--bottom {
@@ -35,6 +40,12 @@
   width: 100%;
   bottom: 0px;
   left: 0px;
+  padding: 2px 0px;
+  
+  &.lt-scroll__track_hover {
+    height: 14px;
+    border-top: 1px solid #E6E6E6;
+  }
 }
 
 .lt-scroll__bar {
@@ -48,9 +59,4 @@
 
 .lt-scroll__track_active {
   opacity: 1;
-}
-
-.lt-scroll__track_hover {
-  border-left: 1px solid #E6E6E6;
-  width: 14px;
 }
