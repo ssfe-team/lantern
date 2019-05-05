@@ -28,11 +28,6 @@
   right: 0px;
   top: 0px;
   padding: 0px 2px;
-
-  &.lt-scroll__track_hover {
-    border-left: 1px solid #E6E6E6;
-    width: 14px;
-  } 
 }
 
 .lt-scroll__track--bottom {
@@ -41,20 +36,19 @@
   bottom: 0px;
   left: 0px;
   padding: 2px 0px;
-  
-  &.lt-scroll__track_hover {
-    height: 14px;
-    border-top: 1px solid #E6E6E6;
-  }
 }
 
 .lt-scroll__bar {
-  background: #E5E5E5;
+  background: rgba(0,0,0,0.3);
   width: calc(100% - 4px);
   height: calc(100% - 4px);
   border-radius: 10px;
   transition: height .3s;
   position: absolute;
+
+  &:hover {
+    background: rgba(0,0,0,0.4);
+  }
 }
 
 .lt-scroll__track_active {

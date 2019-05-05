@@ -4,6 +4,8 @@
       class="lt-scroll__content"
       ref="scrollContent"
       @scroll="handleScroll"
+      @mouseenter="onMouseenter"
+      @mouseleave="onMouseleave"
     >
       <slot @scrollReload="scrollReload" />
     </div>
@@ -11,14 +13,14 @@
       class="lt-scroll__track lt-scroll__track--right"
       v-if="hasRight"
       ref="scrollTrackRight"
-      @mouseenter.stop="onMouseenterRight"
-      @mouseleave.stop="onMouseleaveRight"
       :style="rightTrackStyles"
-      :class="{'lt-scroll__track_active': showScrollRight, 'lt-scroll__track_hover': scrollRightHover}"
+      :class="{'lt-scroll__track_active': showScrollRight}"
     >
       <div
         class="lt-scroll__bar lt-scroll__bar--right"
         :style="{'height': scrollRightHeight + 'px', 'top': scrollRightTop + 'px'}"
+        @mouseenter="barOnMouseenter('right')"
+        @mouseleave="barOnMouseleave('right')"
         @mousedown="moveInitRight"
       />
     </div>
@@ -26,14 +28,14 @@
       class="lt-scroll__track lt-scroll__track--bottom"
       v-if="hasBottom"
       ref="scrollTrackBottom"
-      @mouseenter.stop="onMouseenterBottom"
-      @mouseleave.stop="onMouseleaveBottom"
       :style="rightTrackStyles"
-      :class="{'lt-scroll__track_active': showScrollBottom, 'lt-scroll__track_hover': scrollBottomHover}"
+      :class="{'lt-scroll__track_active': showScrollBottom}"
     >
       <div
         class="lt-scroll__bar lt-scroll__bar--bottom"
         :style="{'width': scrollBottomWidth + 'px', 'left': scrollBottomLeft + 'px'}"
+        @mouseenter="barOnMouseenter('bottom')"
+        @mouseleave="barOnMouseleave('bottom')"
         @mousedown="moveInitBottom"
       />
     </div>
@@ -63,7 +65,8 @@ export default {
       // 滚动条增加active状态
       scrollRightHover: false,
       scrollBottomHover: false,
-      moveStart: {}
+      moveStart: {},
+      hideTime: 500
     }
   },
   props: {
@@ -97,12 +100,12 @@ export default {
     hideRightScroll () {
       this.rightTimer = setTimeout(() => {
         this.showScrollRight = false
-      }, 1000)
+      }, this.hideTime)
     },
     hideBottomScroll () {
       this.bottomTimer = setTimeout(() => {
         this.showScrollBottom = false
-      }, 1000)
+      }, this.hideTime)
     },
     getContentPosition () {
       // 多出来的20是为了隐藏原来的滚动条
@@ -133,7 +136,6 @@ export default {
         this.scrollRightTop = (this.scrollTop / childHeight) * contentHeight
         // 设置隐藏
         clearTimeout(this.rightTimer)
-        this.hideRightScroll()
       }
 
       if(this.scrollLeft !== scrollLeft) {
@@ -147,7 +149,6 @@ export default {
         this.scrollBottomLeft = (this.scrollLeft / childWidth) * contentWidth
         // 设置隐藏
         clearTimeout(this.bottomTimer)
-        this.hideBottomScroll()
       }
 
       if(scrollDrag) {
@@ -160,27 +161,26 @@ export default {
         })
       }
     },
-    onMouseenterRight (eve) {
-      this.showScrollRight = true
-      this.scrollRightHover = true
-      clearTimeout(this.rightTimer)
-    },
-    onMouseleaveRight (eve) {
-      if (this.scrollRightHover) {
-        this.scrollRightHover = false
-        this.hideRightScroll()
+    onMouseenter () {
+      if(this.hasRight) {
+        this.showScrollRight = true
+        clearTimeout(this.rightTimer)
+      }
+      if(this.hasBottom) {
+        this.showScrollBottom = true
+        clearTimeout(this.bottomTimer)
       }
     },
-    onMouseenterBottom () {
-      this.showScrollBottom = true
-      this.scrollBottomHover = true
-      clearTimeout(this.bottomTimer)
+    onMouseleave () {
+      this.hideRightScroll()
+      this.hideBottomScroll()
     },
-    onMouseleaveBottom () {
-      if (this.scrollBottomHover) {
-        this.scrollBottomHover = false
-        this.hideBottomScroll()
-      }
+    // 鼠标进入滚动条清空隐藏状态
+    barOnMouseenter (kind) {
+      if(kind === 'right') clearTimeout(this.rightTimer)
+      else if(kind === 'bottom') clearTimeout(this.bottomTimer)
+    },
+    barOnMouseleave () {
     },
     moveInitRight (eve) {
       let mousemoveFun = throttle(this.onMouseMoveRight, 16)
@@ -193,7 +193,6 @@ export default {
       }
 
       document.addEventListener('mouseup', () => {
-        this.hideRightScroll()
         document.removeEventListener('mousemove', mousemoveFun)
       })
     },
@@ -224,7 +223,6 @@ export default {
       }
 
       document.addEventListener('mouseup', () => {
-        this.hideBottomScroll()
         document.removeEventListener('mousemove', mousemoveFun)
       })
     },
