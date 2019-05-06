@@ -1,11 +1,13 @@
 <template>
-  <div class="lt-scroll__container">
+  <div 
+    class="lt-scroll__container"
+    @mouseenter="onMouseenter"
+    @mouseleave="onMouseleave"
+  >
     <div
       class="lt-scroll__content"
       ref="scrollContent"
       @scroll="handleScroll"
-      @mouseenter="onMouseenter"
-      @mouseleave="onMouseleave"
     >
       <slot @scrollReload="scrollReload" />
     </div>
@@ -15,12 +17,11 @@
       ref="scrollTrackRight"
       :style="rightTrackStyles"
       :class="{'lt-scroll__track_active': showScrollRight}"
+      @mouseenter="scrollOnMouseenter('right')"
     >
       <div
         class="lt-scroll__bar lt-scroll__bar--right"
         :style="{'height': scrollRightHeight + 'px', 'top': scrollRightTop + 'px'}"
-        @mouseenter="barOnMouseenter('right')"
-        @mouseleave="barOnMouseleave('right')"
         @mousedown="moveInitRight"
       />
     </div>
@@ -30,12 +31,11 @@
       ref="scrollTrackBottom"
       :style="rightTrackStyles"
       :class="{'lt-scroll__track_active': showScrollBottom}"
+      @mouseenter="scrollOnMouseenter('bottom')"
     >
       <div
         class="lt-scroll__bar lt-scroll__bar--bottom"
         :style="{'width': scrollBottomWidth + 'px', 'left': scrollBottomLeft + 'px'}"
-        @mouseenter="barOnMouseenter('bottom')"
-        @mouseleave="barOnMouseleave('bottom')"
         @mousedown="moveInitBottom"
       />
     </div>
@@ -135,7 +135,8 @@ export default {
         this.scrollRightHeight = contentHeight / childHeight * contentHeight
         this.scrollRightTop = (this.scrollTop / childHeight) * contentHeight
         // 设置隐藏
-        clearTimeout(this.rightTimer)
+        if(this.scrollRightHeight === contentHeight) this.hideRightScroll()
+        //clearTimeout(this.rightTimer)
       }
 
       if(this.scrollLeft !== scrollLeft) {
@@ -148,7 +149,8 @@ export default {
         this.scrollBottomWidth = contentWidth / childWidth * contentWidth
         this.scrollBottomLeft = (this.scrollLeft / childWidth) * contentWidth
         // 设置隐藏
-        clearTimeout(this.bottomTimer)
+        if(this.scrollBottomWidth === contentWidth) this.hideBottomScroll()
+        //clearTimeout(this.bottomTimer)
       }
 
       if(scrollDrag) {
@@ -162,11 +164,12 @@ export default {
       }
     },
     onMouseenter () {
-      if(this.hasRight) {
+      let isShow = this.scrollInit()
+      if(this.hasRight && isShow.rightShow) {
         this.showScrollRight = true
         clearTimeout(this.rightTimer)
       }
-      if(this.hasBottom) {
+      if(this.hasBottom && isShow.bottomShow) {
         this.showScrollBottom = true
         clearTimeout(this.bottomTimer)
       }
@@ -175,12 +178,19 @@ export default {
       this.hideRightScroll()
       this.hideBottomScroll()
     },
-    // 鼠标进入滚动条清空隐藏状态
-    barOnMouseenter (kind) {
-      if(kind === 'right') clearTimeout(this.rightTimer)
-      else if(kind === 'bottom') clearTimeout(this.bottomTimer)
-    },
-    barOnMouseleave () {
+    scrollOnMouseenter (kind) {
+      if(kind === 'right' && this.showScrollRight === false) {
+        let isShow = this.scrollInit()
+        if(this.hasRight && isShow.rightShow) {
+          this.showScrollRight = true
+        }
+      }
+      else if(kind === 'bottom' && this.showScrollBottom === false) {
+        let isShow = this.scrollInit()
+        if(this.hasBottom && isShow.bottomShow) {
+          this.showScrollBottom = true
+        }
+      }
     },
     moveInitRight (eve) {
       let mousemoveFun = throttle(this.onMouseMoveRight, 16)
@@ -210,7 +220,6 @@ export default {
       $content.scrollTop = scrollTop
 
       // 清空onScroll中设置的定时器
-      clearTimeout(this.rightTimer)
     },
     moveInitBottom (eve) {
       let mousemoveFun = throttle(this.onMouseMoveBottom, 16)
@@ -240,23 +249,35 @@ export default {
       $content.scrollLeft = scrollLeft
 
       // 清空onScroll中设置的定时器
-      clearTimeout(this.bottomTimer)
+    },
+    scrollInit() {
+      // 初始化滚动条位置
+      let { contentHeight, childHeight, contentWidth, childWidth } = this.getContentPosition()
+
+      this.scrollTop = this.$refs.scrollContent.scrollTop
+      this.scrollLeft = this.$refs.scrollContent.scrollLeft
+
+      // 纵向滚动条
+      this.scrollRightHeight = contentHeight / childHeight * contentHeight
+      this.scrollRightTop = (this.scrollTop / childHeight) * contentHeight
+
+      // 横向滚动条
+      this.scrollBottomWidth = contentWidth / childWidth * contentWidth
+      this.scrollBottomLeft = (this.scrollLeft / childWidth) * contentWidth
+      
+      let isShow = {
+        'rightShow': true,
+        'bottomShow': true
+      }
+
+      if(this.scrollRightHeight === contentHeight) isShow.rightShow = false
+      if(this.scrollBottomWidth === contentWidth) isShow.bottomShow = false
+
+      return isShow
     }
   },
   mounted () {
-    // 初始化滚动条位置
-    let { contentHeight, childHeight, contentWidth, childWidth } = this.getContentPosition()
-
-    this.scrollTop = this.$refs.scrollContent.scrollTop
-    this.scrollLeft = this.$refs.scrollContent.scrollLeft
-
-    // 纵向滚动条
-    this.scrollRightHeight = contentHeight / childHeight * contentHeight
-    this.scrollRightTop = (this.scrollTop / childHeight) * contentHeight
-
-    // 横向滚动条
-    this.scrollBottomWidth = contentWidth / childWidth * contentWidth
-    this.scrollBottomLeft = (this.scrollLeft / childWidth) * contentWidth
+    this.scrollInit()
   }
 }
 </script>
