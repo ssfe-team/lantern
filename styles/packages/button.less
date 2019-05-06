@@ -30,7 +30,7 @@
     &:hover
         //&:focus
     {
-        .button-color(tint(@color, 20%); shade(@background, 10%); tint(@border, 20%));
+        .button-color(tint(@color, 20%); shade(@background, 10%); shade(@border, 10%));
     }
     &:active,
     &.active {
@@ -207,7 +207,7 @@
 
 // Primary
 .btn-primary() {
-    .button-variant(@btn-primary-color; @btn-primary-bg; @primary-color);
+    .button-variant(@btn-primary-color; @btn-primary-bg; @btn-primary-bg);
 
     &:hover,
     //&:focus,
@@ -288,7 +288,7 @@
 // for tabindex
 .active-btn-color(@color) {
     &:focus {
-        box-shadow: 0 0 0 2px fade(@color, 20%);
+        // box-shadow: 0 0 0 2px fade(@color, 20%);
     }
 }
 .btn-color(@color) {
