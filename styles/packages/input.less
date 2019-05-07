@@ -29,14 +29,17 @@
 
 .lt-input {
   width: 280px;
-  height: 40px;
-  padding: 0 32px 0 12px;
-  background: #f7f8f9;
-  border: 1px solid #e6e6e6;
+  height: 42px;
+  padding: 0 32px 0 16px;
+  background: #fff;
+  border: 1px solid #eee;
   border-radius: 4px;
-  font-size: 12px;
+  font-size: 14px;
   outline: none;
 
+  &:hover {
+    border: 1px solid #999;
+  }
   &:focus {
     background: #ffffff;
     border: 1px solid #07AEFC;
@@ -81,11 +84,11 @@
 }
 
 input::-webkit-input-placeholder, textarea::-webkit-input-placeholder {
-  color: #CDCDCD;
+  color: rgba(0,0,0,0.30);
 }
 input::-moz-placeholder, textarea::-moz-input-placeholder {
-  color: #CDCDCD;
+  color: rgba(0,0,0,0.30);
 }
 input:-ms-placeholder, textarea::-ms-input-placeholder {
-  color: #CDCDCD;
+  color: rgba(0,0,0,0.30);
 }

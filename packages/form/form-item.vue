@@ -38,7 +38,7 @@ function getPropByPath (obj, path) {
     if (key in tempObj) {
       tempObj = tempObj[key]
     } else {
-      throw new Error('[lantern warn]: please transfer a valid prop path to form item!')
+      throw new Error('[Lantern warn]: please transfer a valid prop path to form item!')
     }
   }
   return {
@@ -94,9 +94,12 @@ export default {
     }
   },
   watch: {
-    error (val) {
-      this.validateMessage = val
-      this.validateState = val === '' ? '' : 'error'
+    error: {
+      handler (val) {
+        this.validateMessage = val
+        this.validateState = val ? 'error' : ''
+      },
+      immediate: true
     },
     validateStatus (val) {
       this.validateState = val
@@ -250,7 +253,7 @@ export default {
   },
   mounted () {
     if (this.prop) {
-      this.dispatch('ltForm', 'on-form-item-add', this)
+      this.dispatch('LtForm', 'on-form-item-add', this)
 
       Object.defineProperty(this, 'initialValue', {
         value: this.getFieldValue()
@@ -260,7 +263,7 @@ export default {
     }
   },
   beforeDestroy () {
-    this.dispatch('ltForm', 'on-form-item-remove', this)
+    this.dispatch('LtForm', 'on-form-item-remove', this)
   }
 }
 </script>

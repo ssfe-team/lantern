@@ -124,13 +124,11 @@
   transform: translateX(0);
 }
 
-// fade轮播
-.fade-enter-active,
-.fade-leave-active {
-  transition: opacity .5s
+// fade
+.fade-enter-active, .fade-leave-active {
+  transition: opacity .3s ease;
+}
+.fade-enter, .fade-leave-to {
+  opacity: 0;
 }
 
-.fade-enter,
-.fade-leave-active {
-  opacity: 0
-}
