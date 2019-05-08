@@ -18,7 +18,7 @@
         <p v-if="!dangerouslyUseHTMLString" class="lt-message__content">{{ message }}</p>
         <p v-else v-html="message" class="lt-message__content"></p>
       </slot>
-      <span class="lt-message__appent-text" @click.stop="handleClickAppendText">{{appendText}}</span>
+      <span class="lt-message__appent-text" @click.stop="handleClickAppendText" v-if="appendText">{{appendText}}</span>
     </div>
   </transition>
 </template>
