@@ -387,10 +387,10 @@ async-each@^1.0.1:
   resolved "https://registry.yarnpkg.com/async-each/-/async-each-1.0.1.tgz#19d386a1d9edc6e7c1c85d388aedbcc56d33602d"
   integrity sha1-GdOGodntxufByF04iu28xW0zYC0=
 
-async-validator@^1.10.1:
-  version "1.10.1"
-  resolved "https://registry.yarnpkg.com/async-validator/-/async-validator-1.10.1.tgz#41e9b0b9f8e719e6edf946372f018a958c2e70f3"
-  integrity sha512-VLiLKZuJc8VIeAMC3YobVsZov8XPNhbwyIkKjhPW5cFnhZXH+HHJpkE270YMD/6zJIOJXUN/Cq0t3fR7XPwaDQ==
+async-validator@^1.11.2:
+  version "1.11.2"
+  resolved "https://registry.yarnpkg.com/async-validator/-/async-validator-1.11.2.tgz#ca5e2ba31c15e9319cb2d873c2b137b67a198ead"
+  integrity sha512-KVbL4jU6ZRJA82D69oOCoyKqr99emuKNvG0axH3XpGZh0xy1wDHpdH4cGzvwJ9nXAM0j7k/waBId16CQVI8dlw==
   dependencies:
     babel-runtime "6.x"
 
