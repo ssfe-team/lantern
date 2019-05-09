@@ -15,6 +15,7 @@
       v-model="inputValue"
       @blur="handleBlur"
       @change="$emit('change', $event.target.value)"
+      @input="handleInput"
     >
     <textarea
       v-else
@@ -76,6 +77,10 @@ export default {
       type: Boolean,
       default: false
     },
+    number: {
+      type: Boolean,
+      default: false
+    },
     rows: {
       type: [Number, String],
       default: 4
@@ -96,6 +101,13 @@ export default {
       if (!findComponentUpward(this, ['DatePicker', 'TimePicker', 'Cascader', 'Search'])) {
         this.dispatch('FormItem', 'on-form-blur', this.currentValue)
       }
+    },
+    handleInput (event) {
+      let value = event.target.value
+      if (this.number && value !== '') value = Number.isNaN(Number(value)) ? value : Number(value)
+      this.$emit('input', value)
+      // this.setCurrentValue(value)
+      this.$emit('change', value)
     }
   }
 }
