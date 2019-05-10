@@ -95,6 +95,11 @@ export default {
       return (this.inputValue ? this.inputValue.length : '0') + '/' + this.maxlength
     }
   },
+  watch: {
+    value (v) {
+      this.inputValue = v
+    }
+  },
   methods: {
     handleBlur (event) {
       this.$emit('on-blur', event)
