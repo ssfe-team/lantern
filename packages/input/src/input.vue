@@ -54,6 +54,10 @@ export default {
     event: 'change'
   },
   props: {
+    value: {
+      type: String,
+      default: ''
+    },
     // input类型
     type: {
       validator (value) {
@@ -84,10 +88,6 @@ export default {
     rows: {
       type: [Number, String],
       default: 4
-    },
-    value: {
-      type: String,
-      default: ''
     }
   },
   computed: {
