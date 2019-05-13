@@ -42,15 +42,13 @@
         methods: {
           open2() {
             this.$message({
-              message: '恭喜你，这是一条成功消息',
-              type: 'success'
+              message: '恭喜你，这是一条成功消息'
             });
           },
     
           open3() {
             this.$message({
-              message: '警告哦，这是一条警告消息',
-              type: 'warning'
+              message: '警告哦，这是一条警告消息'
             });
           },
     
@@ -227,7 +225,6 @@ import { Message } from 'lantern-ui';
       open2() {
         this.$message({
           message: '恭喜你，这是一条成功消息',
-          type: 'success',
           onClick: () => {
             alert('成功啦')
           }
@@ -236,8 +233,7 @@ import { Message } from 'lantern-ui';
 
       open3() {
         this.$message({
-          message: '警告哦，这是一条警告消息',
-          type: 'warning'
+          message: '警告哦，这是一条警告消息'
         });
       },
 
@@ -256,7 +252,6 @@ import { Message } from 'lantern-ui';
         this.$message({
           showClose: true,
           message: '恭喜你，这是一条成功消息',
-          type: 'success'
         });
       },
 
@@ -264,7 +259,6 @@ import { Message } from 'lantern-ui';
         this.$message({
           showClose: true,
           message: '警告哦，这是一条警告消息',
-          type: 'warning'
         });
       },
 
@@ -272,7 +266,6 @@ import { Message } from 'lantern-ui';
         this.$message({
           showClose: true,
           message: '错了哦，这是一条错误消息',
-          type: 'error'
         });
       },
       

@@ -1,9 +1,9 @@
 <template>
   <transition name="lt-message-fade">
+    <!-- type && !iconClass ? `lt-message--${ type }` : '', -->
     <div
       :class="[
         'lt-message',
-        type && !iconClass ? `lt-message--${ type }` : '',
         center ? 'is-center' : '',
         customClass]"
       v-show="visible"
@@ -12,8 +12,8 @@
       @click="handleClick"
       role="alert"
     >
-      <lt-icon :type="iconClass" v-if="iconClass" />
-      <lt-icon class="lt-message__icon" :type="typeClass" :color="iconColor" v-else />
+      <!-- <lt-icon :type="iconClass" v-if="iconClass" />
+      <lt-icon class="lt-message__icon" :type="typeClass" :color="iconColor" v-else /> -->
       <slot>
         <p v-if="!dangerouslyUseHTMLString" class="lt-message__content">{{ message }}</p>
         <p v-else v-html="message" class="lt-message__content"></p>
@@ -25,12 +25,12 @@
 
 <script type="text/babel">
 
-const typeMap = {
-  success: 'checkmark-circled',
-  info: 'information-circled',
-  warning: 'information-circled',
-  error: 'close-circled'
-}
+// const typeMap = {
+//   success: 'checkmark-circled',
+//   info: 'information-circled',
+//   warning: 'information-circled',
+//   error: 'close-circled'
+// }
 
 export default {
   name: 'Message',
@@ -40,7 +40,7 @@ export default {
       message: '',
       duration: 3000,
       type: 'info',
-      iconClass: '',
+      // iconClass: '',
       customClass: '',
       onClick: null,
       onClose: null,
@@ -56,27 +56,27 @@ export default {
   props: {},
 
   computed: {
-    typeClass () {
-      return this.type && !this.iconClass
-        ? `${typeMap[this.type]}`
-        : ''
-    },
-    iconColor () {
-      let color = null
-      switch (this.type) {
-        case 'success':
-        case 'info':
-          color = '#07AEFC'
-          break
-        case 'warning':
-          color = '#F6A623'
-          break
-        case 'error':
-          color = '#FF3D67'
-          break
-      }
-      return color
-    }
+    // typeClass () {
+    //   return this.type && !this.iconClass
+    //     ? `${typeMap[this.type]}`
+    //     : ''
+    // },
+    // iconColor () {
+    //   let color = null
+    //   switch (this.type) {
+    //     case 'success':
+    //     case 'info':
+    //       color = '#07AEFC'
+    //       break
+    //     case 'warning':
+    //       color = '#F6A623'
+    //       break
+    //     case 'error':
+    //       color = '#FF3D67'
+    //       break
+    //   }
+    //   return color
+    // }
   },
 
   watch: {
