@@ -187,7 +187,7 @@ export default {
     width: 40px;
     height: 40px;
     color: #fff;
-    background: #07aefc;
+    background: #0773FC;
     z-index: 999999;
     border-radius: 100px;
     transition: all ease .2s;

@@ -66,7 +66,7 @@ export default {
     //   switch (this.type) {
     //     case 'success':
     //     case 'info':
-    //       color = '#07AEFC'
+    //       color = '#0773FC'
     //       break
     //     case 'warning':
     //       color = '#F6A623'
