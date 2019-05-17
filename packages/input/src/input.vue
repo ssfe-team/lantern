@@ -15,6 +15,7 @@
       v-model="inputValue"
       @blur="handleBlur"
       @change="$emit('change', $event.target.value)"
+      @input="handleInput"
     >
     <textarea
       v-else
@@ -53,6 +54,10 @@ export default {
     event: 'change'
   },
   props: {
+    value: {
+      type: String,
+      default: ''
+    },
     // input类型
     type: {
       validator (value) {
@@ -76,18 +81,23 @@ export default {
       type: Boolean,
       default: false
     },
+    number: {
+      type: Boolean,
+      default: false
+    },
     rows: {
       type: [Number, String],
       default: 4
-    },
-    value: {
-      type: String,
-      default: ''
     }
   },
   computed: {
     maxlengthtips () {
       return (this.inputValue ? this.inputValue.length : '0') + '/' + this.maxlength
+    }
+  },
+  watch: {
+    value (v) {
+      this.inputValue = v
     }
   },
   methods: {
@@ -96,6 +106,13 @@ export default {
       if (!findComponentUpward(this, ['DatePicker', 'TimePicker', 'Cascader', 'Search'])) {
         this.dispatch('FormItem', 'on-form-blur', this.currentValue)
       }
+    },
+    handleInput (event) {
+      let value = event.target.value
+      if (this.number && value !== '') value = Number.isNaN(Number(value)) ? value : Number(value)
+      this.$emit('input', value)
+      // this.setCurrentValue(value)
+      this.$emit('change', value)
     }
   }
 }

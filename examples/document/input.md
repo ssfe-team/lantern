@@ -5,7 +5,8 @@
 :::demo demo
 ```html
   <div>
-    <LtInput v-model="test" />
+    <LtInput v-model="inputValue" />
+    <LtButton type="primary" @click="reset">清空</LtButton>
   </div>
 ```
 :::
@@ -62,12 +63,17 @@ change|input值更改触发|value: input的value值
 export default {
   data () {
     return {
-      test: ''
+      inputValue: ''
     }
   },
   watch: {
-    test: function () {
-      console.log(this.test)
+    inputValue() {
+      console.log(this.inputValue)
+    },
+  },
+  methods: {
+    reset() {
+      this.inputValue = ''
     }
   }
 }
