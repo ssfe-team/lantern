@@ -109,6 +109,21 @@ export default {
         'heart',
         'heart-outline',
         'arrow-dropdown',
+        'trash',
+        'window-close',
+        'template-menus',
+        'retract-file',
+        'pic-close',
+        'amplification',
+        'unfold-file',
+        'add-file',
+        'set',
+        'upload',
+        'design',
+        'material',
+        'template',
+        'manage',
+        'brand',
       ]
     }
   }
