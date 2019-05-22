@@ -33,17 +33,11 @@ export default {
   data() {
     return {
       mainlist: [{
-        color: '#07AEFC',
+        color: '#0773FC',
         title: '主色调1',
         lesstilte: 'mainColor1',
-        des: '色值：#07AEFC',
+        des: '色值：#0773FC',
         content: '使用规则：主色调，应用于头部、重要性文字·按钮和icon'
-      },{
-        color: 'linear-gradient(to bottom right, #5ea2ff, #00e3ff)',
-        title: '主色调2',
-        lesstilte: 'mainColor2',
-        des: '色值：#5EA2FF/#00E3FF',
-        content: '使用规则：辅助色用于新手标的文字描述、数字展示、次级按钮'
       }],
       comlist: [{
         color: '#343434',
@@ -124,7 +118,7 @@ export default {
         color: #626262;
         span {
           padding-left: 10px;
-          color: #07aefc;
+          color: #0773FC;
         }
       }
     }
