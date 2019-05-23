@@ -17,10 +17,10 @@
           >
             <a :class="closeClasses" v-if="closable" @click="close">
               <slot name="close">
-                <Icon :type="outerClose ? 'pic-close' : 'window-close'" :size="outerClose ? '40' : '14'"></Icon>
+                <Icon :type="simple ? 'pic-close' : 'window-close'" :size="simple ? '40' : '14'"></Icon>
               </slot>
             </a>
-            <div :class="[prefixCls + '-header']" v-if="showHead">
+            <div :class="[prefixCls + '-header']" v-if="showHead && !simple">
               <slot name="header">
                 <div :class="[prefixCls + '-header-inner']">{{ title }}</div>
               </slot>
@@ -28,7 +28,7 @@
             <div :class="[prefixCls + '-body']">
               <slot></slot>
             </div>
-            <div :class="[prefixCls + '-footer']" v-if="!footerHide">
+            <div :class="[prefixCls + '-footer']" v-if="!footerHide && !simple">
               <slot name="footer">
                 <i-button
                   type="primary"
@@ -65,6 +65,10 @@ export default {
       type: Boolean,
       default: false
     },
+    simple: {
+      type: Boolean,
+      default: true
+    },
     closable: {
       type: Boolean,
       default: true
@@ -73,16 +77,12 @@ export default {
       type: Boolean,
       default: true
     },
-    outerClose: {
-      type: Boolean,
-      default: false
-    },
     title: {
       type: String
     },
     width: {
       type: [Number, String],
-      default: 520
+      default: 400
     },
     okText: {
       type: String
@@ -135,6 +135,9 @@ export default {
       return [
         `${prefixCls}-wrap`,
         {
+          [`${prefixCls}-wrap--simple`]: !!this.simple
+        },
+        {
           [`${prefixCls}-hidden`]: !this.wrapShow,
           [`${this.className}`]: !!this.className
         }
@@ -160,16 +163,19 @@ export default {
     },
     closeClasses() {
       return [
-        prefixCls + '-close',
-        this.outerClose ? `${prefixCls}-close--outer` : ''
+        prefixCls + '-close'
       ]
     },
     mainStyles() {
       let style = {}
 
       const width = parseInt(this.width)
-      const styleWidth = {
-        width: width <= 100 ? `${width}%` : `${width}px`
+      let styleWidth = {}
+
+      if (!this.simple) {
+        styleWidth = {
+          width: width <= 100 ? `${width}%` : `${width}px`
+        }
       }
 
       const customStyle = this.styles ? this.styles : {}

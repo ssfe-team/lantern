@@ -6,13 +6,15 @@
     margin: 0 auto;
     position: relative;
     outline: none;
-    top: 100px;
 
     &-hidden {
         display: none !important;
     }
 
     &-wrap {
+        display: flex;
+        justify-content: center;
+        align-items: center;
         position: fixed;
         overflow: auto;
         top: 0;
@@ -50,13 +52,6 @@
     &-close {
         z-index: 1;
         .content-close(1px, 31px);
-        &--outer {
-          top: 0;
-          right: -56px;
-          i {
-            color: #fff;
-          }
-        }
     }
 
     &-body {
@@ -76,6 +71,25 @@
             margin-bottom: 0;
         }
     }
+}
+
+.@{modal-prefix-cls}-wrap--simple {
+  .@{modal-prefix-cls} {
+    &-content {
+      padding: 0;
+    }
+    &-body {
+      padding: 0;
+    }
+    &-close {
+      top: 0;
+      right: -56px;
+      line-height: 1;
+      i {
+        color: #fff;
+      }
+    }
+  }
 }
 
 @media (max-width: @screen-sm) {

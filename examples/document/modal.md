@@ -6,6 +6,33 @@
 
 ### 代码示例
 
+#### 简易模式
+
+只为要展示的内容提供遮罩、关闭按钮等，常用于展示图片等场景
+
+::: demo demo
+```html
+    <template>
+      <lt-button @click="simple = true">简易模式</lt-button>
+      <lt-modal
+        v-model="simple"
+      >
+        <img src="https://imgpub.chuangkit.com/designTemplate/2019/05/08/466042295_thumb" style="display: block;">
+      </lt-modal>
+    </template>
+    
+    <script>
+      export default {
+        data() {
+          return {
+            simple: false
+          }
+        },
+      }
+    </script>
+```
+:::
+
 #### 基础用法
 
 最简单的使用方法，通过控制属性 value 来显示 / 隐藏对话框。
@@ -21,6 +48,7 @@
         title="普通的Modal对话框标题"
         @on-ok="ok"
         @on-cancel="cancel"
+        :simple="false"
       >
         <p>对话框内容</p>
         <p>对话框内容</p>
@@ -62,6 +90,7 @@ Modal 组件提供了灵活的自定义样式 API 和 Slot，可以自由控制�
         v-model="modal2"
         :footer-hide="true"
         width="420"
+        :simple="false"
       >
         <p style="font-size: 20px;font-weight: bold;text-align: center;">创建文件夹</p>
         <p style="font-weight: bold;">文件夹名称</p>
@@ -89,11 +118,11 @@ Modal 组件提供了灵活的自定义样式 API 和 Slot，可以自由控制�
 value|对话框是否显示，可使用 v-model 双向绑定数据。|Boolean|false
 title|对话框标题，如果使用 slot 自定义了页头，则 title 无效|String|-
 closable|是否显示右上角的关闭按钮|Boolean|true
-outer-close|是否将关闭按钮显示在对话框外|Boolean|false
+simple|是否使用简易模式（只显示内容，不包含 padding 、header、footer 等）|Boolean|true
 mask-closable|是否允许点击遮罩层关闭|Boolean|true
 ok-text|确定按钮文字|String|确定
 cancel-text|取消按钮文字|String|取消
-width|对话框宽度，对话框的宽度是响应式的，当屏幕尺寸小于 768px 时，宽度会变为自动 `auto`。当其值不大于 100 时以百分比显示，大于 100 时为像素|Number \| String|520
+width|对话框宽度，对话框的宽度是响应式的，当屏幕尺寸小于 768px 时，宽度会变为自动 `auto`。当其值不大于 100 时以百分比显示，大于 100 时为像素|Number \| String|400
 footer-hide|不显示底部|Boolean|false
 styles|设置浮层样式，调整浮层位置等，该属性设置的是 `.lt-modal` 的样式|Object|-
 class-name|设置对话框容器 `.lt-modal-wrap` 的类名，可辅助实现垂直居中等自定义效果|String|-
@@ -123,6 +152,7 @@ close|自定义右上角关闭内容
   module.exports = {
     data() {
       return {
+        simple: false,
         modal1: false,
         modal2: false
       }
