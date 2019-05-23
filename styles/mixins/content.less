@@ -2,17 +2,17 @@
 
 .content-header() {
     border-bottom: 1px solid @border-color-split;
-    padding: 14px 16px;
+    padding-bottom: 20px;
     line-height: 1;
 
     p,
     &-inner
     {
         display: inline-block;
-        width: 100%;
+        width: calc(100% - 20px);
         height: 20px;
         line-height: 20px;
-        font-size: @font-size-base;
+        font-size: @font-size-large;
         color: @title-color;
         font-weight: bold;
         overflow: hidden;
@@ -24,8 +24,8 @@
 .content-close(@top: 0, @icon-font-size: 22px) {
     font-size: @font-size-small;
     position: absolute;
-    right: 16px;
-    top: 8px;
+    right: 20px;
+    top: 20px;
     overflow: hidden;
     cursor: pointer;
 
