@@ -10,7 +10,7 @@
     </transition>
     <div :class="wrapClasses" :style="wrapStyles" @click="handleWrapClick">
       <transition :name="transitionNames[0]" @after-leave="animationFinish">
-        <div :class="classes" :style="mainStyles" v-show="visible" @mousedown="handleMousedown">
+        <div :class="classes" :style="mainStyles" v-if="visible" @mousedown="handleMousedown">
           <div
             :class="contentClasses"
             ref="content"
