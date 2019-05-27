@@ -24,43 +24,6 @@
 ```
 :::
 
-### 不同状态
-
-用来显示「成功、警告、消息、错误」类的操作反馈。
-
-:::demo demo
-```html
-    <template>
-      <lt-button @click="open2">成功</lt-button>
-      <lt-button @click="open3">警告</lt-button>
-      <lt-button @click="open">消息</lt-button>
-      <lt-button @click="open4">错误</lt-button>
-    </template>
-    
-    <script>
-      export default {
-        methods: {
-          open2() {
-            this.$message({
-              message: '恭喜你，这是一条成功消息'
-            });
-          },
-    
-          open3() {
-            this.$message({
-              message: '警告哦，这是一条警告消息'
-            });
-          },
-    
-          open4() {
-            this.$message.error('错了哦，这是一条错误消息');
-          }
-        }
-      }
-    </script>
-```
-:::
-
 ### 点击事件
 
 点击消息提示后执行自定义操作
@@ -183,13 +146,12 @@ Lantern 为 Vue.prototype 添加了全局方法 $message。因此在 vue instanc
 import { Message } from 'lantern-ui';
 ```
 
-此时调用方法为 `Message(options)`。我们也为每个 type 定义了各自的方法，如 `Message.success(options)`。并且可以调用 `Message.closeAll()` 手动关闭所有实例。
+此时调用方法为 `Message(options)`。我们也为每个 type 定义了各自的方法，如 `Message(options)`。并且可以调用 `Message.closeAll()` 手动关闭所有实例。
 
 ### Options
 | 参数      | 说明          | 类型      | 可选值                           | 默认值  |
 |---------- |-------------- |---------- |--------------------------------  |-------- |
 | message | 消息文字 | string / VNode | — | — |
-| type | 主题 | string | success/warning/info/error | info |
 | iconClass | 自定义图标的类名，会覆盖 `type` | string | — | — |
 | dangerouslyUseHTMLString | 是否将 message 属性作为 HTML 片段处理 | boolean | — | false |
 | customClass | 自定义类名 | string | — | — |
@@ -220,25 +182,6 @@ import { Message } from 'lantern-ui';
             h('i', { style: 'color: teal' }, 'VNode')
           ])
         });
-      },
-
-      open2() {
-        this.$message({
-          message: '恭喜你，这是一条成功消息',
-          onClick: () => {
-            alert('成功啦')
-          }
-        });
-      },
-
-      open3() {
-        this.$message({
-          message: '警告哦，这是一条警告消息'
-        });
-      },
-
-      open4() {
-        this.$message.error('错了哦，这是一条错误消息');
       },
 
       open5() {
