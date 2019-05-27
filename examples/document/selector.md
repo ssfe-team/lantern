@@ -13,36 +13,30 @@
 ::: demo demo :::
 ```html
 <template>
-    <lt-selector :list="list1"></lt-selector>
+  <lt-selector :selectedValue="selectedValue1">
+    <lt-option
+      v-for="(item, index) in list"
+      :key="index"
+      :value="item"
+      @select-value="selectValueHandle1"
+    ></lt-option>
+  </lt-selector>
 </template>
 <script>
-    export default {
-        data () {
-            return {
-                list1: [
-                    {
-                        label: '北京',
-                    },
-                    {
-                        label: '上海',
-                    },
-                    {
-                        label: '深圳',
-                    },
-                    {
-                        label: '西宁',
-                        disabled: true
-                    },
-                    {
-                        label: '南阳'
-                    }
-                ],
-                selectorSize: {
-                    width: '80px',
-                    height: '25px'
-                }
-            }
+  export default {
+    data () {
+      return {
+        list: ['北京','上海','深圳','西宁','南阳']
+        selectedValue1: ''.
+      },
+      methods: {
+        selectValueHandle1 (e) {
+          this.selectedValue1 = e
+          this.$message({
+            message: e
+          });
         }
+      }
     }
 </script>
 ```
@@ -54,75 +48,82 @@
 
 :::demo demo
 ```html
- <template>
-      <lt-selector :list="list2" trigger="hover"></lt-selector>
- </template>
- <script>
-    export default {
-        data () {
-            return {
-                list2: [
-                    {
-                        label: '北京',
-                    },
-                    {
-                        label: '上海',
-                    },
-                    {
-                        label: '深圳',
-                    },
-                    {
-                        label: '西宁',
-                        disabled: true
-                    },
-                    {
-                        label: '南阳'
-                    }
-                ]
-            }
-        }
+<template>
+  <lt-selector trigger="hover" :selectedValue="selectedValue2">
+    <lt-option
+      v-for="(item, index) in list"
+      :key="index"
+      :value="item"
+      @select-value="selectValueHandle2"
+    ></lt-option>
+  </lt-selector>
+</template>
+<script>
+  export default {
+    data () {
+      return {
+        list: ['北京','上海','深圳','西宁','南阳'],
+        selectedValue2: ''.
+      }
+    },
+    methods: {
+      selectValueHandle2 (e) {
+        this.selectedValue2 = e
+        this.$message({
+          message: e
+        });
+      }
     }
+  }
 </script>
 ```
 :::
 
-#### 选择器尺寸
+#### 尺寸
 
-通过设置`size`属性调整选择器大小尺寸。
+通过设置`selectorSize`属性调整选择器的尺寸,设置`optionSize`属性调整选择列表的尺寸。
 
 ::: demo demo :::
 ```html
 <template>
-    <lt-selector :list="list3" :size="size"></lt-selector>
+  <lt-selector 
+    :selectedValue="selectedValue3" 
+    :selectorSize="selectorSize"
+  >
+    <lt-option
+      v-for="(item, index) in list"
+      :key="index"
+      :value="item"
+      :optionSize="optionSize"
+      @select-value="selectValueHandle3"
+    ></lt-option>
+  </lt-selector>
 </template>
 <script>
-    export default {
-        data () {
-            return {
-                list3: [
-                    {
-                        label: '北京',
-                    },
-                    {
-                        label: '上海',
-                    },
-                    {
-                        label: '深圳',
-                    },
-                    {
-                        label: '西宁',
-                    },
-                    {
-                        label: '南阳'
-                    }
-                ],
-                size: {
-                    width: '100px',
-                    height: '20px'
-                }
-            }
-        }
-    }
+  export default {
+    data () {
+      return {
+        list: ['北京','上海','深圳','西宁','南阳'],
+        selectorSize: {
+          width: '100px',
+          height: '25px'
+        },
+        optionSize: {
+          width: '100px',
+          height: '25px'
+        },
+        selectedValue3: '',
+      }
+    },
+    methods: {
+      selectValueHandle3 (e) {
+        this.selectedValue3 = e
+        this.$message({
+          message: e
+        });
+      }
+    } 
+  }
 </script>
 ```
 :::
@@ -133,34 +134,39 @@
 
 :::demo demo
 ```html
- <template>
-      <lt-selector :list="list4" clearable></lt-selector>
- </template>
- <script>
-    export default {
-        data () {
-            return {
-                list4: [
-                    {
-                        label: '北京',
-                    },
-                    {
-                        label: '上海',
-                    },
-                    {
-                        label: '深圳',
-                    },
-                    {
-                        label: '西宁',
-                        disabled: true
-                    },
-                    {
-                        label: '南阳'
-                    }
-                ]
-            }
-        }
-    }
+<template>
+  <lt-selector 
+    :selectedValue="selectedValue4"  
+    clearable
+    @clear-value="clearValueHandle"
+  >
+    <lt-option
+      v-for="(item, index) in list"
+      :key="index"
+      :value="item"
+      @select-value="selectValueHandle4"
+    ></lt-option>
+  </lt-selector>
+</template>
+<script>
+  export default {
+    data () {
+      return {
+        list: ['北京','上海','深圳','西宁','南阳'],
+      }
+    },
+    methods: {
+      selectValueHandle4 (e) {
+        this.selectedValue4 = e
+        this.$message({
+          message: e
+        });
+      },
+      clearValueHandle () {
+        this.selectedValue4 = ''
+      }
+    } 
+  }
 </script>
 ```
 :::
@@ -171,34 +177,49 @@
 
 :::demo demo
 ```html
- <template>
-      <lt-selector :list="list5"></lt-selector>
- </template>
- <script>
-    export default {
-        data () {
-            return {
-                list5: [
-                    {
-                        label: '北京',
-                    },
-                    {
-                        label: '上海',
-                    },
-                    {
-                        label: '深圳',
-                    },
-                    {
-                        label: '西宁',
-                        disabled: true
-                    },
-                    {
-                        label: '南阳'
-                    }
-                ]
-            }
-        }
+<template>
+  <lt-selector :selectedValue="selectedValue5">
+    <lt-option
+      v-for="(item, index) in list1"
+      :key="index"
+      :value="item"
+      @select-value="selectValueHandle5"
+    ></lt-option>
+  </lt-selector>
+</template>
+<script>
+  export default {
+    data () {
+      return {
+        list1: [
+          {
+            label: '北京',
+          },
+          {
+            label: '上海',
+          },
+          {
+            label: '深圳',
+          },
+          {
+            label: '西宁',
+            disabled: true
+          },
+          {
+            label: '南阳'
+          }
+        ],
+        selectedValue5: '',
+      }
+    },
+    methods: {
+    selectValueHandle5 (e) {
+      this.selectedValue5 = e
+      this.$message({
+        message: e
+      });
     }
+  }
 </script>
 ```
 :::
@@ -209,120 +230,101 @@
 
 属性|说明|类型|默认值
 ---|---|---|---|---
-list | 选择项列表 | Array | -
-trigger | 触发方式 | String |click
+selectedValue | 选择项 | String | -
+placeholder | 默认显示 | String | 请选择
+trigger | 触发方式 | String | click
 clearable | 清空选择项 | Boolean | false
-size | 设置选择器尺寸 | Object | 200x30
+selectorSize | 选择器尺寸 | Object | 190 x 40
 
-#### list 说明
+#### list props
 
 属性|说明|类型|默认值
 ---|---|---|---|---
-label | 列表中将要显示的名称 | String | -
+value | 列表中将要显示的名称 | String / Object | -
 disabled | 禁用该项 | Boolean | false
+optionSize | 列表项尺寸 | Object | 190 x 32
 
 #### selector evevt 说明
 
 事件名|说明|返回值
 ---|---|---
-select-value | 返回选中的列表项的`label`值 | 当前选中项
+select-value | 返回选中的列表项的值 | 当前选中项
+clear-value | 清除选中的列表项 | -
 
 ::::vuecode::::
 <script>
     export default {
         data () {
             return {
+                list: ['北京','上海','深圳','西宁','南阳'],
                 list1: [
-                    {
-                        label: '北京'
-                    },
-                    {
-                        label: '上海'
-                    },
-                    {
-                        label: '深圳'
-                    },
-                    {
-                        label: '西宁'
-                    },
-                    {
-                        label: '南阳'
-                    }
+                  {
+                    label: '北京',
+                  },
+                  {
+                    label: '上海',
+                  },
+                  {
+                    label: '深圳',
+                  },
+                  {
+                    label: '西宁',
+                    disabled: true
+                  },
+                  {
+                    label: '南阳'
+                  }
                 ],
-                list2: [
-                    {
-                        label: '北京'
-                    },
-                    {
-                        label: '上海'
-                    },
-                    {
-                        label: '深圳'
-                    },
-                    {
-                        label: '西宁'
-                    },
-                    {
-                        label: '南阳'
-                    }
-                ],
-                list3: [
-                    {
-                        label: '北京'
-                    },
-                    {
-                        label: '上海'
-                    },
-                    {
-                        label: '深圳'
-                    },
-                    {
-                        label: '西宁'
-                    },
-                    {
-                        label: '南阳'
-                    }
-                ],
-                list4: [
-                    {
-                        label: '北京'
-                    },
-                    {
-                        label: '上海'
-                    },
-                    {
-                        label: '深圳'
-                    },
-                    {
-                        label: '西宁'
-                    },
-                    {
-                        label: '南阳'
-                    }
-                ],
-                list5: [
-                    {
-                        label: '北京'
-                    },
-                    {
-                        label: '上海'
-                    },
-                    {
-                        label: '深圳'
-                    },
-                    {
-                        label: '西宁',
-                        disabled: true
-                    },
-                    {
-                        label: '南阳'
-                    }
-                ],
-                size: {
-                    width: '80px',
+                selectorSize: {
+                    width: '100px',
                     height: '25px'
-                }
+                },
+              optionSize: {
+                width: '100px',
+                height: '25px'
+              },
+              selectedValue1: '',
+              selectedValue2: '',
+              selectedValue3: '',
+              selectedValue4: '',
+              selectedValue5: '',
+
             }
+        },
+      methods: {
+        selectValueHandle1 (e) {
+          this.selectedValue1 = e
+          this.$message({
+            message: e
+          });
+        },
+        selectValueHandle2 (e) {
+          this.selectedValue2 = e
+          this.$message({
+            message: e
+          });
+        },
+        selectValueHandle3 (e) {
+          this.selectedValue3 = e
+          this.$message({
+            message: e
+          });
+        },
+        selectValueHandle4 (e) {
+          this.selectedValue4 = e
+          this.$message({
+            message: e
+          });
+        },
+        selectValueHandle5 (e) {
+          this.selectedValue5 = e
+          this.$message({
+            message: e
+          });
+        },
+        clearValueHandle () {
+          this.selectedValue4 = ''
         }
+      }
     }
 </script>

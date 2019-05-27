@@ -1,122 +1,146 @@
 <template>
-  <!-- selector：list、trigger、clearable、size-->
-  <div class="lt-selector" v-click-outside="handleClose">
-    <div class="lt-selector__input" @mouseover="showClearable" @mouseout="closeClearable">
-      <input type="text" class="lt-selector__input-ipt" v-model="val" :style="SelectorStyle" @mouseover="hoverShow" @click="selectShowHandel"/>
-      <span v-if="!clearable || !hover || val == '请选择'" class="lt-selector__input-icon" @click="selectShowHandel"></span>
-      <span  @click="clearValueHandle">
-        <lt-icon type="ios-close" v-if="clearable && hover && val != '请选择'" class="lt-selector__clear" color="#9B9B9B"></lt-icon>
-      </span>
+  <div
+    class="lt-selector"
+    v-click-outside="clickCloseHandel"
+  >
+    <div
+      class="selector-input"
+      @mouseover="clearableShow"
+      @mouseout="clearableHidden"
+    >
+      <input
+        type="text"
+        class="input-ipt"
+        :placeholder="placeholder"
+        v-model="selectedValue"
+        :style="selectorStyle"
+        @mouseover="hoverShowHandel"
+        @click="clickShowHandel"
+      />
+      <!-- 下拉图标 -->
+      <lt-icon
+        v-if="!clearIconShow"
+        type="arrow-dropdown"
+        color="rgba(0,0,0,0.7)"
+        class="input-icon drop"
+        @click="clickShowHandel"
+      ></lt-icon>
+      <!-- 清除所选项图标 -->
+      <lt-icon
+        v-else
+        type="ios-close"
+        class="input-icon clear"
+        color="rgba(0,0,0,0.7)"
+        @click="$emit('clear-value')"
+      ></lt-icon>
     </div>
-    <!-- option：list、size -->
-    <lt-selector-option class="lt-selector__option" v-show="selectShow" :list="list" @value="selectValueHandle" :style="optionStyle"></lt-selector-option>
+    <!-- 下拉列表 -->
+    <ul
+      v-show="optionShow"
+      class="lt-option"
+      :style="listStyle"
+    >
+      <slot></slot>
+    </ul>
   </div>
 </template>
 
 <script>
-// import selectOption from './option'
-import {directive as clickOutside} from 'v-click-outside-x';
+import { directive as clickOutside } from 'v-click-outside-x';
 export default {
   name: 'Selector',
-  // components: { selectOption },
   directives: { clickOutside },
   data () {
     return {
-      selectShow: false,
-      hover: false,
-      val: '请选择'
+      optionShow: false,
+      isHover: false //  select框正在被hover
     }
   },
   props: {
-    list: {
-      type: Array,
-      required: true
+    selectedValue: {
+      type: String
     },
-    trigger:{
+    placeholder: {
       type: String,
-      default: 'click'
+      default: '请选择'
     },
-    clearable: {
-      type: Boolean,
-      default: false
-    },
-    size: {
+    selectorSize: {
       type: Object,
       default () {
         return {
-          width: '200px',
-          height: '30px'
+          width: '190px',
+          height: '40px'
         }
+      }
+    },
+    // 交互方式
+    trigger: {
+      type: String,
+      default: 'click'
+    },
+    // 是否可清除选项
+    clearable: {
+      type: Boolean,
+      default: false
+    }
+  },
+  watch: {
+    selectedValue (v) {
+      if (v) {
+        this.optionShow = false
       }
     }
   },
-  methods: {
-    selectValueHandle (value) {
-      this.val = value
-      this.selectShow = false
-      this.$emit('selectedValue', value)
-    },
-    clearValueHandle () {
-      this.list.forEach(element => {
-        element.isClick = false
-      });
-      this.val = '请选择'
-    },
-    handleClose () {
-      if(this.selectShow){
-        this.selectShow = false
-      }
-    },
-    hoverShow () {
-      this.hover = true
-      if(this.trigger == 'hover'){
-        this.selectShow = true
-      } else {
-        return
-      }
-    },
-    showClearable () {
-      this.hover = true
-    },
-    closeClearable () {
-      this.hover = false
-    },
-    selectShowHandel () {
-      if(this.trigger == 'click'){
-        this.selectShow = !this.selectShow
-      } else {
-        return
-      }
-    },
-  },
   computed: {
-    inputIcon () {
+    selectorStyle () {
       return {
-        'lt-input__triangle--down': this.selectShow == false,
-        'lt-input__triangle--up': this.selectShow == true
+        ...this.selectorSize
       }
     },
-    SelectorStyle () {
+    listStyle () {
       return {
-        ...this.size
+        'width': this.selectorSize.widthw
       }
     },
-    optionStyle () {
-      return {
-        width: this.size.width,
-        'margin-left': '15px'
+    clearIconShow () {
+      return this.clearable &&
+        this.isHover &&
+        this.selectedValue !== this.placeholder &&
+        this.selectedValue !== ''
+    }
+  },
+  methods: {
+    // 显示清除选项图标
+    clearableShow () {
+      this.isHover = true
+    },
+    // 隐藏清除选项图标
+    clearableHidden () {
+      this.isHover = false
+    },
+    // 点击方式展开下拉列表
+    clickShowHandel () {
+      if (this.trigger !== 'click') return
+      this.optionShow = !this.optionShow
+    },
+    // 点击空白处关闭下拉列表
+    clickCloseHandel () {
+      if (this.optionShow) {
+        this.optionShow = false
       }
+    },
+    // hover方式展开下拉列表
+    hoverShowHandel () {
+      if (this.trigger !== 'hover') return
+      this.optionShow = true
+      this.isHover = true
+    },
+
+    // 暂时没想到解决办法  todo
+    hoverCloseHandel () {
+      if (this.trigger !== 'hover') return
+      this.optionShow = false
     }
   }
 }
 </script>
-<style>
-  .lt-option{
-    position: absolute;
-    z-index: 900;
-    background: #fff;
-  }
-  .lt-option__li--click{
-    color: #5EA2FF !important;
-  }
-</style>
