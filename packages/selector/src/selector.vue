@@ -1,7 +1,7 @@
 <template>
   <div
     class="lt-selector"
-    v-click-outside="clickCloseHandel"
+    v-click-outside="clickClose"
   >
     <div
       class="selector-input"
@@ -14,8 +14,8 @@
         :placeholder="placeholder"
         v-model="selectedValue"
         :style="selectorStyle"
-        @mouseover="hoverShowHandel"
-        @click="clickShowHandel"
+        @mouseover="hoverShow"
+        @click="clickShow"
       />
       <!-- 下拉图标 -->
       <lt-icon
@@ -23,7 +23,7 @@
         type="arrow-dropdown"
         color="rgba(0,0,0,0.7)"
         class="input-icon drop"
-        @click="clickShowHandel"
+        @click="clickShow"
       ></lt-icon>
       <!-- 清除所选项图标 -->
       <lt-icon
@@ -31,7 +31,7 @@
         type="ios-close"
         class="input-icon clear"
         color="rgba(0,0,0,0.7)"
-        @click="$emit('clear-value')"
+        @click="clearValue"
       ></lt-icon>
     </div>
     <!-- 下拉列表 -->
@@ -40,26 +40,26 @@
       class="lt-option"
       :style="listStyle"
     >
-      <slot></slot>
+      <slot
+
+      ></slot>
     </ul>
   </div>
 </template>
 
 <script>
-import { directive as clickOutside } from 'v-click-outside-x';
+import { directive as clickOutside } from 'v-click-outside-x'
 export default {
   name: 'Selector',
   directives: { clickOutside },
   data () {
     return {
+      selectedValue: '',
       optionShow: false,
       isHover: false //  select框正在被hover
     }
   },
   props: {
-    selectedValue: {
-      type: String
-    },
     placeholder: {
       type: String,
       default: '请选择'
@@ -84,13 +84,6 @@ export default {
       default: false
     }
   },
-  watch: {
-    selectedValue (v) {
-      if (v) {
-        this.optionShow = false
-      }
-    }
-  },
   computed: {
     selectorStyle () {
       return {
@@ -109,6 +102,14 @@ export default {
         this.selectedValue !== ''
     }
   },
+  mounted() {
+    this.$on('on-selected', (val) => {
+      if (val) {
+        this.selectedValue = val
+        this.optionShow = false
+      }
+    })
+  },
   methods: {
     // 显示清除选项图标
     clearableShow () {
@@ -118,26 +119,31 @@ export default {
     clearableHidden () {
       this.isHover = false
     },
+    // 清除所选项
+    clearValue() {
+      this.selectedValue = ''
+      this.$emit('clear-value')
+    },
     // 点击方式展开下拉列表
-    clickShowHandel () {
+    clickShow () {
       if (this.trigger !== 'click') return
       this.optionShow = !this.optionShow
     },
     // 点击空白处关闭下拉列表
-    clickCloseHandel () {
+    clickClose () {
       if (this.optionShow) {
         this.optionShow = false
       }
     },
     // hover方式展开下拉列表
-    hoverShowHandel () {
+    hoverShow () {
       if (this.trigger !== 'hover') return
       this.optionShow = true
       this.isHover = true
     },
 
     // 暂时没想到解决办法  todo
-    hoverCloseHandel () {
+    hoverClose () {
       if (this.trigger !== 'hover') return
       this.optionShow = false
     }
