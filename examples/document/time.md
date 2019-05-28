@@ -118,7 +118,7 @@ export default {
 ```
 
 :::
-#### 相对时间内的日期,本年内的日期不显示年
+#### 相对时间内的日期，本年内的日期不显示年
 
 
 ::: demo demo :::
@@ -150,10 +150,10 @@ export default {
 
 属性|说明|类型|默认值
 ---|---|---|---
-time|需要对比的时间，可以是时间戳或 Date 类型|Number 、 Date 、 String|-
+time|需要对比的时间，可以是时间戳或 Date 类型|Number\|Date\|String|-
 type|类型，可选值为 relative、date 或 datetime|String|relative
 interval|自动更新的间隔，单位：秒|Number|60
-days|在相对时间内限制显示最高的天数,在date或者datetime类型内无效|Number|0
+days|在相对时间内限制显示最高的天数，在 date 或者 datetime 类型内无效|Number|0
 
 
 ::::vuecode::::
