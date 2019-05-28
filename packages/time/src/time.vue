@@ -31,6 +31,10 @@ export default {
     interval: {
       type: Number,
       default: 60
+    },
+    days: {
+      type: Number,
+      default: 0
     }
   },
   methods: {
@@ -48,7 +52,7 @@ export default {
       }
 
       if (this.type === 'relative') {
-        this.date = Time(time)
+        this.date = Time(time, this.days)
       } else {
         const date = new Date(this.time)
         const year = date.getFullYear()
