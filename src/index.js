@@ -38,6 +38,7 @@ import { Selector, SelectorOption } from '../packages/selector/index.js'
 // import Option from '../packages/select-option/index.js'
 import Form from '../packages/form/index.js'
 import FormItem from '../packages/form-item/index.js'
+import Time from '../packages/time/index.js'
 
 const prefix = 'Lt'
 
@@ -82,7 +83,8 @@ const packages = {
   Selector,
   SelectorOption,
   Form,
-  FormItem
+  FormItem,
+  Time
 }
 
 /* eslint-disable */
