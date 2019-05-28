@@ -13,12 +13,17 @@
 
 ::: demo demo :::
 ```html
-<LtTime :time="time1"></LtTime>
-  <br>
-<LtTime :time="time2"></LtTime>
-  <br>
-<LtTime :time="time3"></LtTime>
-  <br>
+<template>
+    <div>
+        <LtTime :time="time1"></LtTime>
+            <br>
+        <LtTime :time="time2"></LtTime>
+            <br>
+        <LtTime :time="time3"></LtTime>
+            <br>
+    </div>
+</template>
+
 <script>
 export default {
   data() {
@@ -39,12 +44,16 @@ export default {
 
 ::: demo demo :::
 ```html
-<LtTime :time="time2"></LtTime>
-  <br>
-<LtTime :time="time2" type="date"></LtTime>
-  <br>
-<LtTime :time="time2" type="datetime"></LtTime>
-  <br>
+<template>
+    <div>
+        <LtTime :time="time2"></LtTime>
+            <br>
+        <LtTime :time="time2" type="date"></LtTime>
+            <br>
+        <LtTime :time="time2" type="datetime"></LtTime>
+            <br>
+    </div>
+</template>
 <script>
 export default {
   data() {
@@ -63,10 +72,14 @@ export default {
 
 ::: demo demo :::
 ```html
-<LtTime :time="time4" :interval="1"></LtTime>
-  <br>
-<LtTime :time="time4" :interval="5"></LtTime>
-  <br>
+<template>
+    <div>
+        <LtTime :time="time4" :interval="1"></LtTime>
+            <br>
+        <LtTime :time="time4" :interval="5"></LtTime>
+            <br>
+    </div>
+</template>
 <script>
 export default {
   data() {
@@ -84,10 +97,15 @@ export default {
 
 ::: demo demo :::
 ```html
-<LtTime :time="time2" :days="3"></LtTime>
-  <br>
-<LtTime :time="time2"></LtTime>
-  <br>
+<template>
+    <div>
+        <LtTime :time="time2" :days="3"></LtTime>
+            <br>
+        <LtTime :time="time2"></LtTime>
+            <br>
+    </div>
+</template>
+
 <script>
 export default {
   data() {
@@ -105,10 +123,14 @@ export default {
 
 ::: demo demo :::
 ```html
-<LtTime :time="time3"></LtTime>
-  <br>
-<LtTime :time="time5"></LtTime>
-  <br>
+<template>
+    <div>
+        <LtTime :time="time3"></LtTime>
+            <br>
+        <LtTime :time="time5"></LtTime>
+            <br>
+    </div>
+</template>
 <script>
 export default {
   data() {
