@@ -8,6 +8,8 @@
 
 #### 基础用法
 
+设置一个时间戳或 Date，可自动转为相对于当前的时间。
+
 
 ::: demo demo :::
 ```html
@@ -15,22 +17,111 @@
   <br>
 <LtTime :time="time2"></LtTime>
   <br>
-<LtTime :time="time4" :days="3"></LtTime>
+<LtTime :time="time3"></LtTime>
   <br>
-<LtTime :time="time3" :interval="1"></LtTime>
+<script>
+export default {
+  data() {
+    return {
+      time1: (new Date()).getTime() - 60 * 3 * 1000,
+      time2: (new Date()).getTime() - 86400 * 3 * 1000,
+      time3: '2019-01-23 20:50:36.00',
+    }
+  },
+}
+  </script>
+```
+:::
+#### 不同类型
+
+可以根据情况，设置不同的显示类型。
+
+
+::: demo demo :::
+```html
+<LtTime :time="time2"></LtTime>
   <br>
-<LtTime :time="time3" type="date"></LtTime>
+<LtTime :time="time2" type="date"></LtTime>
   <br>
-<LtTime :time="time3" type="datetime"></LtTime>
+<LtTime :time="time2" type="datetime"></LtTime>
+  <br>
+<script>
+export default {
+  data() {
+    return {
+      time2: (new Date()).getTime() - 86400 * 3 * 1000,
+    }
+  },
+}
+  </script>
+```
+
+:::
+#### 自动更新间隔 
+
+设置自动更新间隔，默认为 60 秒。
+
+::: demo demo :::
+```html
+<LtTime :time="time4" :interval="1"></LtTime>
+  <br>
+<LtTime :time="time4" :interval="5"></LtTime>
+  <br>
+<script>
+export default {
+  data() {
+    return {
+      time4: new Date(),
+    }
+  },
+}
+  </script>
+```
+:::
+#### 限制相对时间最高显示天数 
+
+默认不限制
+
+::: demo demo :::
+```html
+<LtTime :time="time2" :days="3"></LtTime>
+  <br>
+<LtTime :time="time2"></LtTime>
+  <br>
+<script>
+export default {
+  data() {
+    return {
+      time2: (new Date()).getTime() - 86400 * 3 * 1000,
+    }
+  },
+}
+  </script>
+```
+
+:::
+#### 相对时间内的日期,本年内的日期不显示年
+
+
+::: demo demo :::
+```html
+<LtTime :time="time3"></LtTime>
   <br>
 <LtTime :time="time5"></LtTime>
   <br>
-<LtTime :time="time6"></LtTime>
-  <br>
-  
+<script>
+export default {
+  data() {
+    return {
+     time3: '2019-01-23 20:50:36.00',
+     time5: '2018-09-23 12:32:25.00',
+    }
+  },
+}
+  </script>
 ```
-:::
 
+:::
 ### API
 
 #### Time props
@@ -40,7 +131,7 @@
 time|需要对比的时间，可以是时间戳或 Date 类型|Number 、 Date 、 String|-
 type|类型，可选值为 relative、date 或 datetime|String|relative
 interval|自动更新的间隔，单位：秒|Number|60
-days|再相对时间内限制最高显示的天数内，如值为3的话 ，就是3天内的设计|Number|0
+days|在相对时间内限制显示最高的天数,在date或者datetime类型内无效|Number|0
 
 
 ::::vuecode::::
@@ -50,10 +141,9 @@ export default {
     return {
       time1: (new Date()).getTime() - 60 * 3 * 1000,
       time2: (new Date()).getTime() - 86400 * 3 * 1000,
-      time3: new Date(),
-      time4: (new Date()).getTime() - 86400 * 2 * 1000,
-       time5: (new Date()).getTime() - 86400 * 110 * 1000,
-        time6: (new Date()).getTime() - 86400 * 210 * 1000,
+      time3: '2019-01-23 20:50:36.00',
+      time4: new Date(),
+      time5: '2018-09-23 12:32:25.00',
     }
   },
 

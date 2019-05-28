@@ -24,7 +24,8 @@ const isCurrent = (timeStamp, currentTime) => {
 }
 /**
  * @param {Number} timeStamp 传入的时间戳
- * @param {Number} startType 要返回的时间字符串的格式类型，传入'year'则返回年开头的完整时间
+ * @param {Number} startType 要返回的时间字符串的格式类型，
+ * 传入'year'则返回年月日,传入'noYear'则返回月日,不传则返回完整的年月日
  */
 const getDate = (timeStamp, startType) => {
   const d = new Date(timeStamp)
