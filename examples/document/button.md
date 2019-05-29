@@ -38,7 +38,7 @@
 ::: demo demo
 ```html
    <lt-button type="primary" shape="circle" icon="recycle"></lt-button>
-   <lt-button type="primary" icon="recycle">删除</lt-button>
+   <lt-button type="primary" icon="recycle" icon-size="14">删除</lt-button>
    <lt-button type="primary" shape="circle" icon="recycle">删除</lt-button>
    <lt-button type="primary" shape="circle">Circle</lt-button>
    <br><br>
@@ -275,6 +275,7 @@ html-type|设置`button`原生的`type`，可选值为`button`、`submit`、`res
 disabled|设置按钮为禁用状态|Boolean|false
 loading|设置按钮为加载中状态|Boolean|false
 icon|设置按钮的图标类型|String|-
+icon-size|设置按钮的图标大小|String|16
 
 #### ButtonGroup props
 

@@ -4,8 +4,8 @@
             :class="classes"
             :disabled="disabled"
             @click="handleClick">
-        <Icon class="lt-load-loop" type="load-c" v-if="loading"></Icon>
-        <Icon :type="icon" v-if="icon && !loading"></Icon>
+        <Icon class="lt-load-loop" type="load-c" :size="iconSize" v-if="loading"></Icon>
+        <Icon :type="icon" :size="iconSize" v-if="icon && !loading"></Icon>
         <span v-if="showSlot" ref="slot"><slot></slot></span>
     </button>
 </template>
@@ -43,6 +43,10 @@
         }
       },
       icon: String,
+      iconSize: {
+        type: String,
+        default: '16'
+      },
       long: {
         type: Boolean,
         default: false

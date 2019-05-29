@@ -103,6 +103,9 @@
                   <LtMenuItem href="/selector">
                     <span>Selector 选择器</span>
                   </LtMenuItem>
+                  <LtMenuItem href="/time">
+                    <span>Time 相对时间</span>
+                  </LtMenuItem>
                 </LtMenuItemGroup>
                 <LtMenuItemGroup title="规范文档">
                   <LtMenuItem href="/classstandard">
