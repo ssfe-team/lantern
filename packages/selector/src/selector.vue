@@ -21,7 +21,7 @@
       <lt-icon
         v-if="!clearIconShow"
         type="arrow-dropdown"
-        color="rgba(0,0,0,0.7)"
+        color="rgba(0,0,0,0.56)"
         class="input-icon drop"
         @click="clickShow"
       ></lt-icon>
@@ -30,7 +30,7 @@
         v-else
         type="ios-close"
         class="input-icon clear"
-        color="rgba(0,0,0,0.7)"
+        color="rgba(0,0,0,0.56)"
         @click="clearValue"
       ></lt-icon>
     </div>

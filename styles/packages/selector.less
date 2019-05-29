@@ -14,15 +14,18 @@
   .input-ipt {
     .flex;
     outline: none;
-    border: 1px solid rgba(0,0,0,0.60);
+    border: 1px solid rgba(0,0,0,0.10);
     border-radius: 4px;
     padding-left: 10px;
     font-size: 14px;
     box-sizing: border-box;
     cursor: pointer;
+    &:hover {
+      border: 1px solid rgba(0,0,0,0.60);
+    }
     &:focus {
-      border-color: @mainColor1;
-      box-shadow: 0 0 0 3px rgba(7,17,27,0.08);
+      border-color: @primary-color;
+      box-shadow: 0 0 0 2px rgba(7, 174, 252, .1);
     }
   }
   .input-icon {
