@@ -2,7 +2,7 @@
     @checkbox-inner-prefix-cls: ~"@{checkbox-prefix-cls}-inner";
 
     .@{checkbox-prefix-cls}-focus {
-        box-shadow: 0 0 0 2px fade(@primary-color, 20%);
+        // box-shadow: 0 0 0 2px fade(@primary-color, 20%);
         z-index: 1;
     }
 
@@ -22,7 +22,7 @@
 
         &:hover {
             .@{checkbox-inner-prefix-cls} {
-                border-color: #0773FC;
+                border-color: @border-color-hover;
                 //border-color: #bcbcbc;
             }
         }
