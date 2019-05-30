@@ -17,6 +17,9 @@ export default {
       type: [Object, String],
       required: true
     },
+    defaultValue: {
+      type: [Object, String]
+    },
     isActive: {
       type: Boolean,
       default: false
@@ -37,13 +40,21 @@ export default {
       }
     },
     getValue () {
-      return typeof this.value === 'object' ? this.value.label : this.value
+      return this.value === 'object' ? this.value.label : this.value
+    }
+  },
+  mounted() {
+    if (this.defaultValue) {
+      let value = ''
+      value = typeof this.defaultValue === 'object' ? this.defaultValue.label : this.defaultValue
+      this.$emit('select-value', value)
+      this.dispatch('Selector', 'on-selected', value)
     }
   },
   methods: {
     selectValueHandle (item) {
       if (item.disabled) return
-      let value
+      let value = ''
       value = typeof this.value === 'object' ? item.label : item
       this.$emit('select-value', value)
 

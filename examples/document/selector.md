@@ -19,6 +19,7 @@
       :key="index"
       :isActive="selectedIndex1 === index"
       :value="item"
+      defaultValue="西宁"
       @select-value="selectValueHandle1"
     ></lt-option>
   </lt-selector>
@@ -263,6 +264,7 @@ selectorSize | 选择器尺寸 | Object | 190 x 40
 属性|说明|类型|默认值
 ---|---|---|---|---
 value | 列表中将要显示的名称 | String / Object | -
+defaultValue | 默认选中的项 | String / Object | -
 disabled | 禁用该项 | Boolean | false
 optionSize | 列表项尺寸 | Object | 190 x 32
 isActive | 选中高亮 | Boolean | false

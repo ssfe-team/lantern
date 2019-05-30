@@ -40,9 +40,7 @@
       class="lt-option"
       :style="listStyle"
     >
-      <slot
-
-      ></slot>
+      <slot></slot>
     </ul>
   </div>
 </template>
@@ -102,7 +100,7 @@ export default {
         this.selectedValue !== ''
     }
   },
-  mounted() {
+  beforeCreate () {
     this.$on('on-selected', (val) => {
       if (val) {
         this.selectedValue = val
