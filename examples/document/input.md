@@ -5,7 +5,7 @@
 :::demo demo
 ```html
   <div>
-    <LtInput v-model="inputValue" />
+    <LtInput v-model="inputValue" :autofocus="true" />
     <LtButton type="primary" @click="reset">清空</LtButton>
   </div>
 ```

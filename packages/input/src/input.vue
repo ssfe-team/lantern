@@ -10,6 +10,7 @@
       :type="type"
       :disabled="this.disabled"
       :readonly="this.readonly"
+      :autofocus="autofocus"
       :maxlength="this.maxlength"
       :placeholder="this.placeholder"
       v-model="inputValue"
@@ -23,6 +24,7 @@
       :class="{disabled: this.disabled}"
       :disabled="this.disabled"
       :readonly="this.readonly"
+      :autofocus="autofocus"
       :maxlength="this.maxlength"
       :placeholder="this.placeholder"
       :rows="this.rows"
@@ -78,6 +80,10 @@ export default {
       default: false
     },
     readonly: {
+      type: Boolean,
+      default: false
+    },
+    autofocus: {
       type: Boolean,
       default: false
     },
