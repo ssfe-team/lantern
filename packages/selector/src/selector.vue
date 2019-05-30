@@ -92,7 +92,7 @@ export default {
     },
     listStyle () {
       return {
-        'width': this.selectorSize.widthw
+        'width': this.selectorSize.width
       }
     },
     clearIconShow () {

@@ -25,7 +25,6 @@ export default {
       type: Object,
       default () {
         return {
-          width: '190px',
           height: '32px'
         }
       }
