@@ -10,9 +10,11 @@
       :type="type"
       :disabled="this.disabled"
       :readonly="this.readonly"
+      :autofocus="autofocus"
       :maxlength="this.maxlength"
       :placeholder="this.placeholder"
       v-model="inputValue"
+      @keyup.enter="handleEnter"
       @blur="handleBlur"
       @change="$emit('change', $event.target.value)"
       @input="handleInput"
@@ -23,10 +25,12 @@
       :class="{disabled: this.disabled}"
       :disabled="this.disabled"
       :readonly="this.readonly"
+      :autofocus="autofocus"
       :maxlength="this.maxlength"
       :placeholder="this.placeholder"
       :rows="this.rows"
       v-model="inputValue"
+      @keyup.enter="handleEnter"
       @change="$emit('change', $event.target.value)"
     />
     <span
@@ -81,6 +85,10 @@ export default {
       type: Boolean,
       default: false
     },
+    autofocus: {
+      type: Boolean,
+      default: false
+    },
     number: {
       type: Boolean,
       default: false
@@ -101,6 +109,9 @@ export default {
     }
   },
   methods: {
+    handleEnter (event) {
+      this.$emit('on-enter', event)
+    },
     handleBlur (event) {
       this.$emit('on-blur', event)
       if (!findComponentUpward(this, ['DatePicker', 'TimePicker', 'Cascader', 'Search'])) {
