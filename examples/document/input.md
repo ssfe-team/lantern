@@ -54,8 +54,9 @@ rows|行数（只有在type为textarea才生效）|String , Number|-|4
 
 事件名|说明|回调参数
 --------|--------|--------
-blur|input失去焦点触发|event
-focus|input得到焦点触发|event
+on-blur|input失去焦点触发|event
+on-enter|按回车触发|event
+input|输入时触发|event
 change|input值更改触发|value: input的value值
 
 ::::vuecode::::

@@ -14,6 +14,7 @@
       :maxlength="this.maxlength"
       :placeholder="this.placeholder"
       v-model="inputValue"
+      @keyup.enter="handleEnter"
       @blur="handleBlur"
       @change="$emit('change', $event.target.value)"
       @input="handleInput"
@@ -29,6 +30,7 @@
       :placeholder="this.placeholder"
       :rows="this.rows"
       v-model="inputValue"
+      @keyup.enter="handleEnter"
       @change="$emit('change', $event.target.value)"
     />
     <span
@@ -107,6 +109,9 @@ export default {
     }
   },
   methods: {
+    handleEnter (event) {
+      this.$emit('on-enter', event)
+    },
     handleBlur (event) {
       this.$emit('on-blur', event)
       if (!findComponentUpward(this, ['DatePicker', 'TimePicker', 'Cascader', 'Search'])) {
