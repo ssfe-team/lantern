@@ -19,7 +19,6 @@
       :key="index"
       :isActive="selectedIndex1 === index"
       :value="item"
-      defaultValue="西宁"
       @select-value="selectValueHandle1"
     ></lt-option>
   </lt-selector>
@@ -30,6 +29,7 @@
       return {
         list: ['北京','上海','深圳','西宁','南阳']
         selectedIndex1: -1,
+        defaultValue: ''
       },
       methods: {
         selectValueHandle1 (e) {
@@ -41,6 +41,9 @@
               this.selectedIndex1 = i
             }
           }
+        },
+        getDefaultValue () {
+          this.defaultValue = '西宁'
         }
       }
     }
@@ -248,6 +251,56 @@
 ```
 :::
 
+### 默认选中项，更改选中项
+
+可以设置`defaultValue`默认选中项，后续可更改。
+
+:::demo demo
+```html
+
+<template>
+  <lt-button @click="getDefaultValue">选择西宁</lt-button>
+  <lt-selector>
+    <lt-option
+      v-for="(item, index) in list"
+      :key="index"
+      :isActive="selectedIndex1 === index"
+      :value="item"
+      :defaultValue="defaultValue"
+      @select-value="selectValueHandle1"
+    ></lt-option>
+  </lt-selector>
+</template>
+<script>
+  export default {
+    data () {
+      return {
+        list: ['北京','上海','深圳','西宁','南阳']
+        selectedIndex1: -1,
+        defaultValue: '深圳'
+      },
+      methods: {
+        selectValueHandle1 (e) {
+          this.$message({
+            message: e
+          });
+          for (let i=0; i<this.list.length; i++) {
+            if (this.list[i] === e) {
+              this.selectedIndex1 = i
+            }
+          }
+        },
+        getDefaultValue () {
+          this.defaultValue = '西宁'
+        }
+      }
+    }
+  }
+</script>
+```
+:::
+
+
 ### API
 
 #### selector props
@@ -264,12 +317,12 @@ selectorSize | 选择器尺寸 | Object | 190 x 40
 属性|说明|类型|默认值
 ---|---|---|---|---
 value | 列表中将要显示的名称 | String / Object | -
-defaultValue | 默认选中的项 | String / Object | -
+defaultValue | 默认选中的项（后续可更改） | String / Object | -
 disabled | 禁用该项 | Boolean | false
 optionSize | 列表项尺寸 | Object | 190 x 32
 isActive | 选中高亮 | Boolean | false
 
-#### selector evevt 说明
+#### option evevt 说明
 
 事件名|说明|返回值
 ---|---|---
@@ -314,6 +367,7 @@ export default {
       selectedIndex3: -1,
       selectedIndex4: -1,
       selectedIndex5: -1,
+      defaultValue: '深圳',
 
     }
   },
@@ -370,6 +424,9 @@ export default {
     },
     clearValueHandle () {
       this.selectedIndex4 = -1
+    },
+    getDefaultValue () {
+      this.defaultValue = '西宁'
     }
   }
 }

@@ -43,6 +43,16 @@ export default {
       return this.value === 'object' ? this.value.label : this.value
     }
   },
+  watch: {
+    defaultValue (v) {
+      if (v) {
+        let value = ''
+        value = typeof v === 'object' ? v.label : v
+        this.$emit('select-value', value)
+        this.dispatch('Selector', 'on-selected', value)
+      }
+    }
+  },
   mounted() {
     if (this.defaultValue) {
       let value = ''
