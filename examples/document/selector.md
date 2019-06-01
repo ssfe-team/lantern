@@ -308,6 +308,7 @@
 ```html
 
 <template>
+ <lt-button @click="getDefaultStudentValue">选择二麻子</lt-button>
   <lt-selector>
     <lt-option
       v-for="(item, index) in students"
@@ -315,6 +316,7 @@
       :isActive="studentIndex === index"
       :value="item"
       suffix='name'
+      :defaultValue="defaultStudentVal"
       @select-value="selecetStudent"
     ></lt-option>
   </lt-selector>
@@ -346,6 +348,7 @@
                 },
               ]
         studentIndex: -1,
+        defaultStudentVal: { name:'小红', age: 13 },
       },
       methods: {
         selecetStudent (e) {
@@ -358,6 +361,9 @@
             }
           }
         },
+        getDefaultStudentValue () {
+          this.defaultStudentVal = { name:'李二麻子',age: 22 }
+        }
       }
     }
   }
@@ -456,6 +462,7 @@ export default {
       selectedIndex5: -1,
       studentIndex: -1,
       defaultValue: '深圳',
+      defaultStudentVal: { name:'小红', age: 13 },
 
     }
   },
@@ -525,6 +532,9 @@ export default {
     },
     getDefaultValue () {
       this.defaultValue = '西宁'
+    },
+    getDefaultStudentValue () {
+       this.defaultStudentVal = { name:'李二麻子',age: 22 }
     }
   }
 }

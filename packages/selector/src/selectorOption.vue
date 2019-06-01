@@ -50,8 +50,8 @@ export default {
     defaultValue (v) {
       if (v) {
         let value = ''
-        value = typeof v === 'object' ? v.label : v
-        this.$emit('select-value', value)
+        value = typeof v === 'object' ? (v.label || v[this.suffix]) : v
+        this.$emit('select-value', v)
         this.dispatch('Selector', 'on-selected', value)
       }
     }
@@ -60,7 +60,7 @@ export default {
     if (this.defaultValue) {
       let value = ''
       value = typeof this.defaultValue === 'object' ? (this.defaultValue.label || this.defaultValue[this.suffix]) : this.defaultValue
-      this.$emit('select-value', value)
+      this.$emit('select-value', this.defaultValue)
       this.dispatch('Selector', 'on-selected', value)
     }
   },
