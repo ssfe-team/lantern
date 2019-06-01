@@ -300,6 +300,70 @@
 ```
 :::
 
+### 设置显示对象内属性的值
+
+可以设置`suffix`设置。
+
+:::demo demo
+```html
+
+<template>
+  <lt-selector>
+    <lt-option
+      v-for="(item, index) in students"
+      :key="index"
+      :isActive="studentIndex === index"
+      :value="item"
+      suffix='name'
+      @select-value="selecetStudent"
+    ></lt-option>
+  </lt-selector>
+</template>
+<script>
+  export default {
+    data () {
+      return {
+        students: [
+                {
+                  name:'张山',
+                  age: 18
+                },
+                {
+                  name:'李四',
+                  age: 19
+                },
+                {
+                  name:'王五',
+                  age: 16
+                },
+                {
+                  name:'李二麻子',
+                  age: 22
+                },
+                {
+                  name:'小红',
+                  age: 13
+                },
+              ]
+        studentIndex: -1,
+      },
+      methods: {
+        selecetStudent (e) {
+          this.$message({
+            message: e
+          });
+          for (let i=0; i<this.students.length; i++) {
+            if (this.students[i].name === e) {
+              this.studentIndex = i
+            }
+          }
+        },
+      }
+    }
+  }
+</script>
+```
+:::
 
 ### API
 
@@ -321,12 +385,13 @@ defaultValue | 默认选中的项（后续可更改） | String / Object | -
 disabled | 禁用该项 | Boolean | false
 optionSize | 列表项尺寸 | Object | 190 x 32
 isActive | 选中高亮 | Boolean | false
+suffix | 传入对象后显示对象内属性的值 | String | false
 
 #### option evevt 说明
 
 事件名|说明|返回值
 ---|---|---
-select-value | 返回选中的列表项的值 | 当前选中项
+select-value | 返回选中的列表项的值(根据你传入的type) | 当前选中项
 clear-value | 清除选中的列表项 | -
 
 ::::vuecode::::
@@ -354,6 +419,28 @@ export default {
           label: '南阳'
         }
       ],
+      students: [
+        {
+          name:'张山',
+          age: 18
+        },
+        {
+          name:'李四',
+          age: 19
+        },
+        {
+          name:'王五',
+          age: 16
+        },
+        {
+          name:'李二麻子',
+          age: 22
+        },
+        {
+          name:'小红',
+          age: 13
+        },
+      ],
       selectorSize: {
         width: '100px',
         height: '25px'
@@ -367,6 +454,7 @@ export default {
       selectedIndex3: -1,
       selectedIndex4: -1,
       selectedIndex5: -1,
+      studentIndex: -1,
       defaultValue: '深圳',
 
     }
@@ -421,6 +509,16 @@ export default {
           this.selectedIndex5 = i
         }
       }
+    },
+    selecetStudent (e) {
+      this.$message({
+        message: e
+      });
+      for (let i=0; i<this.students.length; i++) {
+        if (this.students[i].name === e) {
+          this.studentIndex = i
+          }
+        }
     },
     clearValueHandle () {
       this.selectedIndex4 = -1

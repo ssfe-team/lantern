@@ -31,6 +31,9 @@ export default {
           height: '32px'
         }
       }
+    },
+    suffix: {
+      type: String
     }
   },
   computed: {
@@ -40,7 +43,7 @@ export default {
       }
     },
     getValue () {
-      return this.value === 'object' ? this.value.label : this.value
+      return typeof this.value === 'object' ? (this.value.label || this.value[this.suffix]) : this.value
     }
   },
   watch: {
@@ -56,7 +59,7 @@ export default {
   mounted() {
     if (this.defaultValue) {
       let value = ''
-      value = typeof this.defaultValue === 'object' ? this.defaultValue.label : this.defaultValue
+      value = typeof this.defaultValue === 'object' ? (this.defaultValue.label || this.defaultValue[this.suffix]) : this.defaultValue
       this.$emit('select-value', value)
       this.dispatch('Selector', 'on-selected', value)
     }
@@ -65,8 +68,8 @@ export default {
     selectValueHandle (item) {
       if (item.disabled) return
       let value = ''
-      value = typeof this.value === 'object' ? item.label : item
-      this.$emit('select-value', value)
+      value = typeof this.value === 'object' ? (item.label || item[this.suffix]) : item
+      this.$emit('select-value', item)
 
       this.dispatch('Selector', 'on-selected', value)
     }
