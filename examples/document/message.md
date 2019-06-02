@@ -156,6 +156,8 @@ import { Message } from 'lantern-ui';
 | dangerouslyUseHTMLString | 是否将 message 属性作为 HTML 片段处理 | boolean | — | false |
 | customClass | 自定义类名 | string | — | — |
 | duration | 显示时间, 毫秒。设为 0 则不会自动关闭 | number | — | 3000 |
+|appendText|后置按钮文字|string|-|-|
+|onClickAppendText|点击后置按钮时的回调函数|function|-|-
 | showClose | 是否显示关闭按钮 | boolean | — | false |
 | center | 文字是否居中 | boolean | — | false |
 | onClose | 关闭时的回调函数, 参数为被关闭的 message 实例 | function | — | — |
