@@ -124,6 +124,8 @@ export default {
         'template',
         'manage',
         'brand',
+        'move',
+        'increase',
       ]
     }
   }
