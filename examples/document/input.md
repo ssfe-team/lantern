@@ -38,6 +38,18 @@
 ```
 :::
 
+### 禁止拖拽状态
+
+通过添加`disabled`属性可设置为不可用状态。
+
+::: demo demo
+```html
+  <div style="width: 300px">
+    <lt-input type="textarea" drag></lt-input>
+  </div>
+```
+:::
+
 ### Attributes
 
 参数|说明|类型|可选值|默认值
@@ -47,6 +59,7 @@ value|绑定值|String|-|-
 placeholder|输入框占位|String|-|请输入
 maxlength|最大输入长度|String/Number|-|-
 disabled|禁用输入框|Boolean|true/false|false
+drag|禁止拖拽（只有在type为textarea才生效）|Boolean|true/false|false
 readonly|只读|Boolean|true/false|false
 rows|行数（只有在type为textarea才生效）|String , Number|-|4
 
