@@ -22,7 +22,7 @@
     <textarea
       v-else
       class="lt-textarea"
-      :class="{disabled: this.disabled}"
+      :class="{disabled: this.disabled, drag: this.drag}"
       :disabled="this.disabled"
       :readonly="this.readonly"
       :autofocus="autofocus"
@@ -78,6 +78,10 @@ export default {
       default: ''
     },
     disabled: {
+      type: Boolean,
+      default: false
+    },
+    drag: {
       type: Boolean,
       default: false
     },
