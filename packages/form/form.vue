@@ -1,5 +1,5 @@
 <template>
-  <form :class="classes" :autocomplete="autocomplete">
+  <form :class="classes" :autocomplete="autocomplete" @submit.prevent="handleSubmit">
     <slot></slot>
   </form>
 </template>
@@ -61,6 +61,9 @@ export default {
     }
   },
   methods: {
+    handleSubmit() {
+      return false
+    },
     resetFields () {
       this.fields.forEach(field => {
         field.resetField()
