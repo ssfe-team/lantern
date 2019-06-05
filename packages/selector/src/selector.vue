@@ -58,6 +58,9 @@ export default {
     }
   },
   props: {
+    defaultValue: {
+      type: [Object, String]
+    },
     placeholder: {
       type: String,
       default: '请选择'
@@ -100,13 +103,27 @@ export default {
         this.selectedValue !== ''
     }
   },
+  watch: {
+    defaultValue (v) {
+      console.log(this.defaultValue, 22222)
+      let value = ''
+      value = typeof v === 'object' ? (v.label || v[this.suffix]) : v
+      this.selectedValue = value
+    }
+  },
   beforeCreate () {
     this.$on('on-selected', (val) => {
-      if (val) {
-        this.selectedValue = val
-        this.optionShow = false
-      }
+      this.selectedValue = val
+      this.optionShow = false
     })
+  },
+  mounted() {
+    console.log(this.defaultValue, 11111)
+    if (this.defaultValue) {
+      let value = ''
+      value = typeof this.defaultValue === 'object' ? (this.defaultValue.label || this.defaultValue[this.suffix]) : this.defaultValue
+      this.selectedValue = value
+    }
   },
   methods: {
     // 显示清除选项图标

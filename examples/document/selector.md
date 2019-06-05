@@ -29,7 +29,6 @@
       return {
         list: ['北京','上海','深圳','西宁','南阳']
         selectedIndex1: -1,
-        defaultValue: ''
       },
       methods: {
         selectValueHandle1 (e) {
@@ -42,9 +41,6 @@
             }
           }
         },
-        getDefaultValue () {
-          this.defaultValue = '西宁'
-        }
       }
     }
   }
@@ -259,15 +255,14 @@
 ```html
 
 <template>
-  <lt-button @click="getDefaultValue">选择西宁</lt-button>
-  <lt-selector>
+  <lt-button @click="getDefaultValue">置空选择</lt-button>
+  <lt-selector :defaultValue="defaultValue">
     <lt-option
       v-for="(item, index) in list"
       :key="index"
       :isActive="selectedIndex1 === index"
       :value="item"
-      :defaultValue="defaultValue"
-      @select-value="selectValueHandle1"
+      @select-value="selectValueHandle6"
     ></lt-option>
   </lt-selector>
 </template>
@@ -280,7 +275,7 @@
         defaultValue: '深圳'
       },
       methods: {
-        selectValueHandle1 (e) {
+        selectValueHandle6 (e) {
           this.$message({
             message: e
           });
@@ -289,9 +284,10 @@
               this.selectedIndex1 = i
             }
           }
+          this.defaultValue = e
         },
         getDefaultValue () {
-          this.defaultValue = '西宁'
+          this.defaultValue = ''
         }
       }
     }
@@ -309,14 +305,13 @@
 
 <template>
  <lt-button @click="getDefaultStudentValue">选择二麻子</lt-button>
-  <lt-selector>
+  <lt-selector :defaultValue="defaultStudentVal">
     <lt-option
       v-for="(item, index) in students"
       :key="index"
       :isActive="studentIndex === index"
       :value="item"
       suffix='name'
-      :defaultValue="defaultStudentVal"
       @select-value="selecetStudent"
     ></lt-option>
   </lt-selector>
@@ -517,6 +512,17 @@ export default {
         }
       }
     },
+    selectValueHandle6 (e) {
+      this.$message({
+        message: e
+      });
+      for (let i=0; i<this.list.length; i++) {
+        if (this.list[i] === e) {
+          this.selectedIndex1 = i
+        }
+      }
+      this.defaultValue = e
+    },
     selecetStudent (e) {
       this.$message({
         message: e
@@ -531,7 +537,7 @@ export default {
       this.selectedIndex4 = -1
     },
     getDefaultValue () {
-      this.defaultValue = '西宁'
+      this.defaultValue = ''
     },
     getDefaultStudentValue () {
        this.defaultStudentVal = { name:'李二麻子',age: 22 }
