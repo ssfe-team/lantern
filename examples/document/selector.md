@@ -376,13 +376,13 @@ placeholder | 默认显示 | String | 请选择
 trigger | 触发方式 | String | click
 clearable | 清空选择项 | Boolean | false
 selectorSize | 选择器尺寸 | Object | 190 x 40
+defaultValue | 默认选中的项（后续可更改） | String / Object | -
 
 #### list props
 
 属性|说明|类型|默认值
 ---|---|---|---|---
 value | 列表中将要显示的名称 | String / Object | -
-defaultValue | 默认选中的项（后续可更改） | String / Object | -
 disabled | 禁用该项 | Boolean | false
 optionSize | 列表项尺寸 | Object | 190 x 32
 isActive | 选中高亮 | Boolean | false
