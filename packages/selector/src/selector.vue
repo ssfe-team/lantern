@@ -84,6 +84,9 @@ export default {
     clearable: {
       type: Boolean,
       default: false
+    },
+    suffix: {
+      type: String
     }
   },
   computed: {
@@ -106,7 +109,6 @@ export default {
   },
   watch: {
     defaultValue (v) {
-      console.log(this.defaultValue, 22222)
       let value = ''
       value = typeof v === 'object' ? (v.label || v[this.suffix]) : v
       this.selectedValue = value
@@ -119,7 +121,6 @@ export default {
     })
   },
   mounted() {
-    console.log(this.defaultValue, 11111)
     if (this.defaultValue) {
       let value = ''
       value = typeof this.defaultValue === 'object' ? (this.defaultValue.label || this.defaultValue[this.suffix]) : this.defaultValue

@@ -305,7 +305,7 @@
 
 <template>
  <lt-button @click="getDefaultStudentValue">选择二麻子</lt-button>
-  <lt-selector :defaultValue="defaultStudentVal">
+  <lt-selector :defaultValue="defaultStudentVal" suffix='name'>
     <lt-option
       v-for="(item, index) in students"
       :key="index"
@@ -377,6 +377,7 @@ trigger | 触发方式 | String | click
 clearable | 清空选择项 | Boolean | false
 selectorSize | 选择器尺寸 | Object | 190 x 40
 defaultValue | 默认选中的项（后续可更改） | String / Object | -
+suffix | 传入对象后显示对象内属性的值 | String | false
 
 #### list props
 
