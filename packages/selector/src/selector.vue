@@ -16,6 +16,7 @@
         :style="selectorStyle"
         @mouseover="hoverShow"
         @click="clickShow"
+        readonly
       />
       <!-- 下拉图标 -->
       <lt-icon
