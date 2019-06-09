@@ -14,7 +14,7 @@
       export default {
         data () {
           return {
-            total: 8,
+            total: 89,
             current: 4
           }
         }
@@ -62,12 +62,9 @@ Vue.component('', {
       export default {
         data () {
           return {
-            total: 1,
+            total: 89,
             current: 4
           }
         },
-        mounted() {
-          this.total = 8
-        }
       }
 </script>

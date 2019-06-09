@@ -1,7 +1,11 @@
 .lt-pagination {
+  text-align: center;
   .jumpwrap {
     display: inline-block;
     height: 30px;
+    font-size: 14px;
+    color: rgba(0,0,0,.8);
+    margin-left: 32px;
     .jump-input, .jump-btn{
       padding: 0;
       height: 30px;
@@ -10,22 +14,58 @@
       outline: none;
       border: none;
       text-align: center;
-      min-width: 50px;
-      // box-shadow: 0 2px 4px 0 rgba(0,0,0,.16);
       display: inline-block;
     }
     .jump-input {
-      border-top-left-radius: 4px;
-      border-bottom-left-radius: 4px;
+      width: 38px;
+      height: 38px;
+      border: none;
+      outline: none;
+      text-align: center;
+      line-height: 38px;
+      font-size: 12px;
+      color: #000;
+      background-color: #fff;
+      border: 1px solid #999;
+      border-radius: 4px;
+      margin: 0 8px;
+      &::-webkit-outer-spin-button,
+      &::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+        margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
+      }
+      &::-webkit-input-placeholder { /* WebKit browsers */
+        color:#CDCDCD;
+      }
+      &:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+        color:#CDCDCD;
+      }
+      &:-moz-placeholder { /* Mozilla Firefox 19+ */
+        color:#CDCDCD;
+      }
+      &:-ms-input-placeholder { /* Internet Explorer 10+ */
+        color:#CDCDCD;
+      }
+
+      &:focus{
+        z-index: 1;
+        border: 1px solid #0773FC;
+        box-shadow: 0 0 0 3px rgba(8,174,252,.1);
+      }
     }
     .jump-btn {
-      color: #9B9B9B;
-      border: 1px solid #f8f8f8;
-      border-left: 1px solid #9b9b9b;
-      border-top-right-radius: 4px;
-      border-bottom-right-radius: 4px;
+      width: 68px;
+      height: 38px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      font-size: 14px;
+      color: rgba(0,0,0,.8);
+      background-color: #fff;
+      display: inline-block;
+      text-align: center;
+      line-height: 38px;
+      margin-left: 16px;
       cursor: pointer;
-      float: right;
       &:hover {
         color: #0773FC;
         border: 1px solid #0773FC;
@@ -38,16 +78,13 @@
     cursor: pointer;
     border-radius: 4px;
     display: inline-block;
-    margin: 0px 4px;
-    // box-shadow: 0 2px 4px 0 rgba(0,0,0,.16);
     &.disabled {
       cursor: not-allowed;
     }
   }
   button:not(.jump-btn) {
-    width: 32px;
-    height: 30px;
-    border: 1px solid #f8f8f8;
+    line-height: 38px;
+    border: 1px solid #ccc;
 
     &:hover {
       color: #0773FC;
@@ -56,27 +93,30 @@
   }
   li {
     min-width: 20px;
-    height: 28px;
+    width: 38px;
   }
   button {
-    i {
-      font-size: 12px;
-      color: #9B9B9B;
-    }
-    &:not(.disabled):hover {
-      i {
-        color: #0773FC;
-      }
-    }
+    background: #fff;
+  }
+  .btn-prev, .btn-next {
+    width: 80px;
+    padding: 0;
+    color: rgba(0,0,0,.8);
   }
   ul {
     display: inline-block;
     vertical-align: bottom;
+    margin: 0 12px;
     li {
-      padding: 0px 5px;
-      line-height: 28px;
-      color: #9B9B9B;
-      border: 1px solid #f8f8f8;
+      line-height: 38px;
+      color: rgba(0,0,0,.8);
+      border: 1px solid #ccc;
+      &:not(:last-child) {
+        margin-right: 16px;
+      }
+      &.disabled {
+        font-weight: bold;
+      }
       &:not(.disabled):hover {
         color: #0773FC;
         border: 1px solid #0773FC;
@@ -86,11 +126,6 @@
         background: #0773FC;
         border: 1px solid #0773FC;
       }
-    }
-  }
-  &.isbackground {
-    button, li{
-      background: #f8f8f8;
     }
   }
 
