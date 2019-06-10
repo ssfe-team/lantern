@@ -63,13 +63,14 @@
         border: 1px solid @border-color-base;
         border-radius: 50%;
         transition: all @transition-time @ease-in-out;
+        box-sizing: border-box;
 
         &:after {
             position: absolute;
             width: 8px;
             height: 8px;
-            left: 3px;
-            top: 3px;
+            left: 2px;
+            top: 2px;
             border-radius: @border-radius-base;
             display: table;
             border-top: 0;
