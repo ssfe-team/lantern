@@ -1,122 +1,139 @@
+.lt-steps {
+  display: flex;
+  .lt-step:not(:last-child) {
+    .lt-step__line {
+      width: 160px;
+      height: 1px;
+      margin-left: 5px;
+      margin-right: 5px;
+      background: #cdcdcd;
+    }
+  }
+}
+
 // 基本模式
 .lt-step {
+  display: flex;
+  align-items: center;
+  color: #9b9b9b;
+  &__content {
+    display: flex;
+    flex-shrink: 0;
+  }
+  &__icon {
+    width: 24px;
+    height: 24px;
+    background: #cdcdcd;
+    border: 1px solid #cdcdcd;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    &.base {
+      background: rgba(7, 115, 252, 0.36);
+      border: 1px solid #0773fc;
+    }
+  }
+  &__icon-inner {
+    font-size: 1.2em;
+    color: #fff;
+  }
+  &__main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  &__main-head {
     display: flex;
     flex-direction: row;
+  }
+  &__title {
+    font-size: 16px;
+    margin-left: 10px;
+  }
+  &__description {
     color: #9b9b9b;
-    &__icon {
-      width: 26px;
-      height: 26px;
-      border-radius: 50%;
-      background: #cdcdcd;
-      text-align: center;
-      &[class~="activeBg"]{
-        background: @mainColor1;
-      }
-      &[class~="preBg"]{
-        background: white;
-        border: 1px solid @mainColor1;
-      }
-    }
-    &__icon-inner {
-      color: white;
-      text-align: center;
-      line-height: 26px;
-      font-size: 1.2em;
-      &[class~="preInner"]{
-        color: @mainColor1;
+    margin-top: 10px;
+    margin-left: 10px;
+    font-size: 0.8em;
+  }
+
+  &.pre {
+    .lt-step__icon {
+      background: white;
+      border: 1px solid @mainColor1;
+      &.base {
+        background: rgba(7, 115, 252, 0.36);
       }
     }
-    &__main {
-      display: flex;
-      flex-direction: column;
-    }
-    &__main-head {
-      display: flex;
-      flex-direction: row;
-    }
-    &__title {
-      margin-top: 5px;
-      margin-left: 10px;
-      &[class~="activeText"]{
-        color: @mainColor1;
-      }
-      &[class~="preText"]{
-        color: skyblue;
-      }
-    }
-    &__description {
-      color: #9b9b9b;
-      margin-top: 10px;
-      margin-left: 10px;
-      font-size: 0.8em;
-      &[class~="activeText"]{
-        color: @mainColor1;
-      }
-      &[class~="preText"]{
-        color: skyblue;
-      }
-    }
-    &[class~="active"] {
+    .lt-step__icon-inner {
       color: @mainColor1;
     }
-  }
-  .lt-steps {
-    display: flex;
-    flex-direction: row;
+    .lt-step__title {
+      color: #333;
+    }
+    .lt-step__description {
+      color: #333;
+    }
     .lt-step:not(:last-child) {
       .lt-step__line {
-        width: 160px;
-        height: 1px;
-        margin-top: 15px;
-        margin-left: 5px;
-        margin-right: 5px;
-        background: #cdcdcd;
-        &[class~="activeBg"]{
-          background: @mainColor1;
-        }
-        &[class~="preBg"]{
-          background: skyblue;
-        }
+        background: skyblue;
       }
     }
   }
-  
-  // 简洁版
-  .lt-steps--small {
-      .lt-step__description{
-          display: none;
+  &.active {
+    color: @mainColor1;
+    .lt-step__icon {
+      background: @mainColor1;
+      border: 1px solid @mainColor1;
+    }
+    .lt-step__title {
+      color: @mainColor1;
+    }
+    .lt-step__description {
+      color: @mainColor1;
+    }
+    .lt-step:not(:last-child) {
+      .lt-step__line {
+        background: @mainColor1;
       }
-      .lt-step:not(:last-child) {
-        .lt-step__line {
-          width: 160px;
-          margin-right: 5px;
-        }
-      }
+    }
   }
-  
-  // 垂直方向
-  .lt-steps--vertical{
+}
+
+// 简洁版
+.lt-steps--small {
+  .lt-step__description {
+    display: none;
+  }
+  .lt-step:not(:last-child) {
+    .lt-step__line {
+      width: 160px;
+      margin-right: 5px;
+    }
+  }
+}
+
+// 垂直方向
+.lt-steps--vertical {
+  flex-direction: column;
+  margin-left: 200px;
+  .lt-step {
+    align-items: flex-start;
     flex-direction: column;
-    margin-left: 200px;
-     .lt-step:not(:last-child) {
-       .lt-step__line {
-         height: 100px;
-         width: 1px;
-         margin-top: 30px;
-         margin-left: -62.5px;
-         background: #cdcdcd;
-         margin-bottom: 5px;
-      }
-    }
-    .lt-step__main{
-      flex-direction: row;
-    }
-    .lt-step__description{
-      margin-top: 25px;
-    }
-    .lt-step:last-child {
-       .lt-step__line {
-        margin-left: -70px;
-      }
+  }
+  .lt-step:not(:last-child) {
+    .lt-step__line {
+      height: 72px;
+      width: 1px;
+      margin-top: -26px;
+      margin-left: 13.5px;
+      background: #cdcdcd;
     }
   }
+  .lt-step:last-child {
+    .lt-step__line {
+      margin-left: -70px;
+    }
+  }
+}

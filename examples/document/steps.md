@@ -32,13 +32,13 @@
     <lt-step title="步骤 3" description="描述信息描述信息描述信息描述信息" iconinner="3"></lt-step>
 </lt-steps>
 <script>
-    export default {
-        data () {
-            return {
-                size: 'small'
-            }
-        }
+  export default {
+    data () {
+      return {
+        size: 'small'
+      }
     }
+  }
 </script>
 ```
 :::
@@ -49,19 +49,23 @@
 
 ::: demo demo :::
 ```html
-<lt-steps :current="0" :direction="direction">
+<lt-steps :current="3" :direction="direction">
     <lt-step title="步骤 1" description="描述信息描述信息描述信息描述信息" iconinner="1"></lt-step>
-    <lt-step title="步骤 2" description="描述信息描述信息描述信息描述信息" iconinner="2"></lt-step>
-    <lt-step title="步骤 3" description="描述信息描述信息描述信息描述信息" iconinner="3"></lt-step>
+    <lt-step title="步骤 2"  description="描述信息描述信息描述信息描述信息" >
+      <lt-icon type="star" color="gold"></lt-icon>
+    </lt-step>
+    <lt-step title="步骤 3">
+      <span class="icon-inner" style="height: 14px;width: 14px;border-radius: 50%;background: #0773FC;"></span>
+    </lt-step>
 </lt-steps>
 <script>
-    export default {
-        data () {
-            return {
-                direction: 'vertical'
-            }
-        }
+  export default {
+    data () {
+      return {
+        direction: 'vertical'
+      }
     }
+  }
 </script>
 ```
 :::
@@ -79,22 +83,22 @@
 </lt-steps>
 <lt-button @click="next" style="margin-top: 30px;">下一步</lt-button>
 <script>
-    export default {
-        data () {
-            return {
-                current: 0
-            }
-        },
-        methods: {
-            next () {
-                if (this.current < 3) {
-                    this.current += 1
-                } else {
-                    this.current = 0
-                }
-            }
+  export default {
+    data () {
+      return {
+         current: 0
+      }
+    },
+    methods: {
+      next () {
+        if (this.current < 3) {
+          this.current += 1
+        } else { 
+          this.current = 0
         }
+      }
     }
+  }
 </script>
 ```
 :::
@@ -112,38 +116,36 @@ size|步骤条简洁版|String | -
 
 属性|说明|类型|默认值 
 ---|---|---|---
-icon|步骤的图标|String|-
-iconinner|步骤的图标内的内容|String|-
+iconinner|步骤的图标内的内容,支持slot|String|-
 title|步骤的标题|String|-
 description|步骤的详细描述|String|-
 
 
 ::::vuecode::::
 <script>
-    export default {
-        data () {
-            return {
-                size: 'small',
-                direction: 'vertical',
-                current: 0
-            }
-        },
-        methods: {
-            next () {
-                console.log(this.current)
-                
-                if (this.current < 3) {
-                    this.current += 1
-                } else {
-                    this.current = 0
-                }
-            }
+  export default {
+    data () {
+      return {
+        size: 'small',
+        direction: 'vertical',
+        current: 0
+      }
+    },
+    methods: {
+      next () {
+        if (this.current < 3) {
+          this.current += 1
+        } else {
+          this.current = 0
         }
+      }
     }
+  }
 </script>
+
 <style lang="less">
 .demo-breadcrumb-separator{
-    color: #ff5500;
-    padding: 0 5px;
+  color: #ff5500;
+  padding: 0 5px;
 }
 </style>
