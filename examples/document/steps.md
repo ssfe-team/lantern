@@ -13,9 +13,9 @@
 ::: demo demo :::
 ```html
 <lt-steps :current="0">
-    <lt-step title="步骤 1" stepNum="1"></lt-step>
-    <lt-step title="步骤 2" stepNum="2"></lt-step>
-    <lt-step title="步骤 3" stepNum="3"></lt-step>
+  <lt-step title="步骤 1" stepNum="1"></lt-step>
+  <lt-step title="步骤 2" stepNum="2"></lt-step>
+  <lt-step title="步骤 3" stepNum="3"></lt-step>
 </lt-steps>
 ```
 :::
@@ -27,15 +27,15 @@
 ::: demo demo :::
 ```html
 <lt-steps :current="3" isVertical="true" simple="true">
-    <lt-step title="选择成品模板或自定义空白画布">
-      <lt-icon type="star" color="gold"></lt-icon>
-    </lt-step>
-    <lt-step title="进入画布，修改文字或图片，简单的点选或托拉拽实现创意特效">
-      <lt-icon type="star" color="gold"></lt-icon>
-    </lt-step>
-    <lt-step title="下载本地或在线印刷">
-      <span class="icon-inner" style="height: 14px;width: 14px;border-radius: 50%;background: #0773FC;"></span>
-    </lt-step>
+  <lt-step title="选择成品模板或自定义空白画布">
+    <lt-icon type="star" color="gold"></lt-icon>
+  </lt-step>
+  <lt-step title="进入画布，修改文字或图片，简单的点选或托拉拽实现创意特效">
+    <lt-icon type="star" color="gold"></lt-icon>
+  </lt-step>
+  <lt-step title="下载本地或在线印刷">
+    <span class="icon-inner" style="height: 14px;width: 14px;border-radius: 50%;background: #0773FC;"></span>
+  </lt-step>
 </lt-steps>
 ```
 :::
@@ -47,9 +47,9 @@
 ::: demo demo :::
 ```html
 <lt-steps :current="current">
-    <lt-step title="步骤 1" stepNum="1"></lt-step>
-    <lt-step title="步骤 2" stepNum="2"></lt-step>
-    <lt-step title="步骤 3" stepNum="3"></lt-step>
+  <lt-step title="步骤 1" stepNum="1"></lt-step>
+  <lt-step title="步骤 2" stepNum="2"></lt-step>
+  <lt-step title="步骤 3" stepNum="3"></lt-step>
 </lt-steps>
 <lt-button @click="next" style="margin-top: 30px;">下一步</lt-button>
 <script>
