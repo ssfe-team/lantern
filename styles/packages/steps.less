@@ -4,9 +4,14 @@
     .lt-step__line {
       width: 160px;
       height: 1px;
-      margin-left: 5px;
-      margin-right: 5px;
+      margin: 0 5px;
       background: #cdcdcd;
+    }
+  }
+  &.simple {
+    .lt-step .lt-step__icon {
+      background: rgba(7, 115, 252, 0.36);
+      border: 1px solid #0773fc;
     }
   }
 }
@@ -29,10 +34,6 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    &.base {
-      background: rgba(7, 115, 252, 0.36);
-      border: 1px solid #0773fc;
-    }
   }
   &__icon-inner {
     font-size: 1.2em;
@@ -51,12 +52,6 @@
     font-size: 16px;
     margin-left: 10px;
   }
-  &__description {
-    color: #9b9b9b;
-    margin-top: 10px;
-    margin-left: 10px;
-    font-size: 0.8em;
-  }
 
   &.pre {
     .lt-step__icon {
@@ -70,9 +65,6 @@
       color: @mainColor1;
     }
     .lt-step__title {
-      color: #333;
-    }
-    .lt-step__description {
       color: #333;
     }
     .lt-step:not(:last-child) {
@@ -90,9 +82,6 @@
     .lt-step__title {
       color: @mainColor1;
     }
-    .lt-step__description {
-      color: @mainColor1;
-    }
     .lt-step:not(:last-child) {
       .lt-step__line {
         background: @mainColor1;
@@ -101,34 +90,19 @@
   }
 }
 
-// 简洁版
-.lt-steps--small {
-  .lt-step__description {
-    display: none;
-  }
-  .lt-step:not(:last-child) {
-    .lt-step__line {
-      width: 160px;
-      margin-right: 5px;
-    }
-  }
-}
-
 // 垂直方向
 .lt-steps--vertical {
   flex-direction: column;
-  margin-left: 200px;
   .lt-step {
-    align-items: flex-start;
     flex-direction: column;
+    align-items: flex-start;
   }
   .lt-step:not(:last-child) {
     .lt-step__line {
       height: 72px;
       width: 1px;
-      margin-top: -26px;
       margin-left: 13.5px;
-      background: #cdcdcd;
+      background: #0773FC;
     }
   }
   .lt-step:last-child {

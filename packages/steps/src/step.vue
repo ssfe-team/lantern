@@ -1,20 +1,13 @@
 <template>
   <div class="lt-step" :class="statusClass">
     <div class="lt-step__content">
-      <div
-        class="lt-step__icon"
-        :class="{'base': !iconinner}"
-      >
-        <span v-if="iconinner" class="lt-step__icon-inner">{{ iconinner }}</span>
+      <div class="lt-step__icon">
+        <span v-if="stepNum" class="lt-step__icon-inner">{{ stepNum }}</span>
         <slot></slot>
       </div>
 
       <div class="lt-step__main">
         <span class="lt-step__title">{{ title }}</span>
-        <p
-          class="lt-step__description"
-          v-if="description"
-        >{{ description }}</p>
       </div>
     </div>
 
@@ -29,10 +22,7 @@ export default {
     title: {
       type: String
     },
-    iconinner: {
-      type: String
-    },
-    description: {
+    stepNum: {
       type: String
     }
   },
