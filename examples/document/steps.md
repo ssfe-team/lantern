@@ -26,7 +26,7 @@
 
 ::: demo demo :::
 ```html
-<lt-steps :current="3" isVertical="true" simple="true">
+<lt-steps :current="3" :isVertical="true" :simple="true">
   <lt-step title="选择成品模板或自定义空白画布">
     <lt-icon type="star" color="gold"></lt-icon>
   </lt-step>
