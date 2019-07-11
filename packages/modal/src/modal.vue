@@ -51,13 +51,14 @@ import Icon from '../../icon'
 import iButton from '../../button/src/button.vue'
 import TransferDom from '../../../src/directives/transfer-dom'
 import Emitter from '../../../src/mixins/emitter'
+import ScrollbarMixins from './mixins-scrollbar';
 import { findComponentsDownward } from '../../../src/utils/assist'
 
 const prefixCls = 'lt-modal'
 
 export default {
   name: 'Modal',
-  mixins: [Emitter],
+  mixins: [Emitter, ScrollbarMixins],
   components: { Icon, iButton },
   directives: { TransferDom },
   props: {
@@ -118,6 +119,10 @@ export default {
     zIndex: {
       type: Number,
       default: 1000
+    },
+    scrollable: {
+      type: Boolean,
+      default: false
     }
   },
   data() {
@@ -280,6 +285,7 @@ export default {
   },
   beforeDestroy() {
     document.removeEventListener('keydown', this.EscClose)
+    this.removeScrollEffect()
   },
   watch: {
     value(val) {
@@ -290,10 +296,14 @@ export default {
         this.buttonLoading = false
         this.timer = setTimeout(() => {
           this.wrapShow = false
+          this.removeScrollEffect()
         }, 300)
       } else {
         if (this.timer) clearTimeout(this.timer)
         this.wrapShow = true
+        if (!this.scrollable) {
+          this.addScrollEffect()
+        }
       }
       this.broadcast('Table', 'on-visible-change', val)
       this.broadcast('Slider', 'on-visible-change', val) // #2852
@@ -302,6 +312,13 @@ export default {
     loading(val) {
       if (!val) {
         this.buttonLoading = false
+      }
+    },
+    scrollable (val) {
+      if (!val) {
+        this.addScrollEffect();
+      } else {
+        this.removeScrollEffect();
       }
     },
     title(val) {

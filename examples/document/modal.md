@@ -120,6 +120,7 @@ title|对话框标题，如果使用 slot 自定义了页头，则 title 无效|
 closable|是否显示右上角的关闭按钮|Boolean|true
 simple|是否使用简易模式（只显示内容，不包含 padding 、header、footer 等）|Boolean|true
 mask-closable|是否允许点击遮罩层关闭|Boolean|true
+scrollable|页面是否可以滚动|Boolean|false
 ok-text|确定按钮文字|String|确定
 cancel-text|取消按钮文字|String|取消
 width|对话框宽度，对话框的宽度是响应式的，当屏幕尺寸小于 768px 时，宽度会变为自动 `auto`。当其值不大于 100 时以百分比显示，大于 100 时为像素|Number \| String|400
