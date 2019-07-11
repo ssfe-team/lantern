@@ -1,11 +1,127 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 .lt-steps {
-  display: flex;
+  width: 100%;
+  .lt-step {
+    display: inline-block;
+    position: relative;
+    vertical-align: top;
+    &__head {
+      position: relative;
+      display: inline-block;
+      vertical-align: top;
+      background: #fff;
+    }
+    &__icon {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 24px;
+      height: 24px;
+      line-height: 24px;
+      margin-right: 8px;
+      text-align: center;
+      border: 1px solid #ccc;
+      border-radius: 50%;
+      font-size: 14px;
+      transition: background-color .2s ease-in-out;
+    }
+    &__main {
+      position: relative;
+      display: inline;
+      vertical-align: top;
+      margin-top: 2.5px;
+    }
+    &__title {
+      display: inline-block;
+      margin-bottom: 4px;
+      padding-right: 10px;
+      font-size: 14px;
+      font-weight: 700;
+      color: #666;
+      background: #fff;
+    }
+    &__content {
+      padding-left: 35px;
+    }
+    &.pre {
+      &:not(:last-child) {
+        .lt-step__line {
+          background: @mainColor1;
+          > i {
+            background: @mainColor1;
+            &:after {
+              background: @mainColor1;
+            }
+          }
+        }
+      }
+      .lt-step__icon {
+        background: white;
+        border: 1px solid @mainColor1;
+        &.base {
+          background: rgba(7, 115, 252, 0.36);
+        }
+      }
+      .lt-step__icon-inner {
+        color: @mainColor1;
+      }
+      .lt-step__title {
+        color: #333;
+      }
+    }
+    &.active {
+      color: @mainColor1;
+      .lt-step__icon {
+        background: @mainColor1;
+        border: 1px solid @mainColor1;
+        color: #fff;
+      }
+      .lt-step__title {
+        color: @mainColor1;
+      }
+      .lt-step:not(:last-child) {
+        .lt-step__line {
+          background: @mainColor1;
+        }
+      }
+    }
+  }
+  .lt-step:not(:first-child) {
+    .lt-step__head {
+      margin-left: -10px;
+      padding-left: 10px;
+    }
+  }
   .lt-step:not(:last-child) {
     .lt-step__line {
-      width: 160px;
+      width: 100%;
       height: 1px;
-      margin: 0 5px;
-      background: #cdcdcd;
+      padding: 0 10px;
+      position: absolute;
+      left: 0;
+      top: 12px;
+      > i {
+        display: inline-block;
+        width: 100%;
+        height: 1px;
+        vertical-align: top;
+        background: #cdcdcd;
+        border-radius: 1px;
+        position: relative;
+        &:after {
+          content: '';
+          width: 0;
+          height: 100%;
+          background: #cdcdcd;
+          opacity: 0;
+          position: absolute;
+          top: 0;
+        }
+      }
     }
   }
   &.simple {
@@ -16,98 +132,41 @@
   }
 }
 
-// 基本模式
-.lt-step {
-  display: flex;
-  align-items: center;
-  color: #9b9b9b;
-  &__content {
-    display: flex;
-    flex-shrink: 0;
-  }
-  &__icon {
-    width: 24px;
-    height: 24px;
-    background: #cdcdcd;
-    border: 1px solid #cdcdcd;
-    border-radius: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  &__icon-inner {
-    font-size: 1.2em;
-    color: #fff;
-  }
-  &__main {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-  }
-  &__main-head {
-    display: flex;
-    flex-direction: row;
-  }
-  &__title {
-    font-size: 16px;
-    margin-left: 10px;
-  }
-
-  &.pre {
-    .lt-step__icon {
-      background: white;
-      border: 1px solid @mainColor1;
-      &.base {
-        background: rgba(7, 115, 252, 0.36);
-      }
-    }
-    .lt-step__icon-inner {
-      color: @mainColor1;
-    }
-    .lt-step__title {
-      color: #333;
-    }
-    .lt-step:not(:last-child) {
-      .lt-step__line {
-        background: skyblue;
-      }
-    }
-  }
-  &.active {
-    color: @mainColor1;
-    .lt-step__icon {
-      background: @mainColor1;
-      border: 1px solid @mainColor1;
-    }
-    .lt-step__title {
-      color: @mainColor1;
-    }
-    .lt-step:not(:last-child) {
-      .lt-step__line {
-        background: @mainColor1;
-      }
-    }
-  }
-}
-
 // 垂直方向
 .lt-steps--vertical {
-  flex-direction: column;
   .lt-step {
-    flex-direction: column;
-    align-items: flex-start;
+    width: 100%;
   }
   .lt-step:not(:last-child) {
+    padding-bottom: 10px;
+    overflow: hidden;
+    height: 96px;
     .lt-step__line {
-      height: 72px;
+      position: absolute;
+      left: 12px;
+      top: 0;
+      height: 100%;
       width: 1px;
-      margin-left: 13.5px;
-      background: #0773FC;
+      padding: 24px 0 0;
+      > i {
+        height: 100%;
+        width: 1px;
+        &:after {
+          height: 100%;
+        }
+      }
     }
   }
-  .lt-step:last-child {
-    .lt-step__line {
-      margin-left: -70px;
-    }
+  .lt-step__head {
+    float: left;
+  }
+  .lt-step__main {
+    min-height: 47px;
+    overflow: hidden;
+    display: block;
+  }
+  .lt-step__content {
+    padding-left: 0;
+    max-width: 40em;
   }
 }

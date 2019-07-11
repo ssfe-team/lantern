@@ -1,8 +1,5 @@
 <template>
-  <div
-    class="lt-steps"
-    :class="stepsClass"
-  >
+  <div class="lt-steps" :class="stepsClass">
     <slot></slot>
   </div>
 </template>
@@ -10,7 +7,8 @@
 export default {
   name: 'Steps',
   data () {
-    return {}
+    return {
+    }
   },
   props: {
     current: {
@@ -41,6 +39,8 @@ export default {
   },
   mounted () {
     this.setActiveIndex(this.current)
+    this.$on('append', this.updateChildProps())
+    this.$on('remove', this.updateChildProps())
   },
   methods: {
     setActiveIndex (index) {
@@ -51,6 +51,14 @@ export default {
           item.status = 0
         } else {
           item.status = 1
+        }
+      })
+    },
+    updateChildProps () {
+      const total = this.$children.length
+      this.$children.forEach((child, index) => {
+        if (!this.isVertical) {
+          child.total = total
         }
       })
     }

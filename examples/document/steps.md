@@ -13,9 +13,9 @@
 ::: demo demo :::
 ```html
 <lt-steps :current="0">
-  <lt-step title="步骤 1" stepNum="1"></lt-step>
-  <lt-step title="步骤 2" stepNum="2"></lt-step>
-  <lt-step title="步骤 3" stepNum="3"></lt-step>
+  <lt-step title="步骤 1" content="这里是该步骤的描述信息" stepNum="1"></lt-step>
+  <lt-step title="步骤 2" content="这里是该步骤的描述信息" stepNum="2"></lt-step>
+  <lt-step title="步骤 3" content="这里是该步骤的描述信息" stepNum="3"></lt-step>
 </lt-steps>
 ```
 :::
@@ -88,7 +88,7 @@ simple|步骤条简洁版|Boolean|false
 ---|---|---|---
 stepNum|步骤的图标内的内容，支持slot|String|-
 title|步骤的标题|String|-
-
+content|步骤的详细描述，可选|String|-
 
 ::::vuecode::::
 <script>
