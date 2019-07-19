@@ -5,7 +5,7 @@
 :::demo demo
 ```html
   <div>
-    <LtInput v-model="inputValue" :autofocus="true" />
+    <LtInput v-model="inputValue" :autofocus="true"/>
     <LtButton type="primary" @click="reset">清空</LtButton>
   </div>
 ```
@@ -58,6 +58,7 @@ type|输入框类型|String|text/textarea|text
 value|绑定值|String|-|-
 placeholder|输入框占位|String|-|请输入
 maxlength|最大输入长度|String/Number|-|-
+maxlengthShow|是否显示最大输入长度|Boolean|true/false|true
 disabled|禁用输入框|Boolean|true/false|false
 drag|禁止拖拽（只有在type为textarea才生效）|Boolean|true/false|false
 readonly|只读|Boolean|true/false|false

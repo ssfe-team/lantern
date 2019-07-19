@@ -34,7 +34,7 @@
       @change="$emit('change', $event.target.value)"
     />
     <span
-      v-if="this.maxlength"
+      v-if="this.maxlength && this.maxlengthShow"
       class="maxlengthtips"
     >
       {{ this.maxlengthtips }}
@@ -100,6 +100,10 @@ export default {
     rows: {
       type: [Number, String],
       default: 4
+    },
+    maxlengthShow: {
+      type: Boolean,
+      default: true
     }
   },
   computed: {
