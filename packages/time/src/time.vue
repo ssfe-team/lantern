@@ -48,7 +48,7 @@ export default {
       } else if (type === 'object') {
         time = this.time.getTime()
       } else if (type === 'string') {
-        // 兼容safari 处理不了带‘-’的时间戳 后续优化
+        // 兼容 safari 处理不了带‘-’的时间戳 后续优化
         let endTime = this.time.replace(/-/g, '/')
         endTime = endTime.substring(0, endTime.indexOf('.'))
         time = new Date(endTime).getTime()
