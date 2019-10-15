@@ -94,7 +94,7 @@ Modal 组件提供了灵活的自定义样式 API 和 Slot，可以自由控制�
       >
         <p style="font-size: 20px;font-weight: bold;text-align: center;">创建文件夹</p>
         <p style="font-weight: bold;">文件夹名称</p>
-        <LtInput placeholder="输入文件夹名称" />
+        <LtInput ref="input" autofocus placeholder="输入文件夹名称" />
         <LtButton type="primary" style="margin-top: 40px;" @click="createFolder">创建文件夹</LtButton>
       </lt-modal>
     </template>
@@ -156,6 +156,15 @@ close|自定义右上角关闭内容
         simple: false,
         modal1: false,
         modal2: false
+      }
+    },
+    watch: {
+      modal2(v) {
+        if(v) {
+          this.$nextTick(() => {
+            this.$refs.input.focus()
+          })
+        }
       }
     },
     methods: {

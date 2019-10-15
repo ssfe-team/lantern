@@ -7,6 +7,7 @@
       v-if="this.type !== 'textarea'"
       class="lt-input"
       :class="{disabled: this.disabled}"
+      ref="input"
       :type="type"
       :disabled="this.disabled"
       :readonly="this.readonly"
@@ -23,6 +24,7 @@
       v-else
       class="lt-textarea"
       :class="{disabled: this.disabled, drag: this.drag}"
+      ref="textarea"
       :disabled="this.disabled"
       :readonly="this.readonly"
       :autofocus="autofocus"
@@ -124,6 +126,13 @@ export default {
       this.$emit('on-blur', event)
       if (!findComponentUpward(this, ['DatePicker', 'TimePicker', 'Cascader', 'Search'])) {
         this.dispatch('FormItem', 'on-form-blur', this.currentValue)
+      }
+    },
+    focus() {
+      if (this.type === 'textarea') {
+        this.$refs.textarea.focus()
+      } else {
+        this.$refs.input.focus()
       }
     },
     handleInput (event) {
