@@ -1,13 +1,21 @@
 <template>
   <div :class="wrapClasses">
-    <div :class="handlerClasses">
-      <a @click="up" @mousedown="preventDefault" :class="upClasses">
-        <span :class="innerUpClasses" @click="preventDefault"></span>
-      </a>
-      <a @click="down" @mousedown="preventDefault" :class="downClasses">
-        <span :class="innerDownClasses" @click="preventDefault"></span>
-      </a>
-    </div>
+    <span
+      :class="downClasses"
+      role="button"
+      @click="down"
+      @mousedown="preventDefault"
+    >
+      <Icon type="ios-minus-empty" size="24"></Icon>
+    </span>
+    <span
+      :class="upClasses"
+      role="button"
+      @click="up"
+      @mousedown="preventDefault"
+    >
+      <Icon type="ios-plus-empty" size="24"></Icon>
+    </span>
     <div :class="inputWrapClasses">
       <input
         :id="elementId"
@@ -33,6 +41,7 @@
 <script>
   import { oneOf } from '../../../src/utils/assist'
   import Emitter from '../../../src/mixins/emitter'
+  import Icon from '../../icon'
 
   const prefixCls = 'lt-input-number'
   const iconPrefixCls = 'lt-icon'
@@ -62,6 +71,9 @@
   export default {
     name: 'InputNumber',
     mixins: [Emitter],
+    components: {
+      Icon
+    },
     props: {
       max: {
         type: Number,
@@ -118,7 +130,7 @@
       placeholder: {
         type: String,
         default: ''
-      }
+      },
     },
     data() {
       return {
@@ -139,9 +151,6 @@
           }
         ]
       },
-      handlerClasses() {
-        return `${prefixCls}-handler-wrap`
-      },
       upClasses() {
         return [
           `${prefixCls}-handler`,
@@ -151,9 +160,6 @@
           }
         ]
       },
-      innerUpClasses() {
-        return `${prefixCls}-handler-up-inner ${iconPrefixCls} ${iconPrefixCls}-ios-arrow-up`
-      },
       downClasses() {
         return [
           `${prefixCls}-handler`,
@@ -162,9 +168,6 @@
             [`${prefixCls}-handler-down-disabled`]: this.downDisabled
           }
         ]
-      },
-      innerDownClasses() {
-        return `${prefixCls}-handler-down-inner ${iconPrefixCls} ${iconPrefixCls}-ios-arrow-down`
       },
       inputWrapClasses() {
         return `${prefixCls}-input-wrap`
@@ -183,7 +186,7 @@
         } else {
           return this.precisionValue
         }
-      }
+      },
     },
     methods: {
       preventDefault(e) {
