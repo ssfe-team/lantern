@@ -10,6 +10,7 @@
     "buildcss": "webpack --progress --hide-modules --config ./build/webpack.build.css.conf.js",
     "buildjs": "webpack --progress --hide-modules --config ./build/webpack.build.js.conf.js",
     "buildex": "webpack --progress --hide-modules --config ./build/webpack.build.js.ex.js",
+    "builddocs": "webpack --progress --hide-modules --config ./build/webpack.build.docs.conf.js",
     "cleanlib": "rimraf lib/*",
     "cleandist": "rimraf dist/*",
     "deploy": "npm version patch && npm run build && npm publish",
