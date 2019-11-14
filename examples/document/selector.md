@@ -366,6 +366,48 @@
 ```
 :::
 
+#### icon样式
+
+默认为arrow-dropdown，可从icon 图标内设置多种显示
+
+::: demo demo :::
+```html
+<template>
+  <lt-selector :iconType="iconType">
+    <lt-option
+      v-for="(item, index) in list"
+      :key="index"
+      :isActive="selectedIndex1 === index"
+      :value="item"
+      @select-value="selectValueHandle1"
+    ></lt-option>
+  </lt-selector>
+</template>
+<script>
+  export default {
+    data () {
+      return {
+        list: ['北京','上海','深圳','西宁','南阳']
+        selectedIndex1: -1,
+        iconType: 'ios-arrow-down'
+      },
+      methods: {
+        selectValueHandle1 (e) {
+          this.$message({
+            message: e
+          });
+          for (let i=0; i<this.list.length; i++) {
+            if (this.list[i] === e) {
+              this.selectedIndex1 = i
+            }
+          }
+        },
+      }
+    }
+  }
+</script>
+```
+:::
 ### API
 
 #### selector props
@@ -378,6 +420,7 @@ clearable | 清空选择项 | Boolean | false
 selectorSize | 选择器尺寸 | Object | 190 x 40
 defaultValue | 默认选中的项（后续可更改） | String / Object | -
 suffix | 传入对象后显示对象内属性的值 | String | false
+iconType | 选择框右侧的icon样式 | String | arrow-dropdown
 
 #### list props
 
@@ -459,7 +502,7 @@ export default {
       studentIndex: -1,
       defaultValue: '深圳',
       defaultStudentVal: { name:'小红', age: 13 },
-
+      iconType: 'ios-arrow-down'
     }
   },
   methods: {

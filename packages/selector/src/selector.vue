@@ -21,7 +21,7 @@
       <!-- 下拉图标 -->
       <lt-icon
         v-if="!clearIconShow"
-        type="arrow-dropdown"
+        :type="iconType"
         color="rgba(0,0,0,0.56)"
         class="input-icon drop"
         @click="clickShow"
@@ -87,6 +87,10 @@ export default {
     },
     suffix: {
       type: String
+    },
+    iconType: {
+      type :String,
+      default: 'arrow-dropdown'
     }
   },
   computed: {
