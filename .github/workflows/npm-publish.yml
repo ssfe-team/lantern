@@ -2,7 +2,7 @@ name: Node.js Package
 
 on:
   pull_request:
-    branches: 
+    branches:
       - "1.0"
 
 jobs:
@@ -23,7 +23,7 @@ jobs:
         with:
           node-version: 12
           registry-url: https://registry.npmjs.org/
-      - run: npm ci
-      - run: npm run deploy
+      - run: yarn install
+      - run: yarn deploy
         env:
-          NODE_AUTH_TOKEN: ${{secrets.npm_token}}
+          NODE_AUTH_TOKEN: ${{ secrets.YARN_TOKEN }}
