@@ -154,5 +154,5 @@ export default [
   {
     path: '/time',
     component: Time
-  }
+  },
 ]
