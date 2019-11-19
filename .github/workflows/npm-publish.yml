@@ -1,4 +1,4 @@
-name: Node.js Package
+name: Build and publish to NPM
 
 on:
   pull_request:
@@ -8,22 +8,22 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    
+    strategy:
+      matrix:
+        node-version: [12.x]
+        
+        
     steps:
     - uses: actions/checkout@v1
-    - uses: actions/setup-node@v1
+    - name: Use Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v1
       with:
-        node-version: 12
-    - run: npm ci
-  publish-npm:
-    needs: build
-    runs-on: [ubuntu-latest]
-    steps:
-      - uses: actions/checkout@v1
-      - uses: actions/setup-node@v1
-        with:
-          node-version: 12
-          registry-url: https://registry.npmjs.org/
-      - run: yarn install
-      - run: yarn deploy
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.YARN_TOKEN }}
+        node-version: ${{ matrix.node-version }}
+    - name: npm install, build and deploy
+      run: |
+        npm config set //registry.npmjs.org/:_authToken=$NPM_TOKEN
+        npm run deploy
+      env:
+        CI: true
+        NPM_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
