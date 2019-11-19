@@ -1,7 +1,7 @@
 {
   "name": "lantern-ui",
   "version": "1.0.40",
-  "description": "Lantern-ui——基于Vue.js的前端UI库",
+  "description": "lantern-ui——基于 Vue.js 的前端 UI 库 https://lantern-ui.netlify.com/",
   "main": "lib/lantern.js",
   "scripts": {
     "lanterninit": "yarn || npm install",
@@ -27,6 +27,11 @@
     "examples/**/*.{js, vue}": "eslint"
   },
   "repository": "git+https://github.com/ssfe-team/lantern.git",
+  "keywords": [
+    "ssfe",
+    "vue",
+    "components"
+  ],
   "author": "ssfe",
   "license": "MIT",
   "bugs": {
@@ -37,6 +42,7 @@
     "async-validator": "^1.11.2",
     "lodash.throttle": "^4.1.1",
     "popper.js": "^1.14.5",
+    "rimraf": "^3.0.0",
     "v-click-outside-x": "^3.5.5",
     "vue": "^2.5.17"
   },
@@ -74,7 +80,7 @@
     "vue-style-loader": "^3.0.3",
     "vue-template-compiler": "^2.5.17",
     "webpack": "^3.12.0",
-    "webpack-dev-server": "^2.11.3",
+    "webpack-dev-server": "^3.1.11",
     "webpack-merge": "^4.1.4"
   }
 }
