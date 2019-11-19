@@ -26,6 +26,7 @@ jobs:
         npm config set //registry.npmjs.org/:_authToken=$NPM_TOKEN
         git config user.email "wfhtzcf@gmail.com"
         git config user.name "devops"
+        npm install
         npm run deploy
       env:
         CI: true
