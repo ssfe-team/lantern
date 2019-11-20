@@ -489,7 +489,7 @@
 placeholder | 默认显示 | String | 请选择
 trigger | 触发方式 | String | click
 clearable | 清空选择项 | Boolean | false
-selectorSize | 选择器尺寸 | Object | 190 x 40
+selectorSize | 选择器尺寸 | Object | { width: '190px', height: '40px' }
 defaultValue | 默认选中的项（后续可更改） | String / Object | -
 suffix | 传入对象后显示对象内属性的值 | String | false
 iconType | 选择框右侧的icon样式 | String | arrow-dropdown
@@ -500,11 +500,11 @@ iconType | 选择框右侧的icon样式 | String | arrow-dropdown
 ---|---|---|---|---
 value | 列表中将要显示的名称 | String / Object | -
 disabled | 禁用该项 | Boolean | false
-optionSize | 列表项尺寸 | Object | 190 x 32
+optionSize | 列表项尺寸 | Object | { width: '190px', height: '32px' }
 isActive | 选中高亮 | Boolean | false
 suffix | 传入对象后显示对象内属性的值 | String | false
 picUrl | 设置显示的图片地址 | String | -
-imgStyle | 图片的style样式 | Object | 24 X 24
+imgStyle | 图片的style样式 | Object | { width: '24px', height: '24px' }
 
 #### option evevt 说明
 
