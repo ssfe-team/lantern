@@ -368,7 +368,7 @@
 
 #### icon样式
 
-默认为arrow-dropdown，可从icon 图标内设置多种显示
+默认为`arrow-dropdown`，可从 <a href='/icon'>icon图标</a> 内设置多种样式显示
 
 ::: demo demo :::
 ```html
@@ -410,7 +410,9 @@
 :::
 ### 设置下拉菜单是否显示图片
 
-可以设置`hasImg`。hasImg为true后picUrl为必传值
+设置`picUrl`后在子菜单内显示图片
+
+一般是用来显示头像（建议使用正方形，`imgStyle`最大高度为列表项尺寸的80%）
 
 :::demo demo
 ```html
@@ -422,7 +424,6 @@
       :key="index"
       :isActive="studentIndex === index"
       :value="item"
-      :hasImg="true"
       :picUrl="item.src"
       suffix='name'
       @select-value="selecetStudent"
@@ -502,9 +503,8 @@ disabled | 禁用该项 | Boolean | false
 optionSize | 列表项尺寸 | Object | 190 x 32
 isActive | 选中高亮 | Boolean | false
 suffix | 传入对象后显示对象内属性的值 | String | false
-hasImg | 设置是否显示图片 | Boolean | false
-picUrl | 设置显示的图片地址 | String | 空白svg图形
-imgStyle | 图片的style样式 | Object | 32 X 32
+picUrl | 设置显示的图片地址 | String | -
+imgStyle | 图片的style样式 | Object | 24 X 24
 
 #### option evevt 说明
 
