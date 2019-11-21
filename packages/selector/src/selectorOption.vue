@@ -4,7 +4,13 @@
     :class="{'disabled': value.disabled, 'active': isActive}"
     :style="optionStyle"
     @click="selectValueHandle(value)"
-  >{{getValue}}</li>
+  >
+    <img class="option-item_img"
+         v-if="picUrl"
+         :src="picUrl"
+         :style="imgStyle"
+         :alt="getValue">
+    {{getValue}}</li>
 </template>
 
 <script>
@@ -31,6 +37,18 @@ export default {
     },
     suffix: {
       type: String
+    },
+    picUrl: {
+      type: String,
+    },
+    imgStyle: {
+      type: Object,
+      default () {
+        return {
+          width: '24px',
+          height: '24px'
+        }
+      }
     }
   },
   computed: {

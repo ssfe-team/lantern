@@ -368,7 +368,7 @@
 
 #### icon样式
 
-默认为arrow-dropdown，可从icon 图标内设置多种显示
+默认为`arrow-dropdown`，可从 <a href='/icon'>icon图标</a> 内设置多种样式显示
 
 ::: demo demo :::
 ```html
@@ -408,6 +408,78 @@
 </script>
 ```
 :::
+### 设置下拉菜单是否显示图片
+
+设置`picUrl`后在子菜单内显示图片
+
+一般是用来显示头像（建议使用正方形，`imgStyle`最大高度为列表项尺寸的80%）
+
+:::demo demo
+```html
+
+<template>
+  <lt-selector :defaultValue="defaultStudentVal" suffix='name'>
+    <lt-option
+      v-for="(item, index) in studentsSrc"
+      :key="index"
+      :isActive="studentIndex === index"
+      :value="item"
+      :picUrl="item.src"
+      suffix='name'
+      @select-value="selecetStudent"
+    ></lt-option>
+  </lt-selector>
+</template>
+<script>
+  export default {
+    data () {
+      return {
+        studentsSrc: [
+         {
+           name:'张山',
+           age: 18,
+           src:'//imgpub.chuangkit.com/userHead/5189665@1l_160w.src?v=1537182203000'
+         },
+         {
+           name:'李四',
+           age: 19,
+           src:'//imgpub.chuangkit.com/userHead/5189665@1l_160w.src?v=1537182203000'
+         },
+         {
+           name:'王五',
+           age: 16,
+           src:'//imgpub.chuangkit.com/userHead/5189665@1l_160w.src?v=1537182203000'
+         },
+         {
+           name:'李二麻子',
+           age: 22,
+           src:'//imgpub.chuangkit.com/userHead/5189665@1l_160w.src?v=1537182203000'
+         },
+          {
+            name:'小红',
+            age: 13,
+            src:'//imgpub.chuangkit.com/userHead/5189665@1l_160w.src?v=1537182203000'
+          },
+        ],
+        studentIndex: -1,
+      },
+      methods: {
+        selecetStudent (e) {
+          this.$message({
+            message: e
+          });
+          for (let i=0; i<this.students.length; i++) {
+            if (this.students[i].name === e) {
+              this.studentIndex = i
+            }
+          }
+        },
+      }
+    }
+  }
+</script>
+```
+:::
 ### API
 
 #### selector props
@@ -417,7 +489,7 @@
 placeholder | 默认显示 | String | 请选择
 trigger | 触发方式 | String | click
 clearable | 清空选择项 | Boolean | false
-selectorSize | 选择器尺寸 | Object | 190 x 40
+selectorSize | 选择器尺寸 | Object | { width: '190px', height: '40px' }
 defaultValue | 默认选中的项（后续可更改） | String / Object | -
 suffix | 传入对象后显示对象内属性的值 | String | false
 iconType | 选择框右侧的icon样式 | String | arrow-dropdown
@@ -428,9 +500,11 @@ iconType | 选择框右侧的icon样式 | String | arrow-dropdown
 ---|---|---|---|---
 value | 列表中将要显示的名称 | String / Object | -
 disabled | 禁用该项 | Boolean | false
-optionSize | 列表项尺寸 | Object | 190 x 32
+optionSize | 列表项尺寸 | Object | { width: '190px', height: '32px' }
 isActive | 选中高亮 | Boolean | false
 suffix | 传入对象后显示对象内属性的值 | String | false
+picUrl | 设置显示的图片地址 | String | -
+imgStyle | 图片的style样式 | Object | { width: '24px', height: '24px' }
 
 #### option evevt 说明
 
@@ -502,7 +576,34 @@ export default {
       studentIndex: -1,
       defaultValue: '深圳',
       defaultStudentVal: { name:'小红', age: 13 },
-      iconType: 'ios-arrow-down'
+      iconType: 'ios-arrow-down',
+      studentsSrc: [
+        {
+          name:'张山',
+          age: 18,
+          src:'//imgpub.chuangkit.com/userHead/5189665@1l_160w.src?v=1537182203000'
+        },
+        {
+          name:'李四',
+          age: 19,
+          src:'//imgpub.chuangkit.com/userHead/5189665@1l_160w.src?v=1537182203000'
+        },
+        {
+          name:'王五',
+          age: 16,
+          src:'//imgpub.chuangkit.com/userHead/5189665@1l_160w.src?v=1537182203000'
+        },
+        {
+          name:'李二麻子',
+          age: 22,
+          src:'//imgpub.chuangkit.com/userHead/5189665@1l_160w.src?v=1537182203000'
+        },
+        {
+          name:'小红',
+          age: 13,
+          src:'//imgpub.chuangkit.com/userHead/5189665@1l_160w.src?v=1537182203000'
+        },
+     ],
     }
   },
   methods: {
