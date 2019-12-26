@@ -11,6 +11,7 @@
     "buildjs": "webpack --progress --hide-modules --config ./build/webpack.build.js.conf.js",
     "buildex": "webpack --progress --hide-modules --config ./build/webpack.build.js.ex.js",
     "builddocs": "webpack --hide-modules --config ./build/webpack.build.docs.conf.js && cp -r ./examples/assets/. docs/",
+    "generateIconNameList": "node ./examples/common/generateIconNameList",
     "cleanlib": "rimraf lib/*",
     "cleandist": "rimraf dist/*",
     "deploy": "npm version patch && npm run build && npm publish",
