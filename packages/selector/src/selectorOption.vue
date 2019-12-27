@@ -5,12 +5,16 @@
     :style="optionStyle"
     @click="selectValueHandle(value)"
   >
-    <img class="option-item_img"
-         v-if="picUrl"
-         :src="picUrl"
-         :style="imgStyle"
-         :alt="getValue">
-    {{getValue}}</li>
+    <img
+      v-if="picUrl"
+      :src="picUrl"
+      :style="imgStyle"
+      :alt="getValue"
+      class="option-item_img"
+    >
+    <slot></slot>
+    {{getValue}}
+    </li>
 </template>
 
 <script>
