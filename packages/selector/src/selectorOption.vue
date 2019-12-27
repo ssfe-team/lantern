@@ -11,7 +11,7 @@
       :style="imgStyle"
       :alt="getValue"
       class="option-item_img"
-    >
+    />
     <slot></slot>
     {{getValue}}
     </li>
