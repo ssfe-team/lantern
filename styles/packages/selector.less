@@ -40,8 +40,11 @@
 .lt-option {
   position: absolute;
   margin: 0;
+  width: 100%;
+  box-sizing: border-box;
   background: #fff;
-  box-shadow: 0 8px 16px 0 rgba(7,17,27,0.08);
+  padding: 4px 1px;
+  box-shadow: 2px 4px 12px 0 rgba(18,38,101,0.10);
   border-radius: 4px;
   max-height: 260px;
   overflow-y: auto;
@@ -59,8 +62,17 @@
       border-radius: 50%;
       margin-right: 10px;
     }
+    &_bg {
+      width: 24px;
+      height: 24px;
+      display: inline-block;
+      border-radius: 50%;
+      margin-right: 10px;
+      background-repeat: no-repeat;
+      background-position: 0 0;
+    }
     &:hover {
-      background: #F7F8F9;
+      background: #F3F4F9;
     }
     &.disabled {
       color: #9b9b9b;
