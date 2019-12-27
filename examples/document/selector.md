@@ -780,7 +780,7 @@ export default {
   .thirdparty-icon {
     width: 24px;
     height: 24px;
-    background: url('../../styles/img/thirdpartyIcon.svg') no-repeat 0 0;
+    background: url('../static/thirdpartyIcon.svg') no-repeat 0 0;
     margin-right: 12px;
     &.icon-1 {
       background-position-x: -48px;
