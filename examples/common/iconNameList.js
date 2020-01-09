@@ -94,4 +94,5 @@ export default [
 "more",
 "news",
 "remind",
+"link",
 ]
