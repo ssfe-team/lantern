@@ -76,6 +76,49 @@
 ```
 :::
 
+#### 全屏
+
+设置属性 `fullscreen` 可以全屏显示。
+
+设置属性 `footer-hide` 可以隐藏底部内容。
+
+::: demo demo
+
+```html
+    <template>
+      <lt-button @click="fullscreenModalShow = true">显示全屏对话框</lt-button>
+      <lt-modal
+        v-model="fullscreenModalShow"
+        fullscreen
+        title="全屏对话框的标题"
+        @on-ok="ok"
+        @on-cancel="cancel"
+        :simple="false"
+      >
+        <div>这是一个全屏对话框</div>
+      </lt-modal>
+    </template>
+    <script>
+      export default {
+        data() {
+          return {
+            fullscreenModalShow: false
+          }
+        },
+        methods: {
+          ok() {
+            this.$message('点击了确定')
+          },
+          cancel() {
+            this.$message('点击了取消')
+          }
+        }
+      }
+    </script>
+```
+
+:::
+
 #### 自定义样式
 
 Modal 组件提供了灵活的自定义样式 API 和 Slot，可以自由控制整个 Modal 的各个组成部分，比如页头、页脚、关闭按钮。
@@ -155,7 +198,8 @@ close|自定义右上角关闭内容
       return {
         simple: false,
         modal1: false,
-        modal2: false
+        modal2: false,
+        fullscreenModalShow: false
       }
     },
     watch: {

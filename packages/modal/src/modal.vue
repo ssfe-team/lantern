@@ -116,6 +116,10 @@ export default {
       type: Boolean,
       default: true
     },
+    fullscreen: {
+      type: Boolean,
+      default: false
+    },
     zIndex: {
       type: Number,
       default: 1000
@@ -158,7 +162,12 @@ export default {
     },
     classes() {
       return [
-        `${prefixCls}`
+        `${prefixCls}`,
+        {
+          [`${prefixCls}-fullscreen`]: this.fullscreen,
+          [`${prefixCls}-fullscreen-no-header`]: this.fullscreen && !this.showHead,
+          [`${prefixCls}-fullscreen-no-footer`]: this.fullscreen && this.footerHide
+        }
       ]
     },
     contentClasses() {
