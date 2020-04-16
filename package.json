@@ -41,6 +41,7 @@
   "homepage": "https://github.com/ssfe-team/lantern#readme",
   "dependencies": {
     "async-validator": "^1.11.2",
+    "lodash.debounce": "^4.0.8",
     "lodash.throttle": "^4.1.1",
     "popper.js": "^1.14.5",
     "rimraf": "^3.0.0",

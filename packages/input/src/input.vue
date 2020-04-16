@@ -46,6 +46,7 @@
 <script>
 import { oneOf, findComponentUpward } from '../../../src/utils/assist'
 import Emitter from '../../../src/mixins/emitter'
+import debounce from 'lodash.debounce'
 
 export default {
   name: 'Input',
@@ -111,12 +112,29 @@ export default {
   computed: {
     maxlengthtips () {
       return (this.inputValue ? this.inputValue.length : '0') + '/' + this.maxlength
+    },
+    valueRuleChange () {
+      if (this.$parent.prefixCls === 'lt-form-item'){
+        return this.$parent.valueRuleChange
+      }
+      return false
     }
   },
   watch: {
     value (v) {
       this.inputValue = v
+      if (this.valueRuleChange) {
+        this.debounce()
+      }
     }
+  },
+  mounted() {
+    let dispatch = () => {
+      if (!findComponentUpward(this, ['DatePicker', 'TimePicker', 'Cascader', 'Search'])) {
+        this.dispatch('FormItem', 'on-form-change', this.currentValue)
+      }
+    }
+    this.debounce = debounce(dispatch, 100)
   },
   methods: {
     handleEnter (event) {

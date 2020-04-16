@@ -90,7 +90,8 @@ export default {
       validateState: '',
       validateMessage: '',
       validateDisabled: false,
-      validator: {}
+      validator: {},
+      valueRuleChange: false
     }
   },
   watch: {
@@ -164,6 +165,11 @@ export default {
       } else if (this.required) {
         this.isRequired = this.required
       }
+      rules.forEach(rule => {
+        if (rule.trigger.includes('change')) {
+          this.valueRuleChange = true
+        }
+      })
       this.$off('on-form-blur', this.onFieldBlur)
       this.$off('on-form-change', this.onFieldChange)
       this.$on('on-form-blur', this.onFieldBlur)

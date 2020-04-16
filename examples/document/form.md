@@ -38,7 +38,7 @@ rules|表单验证规则，具体配置查看 [async-validator](https://github.c
 inline|是否开启行内表单模式|Boolean|false
 label-position|表单域标签的位置，可选值为 `left`、`right`、`top`|String|right
 label-width|表单域标签的宽度，所有的 FormItem 都会继承 Form 组件的 label-width 的值|Number|-
-show-message|show-message|是否显示校验错误信息|Boolean|true
+show-message|是否显示校验错误信息|Boolean|true
 autocomplete|原生的 `autocomplete` 属性，可选值为 `off` 或 `on`|String|off
 
 #### Form methods
@@ -84,7 +84,7 @@ export default {
           ],
           password: [
               { required: true, message: '请输入密码', trigger: 'blur' },
-              { type: 'string', min: 6, max: 18, message: '密码长度为6-18位之间', trigger: 'blur' }
+              { type: 'string', min: 6, max: 18, message: '密码长度为6-18位之间', trigger: ['blur', 'change'] }
           ]
       }
     }
