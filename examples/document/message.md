@@ -24,6 +24,77 @@
 ```
 :::
 
+### 不同状态
+
+用来显示「成功、警告、消息、错误」类的操作反馈。
+
+:::demo demo
+```html
+    <template>
+      <lt-button @click="open2">成功</lt-button>
+      <lt-button @click="open3">警告</lt-button>
+      <lt-button @click="open4">错误</lt-button>
+    </template>
+    
+    <script>
+      export default {
+        methods: {
+          open2() {
+            this.$message.success({
+              message: '恭喜你，这是一条成功消息',
+              theme: 'light'
+            });
+          },
+    
+          open3() {
+            this.$message({
+              message: '警告哦，这是一条警告消息',
+              type: 'warning'
+            });
+          },
+    
+          open4() {
+            this.$message.error('错了哦，这是一条错误消息');
+          }
+        }
+      }
+    </script>
+```
+:::
+
+### 不同主题
+
+设置不同主题风格（亮色和暗色）
+
+:::demo demo
+```html
+    <template>
+      <lt-button @click="open0">点击亮色主题</lt-button>
+      <lt-button @click="open1">点击暗色主题</lt-button>
+    </template>
+    
+    <script>
+      export default {
+        methods: {
+          open0() {
+            this.$message({
+              message: '这是亮色主题哦',
+              theme: 'light'
+            });
+          },
+    
+          open1() {
+            this.$message({
+              message: '这是暗色主题哦',
+              theme: 'dark'
+            });
+          },
+        }
+      }
+    </script>
+```
+:::
+
 ### 点击事件
 
 点击消息提示后执行自定义操作
@@ -152,7 +223,8 @@ import { Message } from 'lantern-ui';
 | 参数      | 说明          | 类型      | 可选值                           | 默认值  |
 |---------- |-------------- |---------- |--------------------------------  |-------- |
 | message | 消息文字 | string / VNode | — | — |
-| iconClass | 自定义图标的类名，会覆盖 `type` | string | — | — |
+| type | 图标的类型 | string | success/warning/error | '' |
+| theme | 主题色 | string | dark(暗色)/light(亮色) | dark
 | dangerouslyUseHTMLString | 是否将 message 属性作为 HTML 片段处理 | boolean | — | false |
 | customClass | 自定义类名 | string | — | — |
 | duration | 显示时间, 毫秒。设为 0 则不会自动关闭 | number | — | 3000 |
@@ -184,6 +256,41 @@ import { Message } from 'lantern-ui';
             h('i', { style: 'color: teal' }, 'VNode')
           ])
         });
+      },
+
+      open0() {
+        this.$message({
+          message: '这是亮色主题哦',
+          theme: 'light'
+        });
+      },
+
+      open1() {
+        this.$message({
+          message: '这是暗色主题哦',
+          theme: 'dark'
+        });
+      },
+
+      open2() {
+        this.$message.success({
+          message: '恭喜你，这是一条成功消息',
+          theme: 'light',
+          onClick: () => {
+            alert('成功啦')
+          }
+        });
+      },
+
+      open3() {
+        this.$message({
+          message: '警告哦，这是一条警告消息',
+          type: 'warning'
+        });
+      },
+
+      open4() {
+        this.$message.error('错了哦，这是一条错误消息');
       },
 
       open5() {

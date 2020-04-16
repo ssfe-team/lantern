@@ -11,10 +11,19 @@
   border-radius: 24px;
   padding: 8px 32px;
   z-index: 100010;
+  &.light{
+    background:  #FFF;
+    border-radius: 4px;
+    padding: 12px 16px;
+    .lt-message__content{
+      color: rgba(0, 0, 0, 0.8);
+    }
+  }
   .lt-message__icon {
     width: 16px;
-    height: 20px;
-    margin-right: 16px;
+    height: 16px;
+    line-height: 16px;
+    margin-right: 8px;
   }
   .lt-message__content {
     font-size: 13px;
