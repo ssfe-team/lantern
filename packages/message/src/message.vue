@@ -1,19 +1,24 @@
 <template>
   <transition name="lt-message-fade">
-    <!-- type && !iconClass ? `lt-message--${ type }` : '', -->
     <div
       :class="[
         'lt-message',
         center ? 'is-center' : '',
-        customClass]"
+        customClass,
+        theme
+      ]"
       v-show="visible"
       @mouseenter="clearTimer"
       @mouseleave="startTimer"
       @click="handleClick"
       role="alert"
     >
-      <!-- <lt-icon :type="iconClass" v-if="iconClass" />
-      <lt-icon class="lt-message__icon" :type="typeClass" :color="iconColor" v-else /> -->
+      <lt-icon
+        v-if="type"
+        class="lt-message__icon"
+        :type="ICON_TYPE[type] && ICON_TYPE[type].type"
+        :color="ICON_TYPE[type] && ICON_TYPE[type].color"
+      />
       <slot>
         <p v-if="!dangerouslyUseHTMLString" class="lt-message__content">{{ message }}</p>
         <p v-else v-html="message" class="lt-message__content"></p>
@@ -24,14 +29,7 @@
 </template>
 
 <script type="text/babel">
-
-// const typeMap = {
-//   success: 'checkmark-circled',
-//   info: 'information-circled',
-//   warning: 'information-circled',
-//   error: 'close-circled'
-// }
-
+import ICON_TYPE from './icon-type.js';
 export default {
   name: 'Message',
   data () {
@@ -39,8 +37,8 @@ export default {
       visible: false,
       message: '',
       duration: 3000,
-      type: 'info',
-      // iconClass: '',
+      type: '',
+      theme: 'dark',
       customClass: '',
       onClick: null,
       onClose: null,
@@ -49,35 +47,12 @@ export default {
       dangerouslyUseHTMLString: false,
       center: false,
       appendText: '',
-      onClickAppendText: null
+      onClickAppendText: null,
+      ICON_TYPE
     }
   },
 
   props: {},
-
-  computed: {
-    // typeClass () {
-    //   return this.type && !this.iconClass
-    //     ? `${typeMap[this.type]}`
-    //     : ''
-    // },
-    // iconColor () {
-    //   let color = null
-    //   switch (this.type) {
-    //     case 'success':
-    //     case 'info':
-    //       color = '#0773FC'
-    //       break
-    //     case 'warning':
-    //       color = '#F6A623'
-    //       break
-    //     case 'error':
-    //       color = '#FF3D67'
-    //       break
-    //   }
-    //   return color
-    // }
-  },
 
   watch: {
     closed (newVal) {

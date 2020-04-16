@@ -1,5 +1,6 @@
 import Vue from 'vue';
 import Main from './message.vue';
+import ICON_TYPE from './icon-type.js';
 let MessageConstructor = Vue.extend(Main);
 
 let instance;
@@ -32,7 +33,7 @@ const Message = function (options) {
   return instance.vm;
 };
 
-['success', 'warning', 'info', 'error'].forEach(type => {
+Object.keys(ICON_TYPE).forEach(type => {
   Message[type] = options => {
     if (typeof options === 'string') {
       options = {
