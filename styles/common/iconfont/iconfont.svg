@@ -20,6 +20,9 @@ Created by iconfont
   />
     <missing-glyph />
     
+    <glyph glyph-name="shangchuanicon" unicode="&#58979;" d="M656 384v-256h-288V384H128l384 512 384-512h-240zM128-25.6h768V-128H128v102.4z"  horiz-adv-x="1024" />
+
+    
     <glyph glyph-name="succeed" unicode="&#58978;" d="M512-128A512 512 0 1 0 512 896a512 512 0 0 0 0-1024zM444.16 257.6L308.288 393.344a64 64 0 0 1-90.496-90.496l180.992-180.992a64 64 0 0 1 90.496 0l316.8 316.8a64 64 0 1 1-90.496 90.496L444.096 257.6z"  horiz-adv-x="1024" />
 
     
