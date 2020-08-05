@@ -30,9 +30,9 @@ window.expandCode = function () {
   let btn = event.target
   let docHtml = btn.previousElementSibling
   docHtml.classList.toggle('expand')
-  let text = '点击收起源代码'
+  let text = '收起代码'
   if (!docHtml.classList.contains('expand')) {
-    text = '点击查看源代码'
+    text = '显示代码'
   }
   // setTimeout(() => {
   //   btn.innerHTML = text

@@ -28,7 +28,7 @@ md.use(require('markdown-it-container'), 'demo', {
 
     } else {
       //closing tag
-      return `</div><button class="demo-code-btn" onclick="expandCode()">点击查看源代码</button></div>\n`;
+      return `</div><button class="demo-code-btn" onclick="expandCode()">查看代码</button></div>\n`;
     }
   }
 });
