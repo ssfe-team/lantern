@@ -6,10 +6,19 @@
     >
       <LtHeader
         class="ltdemo-header"
-        height="60px"
+        height="70px"
       >
-        <div class="header-nav">
-          <span>Lantern-创客贴前端UI库</span>
+        <div class="left-header-nav">
+          <img src="./static/logo.png" class="logo-img">
+        </div>
+        <div class="right-header-nav">
+        <ul class="nav-menu-wrap">
+          <li class="menu-item menu-item-active"><a href="#">pc端组件</a></li>
+          <li class="menu-item"><a href="#">移动端组件</a></li>
+          <li class="menu-item"><a href="#">资源下载</a></li>
+          <li class="menu-item"><a href="#">创客贴</a></li>
+        </ul>
+          <a href="" class="github-link"><img src="./static/github.jpg" alt=""></a>
         </div>
       </LtHeader>
       <LtMain class="ltdemo-main">
@@ -18,7 +27,7 @@
             class="main-wrap-layout"
             :is-row="mainLayoutIsRow"
           >
-            <LtAside width="300px">
+            <LtAside width="280px">
               <LtMenu>
                 <LtMenuItem href="/install">
                   <span>安装</span>
@@ -26,15 +35,18 @@
                 <LtMenuItem href="/start">
                   <span>快速上手</span>
                 </LtMenuItem>
-                <LtMenuItemGroup title="组件文档">
+                <LtMenuItemGroup title="基础组件">
                   <LtMenuItem href="/color">
-                    <span>Color 标准色</span>
+                    <span class="lt-menu-title-text">标准色</span>
+                    <span class="lt-menu-sub-text">Color</span>
                   </LtMenuItem>
                   <LtMenuItem href="/layout">
-                    <span>Layout 布局容器</span>
+                    <span class="lt-menu-title-text">布局容器</span>
+                    <span class="lt-menu-sub-text">Layout</span>
                   </LtMenuItem>
                   <LtMenuItem href="/menu">
-                    <span>Menu 导航菜单</span>
+                    <span class="lt-menu-title-text">导航菜单</span>
+                    <span class="lt-menu-sub-text">Menu</span>
                   </LtMenuItem>
                   <!--
                   <LtMenuItem href="/scroll">
@@ -114,7 +126,7 @@
                 </LtMenuItemGroup>
               </LtMenu>
             </LtAside>
-            <LtMain height="100%">
+            <LtMain  class="main-content-wrap">
               <RouterView />
             </LtMain>
           </LtLayout>

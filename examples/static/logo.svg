@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="125px" height="32px" viewBox="0 0 125 32" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 64 (93537) - https://sketch.com -->
+    <title>logo</title>
+    <desc>Created with Sketch.</desc>
+    <g id="页面-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="pc" transform="translate(-32.000000, -19.000000)">
+            <g id="logo" transform="translate(32.000000, 19.000000)">
+                <g id="编组">
+                    <circle id="椭圆形" fill="#0F57F7" cx="16" cy="16" r="16"></circle>
+                    <rect id="矩形" fill="#FFFFFF" x="12" y="9" width="6" height="9" rx="3"></rect>
+                    <rect id="矩形备份" fill="#FFFFFF" x="22" y="9" width="6" height="9" rx="3"></rect>
+                    <text id="ckt-uikit" font-family="Helvetica" font-size="18" font-weight="normal" line-spacing="18" fill="#19253F">
+                        <tspan x="42" y="25">CKT UIKIT</tspan>
+                    </text>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

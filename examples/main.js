@@ -1,8 +1,8 @@
 /*
  * @Author: bianhao
  * @Date: 2017-12-21 16:28:31
- * @Last Modified by: bianhao
- * @Last Modified time: 2018-08-12 17:52:18
+ * @Last Modified by: JearyVon
+ * @Last Modified time: 2020-07-29 15:34:17
  */
 import Vue from 'vue'
 import App from './app.vue'
@@ -34,7 +34,7 @@ window.expandCode = function () {
   if (!docHtml.classList.contains('expand')) {
     text = '点击查看源代码'
   }
-  setTimeout(() => {
-    btn.innerHTML = text
-  }, 400)
+  // setTimeout(() => {
+  //   btn.innerHTML = text
+  // }, 0)
 }
