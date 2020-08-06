@@ -91,10 +91,11 @@
   }
 }
   .ltdemo-main {
-    overflow: scroll;
+    //overflow: scroll;
     .main-wrap {
       width: 100%;
       margin: 0 auto;
+      padding-top: 43px;
       .lt-menu {
         margin-top: 10px;
         border-right: 1px solid #EBEEF5;
@@ -105,20 +106,22 @@
     }
   }
 .ltdemo-main .main-wrap .lt-menu {
-    margin-top: 43px;
-    height: 100%;
-    max-height: 100vh;
-    overflow: hidden;
 }
 .ltdemo-main .main-wrap .lt-aside{
+  width: 280px;
   height: 100%;
+  background: #FFFFFF;
+  margin-bottom: 40px;
+  top: 0;
+  z-index: 19;
+  overflow: scroll;
 }
-.lt-menu{ 
+.lt-menu{
   .lt-menu-item-group{
     .lt-menu-group__title{
       padding-left: 32px;
       margin-bottom: 27px;
-      margin-top: 64px;
+      margin-top: 50px;
       font-weight: bold;
       font-size: 14px;
       color: @text-color;
@@ -133,27 +136,58 @@
       line-height: 14px;
     }
     &:hover{
-      background: rgba(15,87,247,0.04);
+      background:@main-bg-color;
     }
     .lt-menu-title-text{
       color: @slide-text-color;
     }
     .lt-menu-sub-text{
+      margin-left: 16px;
       color: @slide-text-color-sub;
     }
   }
   .router-link-active{
     span{
-      color: @main-color;
+      color: @main-color !important;
     }
-    background: rgba(15,87,247,0.04);
+    background: @main-bg-color;
     a{
       font-size: 14px;
-      color: @main-color;
+      color: @main-color !important;
       line-height: 14px;
+    }
+
+    position: relative;
+    &:before {
+      content: "";
+      position: absolute;
+      right: 0;
+      width: 5px;
+      height: 40px;
+      background: @main-color;
     }
   }
 }
-// .main-content-wrap{
-//   overflow: scroll;
-// }
+ .main-content-wrap {
+   //margin-left: 280px;
+   //overflow: scroll;
+   display: flex;
+   justify-content: space-between;
+   &_left {
+     width: calc(100% - 200px);
+   }
+   &_footer {
+     width: 100%;
+     padding: 80px 0 16px;
+     text-align: center;
+     font-size: 12px;
+     color: @text-color;
+   }
+   &_right {
+     margin-left: 40px;
+     width: 160px;
+     height: 100%;
+     display: block;
+     background-color: #398ffd;
+   }
+ }

@@ -1,36 +1,39 @@
+@import './common.less';
 .markdowndoc {
-  padding-left: 10px;
-  padding-top: 20px;
+  padding-left: 40px;
   & > h2 {
-    font-size: 24px;
+    margin: 0;
+    margin-top: 13px;
+    margin-bottom: 24px;
+    font-size: 30px;
     font-weight: 400;
-    color: @mainColor1;
+    color: @font-title-one;
   }
   & > h3 {
     margin-top: 30px;
     margin-bottom: 20px;
-    font-size: 20px;
+    font-size: 24px;
     font-weight: 400;
-    color: @comColor2;
+    color: @font-title-one;
   }
   & > h4 {
     margin-top: 30px;
     margin-bottom: 20px;
-    font-size: 16px;
+    font-size: 18px;
     font-weight: bold;
-    color: @comColor2;
+    color: @font-title-one;
   }
   & > h5 {
     margin-top: 30px;
     margin-bottom: 20px;
     font-size: 14px;
     font-weight: bold;
-    color: @comColor2;
+    color: @font-title-one;
   }
   & > p {
     font-size: 14px;
     line-height: 1.5em;
-    color: @comColor2;
+    color: @font-des;
     code {
       border-radius: 3px;
     }
@@ -57,22 +60,23 @@
   }
   .demo-code-wrap {
     margin: 30px;
-    border-radius: 5px;
-    border: 1px solid #e7e7e7;
+    border: 1px solid #EBEEF5;
     overflow: hidden;
     .demo-code-result {
-      padding: 20px;
+      padding: 24px;
       &::after {
         display: block;
         content: "";
         clear: both;
       }
     }
+
     .demo-code-content {
       border-top: 1px solid #e7e7e7;
       overflow: hidden;
       display: block;
       max-height: 0px;
+      position: relative;
       transition: max-height .6s ease-in-out;
       &.expand {
         max-height: 10000px;
@@ -103,7 +107,7 @@
   display: block;
   margin: 0px;
   padding: 20px 15px 12px;
-  background-color: #fafafa;
+  background-color: #f3f4f9;
   &::before {
     color: #9b9b9b;
     position: absolute;
@@ -148,23 +152,34 @@ table {
   display: table;
   border-collapse: collapse;
   line-height: 1.5em;
+  border: 1px solid #EBEEF5;
   th {
     font-weight: unset;
     color: #9b9b9b;
-    text-align: left;
-    padding: 8px;
-    border-bottom: 1px solid #e7e7e7;
+    text-align: center;
+    height: 40px;
+    line-height: 40px;
+    border-bottom: 1px solid #EBEEF5;
+    background: #F3F4F9;
+    &:not(last-child) {
+      border-left: 1px solid #EBEEF5;
+    }
   }
   td {
-    padding: 8px;
     color: #626262;
+    height: 50px;
+    line-height: 50px;
+    padding-left: 16px;
+    &:not(last-child) {
+      border-left: 1px solid #EBEEF5;
+    }
     border-bottom: 1px solid #e7e7e7;
   }
 }
 
 code {
   display: inline-block;
-  background: #f7f7f7;
+  //background: #f7f7f7;
   margin: 0 3px;
   padding: 1px 5px;
   color: #666;

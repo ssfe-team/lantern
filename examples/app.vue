@@ -16,9 +16,9 @@
           <li class="menu-item menu-item-active"><a href="#">pc端组件</a></li>
           <li class="menu-item"><a href="#">移动端组件</a></li>
           <li class="menu-item"><a href="#">资源下载</a></li>
-          <li class="menu-item"><a href="#">创客贴</a></li>
+          <li class="menu-item"><a href="https://www.ckt.cn">创客贴</a></li>
         </ul>
-          <a href="" class="github-link"><img src="./static/github.jpg" alt=""></a>
+          <a href="https://github.com/ssfe-team/lantern" class="github-link"><img src="./static/github.jpg" alt=""></a>
         </div>
       </LtHeader>
       <LtMain class="ltdemo-main">
@@ -27,107 +27,145 @@
             class="main-wrap-layout"
             :is-row="mainLayoutIsRow"
           >
-            <LtAside width="280px">
+            <LtAside width="280px" :style="{position: isAsideFixed ? 'fixed' : 'relative' }">
+<!--            <LtAside width="280px">-->
               <LtMenu>
-                <LtMenuItem href="/install">
-                  <span>安装</span>
-                </LtMenuItem>
-                <LtMenuItem href="/start">
-                  <span>快速上手</span>
-                </LtMenuItem>
-                <LtMenuItemGroup title="基础组件">
-                  <LtMenuItem href="/color">
-                    <span class="lt-menu-title-text">标准色</span>
-                    <span class="lt-menu-sub-text">Color</span>
+                  <LtMenuItem href="/install">
+                    <span>安装</span>
                   </LtMenuItem>
-                  <LtMenuItem href="/layout">
-                    <span class="lt-menu-title-text">布局容器</span>
-                    <span class="lt-menu-sub-text">Layout</span>
+                  <LtMenuItem href="/start">
+                    <span>快速上手</span>
                   </LtMenuItem>
-                  <LtMenuItem href="/menu">
-                    <span class="lt-menu-title-text">导航菜单</span>
-                    <span class="lt-menu-sub-text">Menu</span>
-                  </LtMenuItem>
+                  <LtMenuItemGroup title="基础组件">
+                    <LtMenuItem href="/color">
+                      <span class="lt-menu-title-text">标准色</span>
+                      <span class="lt-menu-sub-text">Color</span>
+                    </LtMenuItem>
+                    <LtMenuItem href="/layout">
+                      <span class="lt-menu-title-text">布局容器</span>
+                      <span class="lt-menu-sub-text">Layout</span>
+                    </LtMenuItem>
+                    <LtMenuItem href="/icon">
+                      <span class="lt-menu-title-text">图标</span>
+                      <span class="lt-menu-sub-text">Icon</span>
+                    </LtMenuItem>
+                    <LtMenuItem href="/button">
+                      <span class="lt-menu-title-text">按钮</span>
+                      <span class="lt-menu-sub-text">Button</span>
+                    </LtMenuItem>
+                  </LtMenuItemGroup>
                   <!--
                   <LtMenuItem href="/scroll">
                     <span>Scroll 滚动条</span>
                   </LtMenuItem>-->
-                  <LtMenuItem href="/message">
-                    <span>Message 消息通知</span>
-                  </LtMenuItem>
-                  <LtMenuItem href="/pagination">
-                    <span>Pagination 分页</span>
-                  </LtMenuItem>
-                  <LtMenuItem href="/icon">
-                    <span>Icon 图标</span>
-                  </LtMenuItem>
-                  <LtMenuItem href="/select">
-                    <span>Select 选择器</span>
-                  </LtMenuItem>
-                  <LtMenuItem href="/form">
-                    <span>Form 表单</span>
-                  </LtMenuItem>
-                  <LtMenuItem href="/input">
-                    <span>Input 输入框</span>
-                  </LtMenuItem>
-                  <LtMenuItem href="/input-number">
-                    <span>InputNumber 数字输入框</span>
-                  </LtMenuItem>
-                  <LtMenuItem href="/poptip">
-                    <span>Poptip 气泡提示</span>
-                  </LtMenuItem>
-                  <LtMenuItem href="/tooltip">
-                    <span>Tooltip 文字提示</span>
-                  </LtMenuItem>
-                  <LtMenuItem href="/checkbox">
-                    <span>Checkbox 多选框</span>
-                  </LtMenuItem>
-                  <LtMenuItem href="/button">
-                    <span>Button 按钮</span>
-                  </LtMenuItem>
-                  <LtMenuItem href="/radio">
-                    <span>Radio 单选框</span>
-                  </LtMenuItem>
-                  <LtMenuItem href="/slider">
-                    <span>Slider 滑块</span>
-                  </LtMenuItem>
-                  <LtMenuItem href="/switch">
-                    <span>Switch 开关</span>
-                  </LtMenuItem>
-                  <LtMenuItem href="/breadcrumb">
-                    <span>Breadcrumb 面包屑</span>
-                  </LtMenuItem>
-                  <LtMenuItem href="/dropdown">
-                    <span>Dropdown 下拉菜单</span>
-                  </LtMenuItem>
-                  <LtMenuItem href="/modal">
-                    <span>Modal 弹框</span>
-                  </LtMenuItem>
-                  <LtMenuItem href="/steps">
-                    <span>Steps 步骤条</span>
-                  </LtMenuItem>
-                  <LtMenuItem href="/progress">
-                    <span>Progress 进度条</span>
-                  </LtMenuItem>
-                  <LtMenuItem href="/carousel">
-                    <span>Carousel 轮播图</span>
-                  </LtMenuItem>
-                  <LtMenuItem href="/selector">
-                    <span>Selector 选择器</span>
-                  </LtMenuItem>
-                  <LtMenuItem href="/time">
-                    <span>Time 相对时间</span>
-                  </LtMenuItem>
-                </LtMenuItemGroup>
-                <LtMenuItemGroup title="规范文档">
-                  <LtMenuItem href="/classstandard">
-                    <span>class 命名规范</span>
-                  </LtMenuItem>
-                </LtMenuItemGroup>
-              </LtMenu>
+
+                  <LtMenuItemGroup title="导航组件">
+                    <LtMenuItem href="/menu">
+                      <span class="lt-menu-title-text">导航菜单</span>
+                      <span class="lt-menu-sub-text">Menu</span>
+                    </LtMenuItem>
+                    <LtMenuItem href="/breadcrumb">
+                      <span class="lt-menu-title-text">面包屑</span>
+                      <span class="lt-menu-sub-text">Breadcrumb</span>
+                    </LtMenuItem>
+                    <LtMenuItem href="/steps">
+                      <span class="lt-menu-title-text">步骤条</span>
+                      <span class="lt-menu-sub-text">Steps</span>
+                    </LtMenuItem>
+                    <LtMenuItem href="/dropdown">
+                      <span class="lt-menu-title-text">下拉菜单</span>
+                      <span class="lt-menu-sub-text">Dropdown</span>
+                    </LtMenuItem>
+                    <LtMenuItem href="/pagination">
+                      <span class="lt-menu-title-text">分页</span>
+                      <span class="lt-menu-sub-text">Pagination</span>
+                    </LtMenuItem>
+                  </LtMenuItemGroup>
+
+                  <LtMenuItemGroup title="数据录入">
+                    <LtMenuItem href="/select">
+                      <span class="lt-menu-title-text">选择器</span>
+                      <span class="lt-menu-sub-text">Select</span>
+                    </LtMenuItem>
+                    <LtMenuItem href="/form">
+                      <span class="lt-menu-title-text">表单</span>
+                      <span class="lt-menu-sub-text">Form</span>
+                    </LtMenuItem>
+                    <LtMenuItem href="/input">
+                      <span class="lt-menu-title-text">输入框</span>
+                      <span class="lt-menu-sub-text">Input</span>
+                    </LtMenuItem>
+                    <LtMenuItem href="/input-number">
+                      <span class="lt-menu-title-text">数字输入框</span>
+                      <span class="lt-menu-sub-text">InputNumber</span>
+                    </LtMenuItem>
+                    <LtMenuItem href="/checkbox">
+                      <span class="lt-menu-title-text">多选框</span>
+                      <span class="lt-menu-sub-text">Checkbox</span>
+                    </LtMenuItem>
+                    <LtMenuItem href="/radio">
+                      <span class="lt-menu-title-text">单选框</span>
+                      <span class="lt-menu-sub-text">Radio</span>
+                    </LtMenuItem>
+                    <LtMenuItem href="/slider">
+                      <span class="lt-menu-title-text">滑块</span>
+                      <span class="lt-menu-sub-text">Slider</span>
+                    </LtMenuItem>
+                    <LtMenuItem href="/switch">
+                      <span class="lt-menu-title-text">开关</span>
+                      <span class="lt-menu-sub-text">Switch</span>
+                    </LtMenuItem>
+                    <LtMenuItem href="/selector">
+                      <span class="lt-menu-title-text">选择器</span>
+                      <span class="lt-menu-sub-text">Selector</span>
+                    </LtMenuItem>
+                  </LtMenuItemGroup>
+                  <LtMenuItemGroup title="数据展示">
+                    <LtMenuItem href="/poptip">
+                      <span class="lt-menu-title-text">气泡提示</span>
+                      <span class="lt-menu-sub-text">Poptip</span>
+                    </LtMenuItem>
+                    <LtMenuItem href="/tooltip">
+                      <span class="lt-menu-title-text">文字提示</span>
+                      <span class="lt-menu-sub-text">Tooltip</span>
+                    </LtMenuItem>
+                    <LtMenuItem href="/progress">
+                      <span class="lt-menu-title-text">进度条</span>
+                      <span class="lt-menu-sub-text">Progress</span>
+                    </LtMenuItem>
+                    <LtMenuItem href="/carousel">
+                      <span class="lt-menu-title-text">轮播图</span>
+                      <span class="lt-menu-sub-text">Carousel</span>
+                    </LtMenuItem>
+                    <LtMenuItem href="/time">
+                      <span class="lt-menu-title-text">相对时间</span>
+                      <span class="lt-menu-sub-text">Time</span>
+                    </LtMenuItem>
+                  </LtMenuItemGroup>
+                  <LtMenuItemGroup title="反馈">
+                    <LtMenuItem href="/message">
+                      <span class="lt-menu-title-text">消息通知</span>
+                      <span class="lt-menu-sub-text">Message</span>
+                    </LtMenuItem>
+                    <LtMenuItem href="/modal">
+                      <span class="lt-menu-title-text">弹框</span>
+                      <span class="lt-menu-sub-text">Modal</span>
+                    </LtMenuItem>
+                  </LtMenuItemGroup>
+                  <LtMenuItemGroup title="规范文档">
+                    <LtMenuItem href="/classstandard">
+                      <span>class 命名规范</span>
+                    </LtMenuItem>
+                  </LtMenuItemGroup>
+                </LtMenu>
             </LtAside>
-            <LtMain  class="main-content-wrap">
-              <RouterView />
+            <LtMain class="main-content-wrap" :style="{marginLeft: isAsideFixed ? '280px' : '0'}">
+              <main class="main-content-wrap_left">
+                <RouterView />
+                <div class="main-content-wrap_footer">创客贴- 前端开发&UI设计部</div>
+              </main>
+              <section class="main-content-wrap_right">
+              </section>
             </LtMain>
           </LtLayout>
         </div>
@@ -154,7 +192,8 @@ export default {
     return {
       layoutWidth: '100%',
       mainLayoutIsRow: true,
-      goToTopShow: false
+      goToTopShow: false,
+      isAsideFixed: false,
     }
   },
   mounted () {
@@ -177,6 +216,7 @@ export default {
     unThrottledFunc () {
       let top = document.documentElement.scrollTop || document.body.scrollTop
       let height = document.documentElement.clientHeight || document.body.clientHeight
+      this.isAsideFixed = top >= 70 ? true : false
       this.goToTopShow = top > height
     }
   }
