@@ -1,21 +1,24 @@
 <template>
   <transition name="lt-message-fade">
     <div
+      v-show="visible"
       :class="[
         'lt-message',
         center ? 'is-center' : '',
         customClass,
         theme
       ]"
-      v-show="visible"
       @mouseenter="clearTimer"
       @mouseleave="startTimer"
       @click="handleClick"
       role="alert"
     >
       <lt-icon
-        v-if="type"
-        class="lt-message__icon"
+        v-if="type!=='none'"
+        :class="[
+          'lt-message__icon',
+          type === 'loading' ? 'is-loaing' : '',
+        ]"
         :type="ICON_TYPE[type] && ICON_TYPE[type].type"
         :color="ICON_TYPE[type] && ICON_TYPE[type].color"
       />
@@ -23,7 +26,11 @@
         <p v-if="!dangerouslyUseHTMLString" class="lt-message__content">{{ message }}</p>
         <p v-else v-html="message" class="lt-message__content"></p>
       </slot>
-      <span class="lt-message__appent-text" @click.stop="handleClickAppendText" v-if="appendText">{{appendText}}</span>
+      <span
+        v-if="appendText"
+        class="lt-message__appent-text"
+        @click.stop="handleClickAppendText"
+      >{{ appendText }}</span>
     </div>
   </transition>
 </template>
@@ -36,9 +43,9 @@ export default {
     return {
       visible: false,
       message: '',
-      duration: 3000,
-      type: '',
-      theme: 'dark',
+      duration: 30000,
+      type: 'default',
+      theme: 'light',
       customClass: '',
       onClick: null,
       onClose: null,
