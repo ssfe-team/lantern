@@ -97,11 +97,17 @@
       margin: 0 auto;
       padding-top: 43px;
       .lt-menu {
-        margin-top: 10px;
         border-right: 1px solid #EBEEF5;
         .lt-menu-item{
           height: 40px;
+          a{
+            padding: 10px 0px;
+          }
         }
+      }
+      .left-menu-wrap-blank{
+        width: 280px;
+        height: 100%;
       }
     }
   }
@@ -139,10 +145,12 @@
       background:@main-bg-color;
     }
     .lt-menu-title-text{
+      display: inline;
       color: @slide-text-color;
     }
     .lt-menu-sub-text{
       margin-left: 16px;
+      display: inline;
       color: @slide-text-color-sub;
     }
   }
@@ -168,11 +176,12 @@
     }
   }
 }
- .main-content-wrap {
+.main-content-wrap {
    //margin-left: 280px;
    //overflow: scroll;
    display: flex;
    justify-content: space-between;
+   min-height: 100vh;
    &_left {
      width: calc(100% - 200px);
    }
@@ -185,9 +194,9 @@
    }
    &_right {
      margin-left: 40px;
-     width: 160px;
+     width: 140px;
      height: 100%;
      display: block;
      background-color: #398ffd;
    }
- }
+}
