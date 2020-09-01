@@ -32,7 +32,6 @@
               <slot name="footer">
                 <i-button
                   type="primary"
-                  size="large"
                   :style="footerBtnStyles"
                   :loading="buttonLoading"
                   @click.native="ok"
@@ -83,7 +82,7 @@ export default {
     },
     width: {
       type: [Number, String],
-      default: 400
+      default: 420
     },
     okText: {
       type: String
@@ -201,7 +200,8 @@ export default {
     footerBtnStyles() {
       let style = {
         height: '40px',
-        padding: '10px 28px'
+        padding: '10px 28px',
+        fontSize: '14px'
       }
       return style
     },

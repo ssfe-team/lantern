@@ -43,7 +43,7 @@ export default {
     return {
       visible: false,
       message: '',
-      duration: 30000,
+      duration: 3000,
       type: 'default',
       theme: 'light',
       customClass: '',
