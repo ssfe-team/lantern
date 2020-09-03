@@ -15,7 +15,7 @@ export default {
       }
     },
     checkMaskInVisible() {
-      let masks = document.getElementsByClassName('ivu-modal-mask') || []
+      let masks = document.getElementsByClassName('lt-modal-mask') || []
       return Array.from(masks).every(m => m.style.display === 'none' || m.classList.contains('fade-leave-to'))
     },
     setScrollBar() {
