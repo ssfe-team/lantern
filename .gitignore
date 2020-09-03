@@ -12,3 +12,5 @@ docs
 *.ntvs*
 *.njsproj
 *.sln
+*.lock
+package-lock.json
