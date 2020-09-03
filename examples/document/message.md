@@ -26,36 +26,47 @@
 
 ### 不同状态
 
-用来显示「成功、警告、消息、错误」类的操作反馈。
+用来显示「成功、提醒、错误、加载中、无提示icon」类的操作反馈。
 
 :::demo demo
 ```html
     <template>
       <lt-button @click="open2">成功</lt-button>
-      <lt-button @click="open3">警告</lt-button>
+      <lt-button @click="open3">提醒</lt-button>
       <lt-button @click="open4">错误</lt-button>
+      <lt-button @click="open5">加载中</lt-button>
+      <lt-button @click="open1">无提示icon</lt-button>
     </template>
     
     <script>
       export default {
         methods: {
+          open1() {
+            this.$message({
+              message: '不显示提示icon',
+              type: 'none'
+            });
+          }
           open2() {
             this.$message.success({
-              message: '恭喜你，这是一条成功消息',
-              theme: 'light'
+              message: '这里是成功确认文案',
             });
           },
-    
           open3() {
             this.$message({
-              message: '警告哦，这是一条警告消息',
+              message: '这里是一般提醒文案',
               type: 'warning'
             });
           },
-    
           open4() {
-            this.$message.error('错了哦，这是一条错误消息');
-          }
+            this.$message.error('这里是错误警告文案');
+          },
+          open5() {
+            this.$message({
+              message: '正在拼命加载中',
+              type: 'loading'
+            });
+          },
         }
       }
     </script>
@@ -69,21 +80,21 @@
 :::demo demo
 ```html
     <template>
-      <lt-button @click="open0">点击亮色主题</lt-button>
-      <lt-button @click="open1">点击暗色主题</lt-button>
+      <lt-button @click="open6">点击亮色主题</lt-button>
+      <lt-button @click="open7">点击暗色主题</lt-button>
     </template>
     
     <script>
       export default {
         methods: {
-          open0() {
+          open6() {
             this.$message({
               message: '这是亮色主题哦',
               theme: 'light'
             });
           },
     
-          open1() {
+          open7() {
             this.$message({
               message: '这是暗色主题哦',
               theme: 'dark'
@@ -223,7 +234,7 @@ import { Message } from 'lantern-ui';
 | 参数      | 说明          | 类型      | 可选值                           | 默认值  |
 |---------- |-------------- |---------- |--------------------------------  |-------- |
 | message | 消息文字 | string / VNode | — | — |
-| type | 图标的类型 | string | success/warning/error | '' |
+| type | 图标的类型 | string | default/success/warning/error/loading/none | default |
 | theme | 主题色 | string | dark(暗色)/light(亮色) | dark
 | dangerouslyUseHTMLString | 是否将 message 属性作为 HTML 片段处理 | boolean | — | false |
 | customClass | 自定义类名 | string | — | — |
@@ -248,76 +259,48 @@ import { Message } from 'lantern-ui';
         this.$message('这是一条消息提示');
       },
 
-      openVn() {
-        const h = this.$createElement;
+      open1() {
         this.$message({
-          message: h('p', null, [
-            h('span', null, '内容可以是 '),
-            h('i', { style: 'color: teal' }, 'VNode')
-          ])
+          message: '这里是默认提示文案',
+          type: 'none'
         });
       },
 
-      open0() {
+      open2() {
+        this.$message.success({
+          message: '这里是成功确认文案',
+        });
+      },
+
+      open3() {
+        this.$message({
+          message: '这里是一般提醒文案',
+          type: 'warning'
+        });
+      },
+
+      open4() {
+        this.$message.error('这里是错误警告文案');
+      },
+
+      open5() {
+        this.$message({
+          message: '正在拼命加载中',
+          type: 'loading'
+        });
+      },
+
+      open6() {
         this.$message({
           message: '这是亮色主题哦',
           theme: 'light'
         });
       },
 
-      open1() {
+      open7() {
         this.$message({
           message: '这是暗色主题哦',
           theme: 'dark'
-        });
-      },
-
-      open2() {
-        this.$message.success({
-          message: '恭喜你，这是一条成功消息',
-          theme: 'light',
-          onClick: () => {
-            alert('成功啦')
-          }
-        });
-      },
-
-      open3() {
-        this.$message({
-          message: '警告哦，这是一条警告消息',
-          type: 'warning'
-        });
-      },
-
-      open4() {
-        this.$message.error('错了哦，这是一条错误消息');
-      },
-
-      open5() {
-        this.$message({
-          showClose: true,
-          message: '这是一条可关闭的消息提示'
-        });
-      },
-
-      open6() {
-        this.$message({
-          showClose: true,
-          message: '恭喜你，这是一条成功消息',
-        });
-      },
-
-      open7() {
-        this.$message({
-          showClose: true,
-          message: '警告哦，这是一条警告消息',
-        });
-      },
-
-      open8() {
-        this.$message({
-          showClose: true,
-          message: '错了哦，这是一条错误消息',
         });
       },
       

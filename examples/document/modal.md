@@ -14,9 +14,7 @@
 ```html
     <template>
       <lt-button @click="simple = true">简易模式</lt-button>
-      <lt-modal
-        v-model="simple"
-      >
+      <lt-modal v-model="simple">
         <img src="https://imgpub.chuangkit.com/designTemplate/2019/05/08/466042295_thumb" style="display: block;">
       </lt-modal>
     </template>
@@ -45,13 +43,11 @@
       <lt-button @click="modal1 = true">显示对话框</lt-button>
       <lt-modal
         v-model="modal1"
+        :simple="false"
         title="普通的Modal对话框标题"
         @on-ok="ok"
         @on-cancel="cancel"
-        :simple="false"
       >
-        <p>对话框内容</p>
-        <p>对话框内容</p>
         <p>对话框内容</p>
       </lt-modal>
     </template>
@@ -91,9 +87,9 @@
         v-model="fullscreenModalShow"
         fullscreen
         title="全屏对话框的标题"
+        :simple="false"
         @on-ok="ok"
         @on-cancel="cancel"
-        :simple="false"
       >
         <div>这是一个全屏对话框</div>
       </lt-modal>
@@ -132,11 +128,10 @@ Modal 组件提供了灵活的自定义样式 API 和 Slot，可以自由控制�
       <lt-modal
         v-model="modal2"
         :footer-hide="true"
-        width="420"
         :simple="false"
       >
         <p style="font-size: 20px;font-weight: bold;text-align: center;">创建文件夹</p>
-        <p style="font-weight: bold;">文件夹名称</p>
+        <p style="font-weight: bold;margin: 20px 0;">文件夹名称</p>
         <LtInput ref="input" autofocus placeholder="输入文件夹名称" />
         <LtButton type="primary" style="margin-top: 40px;" @click="createFolder">创建文件夹</LtButton>
       </lt-modal>
@@ -173,7 +168,7 @@ class-name|设置对话框容器 `.lt-modal-wrap` 的类名，可辅助实现垂
 z-index|层级|Number|1000
 transition-names|自定义显示动画，第一项是模态框，第二项是背景|Array|['ease', 'fade']
 transfer|是否将弹层放置于 body 内|Boolean|true
-
+fullscreen|全屏显示|Boolean|false
 ### Modal events
 
 事件名|说明|返回值
@@ -225,3 +220,9 @@ close|自定义右上角关闭内容
     }
   };
 </script>
+
+<style lang="less" scoped>
+  p {
+    margin: 0;
+  }
+</style>

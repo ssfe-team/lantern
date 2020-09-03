@@ -1,126 +1,298 @@
-## 标准色
+# 标准色  Color
 
-用于统一整站颜色，达到视觉统一
+使用以下调色板的规定颜色作为设计和开发规范，以保证页面和产品的统一视觉感受。
 
-### 主色
+#### 主色
+创客贴以代表梦想与科技的亮蓝色作为品牌主色，深色一般用于hover状态，浅色一般用于标签背景和辅助性按钮。
 
 <div class="color-show-wrap">
-  <div v-for="index in mainlist" class="color-show-content">
-    <div class="color-show-color" :style="{'background': index.color}"></div>
-    <div class="color-show-text-wrap">
-      <div class="color-show-title">{{index.title}}<span>less类名：{{index.lesstilte}}</span></div>
-      <div>{{index.des}}</div>
-      <div>{{index.content}}</div>
+  <div
+    v-for="item in maincolors"
+    class="color-show-content"
+    :style="{
+      'background': item.color,
+      'color': item.textcolor
+    }"
+  >
+    <p class="color-show-title">{{ item.title }}</p>
+    <p class="color-show-color">{{ item.color }}</p>
+  </div>
+</div>
+
+#### 辅助色
+辅助色是除了主色外的场景色，常用于不同情绪的信息提示或不同分类的标签背景。
+
+<div class="color-show-wrap">
+  <div v-for="item in auxiliarycolors">
+    <div
+      class="color-show-content auxiliary"
+      :style="{
+        'background': item.gradient ? item.gradient : item.color,
+        'color': item.textcolor
+      }"
+    >
+      <p class="color-show-title">{{ item.title }}</p>
+      <p class="color-show-color">{{ item.color }}</p>
+    </div>
+    <div
+      class="color-show-auxiliary"
+      :style="{
+        'background': item.lightcolor,
+        'color': item.color.split(' ')[1] ? item.color.split(' ')[1] : item.color
+      }"
+    >
+      <p class="color-show-color light">{{ item.lightcolor }}</p>
     </div>
   </div>
 </div>
 
-### 辅助色
+#### 中性色
+中性色广泛用于文本、背景和边框阴影等内容，不同明度的中性色可以用来表现页面内容的层次结构。
+
 <div class="color-show-wrap">
-  <div v-for="index in comlist" class="color-show-content">
-    <div class="color-show-color" :style="{'background': index.color}"></div>
-    <div class="color-show-text-wrap">
-      <div class="color-show-title">{{index.title}}<span>less类名：{{index.lesstilte}}</span></div>
-      <div>{{index.des}}</div>
-      <div>{{index.content}}</div>
-    </div>
+  <div 
+    v-for="item in neutralcolors"
+    class="color-show-content"
+    :style="{
+      'background': item.opacity ? item.opacity: item.color,
+      'color': item.textcolor,
+    }"
+  >
+    <p class="color-show-title">{{ item.title }}</p>
+    <p class="color-show-color">{{ item.color }}</p>
   </div>
 </div>
+
+#### 渐变色
+渐变色主要用于专题活动视觉、运营入口卡片或icon背景。
+
+<div class="color-show-wrap">
+  <div 
+    v-for="item in gradientcolors"
+    class="color-show-content gradient"
+    :style="{
+      'background': item.color,
+      'color': item.textcolor,
+    }"
+  >
+    <p class="color-show-title">{{ item.title }}</p>
+  </div>
+</div>
+
 
 ::::vuecode::::
 <script>
 export default {
   data() {
     return {
-      mainlist: [{
+      // 主色
+      maincolors: [{
+        title: '默认',
         color: '#0773FC',
-        title: '主色调1',
+        textcolor: '#FFF',
         lesstilte: 'mainColor1',
-        des: '色值：#0773FC',
-        content: '使用规则：主色调，应用于头部、重要性文字·按钮和icon'
+      },{
+        title: '深色',
+        color: '#0667E2',
+        textcolor: '#FFF',
+        lesstilte: 'mainColor2',
+      },{
+        title: '浅色',
+        color: '#E6F1FE',
+        textcolor: '#1B2337',
+        lesstilte: 'mainColor3',
       }],
-      comlist: [{
-        color: '#343434',
-        title: '辅助色1',
-        lesstilte: 'comColor1',
-        des: '色值：#343434',
-        content: '使用规则：用于标题和重要内容，已填写内容和重要叙述性内容'
+      // 辅助色
+      auxiliarycolors: [{
+        title: '警告',
+        color: '#FA2323',
+        lightcolor: '#FEE9E9',
+        textcolor: '#FFF',
+        lesstilte: 'auxColor1',
       },{
-        color: '#626262',
-        title: '辅助色2',
-        lesstilte: 'comColor2',
-        des: '色值：#626262',
-        content: '使用规则：用于次级标题信息和内容等'
+        title: '提醒',
+        color: '#F5930D',
+        lightcolor: '#FEF5E6',
+        textcolor: '#FFF',
+        lesstilte: 'auxColor2',
       },{
-        color: '#9B9B9B',
-        title: '辅助色3',
-        lesstilte: 'comColor3',
-        des: '色值：#9B9B9B',
-        content: '使用规则：用于不重要的叙述性内容、灰色按钮文字内容'
+        title: '完成',
+        color: '#02BB00',
+        lightcolor: '#E5F8E5',
+        textcolor: '#FFF',
+        lesstilte: 'auxColor3',
       },{
-        color: '#CDCDCD',
-        title: '辅助色4',
-        lesstilte: 'comColor4',
-        des: '色值：#CDCDCD',
-        content: '使用规则：用于置灰按钮文字等'
+        title: '会员',
+        color: '#FCEEE1 #FCDAC1',
+        lightcolor: '#6B3D1E',
+        textcolor: '#6B3D1E',
+        lesstilte: 'auxColor4',
+        gradient: 'linear-gradient(90deg, #FCEEE1 0%, #FCDAC1 100%)'
+      }],
+      // 中性色
+      neutralcolors: [{
+        title: '标题/主要文字/其他深色',
+        color: '#1B2337',
+        textcolor: '#FFF',
+        lesstilte: 'neuColor1',
       },{
-        color: '#E7E7E7',
-        title: '辅助色5',
-        lesstilte: 'comColor5',
-        des: '色值：#E7E7E7',
-        content: '使用规则：辅助色用于新手标的文字描述、数字展示、次级按钮'
+        title: '一般文字',
+        color: '#505A71',
+        textcolor: '#FFF',
+        lesstilte: 'neuColor2',
       },{
-        color: '#FAFAFA',
-        title: '辅助色6',
-        lesstilte: 'comColor6',
-        des: '色值：#FAFAFA',
-        content: '用于背景色等辅助灰色使用，用于分割线，占位提示性、灰色按钮'
+        title: '次要/占位提示文字',
+        color: '#8693AB',
+        textcolor: '#FFF',
+        lesstilte: 'neuColor3',
       },{
-        color: '#FFFFFF',
-        title: '辅助色7',
-        lesstilte: 'comColor7',
-        des: '色值：#FFFFFF',
-        content: '使用规则：用于背景色，高亮提示文字使用'
+        title: '内边框',
+        color: '#000 10%',
+        textcolor: '#1B2337',
+        lesstilte: 'neuColor4',
+        opacity: 'rgba(0, 0, 0, 10%)'
+      },{
+        title: '中灰背景/分割线',
+        color: '#EBEEF5',
+        textcolor: '#1B2337',
+        lesstilte: 'neuColor5',
+      },{
+        title: '失效',
+        color: '#F3F4F9',
+        textcolor: '#1B2337',
+        lesstilte: 'neuColor6',
+      },{
+        title: '一般背景色',
+        color: '#F3F4F9',
+        textcolor: '#1B2337',
+        lesstilte: 'neuColor7',
+      },{
+        title: '浅灰背景',
+        color: '#F8F8FB',
+        textcolor: '#1B2337',
+        lesstilte: 'neuColor8',
+      }],
+      // 渐变色
+      gradientcolors: [{
+        title: '蓝魂',
+        color: 'linear-gradient(270deg, #0056F5 0%, #00E1FF 100%)',
+        textcolor: '#FFF',
+        lesstilte: 'gradColor1',
+      },{
+        title: '赤梦',
+        color: 'linear-gradient(90deg, #F91821 0%, #FF722E 100%)',
+        textcolor: '#FFF',
+        lesstilte: 'gradColor2',
+      },{
+        title: '绮罗',
+        color: 'linear-gradient(135deg, #FF5763 0%, #7E2CD2 100%)',
+        textcolor: '#FFF',
+        lesstilte: 'gradColor3',
+      },{
+        title: '初阳',
+        color: 'linear-gradient(135deg, #FDCA00 0%, #FF4501 100%)',
+        textcolor: '#FFF',
+        lesstilte: 'gradColor4',
+      },{
+        title: '薄雾',
+        color: 'linear-gradient(135deg, #FFC352 0%, #FC76B3 100%)',
+        textcolor: '#FFF',
+        lesstilte: 'gradColor5',
+      },{
+        title: '魅惑',
+        color: 'linear-gradient(269deg, #F0214F 1%, #F86F96 99%)',
+        textcolor: '#FFF',
+        lesstilte: 'gradColor6',
+      },{
+        title: '竹叶',
+        color: 'linear-gradient(269deg, #0CAC00 0%, #6BD633 100%)',
+        textcolor: '#FFF',
+        lesstilte: 'gradColor7',
+      },{
+        title: '藤萝',
+        color: 'linear-gradient(90deg, #CE9FFC 0%, #7367F0 100%)',
+        textcolor: '#FFF',
+        lesstilte: 'gradColor8',
+      },{
+        title: '光芒',
+        color: 'linear-gradient(135deg, #FFE324 0%, #FF9C33 100%)',
+        textcolor: '#FFF',
+        lesstilte: 'gradColor9',
+      },{
+        title: '绿笛',
+        color: 'linear-gradient(269deg, #28C76F 0%, #81FBB8 100%)',
+        textcolor: '#FFF',
+        lesstilte: 'gradColor10',
+      },{
+        title: '风筝',
+        color: 'linear-gradient(270deg, #EA5455 0%, #FEB692 100%)',
+        textcolor: '#FFF',
+        lesstilte: 'gradColor11',
+      },{
+        title: '星魂',
+        color: 'linear-gradient(270deg, #4C83FF 0%, #2AFADF 100%)',
+        textcolor: '#FFF',
+        lesstilte: 'gradColor12',
       }]
     }
   }
 }
 </script>
 <style lang="less">
+  .flex(@hor: center, @ver: center, @type: row) {
+    display: flex;
+    justify-content: @hor;
+    align-items: @ver;
+    flex-direction: @type;
+  }
   .color-show-wrap {
+    width: 100%;
+    .flex(flex-start);
+    flex-wrap: wrap;
     overflow: hidden;
-    padding: 5px;
+    
   }
   .color-show-content {
-    float: left;
-    margin-left: 40px;
-    border-radius: 5px;
-    overflow: hidden;
-    width: 250px;
-    height: 290px;
-    box-shadow:0px 0px 5px 1px #dadada;
-    margin-bottom: 40px;
+    .flex(flex-start, flex-start, column);
+    width: 321px;
+    height: 106px;
+    border-radius: 6px;
+    padding: 38px 24px 24px;
+    margin-bottom: 32px;
+    box-sizing: border-box;
+    position: relative;
+    &:not(:last-child) {
+      margin-right: 38px;
+    }
+    p {
+      box-sizing: border-box;
+      margin: 0;
+    }
+    .color-show-title {
+      font-size: 12px;
+      margin-bottom: 8px;
+    }
     .color-show-color {
-      width: 100%;
-      height: 160px
-    }
-    .color-show-text-wrap {
-      padding: 20px;
-      background-color: #ffffff;
-      div {
-        font-size: 12px;
-        width: 210px;
-        line-height: 1.5em;
-        color: #9b9b9b;
-      }
-      .color-show-title {
-        margin: 0px 0px 10px 0px;
-        color: #626262;
-        span {
-          padding-left: 10px;
-          color: #0773FC;
-        }
+      font-size: 24px;
+      &.light {
+        font-size: 16px;
       }
     }
+    &.auxiliary {
+      margin-bottom: 0;
+    }
+    &.gradient {
+      padding: 68px 24px 24px;
+    }
+  }
+  .color-show-auxiliary {
+    .flex(flex-start);
+    width: 321px;
+    height: 60px;
+    border-radius: 0 0 6px 6px;
+    margin-bottom: 32px;
+    padding: 0 0 0 24px;
+    margin-top: -7px;
+    box-sizing: border-box;
   }
 </style>
