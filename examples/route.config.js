@@ -33,6 +33,7 @@ import Carousel from './document/carousel.md'
 import Selector from './document/selector.md'
 import Form from './document/form.md'
 import Time from './document/time.md'
+import Grid from './document/grid.md'
 
 export default [
   {
@@ -54,6 +55,10 @@ export default [
   {
     path: '/layout',
     component: layout
+  },
+  {
+    path: '/grid',
+    component: Grid
   },
   {
     path: '/menu',

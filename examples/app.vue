@@ -69,6 +69,10 @@
                     <span class="lt-menu-title-text">按钮</span>
                     <span class="lt-menu-sub-text">Button</span>
                   </LtMenuItem>
+                  <LtMenuItem href="/grid">
+                    <span class="lt-menu-title-text">栅格</span>
+                    <span class="lt-menu-sub-text">Grid</span>
+                  </LtMenuItem>
                 </LtMenuItemGroup>
                 <!--
                   <LtMenuItem href="/scroll">
