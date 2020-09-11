@@ -1,25 +1,18 @@
 <template>
-    <div :class="classes">
-        <slot></slot>
-    </div>
+  <div :class="classes">
+    <slot></slot>
+  </div>
 </template>
-<script>
-  import { oneOf } from '../../../src/utils/assist'
 
+<script>
   const prefixCls = 'lt-btn-group'
 
   export default {
     name: 'ButtonGroup',
     props: {
-      size: {
-        validator (value) {
-          return oneOf(value, ['small', 'large', 'default'])
-        }
-      },
-      shape: {
-        validator (value) {
-          return oneOf(value, ['circle', 'circle-outline'])
-        }
+      circle: {
+        type: Boolean,
+        default: false
       },
       vertical: {
         type: Boolean,
@@ -27,15 +20,16 @@
       }
     },
     computed: {
-      classes () {
-        return [
-          `${prefixCls}`,
-          {
-            [`${prefixCls}-${this.size}`]: !!this.size,
-            [`${prefixCls}-${this.shape}`]: !!this.shape,
-            [`${prefixCls}-vertical`]: this.vertical
+      classes() {
+        const props = ['circle', 'vertical']
+        let typeClass = { [prefixCls]: true }
+        props.forEach(prop => {
+          const classObj = {
+            [`${prefixCls}-${prop}`]: this[prop]
           }
-        ]
+          typeClass = Object.assign(typeClass, classObj)
+        })
+        return typeClass
       }
     }
   }

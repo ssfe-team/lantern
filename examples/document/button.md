@@ -6,24 +6,55 @@
 
 ### 代码示例
 
-#### 按钮类型
+#### 基础用法
 
-按钮类型有：默认按钮、主按钮、幽灵按钮、虚线按钮、文字按钮以及四种颜色按钮。
+基础的按钮用法。
 
-通过设置`type`为`primary`、`ghost`、`dashed`、`text`、`info`、`success`、`warning`、`error`创建不同样式的按钮，不设置为默认样式。
-
-::: demo demo
+::: demo demo 
 ```html
-   <lt-button>Default</lt-button>
-   <lt-button type="primary">Primary</lt-button>
-   <lt-button type="ghost">Ghost</lt-button>
-   <lt-button type="dashed">Dashed</lt-button>
-   <lt-button type="text">Text</lt-button>
-   <br><br>
-   <lt-button type="info">Info</lt-button>
-   <lt-button type="success">Success</lt-button>
-   <lt-button type="warning">Warning</lt-button>
-   <lt-button type="error">Error</lt-button>
+  <lt-row align="middle">
+    <span>主要按钮：</span>
+    <lt-button>主要按钮</lt-button>
+    <lt-button type="success">成功按钮</lt-button>
+    <lt-button type="warning">提示按钮</lt-button>
+    <lt-button type="error">危险按钮</lt-button>
+    <lt-button type="vip">会员按钮</lt-button>
+  </lt-row>
+
+  <lt-row align="middle">
+    <span>辅助按钮：</span>
+    <lt-button type="normal">初等辅助</lt-button>
+    <lt-button type="medium">中等辅助</lt-button>
+    <lt-button type="heavy">高等辅助</lt-button>
+  </lt-row>
+
+  <lt-row align="middle">
+    <span>虚线按钮：</span>
+    <lt-button dashed>虚线主要</lt-button>
+    <lt-button type="success" dashed>虚线成功</lt-button>
+    <lt-button type="warning" dashed>虚线提示</lt-button>
+    <lt-button type="error" dashed>虚线危险</lt-button>
+  </lt-row>
+
+  <lt-row align="middle">
+    <span>幽灵按钮：</span>
+    <section class="ghost-style">
+      <!-- <lt-button type="transparent" ghost>幽灵透明</lt-button> -->
+      <lt-button ghost>幽灵主要</lt-button>
+      <lt-button type="success" ghost>幽灵成功</lt-button>
+      <lt-button type="warning" ghost>幽灵提示</lt-button>
+      <lt-button type="error" ghost>幽灵危险</lt-button>
+    </section>
+  </lt-row>
+
+  <lt-row align="middle">
+    <span>文字按钮：</span>
+    <lt-button text>文字主要</lt-button>
+    <lt-button type="success" text>文字成功</lt-button>
+    <lt-button type="warning" text>文字提示</lt-button>
+    <lt-button type="error" text>文字危险</lt-button>
+    <lt-button type="general" text>文字普通</lt-button>
+  </lt-row>
 ```
 :::
 
@@ -37,33 +68,97 @@
 
 ::: demo demo
 ```html
-   <lt-button type="primary" shape="circle" icon="recycle"></lt-button>
-   <lt-button type="primary" icon="recycle" icon-size="14">删除</lt-button>
-   <lt-button type="primary" shape="circle" icon="recycle">删除</lt-button>
-   <lt-button type="primary" shape="circle">Circle</lt-button>
-   <br><br>
-   <lt-button type="ghost" shape="circle" icon="recycle"></lt-button>
-   <lt-button type="ghost" icon="recycle">删除</lt-button>
-   <lt-button type="ghost" shape="circle" icon="recycle">删除</lt-button>
-   <lt-button type="ghost" shape="circle">Circle</lt-button>
+  <lt-row align="middle">
+    <span>图标按钮：</span>
+    <lt-button type="normal" icon="recycle"></lt-button>
+    <lt-button icon="recycle" ghost></lt-button>
+    <lt-button icon="recycle"></lt-button>
+    <lt-button icon="recycle" circle></lt-button>
+  </lt-row>
+  <lt-row align="middle">
+    <span>组合按钮：</span>
+    <lt-button type="medium" icon="recycle" circle>删除</lt-button>
+    <lt-button type="normal" icon="recycle">删除</lt-button>
+    <lt-button icon="recycle">删除</lt-button>
+    <lt-button icon="recycle" dashed>删除</lt-button>
+  </lt-row>
+  <lt-row align="middle">
+    <span>无框按钮：</span>
+    <lt-button type="general" icon="recycle" text></lt-button>
+    <lt-button type="general" icon="recycle" text>删除</lt-button>
+  </lt-row>
 ```
 :::
 
 #### 按钮尺寸
 
-按钮有三种尺寸：大、默认（中）、小
+按钮有三种尺寸：微型、小型、中型、默认（大型）、特大型
 
-通过设置`size`为`large`和`small`将按钮设置为大和小尺寸，不设置为默认（中）尺寸。
+通过设置`size`为`min`、`small`、`middle`、`large`、`max`，将按钮设置为大和小尺寸，不设置为默认（大型）尺寸。
 
 ::: demo demo
 ```html
-  <lt-button type="primary" size="large">Large</lt-button>
-  <lt-button type="primary">Default</lt-button>
-  <lt-button type="primary" size="small">Small</lt-button>
-  <br><br>
-  <lt-button type="primary" shape="circle" size="large">Large</lt-button>
-  <lt-button type="primary" shape="circle">Default</lt-button>
-  <lt-button type="primary" shape="circle" size="small">Small</lt-button>
+  <lt-row align="middle">
+    <lt-button size="min">微型按钮</lt-button>
+    <lt-button size="small">小型按钮</lt-button>
+    <lt-button size="middle">中型按钮</lt-button>
+    <lt-button>默认按钮</lt-button>
+    <lt-button size="max">特大按钮</lt-button>
+  </lt-row>
+  <lt-row align="middle">
+    <lt-button size="min" circle>微型按钮</lt-button>
+    <lt-button size="small" circle>小型按钮</lt-button>
+    <lt-button size="middle" circle>中型按钮</lt-button>
+    <lt-button circle>默认按钮</lt-button>
+    <lt-button size="max" circle>特大按钮</lt-button>
+  </lt-row>
+```
+:::
+
+
+#### 按钮loading
+
+通过添加`loading`属性可以让按钮处于加载中状态，后两个按钮在点击时进入加载状态。
+
+::: demo demo
+```html
+  <lt-button size="max" icon="load-d" loading></lt-button>
+  <lt-button icon="load-b" loading>加载中</lt-button>
+  <lt-button loading></lt-button>
+```
+:::
+
+#### 按钮组合
+
+将多个`Button`放入`ButtonGroup`内，可实现按钮组合的效果。
+
+::: demo demo
+```html
+  <lt-row align="middle">
+    <lt-button-group>
+      <lt-button>内容一</lt-button>
+      <lt-button type="normal">内容二</lt-button>
+      <lt-button type="normal">内容三</lt-button>
+      <lt-button type="normal">内容四</lt-button>
+    </lt-button-group>
+
+    <lt-button-group circle>
+      <lt-button type="heavy">内容一</lt-button>
+      <lt-button type="general" text>内容二</lt-button>
+      <lt-button type="general" text>内容三</lt-button>
+      <lt-button type="general" text>内容四</lt-button>
+    </lt-button-group>
+  </lt-row>
+
+  <lt-button-group>
+    <lt-button type="normal" icon="mylike"></lt-button>
+    <lt-button type="normal" icon="mybuy"></lt-button>
+  </lt-button-group>
+
+  <lt-button-group>
+    <lt-button type="normal">内容一</lt-button>
+    <lt-button type="normal">内容二</lt-button>
+  </lt-button-group>
 ```
 :::
 
@@ -75,9 +170,9 @@
 
 ::: demo demo
 ```html
-  <lt-button type="success" long>SUBMIT</lt-button>
+  <lt-button long>确定</lt-button>
   <br><br>
-  <lt-button type="error" long>DELETE</lt-button>
+  <lt-button ghost long>取消</lt-button>
 ```
 :::
 
@@ -87,164 +182,25 @@
 
 ::: demo demo
 ```html
-     <lt-button>Default</lt-button>
-     <lt-button disabled>Default(Disabled)</lt-button>
-     <br><br>
-     <lt-button type="primary">Primary</lt-button>
-     <lt-button type="primary" disabled>Primary(Disabled)</lt-button>
-     <br><br>
-     <lt-button type="ghost">Ghost</lt-button>
-     <lt-button type="ghost" disabled>Ghost(Disabled)</lt-button>
-     <br><br>
-     <lt-button type="dashed">Dashed</lt-button>
-     <lt-button type="dashed" disabled>Dashed(Disabled)</lt-button>
-     <br><br>
-     <lt-button type="text">Text</lt-button>
-     <lt-button type="text" disabled>Text(Disabled)</lt-button>
+  <lt-row align="middle">
+    <lt-button>主要按钮</lt-button>
+    <lt-button type="medium">中等辅助</lt-button>
+    <lt-button type="heavy">高等辅助</lt-button>
+    <lt-button type="normal">初等辅助</lt-button>
+    <lt-button dashed>虚线按钮</lt-button>
+    <lt-button type="general" text>普通按钮</lt-button>
+  </lt-row>
+  <lt-row align="middle">
+    <lt-button>主要按钮</lt-button>
+    <lt-button type="medium" disabled>中等辅助</lt-button>
+    <lt-button type="heavy" disabled>高等辅助</lt-button>
+    <lt-button type="normal" disabled>初等辅助</lt-button>
+    <lt-button dashed disabled>虚线按钮</lt-button>
+    <lt-button type="general" text disabled>普通按钮</lt-button>
+  </lt-row>
 ```
 :::
 
-#### 加载中状态
-
-通过添加`loading`属性可以让按钮处于加载中状态，后两个按钮在点击时进入加载状态。
-
-::: demo demo
-```html
-    <template>
-        <lt-button type="primary" loading>Loading...</lt-button>
-        <lt-button type="primary" :loading="loading" @click="toLoading">
-            <span v-if="!loading">Click me!</span>
-            <span v-else>Loading...</span>
-        </lt-button>
-        <lt-button type="primary" :loading="loading2" icon="checkmark-round" @click="toLoading2">
-            <span v-if="!loading2">Click me!</span>
-            <span v-else>Loading...</span>
-        </lt-button>
-    </template>
-    <script>
-        export default {
-            data () {
-                return {
-                    loading: false,
-                    loading2: false
-                }
-            },
-            methods: {
-                toLoading () {
-                    this.loading = true;
-                },
-                toLoading2 () {
-                    this.loading2 = true;
-                }
-            }
-        }
-    </script>
-```
-:::
-
-#### 按钮组合
-
-将多个`Button`放入`ButtonGroup`内，可实现按钮组合的效果。
-
-通过设置`ButtonGroup`的属性`size`为`large`和`small`，可将按钮组尺寸设置为大和小，不设置`size`，则为默认（中）尺寸。
-
-通过设置`ButtonGroup`的属性`shape`为`circle`，可将按钮组形状设置为圆角。
-
-::: demo demo
-```html
-     <h4>Basic</h4>
-         <br><br>
-         <lt-button-group>
-             <lt-button>Cancel</lt-button>
-             <lt-button type="primary">Confirm</lt-button>
-         </lt-button-group>
-         <lt-button-group>
-             <lt-button disabled>Yesterday</lt-button>
-             <lt-button disabled>Today</lt-button>
-             <lt-button disabled>Tomorrow</lt-button>
-         </lt-button-group>
-         <lt-button-group>
-             <lt-button type="primary">L</lt-button>
-             <lt-button>M</lt-button>
-             <lt-button type="ghost">M</lt-button>
-             <lt-button type="dashed">R</lt-button>
-         </lt-button-group>
-         <br><br>
-         <h4>Icons</h4>
-         <br><br>
-         <lt-button-group>
-             <lt-button type="primary">
-                 <lt-icon type="chevron-left"></lt-icon>
-                 Backward
-             </lt-button>
-             <lt-button type="primary">
-                 Forward
-                 <lt-icon type="chevron-right"></lt-icon>
-             </lt-button>
-         </lt-button-group>
-         <lt-button-group>
-             <lt-button type="primary" icon="chevron-left"></lt-button>
-             <lt-button type="primary" icon="chevron-right"></lt-button>
-         </lt-button-group>
-         <lt-button-group>
-             <lt-button type="ghost" icon="mylike"></lt-button>
-             <lt-button type="ghost" icon="mybuy"></lt-button>
-             <lt-button type="ghost" icon="recycle"></lt-button>
-             <lt-button type="ghost" icon="mydesign"></lt-button>
-         </lt-button-group>
-         <br><br>
-         <h4>Circle</h4>
-         <br><br>
-         <lt-button-group shape="circle">
-             <lt-button type="primary">
-                 <lt-icon type="chevron-left"></lt-icon>
-                 Backward
-             </lt-button>
-             <lt-button type="primary">
-                 Forward
-                 <lt-icon type="chevron-right"></lt-icon>
-             </lt-button>
-         </lt-button-group>
-         <lt-button-group shape="circle">
-             <lt-button type="primary" icon="chevron-left"></lt-button>
-             <lt-button type="primary" icon="chevron-right"></lt-button>
-         </lt-button-group>
-         <lt-button-group shape="circle">
-             <lt-button type="ghost" icon="mylike"></lt-button>
-             <lt-button type="ghost" icon="mybuy"></lt-button>
-             <lt-button type="ghost" icon="recycle"></lt-button>
-             <lt-button type="ghost" icon="mydesign"></lt-button>
-         </lt-button-group>
-         <br><br>
-         <h4>Size</h4>
-         <br><br>
-         <lt-button-group size="large">
-             <lt-button type="ghost">Large</lt-button>
-             <lt-button type="ghost">Large</lt-button>
-         </lt-button-group>
-         <lt-button-group>
-             <lt-button type="ghost">Default</lt-button>
-             <lt-button type="ghost">Default</lt-button>
-         </lt-button-group>
-         <lt-button-group size="small">
-             <lt-button type="ghost">Small</lt-button>
-             <lt-button type="ghost">Small</lt-button>
-         </lt-button-group>
-         <br><br>
-         <lt-button-group size="large" shape="circle">
-             <lt-button type="ghost">Large</lt-button>
-             <lt-button type="ghost">Large</lt-button>
-         </lt-button-group>
-         <lt-button-group shape="circle">
-             <lt-button type="ghost">Default</lt-button>
-             <lt-button type="ghost">Default</lt-button>
-         </lt-button-group>
-         <lt-button-group size="small" shape="circle">
-             <lt-button type="ghost">Small</lt-button>
-             <lt-button type="ghost">Small</lt-button>
-         </lt-button-group>
-```
-:::
 
 #### 按钮组纵向排列
 
@@ -252,12 +208,12 @@
 
 ::: demo demo
 ```html
-   <lt-button-group vertical>
-       <lt-button type="ghost" icon="mylike"></lt-button>
-       <lt-button type="ghost" icon="mybuy"></lt-button>
-       <lt-button type="ghost" icon="recycle"></lt-button>
-       <lt-button type="ghost" icon="mydesign"></lt-button>
-   </lt-button-group>
+  <lt-button-group vertical>
+    <lt-button icon="mylike" ghost></lt-button>
+    <lt-button icon="mybuy" ghost></lt-button>
+    <lt-button icon="recycle" ghost></lt-button>
+    <lt-button icon="mydesign" ghost></lt-button>
+  </lt-button-group>
 ```
 :::
 
@@ -265,13 +221,16 @@
 
 #### Button props
 
-属性|说明|类型|默认值
----|---|---|---
-type|按钮类型，可选值为`primary`、`ghost`、`dashed`、`text`、`info`、`success`、`warning`、`error`或者不设置|String|-
-size|按钮大小，可选值为`large`、`small`、`default`或者不设置|String|-
-shape|按钮形状，可选值为`circle`或者不设置|String|-
+参数|说明|类型|默认值
+-------|-------|-------|-------|-------
+type|按钮类型|success｜warning｜error｜vip｜heavy｜medium｜normal｜general｜white｜default|default
+ghost|幽灵属性，使按钮背景透明|Boolean|false
+dashed|虚线属性，使按钮边框使用虚线|Boolean|false
+text|文字按钮|Boolean|false
+size|按钮大小|min｜small｜middle｜large｜max|large
+circle|圆形按钮|Boolean|false
 long|开启后，按钮的长度为 100%|Boolean|false
-html-type|设置`button`原生的`type`，可选值为`button`、`submit`、`reset`|String|button
+html-type|设置`button`原生的`type`|button｜submit｜reset|button
 disabled|设置按钮为禁用状态|Boolean|false
 loading|设置按钮为加载中状态|Boolean|false
 icon|设置按钮的图标类型|String|-
@@ -281,26 +240,41 @@ icon-size|设置按钮的图标大小|String|16
 
 属性|说明|类型|默认值
 ---|---|---|---
-size|按钮组合大小，可选值为`large`、`small`、`default`或者不设置|String|-
-shape|按钮组合形状，可选值为`circle`或者不设置|String|-
+circle|圆形按钮|Boolean|false
 vertical|是否纵向排列按钮组|Boolean|false
 
 ::::vuecode::::
-<script>
-export default {
-    data () {
-        return {
-            loading: false,
-            loading2: false
-        }
-    },
-    methods: {
-        toLoading () {
-            this.loading = true;
-        },
-        toLoading2 () {
-            this.loading2 = true;
-        }
+
+<style lang='less'>
+.demo-code-result {
+  .lt-row {
+    margin-bottom: 32px;
+    >span {
+      font-size: 14px;
+      color: #505A71;
+      margin-right: 18px;
     }
+  }
+  .lt-btn {
+    margin-right: 24px;
+  }
+
+  .ghost-style {
+    display: flex;
+    align-items: center;
+    height: 72px;
+    width: 680px;
+    background-image: linear-gradient(90deg, rgba(66,81,107,0.30) 0%, rgba(59,76,101,0.00) 100%);
+    border-radius: 2px;
+    margin-left: -16px;
+    padding-left: 16px;
+  }
+  
+  .lt-btn-group {
+    margin-right: 24px;
+    .lt-btn {
+      margin-right: 0;
+    }
+  }
 }
-</script>
+</style>
