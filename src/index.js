@@ -24,6 +24,7 @@ import RadioGroup from '../packages/radio-group/index.js'
 import Slider from '../packages/slider/index.js'
 import Tooltip from '../packages/tooltip/index.js'
 import Switch from '../packages/switch/index.js'
+import ColorPicker from '../packages/colorPicker/index.js'
 import Breadcrumb from '../packages/breadcrumb/index.js'
 import BreadcrumbItem from '../packages/breadcrumb-item/index.js'
 import Dropdown from '../packages/dropdown/index.js'
@@ -70,6 +71,7 @@ const packages = {
   Slider,
   Tooltip,
   Switch,
+  ColorPicker,
   Breadcrumb,
   BreadcrumbItem,
   Dropdown,

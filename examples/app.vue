@@ -82,6 +82,9 @@
                   <LtMenuItem href="/switch">
                     <span>Switch 开关</span>
                   </LtMenuItem>
+                  <LtMenuItem href="/colorPicker">
+                    <span>ColorPicker 颜色选择器</span>
+                  </LtMenuItem>
                   <LtMenuItem href="/breadcrumb">
                     <span>Breadcrumb 面包屑</span>
                   </LtMenuItem>
@@ -142,7 +145,7 @@ export default {
     return {
       layoutWidth: '100%',
       mainLayoutIsRow: true,
-      goToTopShow: false
+      goToTopShow: false,
     }
   },
   mounted () {

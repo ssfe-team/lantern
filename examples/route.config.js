@@ -24,6 +24,7 @@ import button from './document/button.md'
 import radio from './document/radio.md'
 import slider from './document/slider.md'
 import Switch from './document/switch.md'
+import ColorPicker from './document/colorPicker.md'
 import Breadcrumb from './document/breadcrumb.md'
 import Dropdown from './document/dropdown.md'
 import Modal from './document/modal.md'
@@ -118,6 +119,10 @@ export default [
   {
     path: '/switch',
     component: Switch
+  },
+  {
+    path: '/colorPicker',
+    component: ColorPicker
   },
   {
     path: '/breadcrumb',
