@@ -39,6 +39,7 @@ import { Selector, Option } from '../packages/selector/index.js'
 import Form from '../packages/form/index.js'
 import FormItem from '../packages/form-item/index.js'
 import Time from '../packages/time/index.js'
+import ColorPicker from '../packages/colorPicker/index.js'
 
 const prefix = 'Lt'
 
@@ -84,7 +85,8 @@ const packages = {
   Option,
   Form,
   FormItem,
-  Time
+  Time,
+  ColorPicker
 }
 
 /* eslint-disable */
@@ -100,7 +102,49 @@ if (typeof window !== 'undefined' && window.Vue) {
 }
 
 const API = {
-  ...packages,
+  Message,
+  WaterFall,
+  Scroll,
+  Aside,
+  Footer,
+  Header,
+  Layout,
+  Main,
+  Menu,
+  MenuItem,
+  MenuItemGroup,
+  MenuItemSelect,
+  Select,
+  Pagination,
+  Icon,
+  Input,
+  InputNumber,
+  Poptip,
+  Checkbox,
+  CheckboxGroup,
+  Button,
+  ButtonGroup,
+  Radio,
+  RadioGroup,
+  Slider,
+  Tooltip,
+  Switch,
+  Breadcrumb,
+  BreadcrumbItem,
+  Dropdown,
+  DropdownMenu,
+  DropdownItem,
+  Modal,
+  Steps,
+  Step,
+  Progress,
+  Carousel,
+  Selector,
+  Option,
+  Form,
+  FormItem,
+  Time,
+  ColorPicker,
   install
 }
 
