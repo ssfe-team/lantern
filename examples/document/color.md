@@ -23,12 +23,13 @@
 辅助色是除了主色外的场景色，常用于不同情绪的信息提示或不同分类的标签背景。
 
 <div class="color-show-wrap">
-  <div v-for="item in auxiliarycolors">
+  <div v-for="(item, index) in auxiliarycolors">
     <div
       class="color-show-content auxiliary"
       :style="{
         'background': item.gradient ? item.gradient : item.color,
-        'color': item.textcolor
+        'color': item.textcolor,
+        'margin-right': index % 4 === 0 ? '0px' : '38px'
       }"
     >
       <p class="color-show-title">{{ item.title }}</p>
@@ -261,7 +262,7 @@ export default {
     margin-bottom: 32px;
     box-sizing: border-box;
     position: relative;
-    &:not(:last-child) {
+    &:not(:nth-child(4n)) {
       margin-right: 38px;
     }
     p {

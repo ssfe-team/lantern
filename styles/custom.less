@@ -5,8 +5,8 @@
 // Color
 @primary-color          : #0773FC;
 @info-color             : #2db7f5;
-@success-color          : #19be6b;
-@warning-color          : #ff9900;
+@success-color          : #02BB00;
+@warning-color          : #F5930D;
 @error-color            : #FA2323;
 @link-color             : #0773FC;
 @link-hover-color       : tint(@link-color, 20%);
@@ -15,6 +15,7 @@
 @tooltip-color          : #fff;
 @subsidiary-color       : #80848f;
 @rate-star-color        : #f5a623;
+@vip-color              : #6B3D1E;
 
 // Base
 @body-background        : #fff;
@@ -53,7 +54,9 @@
 @menu-dark-subsidiary-color   : rgba(255,255,255,.7);
 @menu-dark-group-title-color  : rgba(255,255,255,.36);
 @date-picker-cell-hover-bg    : #e1f0fe;
-
+@vip-bg                       : linear-gradient(90deg, #FCEEE1 0%, #FCDAC1 100%);
+@vip-hover-bg                 : linear-gradient(90deg, #EDE0D3 0%, #EDCDB5 100%);
+ 
 // Shadow
 @shadow-color           : rgba(0, 0, 0, .24);
 @shadow-base            : @shadow-down;
@@ -65,33 +68,68 @@
 
 // Button
 @btn-font-weight        : normal;
-@btn-padding-base       : 6px 15px;
-@btn-padding-large      : 6px 15px;
-@btn-padding-small      : 2px 7px;
-@btn-font-size          : 12px;
-@btn-font-size-large    : 16px;
+@btn-padding-min        : 7px 14px;
+@btn-padding-small      : 9px 14px;
+@btn-padding-middle     : 10px 19px;
+@btn-padding-large      : 12px 23px;
+@btn-padding-max        : 14px 47px;
+@btn-font-size-min      : 12px;
+@btn-font-size-small    : @btn-font-size-min;
+@btn-font-size-middle   : 14px;
+@btn-font-size-large    : @btn-font-size-middle;
+@btn-font-size-max      : 16px;
 @btn-border-radius      : 4px;
-@btn-border-radius-small: 3px;
-@btn-group-border       : shade(@primary-color, 5%);
-
-@btn-disable-color      : #bbbec4;
-@btn-disable-bg         : @background-color-base;
-@btn-disable-border     : @border-color-base;
-
-@btn-default-color      : @text-color;
-@btn-default-bg         : @background-color-base;
-@btn-default-border     : @border-color-base;
-
-@btn-primary-color      : #fff;
-@btn-primary-bg         : @primary-color;
-
-@btn-ghost-color        : @text-color;
-@btn-ghost-bg           : transparent;
-@btn-ghost-border       : @border-color-base;
-
 @btn-circle-size        : 32px;
-@btn-circle-size-large  : 36px;
-@btn-circle-size-small  : 24px;
+@btn-circle-size-min    : 14px;
+@btn-circle-size-small  : 16px;
+@btn-circle-size-middle : 18px;
+@btn-circle-size-large  : 20px;
+@btn-circle-size-max    : 24px;
+@btn-icon-padding-min   : 7px;
+@btn-icon-padding-small : 9px;
+@btn-icon-padding-middle: 10px;
+@btn-icon-padding-large : 12px;
+@btn-icon-padding-max   : 14px;
+
+@btn-default-color      : #fff;
+@btn-default-bg         : @primary-color;
+@btn-default-border     : @primary-color;
+
+@btn-normal-color       : #1B2337;
+@btn-normal-bg          : #fff;
+@btn-normal-border      : #EBEEF5;
+
+@btn-medium-color       : #1B2337;
+@btn-medium-bg          : #F1F3F9;
+@btn-medium-border      : #F1F3F9;
+
+@btn-heavy-color        : @primary-color;
+@btn-heavy-bg           : #E6F1FE;
+@btn-heavy-border       : #E6F1FE;
+
+@btn-error-color        : #fff;
+@btn-error-bg           : @error-color;
+@btn-error-border       : @error-color;
+
+@btn-warning-color      : #fff;
+@btn-warning-bg         : @warning-color;
+@btn-warning-border     : @warning-color;
+
+@btn-success-color      : #fff;
+@btn-success-bg         : @success-color;
+@btn-success-border     : @success-color;
+
+@btn-general-color      : #fff;
+@btn-general-bg         : #505A71;
+@btn-general-border     : #505A71;
+
+@btn-transparent-color  : transparent;
+@btn-transparent-bg     : #fff;
+@btn-transparent-border : #fff;
+
+// button组件不需要，但在别处有引用，暂时保留
+@btn-border-radius-small: 3px;
+@btn-disable-color      : #bbbec4;
 
 // Radio
 @radio-button-split-active  : #fff;

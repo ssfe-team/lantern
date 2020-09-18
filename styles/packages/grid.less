@@ -1,0 +1,113 @@
+@prefix-row: ~'lt-row';
+@prefix-col: ~'lt-col';
+@grid-columns: 24;
+
+.flex(@row: center, @col: center, @warp: wrap) {
+  display: flex;
+  justify-content: @row;
+  align-items: @col;
+  flex-wrap: @warp;
+}
+.clearfix {
+  &::before, &::after {
+    content: '';
+    display: table;
+  }
+  clear: both;
+}
+// Row 基础样式
+.@{prefix-row} {
+  .clearfix;
+  .flex(flex-start, flex-start);
+  position: relative;
+  width: 100%;
+  height: auto;
+  box-sizing: border-box;
+
+  .flex-justify();
+  .flex-align();
+}
+
+// Col 基础样式
+.@{prefix-col} {
+  flex: 0 0 auto;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+// flex 水平布局
+@justify: flex-start, flex-end, center, space-between, space-around;
+@justify-props: start, end, center, between, around;
+.flex-justify(@index: 0) when (@index < length(@justify) + 1) {
+  @type: extract(@justify, @index);
+  @justify-prop: extract(@justify-props, @index);
+  @prop: ~'-@{justify-prop}';
+
+  &@{prop} {
+    justify-content: @type;
+  }
+
+  .flex-justify(@index + 1)
+}
+
+// flex 垂直布局
+@align: flex-start, flex-end, center;
+@align-props: top, bottom, middle;
+.flex-align(@index: 0) when (@index < length(@align) + 1) {
+    @type: extract(@align, @index);
+    @align-prop: extract(@align-props, @index);
+    @prop: ~'-@{align-prop}';
+
+    &@{prop} {
+      align-items: @type;
+    }
+
+    .flex-align((@index + 1))
+}
+
+.loop-grid-columns(@index, @sizeType) when (@index > 0) {
+  .@{prefix-col}-@{sizeType}-@{index} {
+    display: block;
+    box-sizing: border-box;
+    width: @index / @grid-columns * 100%;
+  }
+  .loop-grid-columns((@index - 1), @sizeType)
+}
+
+.loop-grid-columns(@index, @sizeType) when (@index = 0) {
+  .@{prefix-col}-@{sizeType}-@{index}{
+    display: none;
+  }
+}
+
+.make-grid(@sizeType) {
+  .loop-grid-columns(@grid-columns, @sizeType);
+}
+
+// span
+.make-grid(~'span');
+
+// 响应式
+@media screen and (max-width: 575px) {
+  .make-grid(~'xs')
+}
+
+@media screen and  (min-width: 576px) {
+  .make-grid(~'sm')
+}
+
+@media screen and (min-width: 768px) {
+  .make-grid(~'md')
+}
+
+@media screen and (min-width: 992px) {
+  .make-grid(~'lg')
+}
+
+@media screen and (min-width: 1200px) {
+  .make-grid(~'xl')
+}
+
+@media screen and (min-width: 1600px) {
+  .make-grid(~'xxl')
+}

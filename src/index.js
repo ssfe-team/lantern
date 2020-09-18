@@ -39,6 +39,7 @@ import { Selector, Option } from '../packages/selector/index.js'
 import Form from '../packages/form/index.js'
 import FormItem from '../packages/form-item/index.js'
 import Time from '../packages/time/index.js'
+import { Row, Col } from '../packages/grid/index.js'
 
 const prefix = 'Lt'
 
@@ -84,7 +85,9 @@ const packages = {
   Option,
   Form,
   FormItem,
-  Time
+  Time,
+  Row,
+  Col
 }
 
 /* eslint-disable */
