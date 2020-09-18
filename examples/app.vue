@@ -61,6 +61,9 @@
                   <LtMenuItem href="/input-number">
                     <span>InputNumber 数字输入框</span>
                   </LtMenuItem>
+                  <LtMenuItem href="/colorpicker">
+                    <span>ColorPicker 颜色选择器</span>
+                  </LtMenuItem>
                   <LtMenuItem href="/poptip">
                     <span>Poptip 气泡提示</span>
                   </LtMenuItem>
