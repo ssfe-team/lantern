@@ -36,6 +36,7 @@ import Time from './document/time.md'
 import Grid from './document/grid.md'
 
 export default [
+
   {
     path: '/',
     component: install
@@ -159,5 +160,6 @@ export default [
   {
     path: '/time',
     component: Time
-  }
+  },
+  { path: '*', component: install }
 ]
