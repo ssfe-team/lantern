@@ -1,7 +1,13 @@
 name: LANTERN_PUBLISH
 on:
-  tags:
-  - v1.*.* 
+  push:
+    # # Sequence of patterns matched against refs/heads
+    # branches:    
+    #   # Push events on main branch
+    #   - main
+    # # Sequence of patterns matched against refs/tags
+    tags:        
+      - v1.*.*
   # Allows you to run this workflow manually from the Actions tab
 jobs:
   # This workflow contains a single job called "build"
