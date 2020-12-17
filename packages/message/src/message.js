@@ -15,8 +15,8 @@ const Message = function (options) {
       message: options
     };
   }
-  let userOnClose = options.onClose;
   let id = 'message_' + seed++;
+  let userOnClose = options.onClose;
 
   options.onClose = function () {
     Message.close(id, userOnClose);
@@ -25,12 +25,11 @@ const Message = function (options) {
     data: options
   });
   instance.id = id;
-  instance.vm = instance.$mount();
-  document.body.appendChild(instance.vm.$el);
-  instance.vm.visible = true;
-  instance.dom = instance.vm.$el;
+  instance.$mount();
+  document.body.appendChild(instance.$el);
+  instance.visible = true;
   instances.push(instance);
-  return instance.vm;
+  return instance;
 };
 
 Object.keys(ICON_TYPE).forEach(type => {

@@ -1,6 +1,6 @@
 ## Message 消息提示
 
-常用于主动操作后的反馈提示。与 Notification 的区别是后者更多用于系统级通知的被动提醒。
+全局展示操作反馈信息，顶部居中显示并自动消失，是一种不打断用户操作的轻量级提示方式。
 
 ### 基础用法
 
@@ -8,57 +8,50 @@
 
 ::: demo demo
 ```html
-    <template>
-      <lt-button @click="open">点我显示消息提示</lt-button>
-    </template>
-    
-    <script>
-      export default {
-        methods: {
-          open() {
-            this.$message('这是一条消息提示')
-          }
+  <template>
+    <lt-button @click="openDefault">点我显示消息提示</lt-button>
+  </template>
+  
+  <script>
+    export default {
+      methods: {
+        openDefault() {
+          this.$message('这是一条消息提示')
         }
       }
-    </script>
+    }
+  </script>
 ```
 :::
 
-### 不同状态
+### 不同类型
 
-用来显示「成功、警告、消息、错误」类的操作反馈。
+用来显示「提示、成功、警告、错误」类的操作反馈。
 
 :::demo demo
 ```html
-    <template>
-      <lt-button @click="open2">成功</lt-button>
-      <lt-button @click="open3">警告</lt-button>
-      <lt-button @click="open4">错误</lt-button>
-    </template>
-    
-    <script>
-      export default {
-        methods: {
-          open2() {
-            this.$message.success({
-              message: '恭喜你，这是一条成功消息',
-              theme: 'light'
-            });
-          },
-    
-          open3() {
-            this.$message({
-              message: '警告哦，这是一条警告消息',
-              type: 'warning'
-            });
-          },
-    
-          open4() {
-            this.$message.error('错了哦，这是一条错误消息');
-          }
-        }
-      }
-    </script>
+<template>
+  <lt-button @click="openDefault">提示</lt-button>
+  <lt-button @click="openSuccess">成功</lt-button>
+  <lt-button @click="openWarning">警告</lt-button>
+  <lt-button @click="openError">错误</lt-button>
+</template>
+  
+<script>
+export default {
+  methods: {
+    openSuccess() {
+      this.$message.success('恭喜你，这是一条成功消息');
+    },
+    openWarning() {
+      this.$message.warning('警告哦，这是一条警告消息');
+    },
+    openError() {
+      this.$message.error('错了哦，这是一条错误消息');
+    }
+  }
+}
+</script>
 ```
 :::
 
@@ -68,30 +61,49 @@
 
 :::demo demo
 ```html
-    <template>
-      <lt-button @click="open0">点击亮色主题</lt-button>
-      <lt-button @click="open1">点击暗色主题</lt-button>
-    </template>
-    
-    <script>
-      export default {
-        methods: {
-          open0() {
-            this.$message({
-              message: '这是亮色主题哦',
-              theme: 'light'
-            });
-          },
-    
-          open1() {
-            this.$message({
-              message: '这是暗色主题哦',
-              theme: 'dark'
-            });
-          },
-        }
-      }
-    </script>
+<template>
+  <lt-button @click="openLight">点击亮色主题</lt-button>
+  <lt-button @click="openDark">点击暗色主题</lt-button>
+</template>
+  
+<script>
+export default {
+  methods: {
+    openLight() {
+      this.$message({
+        message: '这是亮色主题哦',
+        theme: 'light'
+      });
+    },
+    openDark() {
+      this.$message({
+        message: '这是暗色主题哦',
+        theme: 'dark'
+      });
+    },
+  }
+}
+</script>
+```
+:::
+
+### loading
+
+::: demo demo :::
+
+```html
+<template>
+  <lt-button @click="openLoading">正在拼命加载中</lt-button>
+</template>
+<script>
+export default {
+  methods: {
+    openLoading() {
+      this.$message.loading('正在拼命加载中');
+    }
+  }
+}
+</script>
 ```
 :::
 
@@ -101,24 +113,24 @@
 
 :::demo demo
 ```html
-    <template>
-      <lt-button :plain="true" @click="clickSupport">点击事件</lt-button>
-    </template>
-    
-    <script>
-      export default {
-        methods: {
-          clickSupport() {
-            this.$message({
-              message: '点我点我点我',
-              onClick: () => {
-                alert('恭喜你点到了我！')
-              }
-            });
-          }
+<template>
+  <lt-button @click="clickSupport">点击事件</lt-button>
+</template>
+
+<script>
+export default {
+  methods: {
+    clickSupport() {
+      this.$message({
+        message: '点我点我点我',
+        onClick: () => {
+          alert('恭喜你点到了我！')
         }
-      }
-    </script>
+      });
+    }
+  }
+}
+</script>
 ```
 :::
 
@@ -127,51 +139,26 @@
 ::: demo demo :::
 
 ```html
-    <template>
-      <lt-button @click="showAppendText">删除（带恢复操作）</lt-button>
-    </template>
-    
-    <script>
-      export default {
-        methods: {
-          showAppendText() {
-            let deleteMessage = this.$message({
-              message: '删除成功',
-              appendText: '恢复',
-              onClickAppendText: () => {
-                this.$message('恢复成功')
-                deleteMessage.close()
-              }
-            });
-          }
+<template>
+  <lt-button @click="showAppendText">删除（带恢复操作）</lt-button>
+</template>
+
+<script>
+export default {
+  methods: {
+    showAppendText() {
+      let deleteMessage = this.$message({
+        message: '删除成功',
+        appendText: '恢复',
+        onClickAppendText: () => {
+          this.$message('恢复成功')
+          deleteMessage.close()
         }
-      }
-    </script>
-```
-:::
-
-### 文字居中
-
-使用 `center` 属性让文字水平居中。
-
-:::demo demo
-```html
-    <template>
-      <lt-button :plain="true" @click="openCenter">文字居中</lt-button>
-    </template>
-    
-    <script>
-      export default {
-        methods: {
-          openCenter() {
-            this.$message({
-              message: '居中的文字',
-              center: true
-            });
-          }
-        }
-      }
-    </script>
+      });
+    }
+  }
+}
+</script>
 ```
 :::
 
@@ -184,22 +171,22 @@
 :::demo demo
 
 ```html
-    <template>
-      <lt-button :plain="true" @click="openHTML">使用 HTML 片段</lt-button>
-    </template>
-    
-    <script>
-      export default {
-        methods: {
-          openHTML() {
-            this.$message({
-              dangerouslyUseHTMLString: true,
-              message: '<strong>这是 <i>HTML</i> 片段</strong>'
-            });
-          }
-        }
-      }
-    </script>
+<template>
+  <lt-button @click="openHTML">使用 HTML 片段</lt-button>
+</template>
+
+<script>
+export default {
+  methods: {
+    openHTML() {
+      this.$message({
+        dangerouslyUseHTMLString: true,
+        message: '<strong>这是 <i>HTML</i> 片段</strong>'
+      });
+    }
+  }
+}
+</script>
 ```
 :::
 
@@ -221,17 +208,16 @@ import { Message } from 'lantern-ui';
 
 ### Options
 | 参数      | 说明          | 类型      | 可选值                           | 默认值  |
-|---------- |-------------- |---------- |--------------------------------  |-------- |
+|----------|--------------|---------- |-------------------------------- |--------|
 | message | 消息文字 | string / VNode | — | — |
-| type | 图标的类型 | string | success/warning/error | '' |
-| theme | 主题色 | string | dark(暗色)/light(亮色) | dark
-| dangerouslyUseHTMLString | 是否将 message 属性作为 HTML 片段处理 | boolean | — | false |
-| customClass | 自定义类名 | string | — | — |
+| type | 消息类型 | string | default/success/warning/error | default |
+| theme | 主题色 | string | dark(暗色)/light(亮色) | light
 | duration | 显示时间, 毫秒。设为 0 则不会自动关闭 | number | — | 3000 |
-|appendText|后置按钮文字|string|-|-|
-|onClickAppendText|点击后置按钮时的回调函数|function|-|-
+| customClass | 自定义类名 | string | — | — |
+| appendText | 后置按钮文字| string | - | - |
+| onClickAppendText | 点击后置按钮时的回调函数 | function | - |
+| dangerouslyUseHTMLString | 是否将 message 属性作为 HTML 片段处理 | boolean | — | false |
 | showClose | 是否显示关闭按钮 | boolean | — | false |
-| center | 文字是否居中 | boolean | — | false |
 | onClose | 关闭时的回调函数, 参数为被关闭的 message 实例 | function | — | — |
 
 ### 方法
@@ -241,119 +227,71 @@ import { Message } from 'lantern-ui';
 | close | 关闭当前的 Message |
 
 ::::vuecode::::
+
 <script>
-  export default {
-    methods: {
-      open() {
-        this.$message('这是一条消息提示');
-      },
-
-      openVn() {
-        const h = this.$createElement;
-        this.$message({
-          message: h('p', null, [
-            h('span', null, '内容可以是 '),
-            h('i', { style: 'color: teal' }, 'VNode')
-          ])
-        });
-      },
-
-      open0() {
-        this.$message({
-          message: '这是亮色主题哦',
-          theme: 'light'
-        });
-      },
-
-      open1() {
-        this.$message({
-          message: '这是暗色主题哦',
-          theme: 'dark'
-        });
-      },
-
-      open2() {
-        this.$message.success({
-          message: '恭喜你，这是一条成功消息',
-          theme: 'light',
-          onClick: () => {
-            alert('成功啦')
-          }
-        });
-      },
-
-      open3() {
-        this.$message({
-          message: '警告哦，这是一条警告消息',
-          type: 'warning'
-        });
-      },
-
-      open4() {
-        this.$message.error('错了哦，这是一条错误消息');
-      },
-
-      open5() {
-        this.$message({
-          showClose: true,
-          message: '这是一条可关闭的消息提示'
-        });
-      },
-
-      open6() {
-        this.$message({
-          showClose: true,
-          message: '恭喜你，这是一条成功消息',
-        });
-      },
-
-      open7() {
-        this.$message({
-          showClose: true,
-          message: '警告哦，这是一条警告消息',
-        });
-      },
-
-      open8() {
-        this.$message({
-          showClose: true,
-          message: '错了哦，这是一条错误消息',
-        });
-      },
-      
-      clickSupport() {
-        this.$message({
-          message: '点我点我点我',
-          onClick: () => {
-            alert('恭喜你点到了我！')
-          }
-        });
-      },
-
-      showAppendText() {
-        let deleteMessage = this.$message({
-          message: '删除成功',
-          appendText: '恢复',
-          onClickAppendText: () => {
-            this.$message('恢复成功')
-            deleteMessage.close()
-          }
-        });
-      },
-
-      openCenter() {
-        this.$message({
-          message: '居中的文字',
-          center: true
-        });
-      },
-
-      openHTML() {
-        this.$message({
-          dangerouslyUseHTMLString: true,
-          message: '<strong>这是 <i>HTML</i> 片段</strong>'
-        });
-      }
-    }
-  };
+export default {
+  methods: {
+    openDefault() {
+      this.$message('这是一条消息提示');
+    },
+    openSuccess() {
+      this.$message.success('恭喜你，这是一条成功消息');
+    },
+    openWarning() {
+      this.$message.warning('警告哦，这是一条警告消息');
+    },
+    openError() {
+      this.$message.error('错了哦，这是一条错误消息');
+    },
+    openLight() {
+      this.$message({
+        message: '这是亮色主题哦',
+        theme: 'light'
+      });
+    },
+    openDark() {
+      this.$message({
+        message: '这是暗色主题哦',
+        theme: 'dark'
+      });
+    },
+    openLoading() {
+      this.$message.loading('正在拼命加载中');
+    },
+    clickSupport() {
+      this.$message({
+        message: '点我点我点我',
+        onClick: () => {
+          alert('恭喜你点到了我！')
+        },
+        onClose: () => {
+          console.log(4567890);
+          
+        }
+      });
+    },
+    showAppendText() {
+      let deleteMessage = this.$message({
+        message: '删除成功',
+        appendText: '恢复',
+        onClickAppendText: () => {
+          this.$message('恢复成功')
+          deleteMessage.close()
+        }
+      });
+    },
+    openHTML() {
+      this.$message({
+        dangerouslyUseHTMLString: true,
+        message: '<strong>这是 <i>HTML</i> 片段</strong>'
+      });
+    },
+    open5() {
+      this.$message({
+        showClose: true,
+        message: '这是一条可关闭的消息提示'
+      });
+    },
+  }
+}
 </script>
