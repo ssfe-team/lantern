@@ -1,0 +1,6 @@
+.*
+*.md
+build/
+examples/
+docs/
+.github

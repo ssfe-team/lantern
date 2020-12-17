@@ -5,7 +5,7 @@
 :::demo demo
 ```html
   <div>
-    <LtInput v-model="inputValue" />
+    <LtInput v-model="inputValue" :autofocus="true"/>
     <LtButton type="primary" @click="reset">清空</LtButton>
   </div>
 ```
@@ -38,6 +38,18 @@
 ```
 :::
 
+### 禁止拖拽状态
+
+通过添加`disabled`属性可设置为不可用状态。
+
+::: demo demo
+```html
+  <div style="width: 300px">
+    <lt-input type="textarea" drag></lt-input>
+  </div>
+```
+:::
+
 ### Attributes
 
 参数|说明|类型|可选值|默认值
@@ -46,7 +58,9 @@ type|输入框类型|String|text/textarea|text
 value|绑定值|String|-|-
 placeholder|输入框占位|String|-|请输入
 maxlength|最大输入长度|String/Number|-|-
+maxlengthShow|是否显示最大输入长度|Boolean|true/false|true
 disabled|禁用输入框|Boolean|true/false|false
+drag|禁止拖拽（只有在type为textarea才生效）|Boolean|true/false|false
 readonly|只读|Boolean|true/false|false
 rows|行数（只有在type为textarea才生效）|String , Number|-|4
 
@@ -54,8 +68,9 @@ rows|行数（只有在type为textarea才生效）|String , Number|-|4
 
 事件名|说明|回调参数
 --------|--------|--------
-blur|input失去焦点触发|event
-focus|input得到焦点触发|event
+on-blur|input失去焦点触发|event
+on-enter|按回车触发|event
+input|输入时触发|event
 change|input值更改触发|value: input的value值
 
 ::::vuecode::::

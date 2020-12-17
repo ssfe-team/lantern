@@ -63,6 +63,7 @@
         border: 1px solid @border-color-base;
         border-radius: 50%;
         transition: all @transition-time @ease-in-out;
+        box-sizing: border-box;
 
         &:after {
             position: absolute;
@@ -408,8 +409,6 @@ span.@{radio-prefix-cls} + * {
             &:hover {
                 background-color: @background-color-base;
                 color: #ccc;
-            }
-            &:first-child {
             }
         }
 

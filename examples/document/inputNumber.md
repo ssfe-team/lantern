@@ -10,7 +10,7 @@
 
 ::: demo demo
 ```html
-   <lt-input-number :max="10" :min="1" v-model="value1"></lt-input-number>
+   <lt-input-number v-model="value1"></lt-input-number>
 ```
 :::
 
@@ -40,18 +40,6 @@
        v-model="value10"
        :formatter="value => `${value}%`"
        :parser="value => value.replace('%', '')"></lt-input-number>
-```
-:::
-
-#### 尺寸
-
-通过设置size属性为`large`和`small`将输入框设置为大和小尺寸，不设置为默认（中）尺寸。
-
-::: demo demo
-```html
-   <lt-input-number v-model="value3" size="small"></lt-input-number>
-   <lt-input-number v-model="value4"></lt-input-number>
-   <lt-input-number v-model="value5" size="large"></lt-input-number>
 ```
 :::
 
@@ -96,7 +84,6 @@ max|最大值|Number|Infinity
 min|最小值|Number|-Infinity
 value|当前值，可以使用 v-model 双向绑定数据|Number|1
 step|每次改变的步伐，可以是小数|Number|1
-size|输入框尺寸，可选值为`large`、`small`、`default`或者不填|String|-
 disabled|设置禁用状态|Boolean|false
 placeholder|占位文本|String|-
 formatter|指定输入框展示值的格式|Function|-

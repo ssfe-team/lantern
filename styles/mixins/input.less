@@ -1,14 +1,14 @@
 .hover(@color: @input-hover-border-color) {
-    border-color: tint(@color, 20%);
+    border-color: @color;
 }
 .hover-error() {
     border-color: @error-color;
 }
 
-.active(@color: @input-hover-border-color) {
-    border-color: tint(@color, 20%);
+.active(@color: @input-focus-border-color) {
     outline: 0;
-    box-shadow: 0 0 0 2px fade(@color, 20%);
+    border-color: @color;
+    box-shadow: 0 0 0 2px rgba(7, 174, 252, .1);
 }
 .active-error() {
     border-color: @error-color;

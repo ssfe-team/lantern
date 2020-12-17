@@ -2,8 +2,8 @@ node_modules
 .DS_Store
 npm-debug.log
 yarn-error.log
-package-lock.json
 dist
+docs
 
 # Editor directories and files
 .idea
@@ -12,3 +12,5 @@ dist
 *.ntvs*
 *.njsproj
 *.sln
+*.lock
+package-lock.json

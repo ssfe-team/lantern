@@ -34,10 +34,12 @@ import Steps from '../packages/steps/index.js'
 import Step from '../packages/step/index.js'
 import Progress from '../packages/progress/index.js'
 import Carousel from '../packages/carousel/index.js'
-import { Selector, SelectorOption } from '../packages/selector/index.js'
+import { Selector, Option } from '../packages/selector/index.js'
 // import Option from '../packages/select-option/index.js'
 import Form from '../packages/form/index.js'
 import FormItem from '../packages/form-item/index.js'
+import Time from '../packages/time/index.js'
+import ColorPicker from '../packages/colorPicker/index.js'
 
 const prefix = 'Lt'
 
@@ -80,9 +82,11 @@ const packages = {
   Progress,
   Carousel,
   Selector,
-  SelectorOption,
+  Option,
   Form,
-  FormItem
+  FormItem,
+  Time,
+  ColorPicker
 }
 
 /* eslint-disable */
@@ -98,7 +102,49 @@ if (typeof window !== 'undefined' && window.Vue) {
 }
 
 const API = {
-  ...packages,
+  Message,
+  WaterFall,
+  Scroll,
+  Aside,
+  Footer,
+  Header,
+  Layout,
+  Main,
+  Menu,
+  MenuItem,
+  MenuItemGroup,
+  MenuItemSelect,
+  Select,
+  Pagination,
+  Icon,
+  Input,
+  InputNumber,
+  Poptip,
+  Checkbox,
+  CheckboxGroup,
+  Button,
+  ButtonGroup,
+  Radio,
+  RadioGroup,
+  Slider,
+  Tooltip,
+  Switch,
+  Breadcrumb,
+  BreadcrumbItem,
+  Dropdown,
+  DropdownMenu,
+  DropdownItem,
+  Modal,
+  Steps,
+  Step,
+  Progress,
+  Carousel,
+  Selector,
+  Option,
+  Form,
+  FormItem,
+  Time,
+  ColorPicker,
   install
 }
 

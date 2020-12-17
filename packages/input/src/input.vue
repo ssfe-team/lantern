@@ -7,12 +7,15 @@
       v-if="this.type !== 'textarea'"
       class="lt-input"
       :class="{disabled: this.disabled}"
+      ref="input"
       :type="type"
       :disabled="this.disabled"
       :readonly="this.readonly"
+      :autofocus="autofocus"
       :maxlength="this.maxlength"
       :placeholder="this.placeholder"
       v-model="inputValue"
+      @keyup.enter="handleEnter"
       @blur="handleBlur"
       @change="$emit('change', $event.target.value)"
       @input="handleInput"
@@ -20,17 +23,20 @@
     <textarea
       v-else
       class="lt-textarea"
-      :class="{disabled: this.disabled}"
+      :class="{disabled: this.disabled, drag: this.drag}"
+      ref="textarea"
       :disabled="this.disabled"
       :readonly="this.readonly"
+      :autofocus="autofocus"
       :maxlength="this.maxlength"
       :placeholder="this.placeholder"
       :rows="this.rows"
       v-model="inputValue"
+      @keyup.enter="handleEnter"
       @change="$emit('change', $event.target.value)"
     />
     <span
-      v-if="this.maxlength"
+      v-if="this.maxlength && this.maxlengthShow"
       class="maxlengthtips"
     >
       {{ this.maxlengthtips }}
@@ -77,7 +83,15 @@ export default {
       type: Boolean,
       default: false
     },
+    drag: {
+      type: Boolean,
+      default: false
+    },
     readonly: {
+      type: Boolean,
+      default: false
+    },
+    autofocus: {
       type: Boolean,
       default: false
     },
@@ -88,6 +102,10 @@ export default {
     rows: {
       type: [Number, String],
       default: 4
+    },
+    maxlengthShow: {
+      type: Boolean,
+      default: true
     }
   },
   computed: {
@@ -101,10 +119,20 @@ export default {
     }
   },
   methods: {
+    handleEnter (event) {
+      this.$emit('on-enter', event)
+    },
     handleBlur (event) {
       this.$emit('on-blur', event)
       if (!findComponentUpward(this, ['DatePicker', 'TimePicker', 'Cascader', 'Search'])) {
         this.dispatch('FormItem', 'on-form-blur', this.currentValue)
+      }
+    },
+    focus() {
+      if (this.type === 'textarea') {
+        this.$refs.textarea.focus()
+      } else {
+        this.$refs.input.focus()
       }
     },
     handleInput (event) {

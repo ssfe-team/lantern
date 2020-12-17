@@ -1,80 +1,67 @@
 <template>
-  <!-- item：head（icon、icon-inner、line）+ main（title、description） -->
-  <div class="lt-step" :class="stepClass">
-    <div class="lt-step__head" :class="headClass">
-      <div class="lt-step__icon" :class="iconClass">
-        {{ icon }}
-        <span class="lt-step__icon-inner" :class="iconInnerClass">{{ iconinner }}</span>
-          <!-- <span class="lt-step__icon-inner" :class="iconInnerClass">{{ status === -1 ? '' : iconinner }}</span> -->
+  <div class="lt-step" :class="statusClass" :style="stepStyle">
+    <!-- 步骤线 -->
+    <div class="lt-step__line">
+      <i></i>
+    </div>
+    <!-- 图标 -->
+    <div class="lt-step__head">
+      <div class="lt-step__icon">
+        <slot>
+          <span v-if="stepNum" class="lt-step__icon-inner">{{ stepNum }}</span>
+        </slot>
       </div>
     </div>
-    <div class="lt-step__main" :class="mainClass">
-      <div class="lt-step__main-head" :class="mainHeadClass">
-         <div class="lt-step__title" :class="titleClass">{{ title }}</div>
-        <div class="lt-step__line" :class="lineClass"></div>
-      </div>
-      <div class="lt-step__description" :class="descriptionClass">{{ description }}</div>
+    <!-- 内容 -->
+    <div class="lt-step__main">
+      <span class="lt-step__title">{{ title }}</span>
+      <slot name="content">
+        <div v-if="content" class="lt-step__content">{{ content }}</div>
+      </slot>
     </div>
   </div>
 </template>
 
 <script>
+import Emitter from '../../../src/mixins/emitter'
 export default {
-  name: 'Step',  
+  name: 'Step',
+  mixins: [ Emitter ],
   props: {
-    title: String,
-    icon: String,
-    iconinner: String,
-    description: String,
-    lticoncheckmark: String
+    title: {
+      type: String
+    },
+    content: {
+      type: String
+    },
+    stepNum: {
+      type: String
+    }
   },
   data () {
     return {
-      status: 1
+      status: 1,
+      total: 1
     }
   },
   computed: {
-    stepClass () {
-      return {}
-    },
-    headClass () {
-      return {}
-    },
-    iconClass () {
+    statusClass () {
       return {
-        preBg: this.status === -1,
-        activeBg: this.status === 0
+        pre: this.status === -1,
+        active: this.status === 0
       }
     },
-    iconInnerClass () {
+    stepStyle () {
       return {
-        preInner: this.status === -1
-      }
-    },
-    mainClass () {
-      return {}
-    },
-    lineClass () {
-      return {
-        preBg: this.status === -1,
-        activeBg: this.status === 0
-      }
-    },
-    mainHeadClass () {
-      return {}
-    },
-    titleClass () {
-      return {
-        preText: this.status === -1,
-        activeText: this.status === 0
-      }
-    },
-    descriptionClass () {
-      return {
-        preText: this.status === -1,
-        activeText: this.status === 0,
+        width: `${(1 / this.total) * 100}%`
       }
     }
+  },
+  mounted() {
+    this.dispatch('LtSteps', 'append')
+  },
+  beforeDestroy() {
+    this.dispatch('LtSteps', 'remove')
   }
 }
 </script>

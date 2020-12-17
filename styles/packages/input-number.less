@@ -1,8 +1,7 @@
 @input-number-prefix-cls: ~"@{css-prefix}input-number";
 
 .handler-disabled() {
-    opacity: 0.72;
-    color: #ccc !important;
+    color: rgba(0, 0, 0, .2);
     cursor: @cursor-disabled;
 }
 
@@ -12,79 +11,44 @@
     .input;
     margin: 0;
     padding: 0;
-    width: 80px;
+    width: 100px;
     height: @input-height-base;
     line-height: @input-height-base;
     vertical-align: middle;
     border: 1px solid @border-color-base;
     border-radius: @btn-border-radius;
     overflow: hidden;
-
-    &-handler-wrap {
-        width: 22px;
-        height: 100%;
-        border-left: 1px solid @border-color-base;
-        border-radius: @radius-wrap;
-        background: #fff;
-        position: absolute;
-        top: 0;
-        right: 0;
-        opacity: 0;
-        transition: opacity @transition-time @ease-in-out;
-    }
-
-    &:hover &-handler-wrap {
-        opacity: 1;
-    }
+    box-sizing: border-box;
 
     &-handler-up {
         cursor: pointer;
-        &-inner {
-            top: 1px;
-        }
+        right: 0;
     }
 
     &-handler-down {
-        border-top: 1px solid @border-color-base;
-        top: -1px;
+        left: 0;
         cursor: pointer;
     }
 
     &-handler {
-        display: block;
-        width: 100%;
-        height: @input-height-base / 2;
-        line-height: 0;
-        text-align: center;
-        overflow: hidden;
-        color: @legend-color;
-        position: relative;
-
-        &:hover &-up-inner,
-        &:hover &-down-inner {
-            color: tint(@primary-color, 20%);
-        }
-    }
-
-    &-handler-up-inner,
-    &-handler-down-inner {
-        width: 12px;
-        height: 12px;
-        line-height: 12px;
-        font-size: 14px;
-        color: @legend-color;
-        user-select: none;
         position: absolute;
-        right: 4px;
-        transition: all @transition-time linear;
+        top: 0;
+        z-index: 1;
+        width: 36px;
+        height: 100%;
+        text-align: center;
+        color: rgba(0, 0, 0, .8);
     }
 
     &:hover {
-        .hover();
+      .hover(#D9D9D9);
     }
 
     &-focused {
         .active();
+        &:hover {
+          .active();
+        }
     }
 
     &-disabled {
@@ -93,18 +57,18 @@
 
     &-input-wrap {
         overflow: hidden;
-        height: @input-height-base;
+        padding: 0 36px;
     }
 
     &-input {
         width: 100%;
         height: @input-height-base;
         line-height: @input-height-base;
-        padding: 0 7px;
-        text-align: left;
+        text-align: center;
+        font-weight: bold;
         outline: 0;
         -moz-appearance: textfield;
-        color: #666;
+        color: rgba(0, 0, 0, .6);
         border: 0;
         border-radius: @btn-border-radius;
         transition: all @transition-time linear;
@@ -164,10 +128,7 @@
     &-handler-down-disabled,
     &-handler-up-disabled,
     &-disabled {
-        .@{input-number-prefix-cls}-handler-down-inner,
-        .@{input-number-prefix-cls}-handler-up-inner {
-            .handler-disabled();
-        }
+      .handler-disabled();
     }
 
     &-disabled {
@@ -175,9 +136,6 @@
             opacity: 0.72;
             cursor: @cursor-disabled;
             background-color: #f3f3f3;
-        }
-        .@{input-number-prefix-cls}-handler-wrap {
-            display: none;
         }
         .@{input-number-prefix-cls}-handler {
             .handler-disabled();

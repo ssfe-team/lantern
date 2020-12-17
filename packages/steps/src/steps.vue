@@ -1,54 +1,74 @@
 <template>
-    <div class="lt-steps" :class="stepsClass">
-        <slot></slot>
-    </div>
+  <div class="lt-steps" :class="stepsClass">
+    <slot></slot>
+  </div>
 </template>
 <script>
 export default {
-  name: 'Steps',    
+  name: 'Steps',
   data () {
-    return {}
+    return {
+    }
   },
   props: {
     current: {
       type: Number,
       default: 0
     },
-    direction: {
-      type: String,
-      default: 'horizontal'
+    isVertical: {
+      type: Boolean,
+      default: false
     },
-    size: String
+    simple: {
+      type: Boolean,
+      default: false
+    }
   },
   computed: {
     stepsClass () {
       return {
-        'lt-steps--vertical': this.direction === 'vertical',
-        'lt-steps--small': this.size === 'small'
+        'lt-steps--vertical': this.isVertical,
+        'simple': this.simple
       }
     }
   },
   watch: {
     current(v) {
-    this.setActiveIndex(v)      
+      this.setActiveIndex(v)
     }
+  },
+  mounted () {
+    this.setActiveIndex(this.current)
+    this.$on('append', this.updateChildProps())
+    this.$on('remove', this.updateChildProps())
   },
   methods: {
     setActiveIndex (index) {
       this.$children.forEach((item, i) => {
         if (i < index) {
           item.status = -1
-        }else if(i === index){
-           item.status = 0
-        }
-        else {
+        } else if (i === index) {
+          item.status = 0
+        } else {
           item.status = 1
         }
       })
+    },
+    updateChildProps () {
+      const total = this.$children.length
+      this.$children.forEach((child, index) => {
+        if (!this.isVertical) {
+          child.total = total
+        }
+      })
     }
-  },
-  mounted () {
-    this.setActiveIndex(this.current)
   }
 }
 </script>
+<style lang="less" scoped>
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+</style>

@@ -1,13 +1,13 @@
 {
   "parserOptions": {
-    "ecmaVersion": 2018
+    "ecmaVersion": 6
   },
   "extends": [
-    "standard",
-    "plugin:vue/strongly-recommended"
+    // "standard",
+    "plugin:vue/essential"
   ],
   "rules": {
-    "semi": ["error", "never", { "beforeStatementContinuationChars": "never" }]
+    "space-before-function-paren": "off"
   },
   "globals": {
     "Vue": true

@@ -1,7 +1,7 @@
 {
   "name": "lantern-ui",
-  "version": "0.11.46",
-  "description": "Lantern-ui——基于Vue.js的前端UI库",
+  "version": "1.0.53",
+  "description": "lantern-ui——基于 Vue.js 的前端 UI 库 https://lantern-ui.netlify.com/",
   "main": "lib/lantern.js",
   "scripts": {
     "lanterninit": "yarn || npm install",
@@ -10,6 +10,8 @@
     "buildcss": "webpack --progress --hide-modules --config ./build/webpack.build.css.conf.js",
     "buildjs": "webpack --progress --hide-modules --config ./build/webpack.build.js.conf.js",
     "buildex": "webpack --progress --hide-modules --config ./build/webpack.build.js.ex.js",
+    "builddocs": "webpack --hide-modules --config ./build/webpack.build.docs.conf.js && cp -r ./examples/assets/. docs/",
+    "generateIconNameList": "node ./examples/common/generateIconNameList",
     "cleanlib": "rimraf lib/*",
     "cleandist": "rimraf dist/*",
     "deploy": "npm version patch && npm run build && npm publish",
@@ -26,6 +28,11 @@
     "examples/**/*.{js, vue}": "eslint"
   },
   "repository": "git+https://github.com/ssfe-team/lantern.git",
+  "keywords": [
+    "ssfe",
+    "vue",
+    "components"
+  ],
   "author": "ssfe",
   "license": "MIT",
   "bugs": {
@@ -36,6 +43,7 @@
     "async-validator": "^1.11.2",
     "lodash.throttle": "^4.1.1",
     "popper.js": "^1.14.5",
+    "rimraf": "^3.0.0",
     "v-click-outside-x": "^3.5.5",
     "vue": "^2.5.17"
   },
@@ -72,8 +80,8 @@
     "vue-router": "^3.0.1",
     "vue-style-loader": "^3.0.3",
     "vue-template-compiler": "^2.5.17",
-    "webpack": "^3.12.0",
-    "webpack-dev-server": "^2.11.3",
+    "webpack": "3.8.0",
+    "webpack-dev-server": "2.9.7",
     "webpack-merge": "^4.1.4"
   }
 }

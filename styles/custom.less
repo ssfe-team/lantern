@@ -3,12 +3,12 @@
 @css-prefix-iconfont    : lt-icon;
 
 // Color
-@primary-color          : #07AEFC;
+@primary-color          : #0773FC;
 @info-color             : #2db7f5;
 @success-color          : #19be6b;
 @warning-color          : #ff9900;
 @error-color            : #FA2323;
-@link-color             : #07AEFC;
+@link-color             : #0773FC;
 @link-hover-color       : tint(@link-color, 20%);
 @link-active-color      : shade(@link-color, 5%);
 @selected-color         : fade(@primary-color, 90%);
@@ -24,21 +24,24 @@
 @text-color             : #626262;
 @font-size-base         : 14px;
 @font-size-small        : 12px;
+@font-size-large        : 16px;
 @line-height-base       : 1.2;
 @line-height-computed   : floor((@font-size-base * @line-height-base));
 @border-radius-base     : 4px;
 @border-radius-small    : 2px;
+@border-radius-large    : 6px;
 @cursor-disabled        : not-allowed;
 
 // Border color
-@border-color-base      : #dddee1;  // outside
-@border-color-split     : #e9eaec;  // inside
+@border-color-base      : rgba(0, 0, 0, .1);  // outside
+@border-color-hover     : rgba(0, 0, 0, .6);  // outside
+@border-color-split     : #E6E6E6;  // inside
 
 // Background color
 @background-color-base        : #f7f7f7;  // base
 @background-color-linear-gradient-blue: linear-gradient(to bottom right, #5EA2FF , #00D5FF, #00E3FF);
 @background-color-select-hover: @input-disabled-bg;
-@tooltip-bg                   : #07aefc;
+@tooltip-bg                   : #0773FC;
 @tooltip-light-bg             : #fff;
 @head-bg                      : #f9fafc;
 @table-thead-bg               : #f8f8f9;
@@ -112,7 +115,7 @@
 @legend-color           : #999;
 
 // Input
-@input-height-base           : 32px;
+@input-height-base           : 38px;
 @input-height-large          : 36px;
 @input-height-small          : 24px;
 
@@ -126,7 +129,7 @@
 @input-border-color          : @border-color-base;
 @input-bg                    : #fff;
 
-@input-hover-border-color    : @primary-color;
+@input-hover-border-color    : @border-color-hover;
 @input-focus-border-color    : @primary-color;
 @input-disabled-bg           : #f3f3f3;
 

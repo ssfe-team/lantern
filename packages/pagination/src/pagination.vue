@@ -1,19 +1,23 @@
 <!--Created by suti on 2017/2/18.-->
 <template>
-  <div :class="{isbackground: background}" class="lt-pagination">
-    <div class="jumpwrap">
-      <input class="jump-input" type="number" :max="total" min="1"
-             :value="nowPage" ref="jumpInput" @keyup.enter="jumpPageClick">
-      <button class="jump-btn" @click="jumpPageClick">跳页</button>
-    </div>
+  <div class="lt-pagination">
     <button class="btn-prev" @click="prev" :class="{disabled: nowPage == 1}">
-      <lt-icon type="chevron-left"></lt-icon>
-    </button><ul>
+      上一页
+    </button>
+    <ul>
       <li v-for="(value, key) in pageList" :key="value + key"
           :class="{active: value == nowPage, disabled: value == '...'}" @click="jumpPage(value)">{{value}}</li>
-    </ul><button class="btn-next" @click="next" :class="{disabled: nowPage == total}">
-      <lt-icon type="chevron-right"></lt-icon>
+    </ul>
+    <button class="btn-next" @click="next" :class="{disabled: nowPage == total}">
+      下一页
     </button>
+    <div class="jumpwrap">
+      到第
+      <input class="jump-input" type="number" :max="total" min="1"
+            :value="nowPage" ref="jumpInput" @keyup.enter="jumpPageClick">
+            页
+      <button class="jump-btn" @click="jumpPageClick">确定</button>
+    </div>
   </div>
 </template>
 
@@ -34,10 +38,6 @@ export default {
       default: 1,
       type: Number
     },
-    background: {
-      default: true,
-      type: Boolean
-    }
   },
   watch: {
     current(v) {
