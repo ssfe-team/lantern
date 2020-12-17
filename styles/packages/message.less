@@ -7,42 +7,57 @@
   transform: translateX(-50%);
   display: flex;
   align-items: center;
-  background: rgba(0, 0, 0, 0.8);
-  border-radius: 24px;
-  padding: 8px 32px;
+  background: #FFF;
+  box-shadow: 0 6px 14px 4px rgba(27,35,55,0.08);
+  border-radius: 4px;
+  padding: 12px 24px;
   z-index: 100010;
-  &.light{
-    background:  #FFF;
-    border-radius: 4px;
-    padding: 12px 16px;
-    .lt-message__content{
-      color: rgba(0, 0, 0, 0.8);
+  &.dark {
+    background: rgba(0, 0, 0, 0.8);
+    .lt-message__content {
+      color: rgba(255, 255, 255, 0.8);
+    }
+  }
+  @keyframes loading {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
     }
   }
   .lt-message__icon {
-    width: 16px;
-    height: 16px;
-    line-height: 16px;
+    width: 14px;
+    height: 14px;
+    line-height: 14px;
     margin-right: 8px;
+    &.is-loaing {
+      animation: 1s loading infinite linear;
+    }
   }
   .lt-message__content {
-    font-size: 13px;
-    color: rgba(255, 255, 255, 0.8);
+    font-size: 14px;
+    color: rgba(0, 0, 0, 0.8);
     margin: 0;
     a {
       color: @primary-color;
     }
   }
   .lt-message__appent-text {
-    font-size: 13px;
+    font-size: 14px;
     color: @primary-color;
-    font-weight: bold;
     margin-left: 16px;
     cursor: pointer;
+    &:hover {
+      color: #0961D1;
+    }
   }
 }
 
-.lt-message-fade-enter-active,
+.lt-message-fade-enter-active {
+  transition: 0.2s cubic-bezier(.39,.21,.32,.93);
+}
+
 .lt-message-fade-leave-active {
   transition: opacity 0.5s, transform 0.5s;
 }
