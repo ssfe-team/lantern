@@ -1,6 +1,6 @@
 {
   "name": "lantern-ui",
-  "version": "1.0.53",
+  "version": "1.0.54",
   "description": "lantern-ui——基于 Vue.js 的前端 UI 库 https://lantern-ui.netlify.com/",
   "main": "lib/lantern.js",
   "scripts": {
