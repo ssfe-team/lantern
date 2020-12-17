@@ -16,12 +16,15 @@ jobs:
       with:
         fetch-depth: 1
     - name: Publish to NPM
-      uses: actions/setup-node@v1.4.2
+      uses: actions/setup-node@v1
       with:
+        always-auth: true
         node-version: 12
-        registry-url: https://registry.npmjs.org
-    - run: npm install
-    - run: npm run build || true
-    - run: npm get || true
+        registry-url: https://registry.npmjs.com
+        scope: '@chuangkit'
+    - name: Install dependencies and Build
+      run: npm install
+      run: npm run build || true
+      run: npm get || true
       env:
         NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
