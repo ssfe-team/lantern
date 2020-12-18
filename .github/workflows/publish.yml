@@ -5,8 +5,8 @@ on:
       - v1.*.*
   workflow_dispatch: # 手动触发
 jobs:
-  # This workflow contains a single job called "build"
-  build:
+  # This workflow contains a single job called "xxx"
+  buildLanternAndPublish:
     # The type of runner that the job will run on
     runs-on: ubuntu-latest
     # Steps represent a sequence of tasks that will be executed as part of the job
@@ -24,7 +24,7 @@ jobs:
         scope: '@chuangkit'
     - name: Install dependencies and Build
       run: npm install
-      run: npm run build || true
-      run: npm get || true
+    - name: BuildPack
       env:
         NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+      run: npm run build || true
