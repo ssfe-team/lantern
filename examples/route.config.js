@@ -34,6 +34,7 @@ import Selector from './document/selector.md'
 import Form from './document/form.md'
 import Time from './document/time.md'
 import Grid from './document/grid.md'
+import Tag from './document/tag.md'
 
 export default [
 
@@ -160,6 +161,10 @@ export default [
   {
     path: '/time',
     component: Time
+  },
+  {
+    path: '/tag',
+    component: Tag
   },
   { path: '*', component: install }
 ]
