@@ -10,7 +10,12 @@
 
 // font-color
 @font-title-one: #1B2337;;
-
 @font-des: #505A71;
 
-
+// flex
+.flex(@row: center; @col: center; @direction: row) {
+  display: flex;
+  justify-content: @row;
+  align-items: @col;
+  flex-direction: @direction;
+}

@@ -4,31 +4,24 @@
   height: 100%;
 }
 .ltdemo-header {
+  .flex(space-between);
   background: #FFFFFF;
   box-shadow: 0 10px 60px 0 rgba(20,20,31,0.08);
   z-index: 1;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-
   .left-header-nav {
     width: 280px;
     height: 70px;
     padding: 19px 32px;
     box-sizing: border-box;
-
     .logo-img {
       width: 126px;
       height: 32px;
     }
   }
-
   .right-header-nav {
+    .flex(flex-end);
     width: 500px;
     height: 70px;
-    display: flex;
-    justify-content: flex-end;
     .nav-menu-wrap {
       display: flex;
     }
@@ -38,25 +31,25 @@
       margin-right: 20px;
       margin-left: 20px;
       position: relative;
-      a{
+      a {
         font-size: 14px;
         color: #1B2337;
         line-height: 70px;
         text-decoration: none;
       }
       a::after {
+        content: '';
         position: absolute;
         top: 0;
         right: 0;
         bottom: 0;
         left: 0;
         background-color: transparent;
-        content: '';
         box-sizing: border-box;
       }
     }
-    .menu-item-active{
-      a{
+    .menu-item-active {
+      a {
         color: #0F57F7;
       }
       a::before{
@@ -73,58 +66,42 @@
         border-top: 2px ;
       }
     }
-      .github-link{
+    .github-link {
       width: 24px;
       height: 24px;
       margin: 23px 32px;
       display: block;
       box-sizing: border-box;
-        overflow: hidden;
-        img{
+      overflow: hidden;
+      img {
         width: 24px;
         height: 24px;
         display: block;
-        }
-      }
-
-
-  }
-}
-  .ltdemo-main {
-    //overflow: scroll;
-    .main-wrap {
-      width: 100%;
-      margin: 0 auto;
-      padding-top: 43px;
-      .lt-menu {
-        border-right: 1px solid #EBEEF5;
-        .lt-menu-item{
-          height: 40px;
-          a{
-            padding: 10px 0px;
-          }
-        }
-      }
-      .left-menu-wrap-blank{
-        width: 280px;
-        height: 100%;
       }
     }
   }
-.ltdemo-main .main-wrap .lt-menu {
 }
-.ltdemo-main .main-wrap .lt-aside{
-  width: 280px;
-  height: 100%;
-  background: #FFFFFF;
-  margin-bottom: 40px;
-  top: 0;
-  z-index: 19;
-  overflow: scroll;
-}
-.lt-menu{
-  .lt-menu-item-group{
-    .lt-menu-group__title{
+
+.ltdemo-main .main-wrap {
+  width: 100%;
+  margin: 0 auto;
+  padding-top: 43px;
+  .left-menu-wrap-blank {
+    width: 280px;
+    height: 100%;
+  }
+  .lt-aside {
+    width: 280px;
+    height: 100%;
+    background: #FFFFFF;
+    margin-bottom: 40px;
+    top: 0;
+    z-index: 19;
+    overflow: scroll;
+  }
+  .lt-menu {
+    border-right: 1px solid #EBEEF5;
+    .lt-menu-item-group .lt-menu-group__title {
       padding-left: 32px;
       margin-bottom: 27px;
       margin-top: 50px;
@@ -133,54 +110,53 @@
       color: @text-color;
       line-height: 14px;
     }
-  }
-  .lt-menu-item{
-    padding-left: 32px;
-    a{
-      font-size: 14px;
-      color: @slide-text-color;
-      line-height: 14px;
-    }
-    &:hover{
-      background:@main-bg-color;
-    }
-    .lt-menu-title-text{
-      display: inline;
-      color: @slide-text-color;
-    }
-    .lt-menu-sub-text{
-      margin-left: 16px;
-      display: inline;
-      color: @slide-text-color-sub;
-    }
-  }
-  .router-link-active{
-    span{
-      color: @main-color !important;
-    }
-    background: @main-bg-color;
-    a{
-      font-size: 14px;
-      color: @main-color !important;
-      line-height: 14px;
-    }
-
-    position: relative;
-    &:before {
-      content: "";
-      position: absolute;
-      right: 0;
-      width: 5px;
+    .lt-menu-item {
+      padding-left: 32px;
       height: 40px;
-      background: @main-color;
+      a {
+        font-size: 14px;
+        color: @slide-text-color;
+        line-height: 14px;
+        padding: 10px 0px;
+      }
+      &:hover {
+        background:@main-bg-color;
+      }
+      .lt-menu-title-text {
+        display: inline;
+        color: @slide-text-color;
+      }
+      .lt-menu-sub-text {
+        margin-left: 16px;
+        display: inline;
+        color: @slide-text-color-sub;
+      }
+    }
+    .router-link-active {
+      position: relative;
+      background: @main-bg-color;
+      span {
+        color: @main-color !important;
+      }
+      a {
+        font-size: 14px;
+        color: @main-color !important;
+        line-height: 14px;
+      }
+      &:before {
+        content: "";
+        position: absolute;
+        right: 0;
+        width: 5px;
+        height: 40px;
+        background: @main-color;
+      }
     }
   }
 }
+
 .main-content-wrap {
-   //margin-left: 280px;
-   //overflow: scroll;
-   display: flex;
-   justify-content: space-between;
+  .flex(space-between, flex-start);
    min-height: 100vh;
    &_left {
      width: 100%;
