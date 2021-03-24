@@ -1,6 +1,7 @@
 <template>
-    <i :class="classes" :style="styles" @click="handleClick"></i>
+  <i :class="classes" :style="styles" @click="handleClick"></i>
 </template>
+
 <script>
   const prefixCls = 'lt-icon'
 
@@ -17,15 +18,12 @@
       },
       styles () {
         let style = {}
-
         if (this.size) {
           style['font-size'] = `${this.size}px`
         }
-
         if (this.color) {
           style.color = this.color
         }
-
         return style
       }
     },
