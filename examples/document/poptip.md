@@ -124,6 +124,18 @@ Poptip 还包含 confirm 确认框，与 Modal 不同的是，它会出现在就
 ```
 :::
 
+#### 双向绑定控制浮层显示
+使用`v-model`双向绑定控制浮层显示。
+
+::: demo demo
+```html
+  <lt-poptip v-model="visible" title="Title" trigger="click">
+    <lt-button>click 激活</lt-button>
+    <lt-button slot="content" @click="visible = false">点击可关闭</lt-button>
+  </lt-poptip>
+
+```
+:::
 
 #### API
 
@@ -135,6 +147,7 @@ trigger|触发方式，可选值为`hover`（悬停）`click`（点击）`focus`
 title|显示的标题|String \| Number|-
 content|显示的正文内容，只在非 confirm 模式下有效|String \| Number|空
 placement|提示框出现的位置，可选值为`top` `top-start` `top-end` `bottom` `bottom-start` `bottom-end` `left` `left-start` `left-end` `right` `right-start` `right-end`，支持自动识别|String|top
+value|双向绑定控制浮层显示|Boolean|false
 customStyle|自定义样式|Object|-
 confirm|是否开启对话框模式|Boolean|false
 ok-text|确定按钮的文字，只在 confirm 模式下有效|String|确定
