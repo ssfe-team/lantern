@@ -1,18 +1,9 @@
 <template>
   <div id="app">
-    <LtLayout
-      class="ltdemo-wrap"
-      :width="layoutWidth"
-    >
-      <LtHeader
-        class="ltdemo-header"
-        height="70px"
-      >
+    <LtLayout class="ltdemo-wrap" :width="layoutWidth">
+      <LtHeader class="ltdemo-header" height="70px">
         <div class="left-header-nav">
-          <img
-            src="./static/logo.png"
-            class="logo-img"
-          >
+          <img src="./static/logo.png" class="logo-img" >
         </div>
         <div class="right-header-nav">
           <ul class="nav-menu-wrap">
@@ -21,30 +12,21 @@
             <li class="menu-item"><a href="#">资源下载</a></li>
             <li class="menu-item"><a href="https://www.ckt.cn">创客贴</a></li>
           </ul>
-          <a
-            href="https://github.com/ssfe-team/lantern"
-            class="github-link"
-          ><img
-              src="./static/github.jpg"
-              alt=""
-            ></a>
+          <a href="https://github.com/ssfe-team/lantern" class="github-link">
+            <img src="./static/github.jpg" alt="">
+          </a>
         </div>
       </LtHeader>
+
       <LtMain class="ltdemo-main">
         <div class="main-wrap">
-          <LtLayout
-            class="main-wrap-layout"
-            :is-row="mainLayoutIsRow"
-          >
+          <LtLayout class="main-wrap-layout" :is-row="mainLayoutIsRow">
             <div
+              v-show="isAsideFixed"
               class="left-menu-wrap-blank"
               :style="{height:this.mainContentWrapHeight+'px'}"
-              v-show="isAsideFixed"
             ></div>
-            <LtAside
-              width="280px"
-              :style="getLeftStyle"
-            >
+            <LtAside width="280px" :style="getLeftStyle">
               <LtMenu>
                 <LtMenuItem href="/install">
                   <span>安装</span>
@@ -74,11 +56,9 @@
                     <span class="lt-menu-sub-text">Grid</span>
                   </LtMenuItem>
                 </LtMenuItemGroup>
-                <!--
-                  <LtMenuItem href="/scroll">
-                    <span>Scroll 滚动条</span>
-                  </LtMenuItem>-->
-
+                <!-- <LtMenuItem href="/scroll">
+                  <span>Scroll 滚动条</span>
+                </LtMenuItem> -->
                 <LtMenuItemGroup title="导航组件">
                   <LtMenuItem href="/menu">
                     <span class="lt-menu-title-text">导航菜单</span>
@@ -101,7 +81,6 @@
                     <span class="lt-menu-sub-text">Pagination</span>
                   </LtMenuItem>
                 </LtMenuItemGroup>
-
                 <LtMenuItemGroup title="数据录入">
                   <LtMenuItem href="/select">
                     <span class="lt-menu-title-text">选择器</span>
@@ -177,14 +156,11 @@
                     <span>class 命名规范</span>
                   </LtMenuItem>
                 </LtMenuItemGroup>
-                <LtMenuItemGroup title="">
-                </LtMenuItemGroup>
+                <LtMenuItemGroup title="" />
               </LtMenu>
             </LtAside>
-            <LtMain
-              class="main-content-wrap"
-              ref="mainContentWrap"
-            >
+
+            <LtMain class="main-content-wrap" ref="mainContentWrap">
               <main class="main-content-wrap_left">
                 <RouterView />
                 <div class="main-content-wrap_footer">创客贴- 前端开发&UI设计部</div>
@@ -194,6 +170,7 @@
         </div>
       </LtMain>
     </LtLayout>
+
     <Transition>
       <span
         class="go-to-top"
@@ -255,6 +232,7 @@ export default {
   }
 }
 </script>
+
 <style lang="less">
 @import '../src/index.less';
 @import './styles/index.less';
