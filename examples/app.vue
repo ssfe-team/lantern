@@ -177,7 +177,7 @@
         @click="goToTop"
         v-show="goToTopShow"
       >
-        <LtIcon type="chevron-up" />
+        <LtIcon type="arrow-up" />
       </span>
     </Transition>
   </div>
