@@ -40,6 +40,7 @@ import Form from '../packages/form/index.js'
 import FormItem from '../packages/form-item/index.js'
 import Time from '../packages/time/index.js'
 import { Row, Col } from '../packages/grid/index.js'
+import Tag, { TagGroup } from '../packages/tag/index.js'
 
 const prefix = 'Lt'
 
@@ -87,7 +88,9 @@ const packages = {
   FormItem,
   Time,
   Row,
-  Col
+  Col,
+  Tag,
+  TagGroup,
 }
 
 /* eslint-disable */
@@ -102,9 +105,6 @@ if (typeof window !== 'undefined' && window.Vue) {
   install(window.Vue)
 }
 
-const API = {
-  ...packages,
-  install
-}
+const API = Object.assign({}, packages, {install}) // 此处提交不让用...，故改成Object.assign
 
 module.exports.default = module.exports = API

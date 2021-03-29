@@ -51,6 +51,10 @@
                     <span class="lt-menu-title-text">按钮</span>
                     <span class="lt-menu-sub-text">Button</span>
                   </LtMenuItem>
+                  <LtMenuItem href="/tag">
+                    <span class="lt-menu-title-text">标签</span>
+                    <span class="lt-menu-sub-text">Tag</span>
+                  </LtMenuItem>
                   <LtMenuItem href="/grid">
                     <span class="lt-menu-title-text">栅格</span>
                     <span class="lt-menu-sub-text">Grid</span>
