@@ -1,4 +1,5 @@
 export default [
+"message",
 "delete",
 "share",
 "brush",
