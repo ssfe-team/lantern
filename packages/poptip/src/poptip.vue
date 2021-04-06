@@ -1,65 +1,70 @@
 <template>
+  <div
+    v-click-outside="handleClose"
+    :class="classes"
+    @mouseenter="handleMouseenter"
+    @mouseleave="handleMouseleave"
+  >
     <div
-            :class="classes"
-            @mouseenter="handleMouseenter"
-            @mouseleave="handleMouseleave"
-            v-click-outside="handleClose">
-        <div
-                :class="[prefixCls + '-rel']"
-                ref="reference"
-                @click="handleClick"
-                @mousedown="handleFocus(false)"
-                @mouseup="handleBlur(false)">
-            <slot></slot>
-        </div>
-        <transition name="fade">
-            <div
-                    :class="popperClasses"
-                    :style="styles"
-                    ref="popper"
-                    v-show="visible"
-                    @click="handleTransferClick"
-                    @mouseenter="handleMouseenter"
-                    @mouseleave="handleMouseleave"
-                    :data-transfer="transfer"
-                    v-transfer-dom>
-                <div :class="[prefixCls + '-content']">
-                    <div :class="[prefixCls + '-arrow']" v-if="visibleArrow"></div>
-                    <div :class="[prefixCls + '-inner']" v-if="confirm">
-                        <div :class="[prefixCls + '-body']">
-                            <i class="lt-icon lt-icon-help-circled"></i>
-                            <div :class="[prefixCls + '-body-message']">
-                                <slot name="title">{{ title }}</slot>
-                            </div>
-                        </div>
-                        <div :class="[prefixCls + '-footer']">
-                            <lt-button type="text" size="small" @click.native="cancel">{{ localeCancelText }}</lt-button>
-                            <lt-button type="primary" size="small" @click.native="ok">{{ localeOkText }}</lt-button>
-                        </div>
-                    </div>
-                    <div :class="[prefixCls + '-inner']" v-if="!confirm">
-                        <div :class="[prefixCls + '-title']" v-if="showTitle" ref="title" :style="innerStyles">
-                            <slot name="title">
-                                <div :class="[prefixCls + '-title-inner']">{{ title }}</div>
-                            </slot>
-                        </div>
-                        <div :class="[prefixCls + '-body']" :style="innerStyles">
-                            <div :class="[prefixCls + '-body-content']">
-                                <slot name="content">
-                                    <div :class="[prefixCls + '-body-content-inner']">{{ content }}</div>
-                                </slot>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </transition>
+      :class="[prefixCls + '-rel']"
+      ref="reference"
+      @click="handleClick"
+      @mousedown="handleFocus(false)"
+      @mouseup="handleBlur(false)"
+    >
+      <slot></slot>
     </div>
+
+    <transition name="fade">
+      <div
+        v-show="visible"
+        v-transfer-dom
+        :class="popperClasses"
+        :style="customStyle"
+        :data-transfer="transfer"
+        ref="popper"
+        @click="handleTransferClick"
+        @mouseenter="handleMouseenter"
+        @mouseleave="handleMouseleave"
+      >
+        <div :class="[prefixCls + '-content']">
+          <div :class="[prefixCls + '-arrow']" v-if="visibleArrow"></div>
+          <div :class="[prefixCls + '-inner']" v-if="confirm">
+            <div :class="[prefixCls + '-body']">
+              <i class="lt-icon lt-icon-help-circled"></i>
+              <div :class="[prefixCls + '-body-message']">
+                <slot name="title">{{ title }}</slot>
+              </div>
+            </div>
+            <div :class="[prefixCls + '-footer']">
+              <lt-button type="text" size="small" @click.native="cancel">{{ localeCancelText }}</lt-button>
+              <lt-button type="primary" size="small" @click.native="ok">{{ localeOkText }}</lt-button>
+            </div>
+          </div>
+          <div :class="[prefixCls + '-inner']" v-if="!confirm">
+            <div :class="[prefixCls + '-title']" v-if="showTitle" ref="title" :style="innerStyles">
+              <slot name="title">
+                <div :class="[prefixCls + '-title-inner']">{{ title }}</div>
+              </slot>
+            </div>
+            <div :class="[prefixCls + '-body']" :style="innerStyles">
+              <div :class="[prefixCls + '-body-content']">
+                <slot name="content">
+                  <div :class="[prefixCls + '-body-content-inner']">{{ content }}</div>
+                </slot>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </transition>
+  </div>
 </template>
+
 <script>
   import Popper from '../../base/popper.js'
   import ltButton from '../../button/src/button.vue'
-  import {directive as clickOutside} from 'v-click-outside-x';
+  import { directive as clickOutside } from 'v-click-outside-x';
   import TransferDom from '../../../src/directives/transfer-dom.js'
   import { oneOf } from '../../../src/utils/assist'
 
@@ -116,14 +121,15 @@
       visibleArrow: {
         type: Boolean,
         default: true
-      }
+      },
     },
     data () {
       return {
         prefixCls: prefixCls,
         showTitle: true,
         isInput: false,
-        disableCloseUnderTransfer: false  // transfer 模式下，点击 slot 也会触发关闭
+        // transfer 模式下，点击 slot 也会触发关闭
+        disableCloseUnderTransfer: false,
       }
     },
     computed: {
@@ -144,38 +150,41 @@
           }
         ]
       },
-      styles () {
-        let style = {}
-
-        // style = JSON.parse(JSON.stringify(this.customStyle))
-        style = this.customStyle
-
-        // Object.keys(style).forEach(e => {
-        //     style[e].indexOf('!important') === -1 ? style[e] += ' !important' : ''
-        // })
-        return style
-      },
       innerStyles() {
         let style = {}
-
         if (this.padding) {
           style.padding = `${this.padding}px`
         }
         return style
       },
       localeOkText () {
-        if (this.okText === undefined) {
-          return '确定'
-        } else {
-          return this.okText
-        }
+        return this.okText === undefined ? '确定' : this.okText
       },
       localeCancelText () {
-        if (this.cancelText === undefined) {
-          return '取消'
-        } else {
-          return this.cancelText
-        }
+        return this.okText === undefined ? '取消' : this.cancelText
+      }
+    },
+    mounted () {
+      if (!this.confirm) {
+        this.showTitle = (this.$slots.title !== undefined) || this.title
+      }
+      // if trigger and children is input or textarea,listen focus & blur event
+      if (this.trigger === 'focus') {
+        this.$nextTick(() => {
+          const $children = this.getInputChildren()
+          if ($children) {
+            this.isInput = true
+            $children.addEventListener('focus', this.handleFocus, false)
+            $children.addEventListener('blur', this.handleBlur, false)
+          }
+        })
+      }
+    },
+    beforeDestroy () {
+      const $children = this.getInputChildren()
+      if ($children) {
+        $children.removeEventListener('focus', this.handleFocus, false)
+        $children.removeEventListener('blur', this.handleBlur, false)
       }
     },
     methods: {
@@ -190,7 +199,9 @@
         this.visible = !this.visible
       },
       handleTransferClick () {
-        if (this.transfer) this.disableCloseUnderTransfer = true
+        if (this.transfer) {
+          this.disableCloseUnderTransfer = true
+        }
       },
       handleClose () {
         if (this.disableCloseUnderTransfer) {
@@ -222,7 +233,9 @@
         if (this.trigger !== 'hover' || this.confirm) {
           return false
         }
-        if (this.enterTimer) clearTimeout(this.enterTimer)
+        if (this.enterTimer) {
+          clearTimeout(this.enterTimer)
+        }
         this.enterTimer = setTimeout(() => {
           this.visible = true
         }, 100)
@@ -256,32 +269,7 @@
         } else if ($textarea.length) {
           $children = $textarea[0]
         }
-
         return $children
-      }
-    },
-    mounted () {
-      if (!this.confirm) {
-//                this.showTitle = this.$refs.title.innerHTML != `<div class="${prefixCls}-title-inner"></div>`;
-        this.showTitle = (this.$slots.title !== undefined) || this.title
-      }
-      // if trigger and children is input or textarea,listen focus & blur event
-      if (this.trigger === 'focus') {
-        this.$nextTick(() => {
-          const $children = this.getInputChildren()
-          if ($children) {
-            this.isInput = true
-            $children.addEventListener('focus', this.handleFocus, false)
-            $children.addEventListener('blur', this.handleBlur, false)
-          }
-        })
-      }
-    },
-    beforeDestroy () {
-      const $children = this.getInputChildren()
-      if ($children) {
-        $children.removeEventListener('focus', this.handleFocus, false)
-        $children.removeEventListener('blur', this.handleBlur, false)
       }
     }
   }
