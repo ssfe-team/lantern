@@ -16,21 +16,20 @@ Poptip 还包含 confirm 确认框，与 Modal 不同的是，它会出现在就
 
 ::: demo demo
 ```html
-   <lt-poptip trigger="hover" title="Title" content="content">
-     <lt-button>hover 激活</lt-button>
-   </lt-poptip>
-   <lt-poptip  trigger="click" title="Title" content="content">
-     <lt-button>click 激活</lt-button>
-   </lt-poptip>
-   <lt-poptip  trigger="focus" title="Title" content="content">
-     <lt-button>focus 激活</lt-button>
-   </lt-poptip>
-   <lt-poptip  trigger="focus" title="Title" content="content">
-     <input placeholder="输入框的 focus">
-   </lt-poptip>
+  <lt-poptip trigger="hover" title="Title" content="content">
+    <lt-button>hover 激活</lt-button>
+  </lt-poptip>
+  <lt-poptip  trigger="click" title="Title" content="content">
+    <lt-button>click 激活</lt-button>
+  </lt-poptip>
+  <lt-poptip  trigger="focus" title="Title" content="content">
+    <lt-button>focus 激活</lt-button>
+  </lt-poptip>
+  <lt-poptip  trigger="focus" title="Title" content="content">
+    <input placeholder="输入框的 focus">
+  </lt-poptip>
 ```
 :::
-
 
 #### 位置
 
@@ -38,33 +37,33 @@ Poptip 还包含 confirm 确认框，与 Modal 不同的是，它会出现在就
 
 ::: demo demo
 ```html
-   <lt-poptip trigger="hover" title="Title" content="content" placement="top-start">
-     <lt-button>Top Left</lt-button>
-   </lt-poptip>
-   <lt-poptip  trigger="hover" title="Title" content="content" placement="top">
-     <lt-button>Top Center</lt-button>
-   </lt-poptip>
-   <lt-poptip  trigger="hover" title="Title" content="content" placement="top-end">
-     <lt-button>Top Right</lt-button>
-   </lt-poptip>
-   <lt-poptip  trigger="hover" title="Title" content="content" placement="right-start">
-     <lt-button>Right Top</lt-button>
-   </lt-poptip>
-   <lt-poptip  trigger="hover" title="Title" content="content" placement="right">
-     <lt-button>Right Center</lt-button>
-   </lt-poptip>
-   <lt-poptip  trigger="hover" title="Title" content="content" placement="right-end">
-     <lt-button>Right Bottom</lt-button>
-   </lt-poptip>
-   <lt-poptip  trigger="hover" title="Title" content="content" placement="bottom-start">
-     <lt-button>Bottom Left</lt-button>
-   </lt-poptip>
-   <lt-poptip  trigger="click" title="Title" content="content" placement="bottom">
-     <lt-button>Bottom Center</lt-button>
-   </lt-poptip>
-   <lt-poptip  trigger="hover" title="Title" content="content" placement="bottom-end">
-     <lt-button>Bottom Right</lt-button>
-   </lt-poptip>
+  <lt-poptip trigger="hover" title="Title" content="content" placement="top-start">
+    <lt-button>Top Left</lt-button>
+  </lt-poptip>
+  <lt-poptip  trigger="hover" title="Title" content="content" placement="top">
+    <lt-button>Top Center</lt-button>
+  </lt-poptip>
+  <lt-poptip  trigger="hover" title="Title" content="content" placement="top-end">
+    <lt-button>Top Right</lt-button>
+  </lt-poptip>
+  <lt-poptip  trigger="hover" title="Title" content="content" placement="right-start">
+    <lt-button>Right Top</lt-button>
+  </lt-poptip>
+  <lt-poptip  trigger="hover" title="Title" content="content" placement="right">
+    <lt-button>Right Center</lt-button>
+  </lt-poptip>
+  <lt-poptip  trigger="hover" title="Title" content="content" placement="right-end">
+    <lt-button>Right Bottom</lt-button>
+  </lt-poptip>
+  <lt-poptip  trigger="hover" title="Title" content="content" placement="bottom-start">
+    <lt-button>Bottom Left</lt-button>
+  </lt-poptip>
+  <lt-poptip  trigger="click" title="Title" content="content" placement="bottom">
+    <lt-button>Bottom Center</lt-button>
+  </lt-poptip>
+  <lt-poptip  trigger="hover" title="Title" content="content" placement="bottom-end">
+    <lt-button>Bottom Right</lt-button>
+  </lt-poptip>
 ```
 :::
 
@@ -74,37 +73,37 @@ Poptip 还包含 confirm 确认框，与 Modal 不同的是，它会出现在就
 
 ::: demo demo
 ```html
-<lt-poptip trigger="click" placement="right">
-     <lt-button>click 激活</lt-button>
-     <div class="api" slot="content">
-         <table>
-             <thead>
-                 <tr>
-                     <th>Version</th>
-                     <th>Update Time</th>
-                     <th>Description</th>
-                 </tr>
-             </thead>
-             <tbody>
-                 <tr>
-                     <td>0.9.5</td>
-                     <td>2016-10-26</td>
-                     <td>Add new components <code>Tooltip</code> and <code>Poptip</code></td>
-                 </tr>
-                 <tr>
-                     <td>0.9.4</td>
-                     <td>2016-10-25</td>
-                     <td>Add new components <code>Modal</code></td>
-                 </tr>
-                 <tr>
-                     <td>0.9.2</td>
-                     <td>2016-09-28</td>
-                     <td>Add new components <code>Select</code></td>
-                 </tr>
-             </tbody>
-         </table>
-     </div>
-   </lt-poptip>
+  <lt-poptip trigger="click" placement="right">
+    <lt-button>click 激活</lt-button>
+    <div class="api" slot="content">
+      <table>
+        <thead>
+          <tr>
+            <th>Version</th>
+            <th>Update Time</th>
+            <th>Description</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>0.9.5</td>
+            <td>2016-10-26</td>
+            <td>Add new components <code>Tooltip</code> and <code>Poptip</code></td>
+          </tr>
+          <tr>
+            <td>0.9.4</td>
+            <td>2016-10-25</td>
+            <td>Add new components <code>Modal</code></td>
+          </tr>
+          <tr>
+            <td>0.9.2</td>
+            <td>2016-09-28</td>
+            <td>Add new components <code>Select</code></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </lt-poptip>
 ```
 :::
 
@@ -114,14 +113,27 @@ Poptip 还包含 confirm 确认框，与 Modal 不同的是，它会出现在就
 
 ::: demo demo
 ```html
-<lt-poptip
-  confirm
-  title="您确认删除这条内容吗？"
-  @on-ok="ok"
-  @on-cancel="cancel"
->
- <lt-button>删除</lt-button>
-</lt-poptip>
+  <lt-poptip
+    confirm
+    title="您确认删除这条内容吗？"
+    @on-ok="ok"
+    @on-cancel="cancel"
+  >
+  <lt-button>删除</lt-button>
+  </lt-poptip>
+```
+:::
+
+#### 双向绑定控制浮层显示
+使用`v-model`双向绑定控制浮层显示。
+
+::: demo demo
+```html
+  <lt-poptip v-model="visible" title="Title" trigger="click">
+    <lt-button>click 激活</lt-button>
+    <lt-button slot="content" @click="visible = false">点击可关闭</lt-button>
+  </lt-poptip>
+
 ```
 :::
 
@@ -135,6 +147,7 @@ trigger|触发方式，可选值为`hover`（悬停）`click`（点击）`focus`
 title|显示的标题|String \| Number|-
 content|显示的正文内容，只在非 confirm 模式下有效|String \| Number|空
 placement|提示框出现的位置，可选值为`top` `top-start` `top-end` `bottom` `bottom-start` `bottom-end` `left` `left-start` `left-end` `right` `right-start` `right-end`，支持自动识别|String|top
+value|双向绑定控制浮层显示|Boolean|false
 customStyle|自定义样式|Object|-
 confirm|是否开启对话框模式|Boolean|false
 ok-text|确定按钮的文字，只在 confirm 模式下有效|String|确定
@@ -166,16 +179,21 @@ content|提示框内容，定义此 slot 时，会覆盖 props `content`，只�
 ::::vuecode::::
 <script>
 export default {
-    methods: {
-        ok() {
-             this.$message({
-              message: '点击了确定',
-              type: 'success'
-             });
-        },
-        cancel() {
-            this.$message.error('点击了取消');
-        }
+  data() {
+    return {
+      visible: false,
     }
+  },
+  methods: {
+    ok() {
+      this.$message({
+        message: '点击了确定',
+        type: 'success'
+      });
+    },
+    cancel() {
+      this.$message.error('点击了取消');
+    }
+  }
 }
 </script>

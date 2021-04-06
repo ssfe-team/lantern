@@ -1,4 +1,7 @@
 export default [
+"message",
+"delete",
+"share",
 "brush",
 "sign",
 "bingo",
