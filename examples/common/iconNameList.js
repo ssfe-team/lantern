@@ -1,4 +1,9 @@
 export default [
+"cloud-upload",
+"withdraw",
+"text",
+"arrows",
+"pen",
 "message",
 "delete",
 "share",
@@ -20,7 +25,7 @@ export default [
 "help-circled",
 "remind",
 "signout",
-"loaidng",
+"loading",
 "people",
 "maximize",
 "minimize",
