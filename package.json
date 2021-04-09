@@ -15,6 +15,7 @@
     "cleanlib": "rimraf lib/*",
     "cleandist": "rimraf dist/*",
     "deploy": "npm version patch && npm run build && npm publish",
+    "beta": "npm version prepatch && npm run build && npm publish --tag beta",
     "eslint": "eslint"
   },
   "husky": {
