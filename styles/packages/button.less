@@ -150,7 +150,18 @@
     &:before {
       display: block;
     }
-  
+    .lt-load-loop {
+      display: inline-block;
+      animation: rotate infinite ease-out 1s;
+      @keyframes rotate {
+        from {
+          transform: rotate(0deg);
+        }
+        to {
+          transform: rotate(360deg);
+        }
+      }
+    }
   }
   // 不可用状态
   &.disabled, &[disabled], fieldset[disabled] & {

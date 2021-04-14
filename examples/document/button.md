@@ -70,10 +70,10 @@
 ```html
   <lt-row align="middle">
     <span>图标按钮：</span>
-    <lt-button type="normal" icon="recycle"></lt-button>
-    <lt-button icon="recycle" ghost></lt-button>
-    <lt-button icon="recycle"></lt-button>
-    <lt-button icon="recycle" circle></lt-button>
+    <lt-button type="normal" icon="sign"></lt-button>
+    <lt-button icon="delete" ghost></lt-button>
+    <lt-button icon="message"></lt-button>
+    <lt-button icon="magic" circle></lt-button>
   </lt-row>
   <lt-row align="middle">
     <span>组合按钮：</span>
@@ -84,7 +84,7 @@
   </lt-row>
   <lt-row align="middle">
     <span>无框按钮：</span>
-    <lt-button type="general" icon="recycle" text></lt-button>
+    <lt-button type="general" icon="recycle" text>提交</lt-button>
     <lt-button type="general" icon="recycle" text>删除</lt-button>
   </lt-row>
 ```
@@ -151,8 +151,8 @@
   </lt-row>
 
   <lt-button-group>
-    <lt-button type="normal" icon="mylike"></lt-button>
-    <lt-button type="normal" icon="mybuy"></lt-button>
+    <lt-button type="normal" icon="angle-double-left"></lt-button>
+    <lt-button type="normal" icon="angle-double-right"></lt-button>
   </lt-button-group>
 
   <lt-button-group>
@@ -191,7 +191,7 @@
     <lt-button type="general" text>普通按钮</lt-button>
   </lt-row>
   <lt-row align="middle">
-    <lt-button>主要按钮</lt-button>
+    <lt-button disabled>主要按钮</lt-button>
     <lt-button type="medium" disabled>中等辅助</lt-button>
     <lt-button type="heavy" disabled>高等辅助</lt-button>
     <lt-button type="normal" disabled>初等辅助</lt-button>
@@ -209,10 +209,10 @@
 ::: demo demo
 ```html
   <lt-button-group vertical>
-    <lt-button icon="mylike" ghost></lt-button>
-    <lt-button icon="mybuy" ghost></lt-button>
-    <lt-button icon="recycle" ghost></lt-button>
-    <lt-button icon="mydesign" ghost></lt-button>
+    <lt-button icon="arrow-left-filling" ghost></lt-button>
+    <lt-button icon="arrow-right-filling" ghost></lt-button>
+    <lt-button icon="arrow-down-filling" ghost></lt-button>
+    <lt-button icon="arrow-up-filling" ghost></lt-button>
   </lt-button-group>
 ```
 :::

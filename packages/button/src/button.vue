@@ -5,7 +5,7 @@
     :disabled="disabled"
     @click="handleClick"
   >
-    <Icon class="lt-load-loop" type="load-c" :size="iconSize" v-if="loading"></Icon>
+    <Icon class="lt-load-loop" type="loading" :size="iconSize" v-if="loading"></Icon>
     <Icon :type="icon" :size="iconSize" v-if="icon && !loading"></Icon>
     <slot></slot>
   </button>
