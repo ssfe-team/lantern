@@ -35,11 +35,11 @@ export default {
   computed: {
     classes() {
       const sizeType = ['span', 'xs', 'sm', 'md', 'lg', 'xl', 'xxl']
-      let typeClass = { [prefix]: true}
+      let typeClass = { [prefix]: true }
       sizeType.forEach(type => {
         let size = this[type], classObj = {}
         // 如果span类型存在值，拼接对应的类名
-        if(typeof size === 'number'){
+        if (typeof size === 'number') {
           classObj = {
             [`${prefix}-${type}-${size}`]: true 
           }

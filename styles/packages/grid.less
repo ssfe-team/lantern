@@ -38,7 +38,7 @@
 // flex 水平布局
 @justify: flex-start, flex-end, center, space-between, space-around;
 @justify-props: start, end, center, between, around;
-.flex-justify(@index: 0) when (@index < length(@justify) + 1) {
+.flex-justify(@index: 1) when (@index < length(@justify) + 1) {
   @type: extract(@justify, @index);
   @justify-prop: extract(@justify-props, @index);
   @prop: ~'-@{justify-prop}';
@@ -53,7 +53,7 @@
 // flex 垂直布局
 @align: flex-start, flex-end, center;
 @align-props: top, bottom, middle;
-.flex-align(@index: 0) when (@index < length(@align) + 1) {
+.flex-align(@index: 1) when (@index < length(@align) + 1) {
     @type: extract(@align, @index);
     @align-prop: extract(@align-props, @index);
     @prop: ~'-@{align-prop}';
