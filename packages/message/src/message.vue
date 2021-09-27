@@ -8,7 +8,7 @@
       @mouseenter="clearTimer"
       @mouseleave="startTimer"
     >
-      <lt-icon
+      <Icon
         v-if="type !== 'none'"
         :class="[
           'lt-message__icon',
@@ -33,9 +33,10 @@
 
 <script type="text/babel">
 import ICON_TYPE from './icon-type.js';
-
+import Icon from '../../icon';
 export default {
   name: 'Message',
+  components: { Icon },
   data () {
     return {
       visible: false,
