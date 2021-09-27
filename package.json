@@ -14,7 +14,7 @@
     "generateIconNameList": "node ./examples/common/generateIconNameList",
     "cleanlib": "rimraf lib/*",
     "cleandist": "rimraf dist/*",
-    "deploy": "npm version patch && npm run build && npm publish",
+    "deploy": "npm version patch && npm run build && npm publish --registry https://registry.npmjs.org",
     "eslint": "eslint"
   },
   "husky": {
