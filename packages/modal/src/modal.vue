@@ -17,7 +17,7 @@
           >
             <a :class="closeClasses" v-if="closable" @click="close">
               <slot name="close">
-                <Icon :type="simple ? 'pic-close' : 'window-close'" :size="simple ? '40' : '14'" :color="simple ? '' : '#000'"></Icon>
+                <Icon :type="simple ? 'close-one' : 'window-close'" :size="simple ? '40' : '14'" :color="simple ? '' : '#000'"></Icon>
               </slot>
             </a>
             <div :class="[prefixCls + '-header']" v-if="showHead && !simple">
